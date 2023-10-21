@@ -64,7 +64,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Duration = 20
 })
 
-wait(4)
+wait(2)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "ScriptBlox"; 
@@ -73,7 +73,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Duration = 20
 })
 
-wait(3)
+wait(2)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "ScriptBlox"; 
@@ -82,7 +82,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Duration = 20
 })
 
-wait(3)
+wait(1)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "ScriptBlox"; 
@@ -4058,7 +4058,7 @@ Line.Size = UDim2.new(1.028, -9, 0, 4)
 	end
 end
 
-local win = library:Window("FROST",[[ScriptBlox PrWFWFemium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
+local win = library:Window("FROST",[[ScriptBlox Premium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
 
 local User = win:Tab("        Status","rbxassetid://14355269935")
     local Main = win:Tab("        Main","rbxassetid://14764164264")
@@ -4073,7 +4073,7 @@ local User = win:Tab("        Status","rbxassetid://14355269935")
     local Shop = win:Tab("        Shop Game","rbxassetid://14764242920")
 local Misc = win:Tab("        Misc+Esp","rbxassetid://11447063791")
 
-wait(2)
+wait(1)
 
 --[[
 

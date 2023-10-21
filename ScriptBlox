@@ -4058,7 +4058,7 @@ Line.Size = UDim2.new(1.028, -9, 0, 4)
 	end
 end
 
-local win = library:Window("FROST",[[ScriptBlox PremWGFWGium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
+local win = library:Window("FROST",[[ScriptBlox Premium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
 
 local User = win:Tab("        Status","rbxassetid://14355269935")
     local Main = win:Tab("        Main","rbxassetid://14764164264")
@@ -6914,6 +6914,7 @@ MIo = {
 }
 
 Setting:Toggle("Fast Attack",_G.Setting_table.FastAttack,function(vu)
+	Fast_Test = vu
 	_G.Setting_table.FastAttack = vu
 	Update_Setting(getgenv()['MyName'])
 end)
@@ -6923,7 +6924,7 @@ CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.
 y = debug.getupvalues(CombatFrameworkR)[2]
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.Setting_table.FastAttack then
+        if Fast_Test then
             if typeof(y) == "table" then
                 pcall(function()
                     CameraShaker:Stop()
@@ -6945,7 +6946,7 @@ end)
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.Setting_table.FastAttack == true then
+        if Fast_Test then
             game.Players.LocalPlayer.Character.Stun.Value = 0
             game.Players.LocalPlayer.Character.Busy.Value = false        
         end
@@ -6983,7 +6984,7 @@ spawn(function()
 				STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
 				local Hits = STOPRL.getBladeHits(b,c,d)
 				if Hits then
-					if _G.Setting_table.FastAttack then
+					if Fast_Test then
 						STOP.play = function() end
 						a:Play(0.01,0.01,0.01)
 						func(Hits)

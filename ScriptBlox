@@ -7005,6 +7005,7 @@ spawn(function()
                     y.activeController.blocking = false
                     y.activeController.attacking = false
                     y.activeController.humanoid.AutoRotate = true
+					sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
                 end)
             end
         end
@@ -7014,8 +7015,8 @@ end)
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
         if _G.FastAttack then
-            game.Players.LocalPlayer.Character.Stun.Value = 0
-            game.Players.LocalPlayer.Character.Busy.Value = false        
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))     
         end
     end)
 end)

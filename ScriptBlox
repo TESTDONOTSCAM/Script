@@ -6952,6 +6952,36 @@ end)
 
 Setting:Seperator("\\\\\ Other Setting //")
 
+function CheckAntiCheatBypass()
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "General" or v.Name == "Shiftlock"  or v.Name == "FallDamage" or v.Name == "4444" or v.Name == "CamBob" or v.Name == "JumpCD" or v.Name == "Looking" or v.Name == "Run" then
+                v:Destroy()
+            end
+        end
+     end
+     for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "RobloxMotor6DBugFix" or v.Name == "Clans"  or v.Name == "Codes" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
+                v:Destroy()
+            end
+        end
+     end
+    end
+
+CheckAntiCheatBypass()
+
+Setting:Toggle("Anti Cheat Bypass(❗Do Not Turn Off❗)",true,function(value)
+  _G.SafeFarm = value
+CheckAntiCheatBypass()
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "ScriptBlox"; 
+	Text = "Anti Cheat Beta Activated"; 
+	Icon = "http://www.roblox.com/asset/?id=14355269935";
+	Duration = 5
+})
+end)
+
 Setting:Toggle("Remove Attack Animation",true,function(value)
     getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync 
 getgenv().B = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.Particle).play

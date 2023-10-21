@@ -4058,7 +4058,7 @@ Line.Size = UDim2.new(1.028, -9, 0, 4)
 	end
 end
 
-local win = library:Window("FROST",[[ScriptBlox Premium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
+local win = library:Window("FROST",[[ScriptBlox PremWGFWGium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
 
 local User = win:Tab("        Status","rbxassetid://14355269935")
     local Main = win:Tab("        Main","rbxassetid://14764164264")
@@ -6914,20 +6914,42 @@ MIo = {
 }
 
 Setting:Toggle("Fast Attack",_G.Setting_table.FastAttack,function(vu)
-	Fast_Attack = vu
 	_G.Setting_table.FastAttack = vu
 	Update_Setting(getgenv()['MyName'])
 end)
+
+local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
+CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+y = debug.getupvalues(CombatFrameworkR)[2]
 spawn(function()
-	while wait() do
-		pcall(function()
-			if _G.Setting_table.FastAttack then
-				repeat wait(_G.Fast_Delay)
-					AttackHit()
-				until not _G.Setting_table.FastAttack
-			end
-		end)
-	end
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.Setting_table.FastAttack then
+            if typeof(y) == "table" then
+                pcall(function()
+                    CameraShaker:Stop()
+                    y.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
+                    y.activeController.timeToNextAttack = 0
+                    y.activeController.hitboxMagnitude = 60
+                    y.activeController.active = false
+                    y.activeController.timeToNextBlock = 0
+                    y.activeController.focusStart = 1655503339.0980349
+                    y.activeController.increment = 1
+                    y.activeController.blocking = false
+                    y.activeController.attacking = false
+                    y.activeController.humanoid.AutoRotate = true
+                end)
+            end
+        end
+    end)
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.Setting_table.FastAttack == true then
+            game.Players.LocalPlayer.Character.Stun.Value = 0
+            game.Players.LocalPlayer.Character.Busy.Value = false        
+        end
+    end)
 end)
 
 Setting:Dropdown("Fast Attack Delay ","0.01",MIo,function(vu)
@@ -6961,7 +6983,7 @@ spawn(function()
 				STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
 				local Hits = STOPRL.getBladeHits(b,c,d)
 				if Hits then
-					if Fast_Attack then
+					if _G.Setting_table.FastAttack then
 						STOP.play = function() end
 						a:Play(0.01,0.01,0.01)
 						func(Hits)
@@ -7021,6 +7043,18 @@ for i = 1, 1 do
 		end
 	end
 end
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			if _G.Setting_table.FastAttack then
+				repeat wait(_G.Fast_Delay)
+					AttackHit()
+				until not _G.Setting_table.FastAttack
+			end
+		end)
+	end
+end)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 

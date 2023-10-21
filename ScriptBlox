@@ -4058,7 +4058,7 @@ Line.Size = UDim2.new(1.028, -9, 0, 4)
 	end
 end
 
-local win = library:Window("FROST",[[ScriptBlox Premium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
+local win = library:Window("FROST",[[ScriptBlox PrWFWFemium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
 
 local User = win:Tab("        Status","rbxassetid://14355269935")
     local Main = win:Tab("        Main","rbxassetid://14764164264")

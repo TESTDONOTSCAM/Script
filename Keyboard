@@ -1,0 +1,2024 @@
+local UserInputService = game:GetService("UserInputService")
+ local TweenService = game:GetService("TweenService")
+ 
+ local function MakeDraggable(topbarobject, object)
+ local Dragging = nil
+ local DragInput = nil
+ local DragStart = nil
+ local StartPosition = nil
+ 
+ local function Update(input)
+ local Delta = input.Position - DragStart
+ local pos = UDim2.new(StartPosition.X.Scale, StartPosition.X.Offset + Delta.X, StartPosition.Y.Scale, StartPosition.Y.Offset + Delta.Y)
+ local Tween = TweenService:Create(object, TweenInfo.new(0.15), {
+  Position = pos
+ })
+ Tween:Play()
+ end
+ 
+ topbarobject.InputBegan:Connect(
+  function(input)
+  if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+  Dragging = true
+  DragStart = input.Position
+  StartPosition = object.Position
+ 
+  input.Changed:Connect(
+   function()
+   if input.UserInputState == Enum.UserInputState.End then
+   Dragging = false
+   end
+   end
+  )
+  end
+  end
+ )
+ 
+ topbarobject.InputChanged:Connect(
+  function(input)
+  if
+   input.UserInputType == Enum.UserInputType.MouseMovement or
+  input.UserInputType == Enum.UserInputType.Touch
+  then
+  DragInput = input
+  end
+  end
+ )
+ 
+ UserInputService.InputChanged:Connect(
+  function(input)
+  if input == DragInput and Dragging then
+  Update(input)
+  end
+  end
+ )
+end
+
+local KeyboardByScriptBlox = Instance.new("ScreenGui")
+local Toggle = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+local KeyUI = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local KeyFolder = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local Credit = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local leftbracket = Instance.new("ImageButton")
+local UICorner_5 = Instance.new("UICorner")
+local rightbracket = Instance.new("ImageButton")
+local UICorner_6 = Instance.new("UICorner")
+local Apos = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local Plus = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local Comma = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local Minus = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+local Titik = Instance.new("TextButton")
+local UICorner_11 = Instance.new("UICorner")
+local Slash = Instance.new("TextButton")
+local UICorner_12 = Instance.new("UICorner")
+local Zero = Instance.new("TextButton")
+local UICorner_13 = Instance.new("UICorner")
+local One = Instance.new("TextButton")
+local UICorner_14 = Instance.new("UICorner")
+local Two = Instance.new("TextButton")
+local UICorner_15 = Instance.new("UICorner")
+local Three = Instance.new("TextButton")
+local UICorner_16 = Instance.new("UICorner")
+local Four = Instance.new("TextButton")
+local UICorner_17 = Instance.new("UICorner")
+local Five = Instance.new("TextButton")
+local UICorner_18 = Instance.new("UICorner")
+local Six = Instance.new("TextButton")
+local UICorner_19 = Instance.new("UICorner")
+local Seven = Instance.new("TextButton")
+local UICorner_20 = Instance.new("UICorner")
+local Eight = Instance.new("TextButton")
+local UICorner_21 = Instance.new("UICorner")
+local Nine = Instance.new("TextButton")
+local UICorner_22 = Instance.new("UICorner")
+local Colon = Instance.new("TextButton")
+local UICorner_23 = Instance.new("UICorner")
+local SemiColons = Instance.new("TextButton")
+local UICorner_24 = Instance.new("UICorner")
+local Equals = Instance.new("TextButton")
+local UICorner_25 = Instance.new("UICorner")
+local A = Instance.new("TextButton")
+local UICorner_26 = Instance.new("UICorner")
+local B = Instance.new("TextButton")
+local UICorner_27 = Instance.new("UICorner")
+local BackSpace = Instance.new("TextButton")
+local UICorner_28 = Instance.new("UICorner")
+local C = Instance.new("TextButton")
+local UICorner_29 = Instance.new("UICorner")
+local Caps = Instance.new("TextButton")
+local UICorner_30 = Instance.new("UICorner")
+local D = Instance.new("TextButton")
+local UICorner_31 = Instance.new("UICorner")
+local Down = Instance.new("ImageButton")
+local UICorner_32 = Instance.new("UICorner")
+local E = Instance.new("TextButton")
+local UICorner_33 = Instance.new("UICorner")
+local ESC = Instance.new("TextButton")
+local UICorner_34 = Instance.new("UICorner")
+local Enter = Instance.new("TextButton")
+local UICorner_35 = Instance.new("UICorner")
+local F = Instance.new("TextButton")
+local UICorner_36 = Instance.new("UICorner")
+local F1 = Instance.new("TextButton")
+local UICorner_37 = Instance.new("UICorner")
+local F10 = Instance.new("TextButton")
+local UICorner_38 = Instance.new("UICorner")
+local F11 = Instance.new("TextButton")
+local UICorner_39 = Instance.new("UICorner")
+local F12 = Instance.new("TextButton")
+local UICorner_40 = Instance.new("UICorner")
+local F2 = Instance.new("TextButton")
+local UICorner_41 = Instance.new("UICorner")
+local F3 = Instance.new("TextButton")
+local UICorner_42 = Instance.new("UICorner")
+local F4 = Instance.new("TextButton")
+local UICorner_43 = Instance.new("UICorner")
+local LeftCorner = Instance.new("TextButton")
+local UICorner_44 = Instance.new("UICorner")
+local F5 = Instance.new("TextButton")
+local UICorner_45 = Instance.new("UICorner")
+local F6 = Instance.new("TextButton")
+local UICorner_46 = Instance.new("UICorner")
+local F7 = Instance.new("TextButton")
+local UICorner_47 = Instance.new("UICorner")
+local F8 = Instance.new("TextButton")
+local UICorner_48 = Instance.new("UICorner")
+local F9 = Instance.new("TextButton")
+local UICorner_49 = Instance.new("UICorner")
+local RightCorner = Instance.new("TextButton")
+local UICorner_50 = Instance.new("UICorner")
+local G = Instance.new("TextButton")
+local UICorner_51 = Instance.new("UICorner")
+local H = Instance.new("TextButton")
+local UICorner_52 = Instance.new("UICorner")
+local I = Instance.new("TextButton")
+local UICorner_53 = Instance.new("UICorner")
+local J = Instance.new("TextButton")
+local UICorner_54 = Instance.new("UICorner")
+local K = Instance.new("TextButton")
+local UICorner_55 = Instance.new("UICorner")
+local L = Instance.new("TextButton")
+local UICorner_56 = Instance.new("UICorner")
+local Left = Instance.new("ImageButton")
+local UICorner_57 = Instance.new("UICorner")
+local LeftAlt = Instance.new("TextButton")
+local UICorner_58 = Instance.new("UICorner")
+local LeftCtrl = Instance.new("TextButton")
+local UICorner_59 = Instance.new("UICorner")
+local LeftShift = Instance.new("TextButton")
+local UICorner_60 = Instance.new("UICorner")
+local M = Instance.new("TextButton")
+local UICorner_61 = Instance.new("UICorner")
+local N = Instance.new("TextButton")
+local UICorner_62 = Instance.new("UICorner")
+local O = Instance.new("TextButton")
+local UICorner_63 = Instance.new("UICorner")
+local P = Instance.new("TextButton")
+local UICorner_64 = Instance.new("UICorner")
+local Q = Instance.new("TextButton")
+local UICorner_65 = Instance.new("UICorner")
+local R = Instance.new("TextButton")
+local UICorner_66 = Instance.new("UICorner")
+local Right = Instance.new("ImageButton")
+local UICorner_67 = Instance.new("UICorner")
+local RightAlt = Instance.new("TextButton")
+local UICorner_68 = Instance.new("UICorner")
+local RightCtrl = Instance.new("TextButton")
+local UICorner_69 = Instance.new("UICorner")
+local RightShift = Instance.new("TextButton")
+local UICorner_70 = Instance.new("UICorner")
+local S = Instance.new("TextButton")
+local UICorner_71 = Instance.new("UICorner")
+local Space = Instance.new("TextButton")
+local UICorner_72 = Instance.new("UICorner")
+local T = Instance.new("TextButton")
+local UICorner_73 = Instance.new("UICorner")
+local Tab = Instance.new("TextButton")
+local UICorner_74 = Instance.new("UICorner")
+local U = Instance.new("TextButton")
+local UICorner_75 = Instance.new("UICorner")
+local Up = Instance.new("ImageButton")
+local UICorner_76 = Instance.new("UICorner")
+local V = Instance.new("TextButton")
+local UICorner_77 = Instance.new("UICorner")
+local W = Instance.new("TextButton")
+local UICorner_78 = Instance.new("UICorner")
+local X = Instance.new("TextButton")
+local UICorner_79 = Instance.new("UICorner")
+local Y = Instance.new("TextButton")
+local UICorner_80 = Instance.new("UICorner")
+local Z = Instance.new("TextButton")
+local UICorner_81 = Instance.new("UICorner")
+local BackwardSlash = Instance.new("TextButton")
+local UICorner_82 = Instance.new("UICorner")
+local LeftBracket = Instance.new("TextButton")
+local UICorner_83 = Instance.new("UICorner")
+local RightBracket = Instance.new("TextButton")
+local UICorner_84 = Instance.new("UICorner")
+local Tilde = Instance.new("TextButton")
+local UICorner_85 = Instance.new("UICorner")
+local Quotation = Instance.new("TextButton")
+local UICorner_86 = Instance.new("UICorner")
+local Bar = Instance.new("TextButton")
+local UICorner_87 = Instance.new("UICorner")
+local Question = Instance.new("TextButton")
+local UICorner_88 = Instance.new("UICorner")
+local UnderScore = Instance.new("TextButton")
+local UICorner_89 = Instance.new("UICorner")
+
+--Properties:
+
+KeyboardByScriptBlox.Name = "KeyboardByScriptBlox"
+KeyboardByScriptBlox.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+KeyboardByScriptBlox.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Toggle.Name = "Toggle"
+Toggle.Parent = KeyboardByScriptBlox
+Toggle.BackgroundColor3 = Color3.fromRGB(255, 0, 128)
+Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.BorderSizePixel = 0
+Toggle.Position = UDim2.new(0.0107176341, 0, 0.332996994, 0)
+Toggle.Size = UDim2.new(0, 39, 0, 38)
+Toggle.Image = "http://www.roblox.com/asset/?id=14355269935"
+
+UICorner.Parent = Toggle
+
+KeyUI.Name = "KeyUI"
+KeyUI.Parent = KeyboardByScriptBlox
+KeyUI.AnchorPoint = Vector2.new(0.5, 0.5)
+KeyUI.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+KeyUI.BackgroundTransparency = 0.100
+KeyUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
+KeyUI.BorderSizePixel = 0
+KeyUI.Position = UDim2.new(0.540592253, 0, 0.461072654, 0)
+KeyUI.Size = UDim2.new(0, 829, 0, 255)
+
+UICorner_2.Parent = KeyUI
+
+KeyFolder.Name = "KeyFolder"
+KeyFolder.Parent = KeyUI
+KeyFolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+KeyFolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
+KeyFolder.BorderSizePixel = 0
+KeyFolder.Position = UDim2.new(0, 10, 0, 10)
+KeyFolder.Size = UDim2.new(0, 809, 0, 234)
+
+local PageStr = Instance.new("UIStroke")
+
+PageStr.Name = "posto"
+ PageStr.Parent = KeyUI
+ PageStr.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+ PageStr.Color = Color3.fromRGB(86,255,255)
+ PageStr.LineJoinMode = Enum.LineJoinMode.Round
+ PageStr.Thickness = 1.5
+ PageStr.Transparency = 0
+ PageStr.Enabled = true
+PageStr.Archivable = true
+
+UICorner_3.Parent = KeyFolder
+
+MakeDraggable(KeyUI,buttonframe)
+
+local uihide = false
+ 
+UserInputService.InputBegan:Connect(function(input)
+  if input.KeyCode == Enum.KeyCode[yoo] then
+  if uihide == false then
+uihide = true
+KeyUI:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
+  else
+   uihide = false
+  KeyUI:TweenSize(UDim2.new(0, 829, 0, 255),"Out","Quad",0.5,true) -- Tween Ui Library
+      end
+   end
+end)
+
+Credit.Name = "Credit"
+Credit.Parent = KeyFolder
+Credit.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Credit.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Credit.BorderSizePixel = 0
+Credit.Position = UDim2.new(0, 665, 0, 6)
+Credit.Size = UDim2.new(0, 132, 0, 66)
+
+UICorner_4.CornerRadius = UDim.new(0, 4)
+UICorner_4.Parent = Credit
+
+TextLabel.Parent = Credit
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 132, 0, 65)
+TextLabel.Font = Enum.Font.Ubuntu
+TextLabel.Text = "Made By ScriptBlox"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+leftbracket.Name = "left bracket"
+leftbracket.Parent = KeyFolder
+leftbracket.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+leftbracket.BorderColor3 = Color3.fromRGB(0, 0, 0)
+leftbracket.BorderSizePixel = 0
+leftbracket.Position = UDim2.new(0, 462, 0, 193)
+leftbracket.Size = UDim2.new(0, 42, 0, 34)
+leftbracket.Image = "http://www.roblox.com/asset/?id=14947243336"
+leftbracket.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "]"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_5.Parent = leftbracket
+
+rightbracket.Name = "right bracket"
+rightbracket.Parent = KeyFolder
+rightbracket.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+rightbracket.BorderColor3 = Color3.fromRGB(0, 0, 0)
+rightbracket.BorderSizePixel = 0
+rightbracket.Position = UDim2.new(0, 56, 0, 193)
+rightbracket.Size = UDim2.new(0, 42, 0, 34)
+rightbracket.Image = "http://www.roblox.com/asset/?id=14947250041"
+rightbracket.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "["
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_6.Parent = rightbracket
+
+Apos.Name = "Apos"
+Apos.Parent = KeyFolder
+Apos.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Apos.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Apos.BorderSizePixel = 0
+Apos.Position = UDim2.new(0, 515, 0, 119)
+Apos.Size = UDim2.new(0, 42, 0, 34)
+Apos.Font = Enum.Font.Ubuntu
+Apos.Text = "'"
+Apos.TextColor3 = Color3.fromRGB(255, 255, 255)
+Apos.TextSize = 20.000
+Apos.TextWrapped = true
+Apos.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Apostrophe"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_7.Parent = Apos
+
+Plus.Name = "Plus"
+Plus.Parent = KeyFolder
+Plus.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Plus.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Plus.BorderSizePixel = 0
+Plus.Position = UDim2.new(0, 542, 0, 45)
+Plus.Size = UDim2.new(0, 42, 0, 34)
+Plus.Font = Enum.Font.Ubuntu
+Plus.Text = "+"
+Plus.TextColor3 = Color3.fromRGB(255, 255, 255)
+Plus.TextSize = 20.000
+Plus.TextWrapped = true
+Plus.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Plus"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_8.Parent = Plus
+
+Comma.Name = "Comma"
+Comma.Parent = KeyFolder
+Comma.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Comma.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Comma.BorderSizePixel = 0
+Comma.Position = UDim2.new(0, 410, 0, 156)
+Comma.Size = UDim2.new(0, 42, 0, 34)
+Comma.Font = Enum.Font.Ubuntu
+Comma.Text = ","
+Comma.TextColor3 = Color3.fromRGB(255, 255, 255)
+Comma.TextSize = 20.000
+Comma.TextWrapped = true
+Comma.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = ","
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_9.Parent = Comma
+
+Minus.Name = "Minus"
+Minus.Parent = KeyFolder
+Minus.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Minus.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Minus.BorderSizePixel = 0
+Minus.Position = UDim2.new(0, 497, 0, 45)
+Minus.Size = UDim2.new(0, 42, 0, 34)
+Minus.Font = Enum.Font.Ubuntu
+Minus.Text = "-"
+Minus.TextColor3 = Color3.fromRGB(255, 255, 255)
+Minus.TextSize = 20.000
+Minus.TextWrapped = true
+Minus.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "-"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_10.Parent = Minus
+
+Titik.Name = "Titik"
+Titik.Parent = KeyFolder
+Titik.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Titik.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Titik.BorderSizePixel = 0
+Titik.Position = UDim2.new(0, 455, 0, 156)
+Titik.Size = UDim2.new(0, 42, 0, 34)
+Titik.Font = Enum.Font.Ubuntu
+Titik.Text = "."
+Titik.TextColor3 = Color3.fromRGB(255, 255, 255)
+Titik.TextSize = 20.000
+Titik.TextWrapped = true
+Titik.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "."
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_11.Parent = Titik
+
+Slash.Name = "Slash"
+Slash.Parent = KeyFolder
+Slash.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Slash.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Slash.BorderSizePixel = 0
+Slash.Position = UDim2.new(0, 500, 0, 156)
+Slash.Size = UDim2.new(0, 42, 0, 34)
+Slash.Font = Enum.Font.Ubuntu
+Slash.Text = "/"
+Slash.TextColor3 = Color3.fromRGB(255, 255, 255)
+Slash.TextSize = 20.000
+Slash.TextWrapped = true
+Slash.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Slash"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_12.Parent = Slash
+
+Zero.Name = "Zero"
+Zero.Parent = KeyFolder
+Zero.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Zero.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Zero.BorderSizePixel = 0
+Zero.Position = UDim2.new(0, 452, 0, 45)
+Zero.Size = UDim2.new(0, 42, 0, 34)
+Zero.Font = Enum.Font.Ubuntu
+Zero.Text = "0"
+Zero.TextColor3 = Color3.fromRGB(255, 255, 255)
+Zero.TextSize = 20.000
+Zero.TextWrapped = true
+Zero.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Zero"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_13.Parent = Zero
+
+One.Name = "One"
+One.Parent = KeyFolder
+One.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+One.BorderColor3 = Color3.fromRGB(0, 0, 0)
+One.BorderSizePixel = 0
+One.Position = UDim2.new(0, 47, 0, 45)
+One.Size = UDim2.new(0, 42, 0, 34)
+One.Font = Enum.Font.Ubuntu
+One.Text = "1"
+One.TextColor3 = Color3.fromRGB(255, 255, 255)
+One.TextSize = 20.000
+One.TextWrapped = true
+One.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "One"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_14.Parent = One
+
+Two.Name = "Two"
+Two.Parent = KeyFolder
+Two.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Two.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Two.BorderSizePixel = 0
+Two.Position = UDim2.new(0, 92, 0, 45)
+Two.Size = UDim2.new(0, 42, 0, 34)
+Two.Font = Enum.Font.Ubuntu
+Two.Text = "2"
+Two.TextColor3 = Color3.fromRGB(255, 255, 255)
+Two.TextSize = 20.000
+Two.TextWrapped = true
+Two.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Two"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_15.Parent = Two
+
+Three.Name = "Three"
+Three.Parent = KeyFolder
+Three.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Three.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Three.BorderSizePixel = 0
+Three.Position = UDim2.new(0, 137, 0, 45)
+Three.Size = UDim2.new(0, 42, 0, 34)
+Three.Font = Enum.Font.Ubuntu
+Three.Text = "3"
+Three.TextColor3 = Color3.fromRGB(255, 255, 255)
+Three.TextSize = 20.000
+Three.TextWrapped = true
+Three.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Three"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_16.Parent = Three
+
+Four.Name = "Four"
+Four.Parent = KeyFolder
+Four.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Four.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Four.BorderSizePixel = 0
+Four.Position = UDim2.new(0, 182, 0, 45)
+Four.Size = UDim2.new(0, 42, 0, 34)
+Four.Font = Enum.Font.Ubuntu
+Four.Text = "4"
+Four.TextColor3 = Color3.fromRGB(255, 255, 255)
+Four.TextSize = 20.000
+Four.TextWrapped = true
+Four.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Four"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_17.Parent = Four
+
+Five.Name = "Five"
+Five.Parent = KeyFolder
+Five.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Five.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Five.BorderSizePixel = 0
+Five.Position = UDim2.new(0, 227, 0, 45)
+Five.Size = UDim2.new(0, 42, 0, 34)
+Five.Font = Enum.Font.Ubuntu
+Five.Text = "5"
+Five.TextColor3 = Color3.fromRGB(255, 255, 255)
+Five.TextSize = 20.000
+Five.TextWrapped = true
+Five.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Five"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_18.Parent = Five
+
+Six.Name = "Six"
+Six.Parent = KeyFolder
+Six.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Six.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Six.BorderSizePixel = 0
+Six.Position = UDim2.new(0, 272, 0, 45)
+Six.Size = UDim2.new(0, 42, 0, 34)
+Six.Font = Enum.Font.Ubuntu
+Six.Text = "6"
+Six.TextColor3 = Color3.fromRGB(255, 255, 255)
+Six.TextSize = 20.000
+Six.TextWrapped = true
+Six.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Six"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_19.Parent = Six
+
+Seven.Name = "Seven"
+Seven.Parent = KeyFolder
+Seven.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Seven.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Seven.BorderSizePixel = 0
+Seven.Position = UDim2.new(0, 317, 0, 45)
+Seven.Size = UDim2.new(0, 42, 0, 34)
+Seven.Font = Enum.Font.Ubuntu
+Seven.Text = "7"
+Seven.TextColor3 = Color3.fromRGB(255, 255, 255)
+Seven.TextSize = 20.000
+Seven.TextWrapped = true
+Seven.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Seven"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_20.Parent = Seven
+
+Eight.Name = "Eight"
+Eight.Parent = KeyFolder
+Eight.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Eight.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Eight.BorderSizePixel = 0
+Eight.Position = UDim2.new(0, 362, 0, 45)
+Eight.Size = UDim2.new(0, 42, 0, 34)
+Eight.Font = Enum.Font.Ubuntu
+Eight.Text = "8"
+Eight.TextColor3 = Color3.fromRGB(255, 255, 255)
+Eight.TextSize = 20.000
+Eight.TextWrapped = true
+Eight.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Eight"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_21.Parent = Eight
+
+Nine.Name = "Nine"
+Nine.Parent = KeyFolder
+Nine.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Nine.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Nine.BorderSizePixel = 0
+Nine.Position = UDim2.new(0, 407, 0, 45)
+Nine.Size = UDim2.new(0, 42, 0, 34)
+Nine.Font = Enum.Font.Ubuntu
+Nine.Text = "9"
+Nine.TextColor3 = Color3.fromRGB(255, 255, 255)
+Nine.TextSize = 20.000
+Nine.TextWrapped = true
+Nine.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Nine"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_22.Parent = Nine
+
+Colon.Name = "Colon"
+Colon.Parent = KeyFolder
+Colon.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Colon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Colon.BorderSizePixel = 0
+Colon.Position = UDim2.new(0, 552, 0, 193)
+Colon.Size = UDim2.new(0, 42, 0, 34)
+Colon.Font = Enum.Font.Ubuntu
+Colon.Text = ":"
+Colon.TextColor3 = Color3.fromRGB(255, 255, 255)
+Colon.TextSize = 20.000
+Colon.TextWrapped = true
+Colon.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = ":"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_23.Parent = Colon
+
+SemiColons.Name = "SemiColons"
+SemiColons.Parent = KeyFolder
+SemiColons.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SemiColons.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SemiColons.BorderSizePixel = 0
+SemiColons.Position = UDim2.new(0, 470, 0, 119)
+SemiColons.Size = UDim2.new(0, 42, 0, 34)
+SemiColons.Font = Enum.Font.Ubuntu
+SemiColons.Text = ";"
+SemiColons.TextColor3 = Color3.fromRGB(255, 255, 255)
+SemiColons.TextSize = 20.000
+SemiColons.TextWrapped = true
+SemiColons.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = ";"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_24.Parent = SemiColons
+
+Equals.Name = "Equals"
+Equals.Parent = KeyFolder
+Equals.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Equals.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Equals.BorderSizePixel = 0
+Equals.Position = UDim2.new(0, 507, 0, 193)
+Equals.Size = UDim2.new(0, 42, 0, 34)
+Equals.Font = Enum.Font.Ubuntu
+Equals.Text = "="
+Equals.TextColor3 = Color3.fromRGB(255, 255, 255)
+Equals.TextSize = 20.000
+Equals.TextWrapped = true
+Equals.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Equals"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_25.Parent = Equals
+
+A.Name = "A"
+A.Parent = KeyFolder
+A.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+A.BorderColor3 = Color3.fromRGB(0, 0, 0)
+A.BorderSizePixel = 0
+A.Position = UDim2.new(0, 65, 0, 119)
+A.Size = UDim2.new(0, 42, 0, 34)
+A.Font = Enum.Font.Ubuntu
+A.Text = "A"
+A.TextColor3 = Color3.fromRGB(255, 255, 255)
+A.TextSize = 20.000
+A.TextWrapped = true
+A.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "A"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_26.Parent = A
+
+B.Name = "B"
+B.Parent = KeyFolder
+B.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+B.BorderColor3 = Color3.fromRGB(0, 0, 0)
+B.BorderSizePixel = 0
+B.Position = UDim2.new(0, 275, 0, 156)
+B.Size = UDim2.new(0, 42, 0, 34)
+B.Font = Enum.Font.Ubuntu
+B.Text = "B"
+B.TextColor3 = Color3.fromRGB(255, 255, 255)
+B.TextSize = 20.000
+B.TextWrapped = true
+B.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "B"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_27.Parent = B
+
+BackSpace.Name = "BackSpace"
+BackSpace.Parent = KeyFolder
+BackSpace.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+BackSpace.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BackSpace.BorderSizePixel = 0
+BackSpace.Position = UDim2.new(0, 587, 0, 45)
+BackSpace.Size = UDim2.new(0, 70, 0, 34)
+BackSpace.Font = Enum.Font.Ubuntu
+BackSpace.Text = "Back"
+BackSpace.TextColor3 = Color3.fromRGB(255, 255, 255)
+BackSpace.TextSize = 20.000
+BackSpace.TextWrapped = true
+BackSpace.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Backspace"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_28.Parent = BackSpace
+
+C.Name = "C"
+C.Parent = KeyFolder
+C.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+C.BorderColor3 = Color3.fromRGB(0, 0, 0)
+C.BorderSizePixel = 0
+C.Position = UDim2.new(0, 185, 0, 156)
+C.Size = UDim2.new(0, 42, 0, 34)
+C.Font = Enum.Font.Ubuntu
+C.Text = "C"
+C.TextColor3 = Color3.fromRGB(255, 255, 255)
+C.TextSize = 20.000
+C.TextWrapped = true
+C.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "C"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_29.Parent = C
+
+Caps.Name = "Caps"
+Caps.Parent = KeyFolder
+Caps.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Caps.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Caps.BorderSizePixel = 0
+Caps.Position = UDim2.new(0, 2, 0, 119)
+Caps.Size = UDim2.new(0, 60, 0, 34)
+Caps.Font = Enum.Font.Ubuntu
+Caps.Text = "Caps"
+Caps.TextColor3 = Color3.fromRGB(255, 255, 255)
+Caps.TextSize = 20.000
+Caps.TextWrapped = true
+Caps.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "CapsLock"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_30.Parent = Caps
+
+D.Name = "D"
+D.Parent = KeyFolder
+D.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+D.BorderColor3 = Color3.fromRGB(0, 0, 0)
+D.BorderSizePixel = 0
+D.Position = UDim2.new(0, 155, 0, 119)
+D.Size = UDim2.new(0, 42, 0, 34)
+D.Font = Enum.Font.Ubuntu
+D.Text = "D"
+D.TextColor3 = Color3.fromRGB(255, 255, 255)
+D.TextSize = 20.000
+D.TextWrapped = true
+D.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "D"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_31.Parent = D
+
+Down.Name = "Down"
+Down.Parent = KeyFolder
+Down.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Down.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Down.BorderSizePixel = 0
+Down.Position = UDim2.new(0, 710, 0, 193)
+Down.Size = UDim2.new(0, 42, 0, 34)
+Down.Image = "http://www.roblox.com/asset/?id=14947308248"
+Down.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Down"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_32.Parent = Down
+
+E.Name = "E"
+E.Parent = KeyFolder
+E.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+E.BorderColor3 = Color3.fromRGB(0, 0, 0)
+E.BorderSizePixel = 0
+E.Position = UDim2.new(0, 146, 0, 82)
+E.Size = UDim2.new(0, 42, 0, 34)
+E.Font = Enum.Font.Ubuntu
+E.Text = "E"
+E.TextColor3 = Color3.fromRGB(255, 255, 255)
+E.TextSize = 20.000
+E.TextWrapped = true
+E.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "E"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_33.Parent = E
+
+ESC.Name = "ESC"
+ESC.Parent = KeyFolder
+ESC.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ESC.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ESC.BorderSizePixel = 0
+ESC.Position = UDim2.new(0, 2, 0, 2)
+ESC.Size = UDim2.new(0, 51, 0, 34)
+ESC.Font = Enum.Font.Ubuntu
+ESC.Text = "ESC"
+ESC.TextColor3 = Color3.fromRGB(255, 255, 255)
+ESC.TextSize = 17.000
+ESC.TextWrapped = true
+ESC.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Espace"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_34.Parent = ESC
+
+Enter.Name = "Enter"
+Enter.Parent = KeyFolder
+Enter.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Enter.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Enter.BorderSizePixel = 0
+Enter.Position = UDim2.new(0, 607, 0, 82)
+Enter.Size = UDim2.new(0, 50, 0, 71)
+Enter.Font = Enum.Font.Ubuntu
+Enter.Text = "Enter"
+Enter.TextColor3 = Color3.fromRGB(255, 255, 255)
+Enter.TextSize = 20.000
+Enter.TextWrapped = true
+Enter.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "KeypadEnter"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_35.Parent = Enter
+
+F.Name = "F"
+F.Parent = KeyFolder
+F.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F.BorderSizePixel = 0
+F.Position = UDim2.new(0, 200, 0, 119)
+F.Size = UDim2.new(0, 42, 0, 34)
+F.Font = Enum.Font.Ubuntu
+F.Text = "F"
+F.TextColor3 = Color3.fromRGB(255, 255, 255)
+F.TextSize = 20.000
+F.TextWrapped = true
+F.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_36.Parent = F
+
+F1.Name = "F1"
+F1.Parent = KeyFolder
+F1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F1.BorderSizePixel = 0
+F1.Position = UDim2.new(0, 80, 0, 2)
+F1.Size = UDim2.new(0, 42, 0, 34)
+F1.Font = Enum.Font.Ubuntu
+F1.Text = "F1"
+F1.TextColor3 = Color3.fromRGB(255, 255, 255)
+F1.TextSize = 17.000
+F1.TextWrapped = true
+F1.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "U"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_37.Parent = F1
+
+F10.Name = "F10"
+F10.Parent = KeyFolder
+F10.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F10.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F10.BorderSizePixel = 0
+F10.Position = UDim2.new(0, 525, 0, 2)
+F10.Size = UDim2.new(0, 42, 0, 34)
+F10.Font = Enum.Font.Ubuntu
+F10.Text = "F10"
+F10.TextColor3 = Color3.fromRGB(255, 255, 255)
+F10.TextSize = 17.000
+F10.TextWrapped = true
+F10.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F10"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_38.Parent = F10
+
+F11.Name = "F11"
+F11.Parent = KeyFolder
+F11.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F11.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F11.BorderSizePixel = 0
+F11.Position = UDim2.new(0, 570, 0, 2)
+F11.Size = UDim2.new(0, 42, 0, 34)
+F11.Font = Enum.Font.Ubuntu
+F11.Text = "F11"
+F11.TextColor3 = Color3.fromRGB(255, 255, 255)
+F11.TextSize = 17.000
+F11.TextWrapped = true
+F11.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F11"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_39.Parent = F11
+
+F12.Name = "F12"
+F12.Parent = KeyFolder
+F12.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F12.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F12.BorderSizePixel = 0
+F12.Position = UDim2.new(0, 615, 0, 2)
+F12.Size = UDim2.new(0, 42, 0, 34)
+F12.Font = Enum.Font.Ubuntu
+F12.Text = "F12"
+F12.TextColor3 = Color3.fromRGB(255, 255, 255)
+F12.TextSize = 17.000
+F12.TextWrapped = true
+F12.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F12"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_40.Parent = F12
+
+F2.Name = "F2"
+F2.Parent = KeyFolder
+F2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F2.BorderSizePixel = 0
+F2.Position = UDim2.new(0, 125, 0, 2)
+F2.Size = UDim2.new(0, 42, 0, 34)
+F2.Font = Enum.Font.Ubuntu
+F2.Text = "F2"
+F2.TextColor3 = Color3.fromRGB(255, 255, 255)
+F2.TextSize = 17.000
+F2.TextWrapped = true
+F2.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F2"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_41.Parent = F2
+
+F3.Name = "F3"
+F3.Parent = KeyFolder
+F3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F3.BorderSizePixel = 0
+F3.Position = UDim2.new(0, 170, 0, 2)
+F3.Size = UDim2.new(0, 42, 0, 34)
+F3.Font = Enum.Font.Ubuntu
+F3.Text = "F3"
+F3.TextColor3 = Color3.fromRGB(255, 255, 255)
+F3.TextSize = 17.000
+F3.TextWrapped = true
+F3.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F3"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_42.Parent = F3
+
+F4.Name = "F4"
+F4.Parent = KeyFolder
+F4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F4.BorderSizePixel = 0
+F4.Position = UDim2.new(0, 215, 0, 2)
+F4.Size = UDim2.new(0, 42, 0, 34)
+F4.Font = Enum.Font.Ubuntu
+F4.Text = "F4"
+F4.TextColor3 = Color3.fromRGB(255, 255, 255)
+F4.TextSize = 17.000
+F4.TextWrapped = true
+F4.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F4"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_43.Parent = F4
+
+LeftCorner.Name = "LeftCorner"
+LeftCorner.Parent = KeyFolder
+LeftCorner.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LeftCorner.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LeftCorner.BorderSizePixel = 0
+LeftCorner.Position = UDim2.new(0, 755, 0, 82)
+LeftCorner.Size = UDim2.new(0, 42, 0, 34)
+LeftCorner.Font = Enum.Font.Ubuntu
+LeftCorner.Text = ">"
+LeftCorner.TextColor3 = Color3.fromRGB(255, 255, 255)
+LeftCorner.TextSize = 20.000
+LeftCorner.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Left"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_44.Parent = LeftCorner
+
+F5.Name = "F5"
+F5.Parent = KeyFolder
+F5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F5.BorderSizePixel = 0
+F5.Position = UDim2.new(0, 280, 0, 2)
+F5.Size = UDim2.new(0, 42, 0, 34)
+F5.Font = Enum.Font.Ubuntu
+F5.Text = "F5"
+F5.TextColor3 = Color3.fromRGB(255, 255, 255)
+F5.TextSize = 17.000
+F5.TextWrapped = true
+F5.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F5"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_45.Parent = F5
+
+F6.Name = "F6"
+F6.Parent = KeyFolder
+F6.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F6.BorderSizePixel = 0
+F6.Position = UDim2.new(0, 325, 0, 2)
+F6.Size = UDim2.new(0, 42, 0, 34)
+F6.Font = Enum.Font.Ubuntu
+F6.Text = "F6"
+F6.TextColor3 = Color3.fromRGB(255, 255, 255)
+F6.TextSize = 17.000
+F6.TextWrapped = true
+F6.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F6"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_46.Parent = F6
+
+F7.Name = "F7"
+F7.Parent = KeyFolder
+F7.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F7.BorderSizePixel = 0
+F7.Position = UDim2.new(0, 370, 0, 2)
+F7.Size = UDim2.new(0, 42, 0, 34)
+F7.Font = Enum.Font.Ubuntu
+F7.Text = "F7"
+F7.TextColor3 = Color3.fromRGB(255, 255, 255)
+F7.TextSize = 17.000
+F7.TextWrapped = true
+F7.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F7"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_47.Parent = F7
+
+F8.Name = "F8"
+F8.Parent = KeyFolder
+F8.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F8.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F8.BorderSizePixel = 0
+F8.Position = UDim2.new(0, 415, 0, 2)
+F8.Size = UDim2.new(0, 42, 0, 34)
+F8.Font = Enum.Font.Ubuntu
+F8.Text = "F8"
+F8.TextColor3 = Color3.fromRGB(255, 255, 255)
+F8.TextSize = 17.000
+F8.TextWrapped = true
+F8.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F8"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_48.Parent = F8
+
+F9.Name = "F9"
+F9.Parent = KeyFolder
+F9.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+F9.BorderColor3 = Color3.fromRGB(0, 0, 0)
+F9.BorderSizePixel = 0
+F9.Position = UDim2.new(0, 480, 0, 2)
+F9.Size = UDim2.new(0, 42, 0, 34)
+F9.Font = Enum.Font.Ubuntu
+F9.Text = "F9"
+F9.TextColor3 = Color3.fromRGB(255, 255, 255)
+F9.TextSize = 17.000
+F9.TextWrapped = true
+F9.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "F9"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_49.Parent = F9
+
+RightCorner.Name = "RightCorner"
+RightCorner.Parent = KeyFolder
+RightCorner.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+RightCorner.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RightCorner.BorderSizePixel = 0
+RightCorner.Position = UDim2.new(0, 665, 0, 82)
+RightCorner.Size = UDim2.new(0, 42, 0, 34)
+RightCorner.Font = Enum.Font.Ubuntu
+RightCorner.Text = "<"
+RightCorner.TextColor3 = Color3.fromRGB(255, 255, 255)
+RightCorner.TextSize = 20.000
+RightCorner.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Right"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_50.Parent = RightCorner
+
+G.Name = "G"
+G.Parent = KeyFolder
+G.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+G.BorderColor3 = Color3.fromRGB(0, 0, 0)
+G.BorderSizePixel = 0
+G.Position = UDim2.new(0, 245, 0, 119)
+G.Size = UDim2.new(0, 42, 0, 34)
+G.Font = Enum.Font.Ubuntu
+G.Text = "G"
+G.TextColor3 = Color3.fromRGB(255, 255, 255)
+G.TextSize = 20.000
+G.TextWrapped = true
+G.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "G"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_51.Parent = G
+
+H.Name = "H"
+H.Parent = KeyFolder
+H.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+H.BorderColor3 = Color3.fromRGB(0, 0, 0)
+H.BorderSizePixel = 0
+H.Position = UDim2.new(0, 290, 0, 119)
+H.Size = UDim2.new(0, 42, 0, 34)
+H.Font = Enum.Font.Ubuntu
+H.Text = "H"
+H.TextColor3 = Color3.fromRGB(255, 255, 255)
+H.TextSize = 20.000
+H.TextWrapped = true
+H.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "H"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_52.Parent = H
+
+I.Name = "I"
+I.Parent = KeyFolder
+I.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+I.BorderColor3 = Color3.fromRGB(0, 0, 0)
+I.BorderSizePixel = 0
+I.Position = UDim2.new(0, 371, 0, 82)
+I.Size = UDim2.new(0, 42, 0, 34)
+I.Font = Enum.Font.Ubuntu
+I.Text = "I"
+I.TextColor3 = Color3.fromRGB(255, 255, 255)
+I.TextSize = 20.000
+I.TextWrapped = true
+I.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "I"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_53.Parent = I
+
+J.Name = "J"
+J.Parent = KeyFolder
+J.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+J.BorderColor3 = Color3.fromRGB(0, 0, 0)
+J.BorderSizePixel = 0
+J.Position = UDim2.new(0, 335, 0, 119)
+J.Size = UDim2.new(0, 42, 0, 34)
+J.Font = Enum.Font.Ubuntu
+J.Text = "J"
+J.TextColor3 = Color3.fromRGB(255, 255, 255)
+J.TextSize = 20.000
+J.TextWrapped = true
+J.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "J"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_54.Parent = J
+
+K.Name = "K"
+K.Parent = KeyFolder
+K.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+K.BorderColor3 = Color3.fromRGB(0, 0, 0)
+K.BorderSizePixel = 0
+K.Position = UDim2.new(0, 380, 0, 119)
+K.Size = UDim2.new(0, 42, 0, 34)
+K.Font = Enum.Font.Ubuntu
+K.Text = "K"
+K.TextColor3 = Color3.fromRGB(255, 255, 255)
+K.TextSize = 20.000
+K.TextWrapped = true
+K.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "K"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_55.Parent = K
+
+L.Name = "L"
+L.Parent = KeyFolder
+L.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+L.BorderColor3 = Color3.fromRGB(0, 0, 0)
+L.BorderSizePixel = 0
+L.Position = UDim2.new(0, 425, 0, 119)
+L.Size = UDim2.new(0, 42, 0, 34)
+L.Font = Enum.Font.Ubuntu
+L.Text = "L"
+L.TextColor3 = Color3.fromRGB(255, 255, 255)
+L.TextSize = 20.000
+L.TextWrapped = true
+L.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "L"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_56.Parent = L
+
+Left.Name = "Left"
+Left.Parent = KeyFolder
+Left.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Left.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Left.BorderSizePixel = 0
+Left.Position = UDim2.new(0, 665, 0, 193)
+Left.Size = UDim2.new(0, 42, 0, 34)
+Left.Image = "http://www.roblox.com/asset/?id=14947313727"
+Left.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Left"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_57.Parent = Left
+
+LeftAlt.Name = "Left Alt"
+LeftAlt.Parent = KeyFolder
+LeftAlt.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LeftAlt.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LeftAlt.BorderSizePixel = 0
+LeftAlt.Position = UDim2.new(0, 101, 0, 193)
+LeftAlt.Size = UDim2.new(0, 42, 0, 34)
+LeftAlt.Font = Enum.Font.Ubuntu
+LeftAlt.Text = "Alt"
+LeftAlt.TextColor3 = Color3.fromRGB(255, 255, 255)
+LeftAlt.TextSize = 20.000
+LeftAlt.TextWrapped = true
+LeftAlt.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "LeftAlt"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_58.Parent = LeftAlt
+
+LeftCtrl.Name = "Left Ctrl"
+LeftCtrl.Parent = KeyFolder
+LeftCtrl.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LeftCtrl.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LeftCtrl.BorderSizePixel = 0
+LeftCtrl.Position = UDim2.new(0, 2, 0, 193)
+LeftCtrl.Size = UDim2.new(0, 51, 0, 34)
+LeftCtrl.Font = Enum.Font.Ubuntu
+LeftCtrl.Text = "Ctrl"
+LeftCtrl.TextColor3 = Color3.fromRGB(255, 255, 255)
+LeftCtrl.TextSize = 20.000
+LeftCtrl.TextWrapped = true
+LeftCtrl.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "LeftControl"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_59.Parent = LeftCtrl
+
+LeftShift.Name = "Left Shift"
+LeftShift.Parent = KeyFolder
+LeftShift.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LeftShift.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LeftShift.BorderSizePixel = 0
+LeftShift.Position = UDim2.new(0, 2, 0, 156)
+LeftShift.Size = UDim2.new(0, 90, 0, 34)
+LeftShift.Font = Enum.Font.Ubuntu
+LeftShift.Text = "Shift"
+LeftShift.TextColor3 = Color3.fromRGB(255, 255, 255)
+LeftShift.TextSize = 20.000
+LeftShift.TextWrapped = true
+LeftShift.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "LeftShift"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_60.Parent = LeftShift
+
+M.Name = "M"
+M.Parent = KeyFolder
+M.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+M.BorderColor3 = Color3.fromRGB(0, 0, 0)
+M.BorderSizePixel = 0
+M.Position = UDim2.new(0, 365, 0, 156)
+M.Size = UDim2.new(0, 42, 0, 34)
+M.Font = Enum.Font.Ubuntu
+M.Text = "M"
+M.TextColor3 = Color3.fromRGB(255, 255, 255)
+M.TextSize = 20.000
+M.TextWrapped = true
+M.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "M"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_61.Parent = M
+
+N.Name = "N"
+N.Parent = KeyFolder
+N.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+N.BorderColor3 = Color3.fromRGB(0, 0, 0)
+N.BorderSizePixel = 0
+N.Position = UDim2.new(0, 320, 0, 156)
+N.Size = UDim2.new(0, 42, 0, 34)
+N.Font = Enum.Font.Ubuntu
+N.Text = "N"
+N.TextColor3 = Color3.fromRGB(255, 255, 255)
+N.TextSize = 20.000
+N.TextWrapped = true
+N.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "N"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_62.Parent = N
+
+O.Name = "O"
+O.Parent = KeyFolder
+O.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+O.BorderColor3 = Color3.fromRGB(0, 0, 0)
+O.BorderSizePixel = 0
+O.Position = UDim2.new(0, 416, 0, 82)
+O.Size = UDim2.new(0, 42, 0, 34)
+O.Font = Enum.Font.Ubuntu
+O.Text = "O"
+O.TextColor3 = Color3.fromRGB(255, 255, 255)
+O.TextSize = 20.000
+O.TextWrapped = true
+O.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "O"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_63.Parent = O
+
+P.Name = "P"
+P.Parent = KeyFolder
+P.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+P.BorderColor3 = Color3.fromRGB(0, 0, 0)
+P.BorderSizePixel = 0
+P.Position = UDim2.new(0, 461, 0, 82)
+P.Size = UDim2.new(0, 42, 0, 34)
+P.Font = Enum.Font.Ubuntu
+P.Text = "P"
+P.TextColor3 = Color3.fromRGB(255, 255, 255)
+P.TextSize = 20.000
+P.TextWrapped = true
+P.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "P"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_64.Parent = P
+
+Q.Name = "Q"
+Q.Parent = KeyFolder
+Q.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Q.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Q.BorderSizePixel = 0
+Q.Position = UDim2.new(0, 56, 0, 82)
+Q.Size = UDim2.new(0, 42, 0, 34)
+Q.Font = Enum.Font.Ubuntu
+Q.Text = "Q"
+Q.TextColor3 = Color3.fromRGB(255, 255, 255)
+Q.TextSize = 20.000
+Q.TextWrapped = true
+Q.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Q"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_65.Parent = Q
+
+R.Name = "R"
+R.Parent = KeyFolder
+R.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+R.BorderColor3 = Color3.fromRGB(0, 0, 0)
+R.BorderSizePixel = 0
+R.Position = UDim2.new(0, 191, 0, 82)
+R.Size = UDim2.new(0, 42, 0, 34)
+R.Font = Enum.Font.Ubuntu
+R.Text = "R"
+R.TextColor3 = Color3.fromRGB(255, 255, 255)
+R.TextSize = 20.000
+R.TextWrapped = true
+R.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "R"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_66.Parent = R
+
+Right.Name = "Right"
+Right.Parent = KeyFolder
+Right.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Right.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Right.BorderSizePixel = 0
+Right.Position = UDim2.new(0, 755, 0, 193)
+Right.Size = UDim2.new(0, 42, 0, 34)
+Right.Image = "http://www.roblox.com/asset/?id=14947310500"
+Right.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Right"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_67.Parent = Right
+
+RightAlt.Name = "Right Alt"
+RightAlt.Parent = KeyFolder
+RightAlt.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+RightAlt.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RightAlt.BorderSizePixel = 0
+RightAlt.Position = UDim2.new(0, 418, 0, 193)
+RightAlt.Size = UDim2.new(0, 42, 0, 34)
+RightAlt.Font = Enum.Font.Ubuntu
+RightAlt.Text = "Alt"
+RightAlt.TextColor3 = Color3.fromRGB(255, 255, 255)
+RightAlt.TextSize = 20.000
+RightAlt.TextWrapped = true
+RightAlt.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "RightAlt"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_68.Parent = RightAlt
+
+RightCtrl.Name = "Right Ctrl"
+RightCtrl.Parent = KeyFolder
+RightCtrl.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+RightCtrl.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RightCtrl.BorderSizePixel = 0
+RightCtrl.Position = UDim2.new(0, 597, 0, 193)
+RightCtrl.Size = UDim2.new(0, 60, 0, 34)
+RightCtrl.Font = Enum.Font.Ubuntu
+RightCtrl.Text = "Ctrl"
+RightCtrl.TextColor3 = Color3.fromRGB(255, 255, 255)
+RightCtrl.TextSize = 20.000
+RightCtrl.TextWrapped = true
+RightCtrl.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "RightControl"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_69.Parent = RightCtrl
+
+RightShift.Name = "Right Shift"
+RightShift.Parent = KeyFolder
+RightShift.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+RightShift.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RightShift.BorderSizePixel = 0
+RightShift.Position = UDim2.new(0, 547, 0, 156)
+RightShift.Size = UDim2.new(0, 110, 0, 34)
+RightShift.Font = Enum.Font.Ubuntu
+RightShift.Text = "Shift"
+RightShift.TextColor3 = Color3.fromRGB(255, 255, 255)
+RightShift.TextSize = 20.000
+RightShift.TextWrapped = true
+RightShift.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "RightShift"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_70.Parent = RightShift
+
+S.Name = "S"
+S.Parent = KeyFolder
+S.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+S.BorderColor3 = Color3.fromRGB(0, 0, 0)
+S.BorderSizePixel = 0
+S.Position = UDim2.new(0, 110, 0, 119)
+S.Size = UDim2.new(0, 42, 0, 34)
+S.Font = Enum.Font.Ubuntu
+S.Text = "S"
+S.TextColor3 = Color3.fromRGB(255, 255, 255)
+S.TextSize = 20.000
+S.TextWrapped = true
+S.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "S"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_71.Parent = S
+
+Space.Name = "Space"
+Space.Parent = KeyFolder
+Space.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Space.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Space.BorderSizePixel = 0
+Space.Position = UDim2.new(0, 146, 0, 193)
+Space.Size = UDim2.new(0, 269, 0, 34)
+Space.Font = Enum.Font.Ubuntu
+Space.Text = "Space"
+Space.TextColor3 = Color3.fromRGB(255, 255, 255)
+Space.TextSize = 20.000
+Space.TextWrapped = true
+Space.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Space"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_72.Parent = Space
+
+T.Name = "T"
+T.Parent = KeyFolder
+T.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+T.BorderColor3 = Color3.fromRGB(0, 0, 0)
+T.BorderSizePixel = 0
+T.Position = UDim2.new(0, 236, 0, 82)
+T.Size = UDim2.new(0, 42, 0, 34)
+T.Font = Enum.Font.Ubuntu
+T.Text = "T"
+T.TextColor3 = Color3.fromRGB(255, 255, 255)
+T.TextSize = 20.000
+T.TextWrapped = true
+T.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "T"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_73.Parent = T
+
+Tab.Name = "Tab"
+Tab.Parent = KeyFolder
+Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Tab.BorderSizePixel = 0
+Tab.Position = UDim2.new(0, 2, 0, 82)
+Tab.Size = UDim2.new(0, 51, 0, 34)
+Tab.Font = Enum.Font.Ubuntu
+Tab.Text = "Tab"
+Tab.TextColor3 = Color3.fromRGB(255, 255, 255)
+Tab.TextSize = 20.000
+Tab.TextWrapped = true
+Tab.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Tab"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_74.Parent = Tab
+
+U.Name = "U"
+U.Parent = KeyFolder
+U.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+U.BorderColor3 = Color3.fromRGB(0, 0, 0)
+U.BorderSizePixel = 0
+U.Position = UDim2.new(0, 326, 0, 82)
+U.Size = UDim2.new(0, 42, 0, 34)
+U.Font = Enum.Font.Ubuntu
+U.Text = "U"
+U.TextColor3 = Color3.fromRGB(255, 255, 255)
+U.TextSize = 20.000
+U.TextWrapped = true
+U.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "U"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_75.Parent = U
+
+Up.Name = "Up"
+Up.Parent = KeyFolder
+Up.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Up.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Up.BorderSizePixel = 0
+Up.Position = UDim2.new(0, 710, 0, 156)
+Up.Size = UDim2.new(0, 42, 0, 34)
+Up.Image = "http://www.roblox.com/asset/?id=14947304830"
+Up.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Up"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_76.Parent = Up
+
+V.Name = "V"
+V.Parent = KeyFolder
+V.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+V.BorderColor3 = Color3.fromRGB(0, 0, 0)
+V.BorderSizePixel = 0
+V.Position = UDim2.new(0, 230, 0, 156)
+V.Size = UDim2.new(0, 42, 0, 34)
+V.Font = Enum.Font.Ubuntu
+V.Text = "V"
+V.TextColor3 = Color3.fromRGB(255, 255, 255)
+V.TextSize = 20.000
+V.TextWrapped = true
+V.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "V"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_77.Parent = V
+
+W.Name = "W"
+W.Parent = KeyFolder
+W.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+W.BorderColor3 = Color3.fromRGB(0, 0, 0)
+W.BorderSizePixel = 0
+W.Position = UDim2.new(0, 101, 0, 82)
+W.Size = UDim2.new(0, 42, 0, 34)
+W.Font = Enum.Font.Ubuntu
+W.Text = "W"
+W.TextColor3 = Color3.fromRGB(255, 255, 255)
+W.TextSize = 20.000
+W.TextWrapped = true
+W.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "W"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_78.Parent = W
+
+X.Name = "X"
+X.Parent = KeyFolder
+X.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+X.BorderColor3 = Color3.fromRGB(0, 0, 0)
+X.BorderSizePixel = 0
+X.Position = UDim2.new(0, 140, 0, 156)
+X.Size = UDim2.new(0, 42, 0, 34)
+X.Font = Enum.Font.Ubuntu
+X.Text = "X"
+X.TextColor3 = Color3.fromRGB(255, 255, 255)
+X.TextSize = 20.000
+X.TextWrapped = true
+X.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "X"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_79.Parent = X
+
+Y.Name = "Y"
+Y.Parent = KeyFolder
+Y.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Y.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Y.BorderSizePixel = 0
+Y.Position = UDim2.new(0, 281, 0, 82)
+Y.Size = UDim2.new(0, 42, 0, 34)
+Y.Font = Enum.Font.Ubuntu
+Y.Text = "Y"
+Y.TextColor3 = Color3.fromRGB(255, 255, 255)
+Y.TextSize = 20.000
+Y.TextWrapped = true
+Y.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Y"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_80.Parent = Y
+
+Z.Name = "Z"
+Z.Parent = KeyFolder
+Z.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Z.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Z.BorderSizePixel = 0
+Z.Position = UDim2.new(0, 95, 0, 156)
+Z.Size = UDim2.new(0, 42, 0, 34)
+Z.Font = Enum.Font.Ubuntu
+Z.Text = "Z"
+Z.TextColor3 = Color3.fromRGB(255, 255, 255)
+Z.TextSize = 20.000
+Z.TextWrapped = true
+Z.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Z"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_81.Parent = Z
+
+BackwardSlash.Name = "BackwardSlash"
+BackwardSlash.Parent = KeyFolder
+BackwardSlash.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+BackwardSlash.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BackwardSlash.BorderSizePixel = 0
+BackwardSlash.Position = UDim2.new(0, 560, 0, 119)
+BackwardSlash.Size = UDim2.new(0, 42, 0, 34)
+BackwardSlash.Font = Enum.Font.Ubuntu
+BackwardSlash.Text = "\\"
+BackwardSlash.TextColor3 = Color3.fromRGB(255, 255, 255)
+BackwardSlash.TextSize = 20.000
+BackwardSlash.TextWrapped = true
+BackwardSlash.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Backward Slash"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_82.Parent = BackwardSlash
+
+LeftBracket.Name = "LeftBracket"
+LeftBracket.Parent = KeyFolder
+LeftBracket.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LeftBracket.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LeftBracket.BorderSizePixel = 0
+LeftBracket.Position = UDim2.new(0, 506, 0, 82)
+LeftBracket.Size = UDim2.new(0, 42, 0, 34)
+LeftBracket.Font = Enum.Font.Ubuntu
+LeftBracket.Text = "{"
+LeftBracket.TextColor3 = Color3.fromRGB(255, 255, 255)
+LeftBracket.TextSize = 20.000
+LeftBracket.TextWrapped = true
+LeftBracket.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "{"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_83.Parent = LeftBracket
+
+RightBracket.Name = "RightBracket"
+RightBracket.Parent = KeyFolder
+RightBracket.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+RightBracket.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RightBracket.BorderSizePixel = 0
+RightBracket.Position = UDim2.new(0, 551, 0, 82)
+RightBracket.Size = UDim2.new(0, 42, 0, 34)
+RightBracket.Font = Enum.Font.Ubuntu
+RightBracket.Text = "}"
+RightBracket.TextColor3 = Color3.fromRGB(255, 255, 255)
+RightBracket.TextSize = 20.000
+RightBracket.TextWrapped = true
+RightBracket.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "}"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_84.Parent = RightBracket
+
+Tilde.Name = "Tilde"
+Tilde.Parent = KeyFolder
+Tilde.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Tilde.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Tilde.BorderSizePixel = 0
+Tilde.Position = UDim2.new(0, 2, 0, 45)
+Tilde.Size = UDim2.new(0, 42, 0, 34)
+Tilde.Font = Enum.Font.Ubuntu
+Tilde.Text = "~"
+Tilde.TextColor3 = Color3.fromRGB(255, 255, 255)
+Tilde.TextSize = 20.000
+Tilde.TextWrapped = true
+Tilde.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "~"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_85.Parent = Tilde
+
+Quotation.Name = "Quotation"
+Quotation.Parent = KeyFolder
+Quotation.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Quotation.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Quotation.BorderSizePixel = 0
+Quotation.Position = UDim2.new(0, 710, 0, 119)
+Quotation.Size = UDim2.new(0, 42, 0, 34)
+Quotation.Font = Enum.Font.Ubuntu
+Quotation.Text = "\""
+Quotation.TextColor3 = Color3.fromRGB(255, 255, 255)
+Quotation.TextSize = 20.000
+Quotation.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Quotation"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_86.Parent = Quotation
+
+Bar.Name = "Bar"
+Bar.Parent = KeyFolder
+Bar.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Bar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Bar.BorderSizePixel = 0
+Bar.Position = UDim2.new(0, 755, 0, 119)
+Bar.Size = UDim2.new(0, 42, 0, 34)
+Bar.Font = Enum.Font.Ubuntu
+Bar.Text = "|"
+Bar.TextColor3 = Color3.fromRGB(255, 255, 255)
+Bar.TextSize = 20.000
+Bar.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "|"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_87.Parent = Bar
+
+Question.Name = "Question"
+Question.Parent = KeyFolder
+Question.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Question.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Question.BorderSizePixel = 0
+Question.Position = UDim2.new(0, 665, 0, 119)
+Question.Size = UDim2.new(0, 42, 0, 34)
+Question.Font = Enum.Font.Ubuntu
+Question.Text = "?"
+Question.TextColor3 = Color3.fromRGB(255, 255, 255)
+Question.TextSize = 20.000
+Question.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "Question"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_88.Parent = Question
+
+UnderScore.Name = "UnderScore"
+UnderScore.Parent = KeyFolder
+UnderScore.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UnderScore.BorderColor3 = Color3.fromRGB(0, 0, 0)
+UnderScore.BorderSizePixel = 0
+UnderScore.Position = UDim2.new(0, 710, 0, 82)
+UnderScore.Size = UDim2.new(0, 42, 0, 34)
+UnderScore.Font = Enum.Font.Ubuntu
+UnderScore.Text = "_"
+UnderScore.TextColor3 = Color3.fromRGB(255, 255, 255)
+UnderScore.TextSize = 20.000
+UnderScore.MouseButton1Down:Connect(function()
+	getfenv().keytoclick = "_"
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
+UICorner_89.Parent = UnderScore
+
+local function YFVDHBA_fake_script() -- Toggle.LocalScript 
+	local script = Instance.new('LocalScript', Toggle)
+
+	local Script = script.Parent
+	local Frame = Script.Parent:WaitForChild("KeyUI")
+	local Button = Script.Parent:WaitForChild("Toggle")
+	
+	Button.MouseButton1Click:Connect(function()
+	Frame.Visible = not Frame.Visible
+	end)
+end
+coroutine.wrap(YFVDHBA_fake_script)()
+ 
+local function TRAZMHD_fake_script() -- KeyFolder.LocalScript 
+	local script = Instance.new('LocalScript', KeyFolder)
+
+	--make the frame color change every second
+	local TS = game:GetService("TweenService")
+	local Frame = script.Parent
+	
+	--make the frame change color every time
+	while true do
+	    TS:Create(Frame, TweenInfo.new(0.5), {BackgroundColor3 = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255))}):Play()
+	    wait(0.5)
+	end
+end
+coroutine.wrap(TRAZMHD_fake_script)()

@@ -7747,7 +7747,7 @@ spawn(function()
 
 
 OrionLib:MakeNotification({
-        Name = "NIGHT HUB BOT",
+        Name = "Dominance Hub BOT",
         Content = "Loading script complete",
         Image = "rbxassetid://4483345998",
         Time = 5

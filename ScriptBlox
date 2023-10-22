@@ -1959,7 +1959,7 @@ function CheckQuestBoss()
 				elseif Lv >= 2525 or SelectMonster == "Isle Champion" then
 					Ms = "Isle Champion"
 					NameQuest = "TikiQuest2"
-					QuestLv = 1
+					QuestLv = 2
 					NameMon = "Isle Champion"
 					CFrameQ = CFrame.new(-16541.0215, 54.770813, 1051.46118, 0.0410757065, -0, -0.999156058, 0, 1, -0, 0.999156058, 0, 0.0410757065)
 					CFrameMon = CFrame.new(-16606.0918, 130.704803, 1087.90845, -0.933031023, 7.60136913e-08, 0.359795898, 4.91600538e-08, 1, -8.37859417e-08, -0.359795898, -6.04872952e-08, -0.933031023)
@@ -2085,14 +2085,6 @@ function EquipWeapon(ToolSe)
 	end
 end
 
-function UnequipWeapon(ToolSe)
-	if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
-		local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
-		wait(.4)
-		game.Players.LocalPlayer.Character.Humanoid:UnequipTool(tool)
-	end
-end
-
 spawn(function()
     while wait(.1) do
         pcall(function()
@@ -2121,6 +2113,479 @@ spawn(function()
     end
 end)
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function Hop()
+    local PlaceID = game.PlaceId
+    local AllIDs = {}
+    local foundAnything = ""
+    local actualHour = os.date("!*t").hour
+    local Deleted = false
+    function TPReturner()
+    local Site;
+    if foundAnything == "" then
+    Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+    else
+    Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+    end
+    local ID = ""
+    if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+    foundAnything = Site.nextPageCursor
+    end
+    local num = 0;
+    for i,v in pairs(Site.data) do
+    local Possible = true
+    ID = tostring(v.id)
+    if tonumber(v.maxPlayers) > tonumber(v.playing) then
+    for _,Existing in pairs(AllIDs) do
+    if num ~= 0 then
+    if ID == tostring(Existing) then
+    Possible = false
+    end
+    else
+    if tonumber(actualHour) ~= tonumber(Existing) then
+    local delFile = pcall(function()
+    AllIDs = {}
+    table.insert(AllIDs, actualHour)
+    end)
+    end
+    end
+    num = num + 1
+    end
+    if Possible == true then
+    table.insert(AllIDs, ID)
+    wait()
+    pcall(function()
+    wait()
+    game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+    end)
+    wait(4)
+    end
+    end
+    end
+    end
+    function Teleport()
+    while wait() do
+    pcall(function()
+    TPReturner()
+    if foundAnything ~= "" then
+    TPReturner()
+    end
+    end)
+    end
+    end
+    Teleport()
+    end
+    
+    function isnil(thing)
+    return (thing == nil)
+    end
+    local function round(n)
+    return math.floor(tonumber(n) + 0.5)
+    end
+    Number = math.random(1, 1000000)
+    function UpdateEspPlayer()
+    if ESPPlayer then
+    for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+    if not isnil(v.Character) then
+    if not v.Character.Head:FindFirstChild('NameEsp'..v.Name) then
+    local BillboardGui = Instance.new("BillboardGui")
+    local ESP = Instance.new("TextLabel")
+    local HealthESP = Instance.new("TextLabel")
+    BillboardGui.Parent = v.Character.Head
+    BillboardGui.Name = 'NameEsp'..v.Name
+    BillboardGui.ExtentsOffset = Vector3.new(0, 1, 0)
+    BillboardGui.Size = UDim2.new(1,200,1,30)
+    BillboardGui.Adornee = v.Character.Head
+    BillboardGui.AlwaysOnTop = true
+    ESP.Name = "ESP"
+    ESP.Parent = BillboardGui
+    ESP.TextTransparency = 0
+    ESP.BackgroundTransparency = 1
+    ESP.Size = UDim2.new(0, 200, 0, 30)
+    ESP.Position = UDim2.new(0,25,0,0)
+    ESP.Font = Enum.Font.Gotham
+    ESP.Text = (v.Name ..' '.."[ "..round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M'.." ]")
+    if v.Team == game:GetService("Players").LocalPlayer.Team then
+    ESP.TextColor3 = Color3.new(0, 255, 255)
+    else
+    ESP.TextColor3 = Color3.new(255, 0, 0)
+    end
+    ESP.TextSize = 14
+    ESP.TextStrokeTransparency = 0.500
+    ESP.TextWrapped = true
+    HealthESP.Name = "HealthESP"
+    HealthESP.Parent = ESP
+    HealthESP.TextTransparency = 0
+    HealthESP.BackgroundTransparency = 1
+    HealthESP.Position = ESP.Position + UDim2.new(0, -25, 0, 15)
+    HealthESP.Size = UDim2.new(0, 200, 0, 30)
+    HealthESP.Font = Enum.Font.Gotham
+    HealthESP.TextColor3 = Color3.fromRGB(255, 0, 0)
+    HealthESP.TextSize = 14
+    HealthESP.TextStrokeTransparency = 0.500
+    HealthESP.TextWrapped = true
+    HealthESP.Text = "Health "..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)
+    else
+    v.Character.Head['NameEsp'..v.Name].ESP.Text = (v.Name ..' '..round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
+    v.Character.Head['NameEsp'..v.Name].ESP.HealthESP.Text = "Health "..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)
+    v.Character.Head:FindFirstChild('NameEsp'..v.Name).ESP.TextTransparency = 0
+    v.Character.Head:FindFirstChild('NameEsp'..v.Name).ESP.HealthESP.TextTransparency = 0
+    end
+    end
+    end
+    else
+    for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+    if v.Character.Head:FindFirstChild('NameEsp'..v.Name) then
+    v.Character.Head:FindFirstChild('NameEsp'..v.Name).ESP.TextTransparency = 1
+    v.Character.Head:FindFirstChild('NameEsp'..v.Name).ESP.HealthESP.TextTransparency = 1
+    end
+    end
+    end
+    end
+    
+    function UpdateIslandESP()
+    for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
+    pcall(function()
+    if IslandESP then
+    if v.Name ~= "Sea" then
+    if not v:FindFirstChild('NameEsp') then
+    local bill = Instance.new('BillboardGui',v)
+    bill.Name = 'NameEsp'
+    bill.ExtentsOffset = Vector3.new(0, 1, 0)
+    bill.Size = UDim2.new(1,200,1,30)
+    bill.Adornee = v
+    bill.AlwaysOnTop = true
+    local name = Instance.new('TextLabel',bill)
+    name.Font = "GothamBold"
+    name.FontSize = "Size14"
+    name.TextWrapped = true
+    name.Size = UDim2.new(1,0,1,0)
+    name.TextYAlignment = 'Top'
+    name.BackgroundTransparency = 1
+    name.TextStrokeTransparency = 0.5
+    name.TextColor3 = Color3.fromRGB(80, 245, 245)
+    else
+    v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+    end
+    end
+    else
+    if v:FindFirstChild('NameEsp') then
+    v:FindFirstChild('NameEsp'):Destroy()
+    end
+    end
+    end)
+    end
+    end
+    
+    function UpdateChestEsp()
+    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+    pcall(function()
+    if string.find(v.Name,"Chest") then
+    if ChestESP then
+    if string.find(v.Name,"Chest") then
+    if not v:FindFirstChild('NameEsp'..Number) then
+    local bill = Instance.new('BillboardGui',v)
+    bill.Name = 'NameEsp'..Number
+    bill.ExtentsOffset = Vector3.new(0, 1, 0)
+    bill.Size = UDim2.new(1,200,1,30)
+    bill.Adornee = v
+    bill.AlwaysOnTop = true
+    local name = Instance.new('TextLabel',bill)
+    name.Font = "GothamBold"
+    name.FontSize = "Size14"
+    name.TextWrapped = true
+    name.Size = UDim2.new(1,0,1,0)
+    name.TextYAlignment = 'Top'
+    name.BackgroundTransparency = 1
+    name.TextStrokeTransparency = 0.5
+    name.TextColor3 = Color3.fromRGB(0, 255, 250)
+    if v.Name == "Chest1" then
+    name.Text = ("Chest 1" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+    end
+    if v.Name == "Chest2" then
+    name.Text = ("Chest 2" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+    end
+    if v.Name == "Chest3" then
+    name.Text = ("Chest 3" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+    end
+    else
+    v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+    end
+    end
+    else
+    if v:FindFirstChild('NameEsp'..Number) then
+    v:FindFirstChild('NameEsp'..Number):Destroy()
+    end
+    end
+    end
+    end)
+    end
+    end
+    
+    function UpdateBfEsp()
+    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+    pcall(function()
+    if DevilFruitESP then
+    if string.find(v.Name, "Fruit") then
+    if not v.Handle:FindFirstChild('NameEsp'..Number) then
+    local bill = Instance.new('BillboardGui',v.Handle)
+    bill.Name = 'NameEsp'..Number
+    bill.ExtentsOffset = Vector3.new(0, 1, 0)
+    bill.Size = UDim2.new(1,200,1,30)
+    bill.Adornee = v.Handle
+    bill.AlwaysOnTop = true
+    local name = Instance.new('TextLabel',bill)
+    name.Font = "GothamBold"
+    name.FontSize = "Size14"
+    name.TextWrapped = true
+    name.Size = UDim2.new(1,0,1,0)
+    name.TextYAlignment = 'Top'
+    name.BackgroundTransparency = 1
+    name.TextStrokeTransparency = 0.5
+    name.TextColor3 = Color3.fromRGB(255, 0, 0)
+    name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+    else
+    v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+    end
+    end
+    else
+    if v.Handle:FindFirstChild('NameEsp'..Number) then
+    v.Handle:FindFirstChild('NameEsp'..Number):Destroy()
+    end
+    end
+    end)
+    end
+    end
+    
+-- Update Flower ESP
+    function UpdateFlowerEsp()
+    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+    pcall(function()
+    if v.Name == "Flower2" or v.Name == "Flower1" then
+    if FlowerESP then
+    if not v:FindFirstChild('NameEsp'..Number) then
+    local bill = Instance.new('BillboardGui',v)
+    bill.Name = 'NameEsp'..Number
+    bill.ExtentsOffset = Vector3.new(0, 1, 0)
+    bill.Size = UDim2.new(1,200,1,30)
+    bill.Adornee = v
+    bill.AlwaysOnTop = true
+    local name = Instance.new('TextLabel',bill)
+    name.Font = "GothamBold"
+    name.FontSize = "Size14"
+    name.TextWrapped = true
+    name.Size = UDim2.new(1,0,1,0)
+    name.TextYAlignment = 'Top'
+    name.BackgroundTransparency = 1
+    name.TextStrokeTransparency = 0.5
+    name.TextColor3 = Color3.fromRGB(255, 0, 0)
+    if v.Name == "Flower1" then
+    name.Text = ("Blue Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+    name.TextColor3 = Color3.fromRGB(0, 0, 255)
+    end
+    if v.Name == "Flower2" then
+    name.Text = ("Red Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+    name.TextColor3 = Color3.fromRGB(255, 0, 0)
+    end
+    else
+    v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+    end
+    else
+    if v:FindFirstChild('NameEsp'..Number) then
+    v:FindFirstChild('NameEsp'..Number):Destroy()
+    end
+    end
+    end
+    end)
+    end
+end
+
+-- Infinite Abilities
+function InfAb()
+    if InfAbility then
+    if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
+    local inf = Instance.new("ParticleEmitter")
+    inf.Acceleration = Vector3.new(0,0,0)
+    inf.Archivable = true
+    inf.Drag = 20
+    inf.EmissionDirection = Enum.NormalId.Top
+    inf.Enabled = true
+    inf.Lifetime = NumberRange.new(0.2,0.2)
+    inf.LightInfluence = 0
+    inf.LockedToPart = true
+    inf.Name = "Agility"
+    inf.Rate = 500
+    local numberKeypoints2 = {
+    NumberSequenceKeypoint.new(0, 0);
+    NumberSequenceKeypoint.new(1, 4);
+    }
+    inf.Size = NumberSequence.new(numberKeypoints2)
+    inf.RotSpeed = NumberRange.new(999, 9999)
+    inf.Rotation = NumberRange.new(0, 0)
+    inf.Speed = NumberRange.new(30, 30)
+    inf.SpreadAngle = Vector2.new(360,360)
+    inf.Texture = "rbxassetid://7157487174"
+    inf.VelocityInheritance = 0
+    inf.ZOffset = 2
+    inf.Transparency = NumberSequence.new(0)
+    inf.Color = ColorSequence.new(Color3.fromRGB(80,245,245),Color3.fromRGB(80,245,245))
+    inf.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+    end
+    else
+    if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
+    end
+    end
+    end
+    
+    local LocalPlayer = game:GetService'Players'.LocalPlayer
+    local originalstam = LocalPlayer.Character.Energy.Value
+    function infinitestam()
+    LocalPlayer.Character.Energy.Changed:connect(function()
+    if InfiniteEnergy then
+    LocalPlayer.Character.Energy.Value = originalstam
+    end
+    end)
+    end
+    
+    spawn(function()
+    pcall(function()
+    while wait(.1) do
+    if InfiniteEnergy then
+    wait(0.3)
+    originalstam = LocalPlayer.Character.Energy.Value
+    infinitestam()
+    end
+    end
+    end)
+    end)
+    
+-- NoDodgeCool
+    function NoDodgeCool()
+    if nododgecool then
+    for i,v in next, getgc() do
+    if game:GetService("Players").LocalPlayer.Character.Dodge then
+    if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.Character.Dodge then
+    for i2,v2 in next, getupvalues(v) do
+    if tostring(v2) == "0.4" then
+    repeat wait(.1)
+    setupvalue(v,i2,0)
+    until not nododgecool
+    end
+    end
+    end
+    end
+    end
+    end
+    end
+    
+
+
+-- Fly Script
+function fly()
+    local mouse=game:GetService("Players").LocalPlayer:GetMouse''
+    localplayer=game:GetService("Players").LocalPlayer
+    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+    local torso = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+    local speedSET=50
+    local keys={a=false,d=false,w=false,s=false}
+    local e1
+    local e2
+    local function start()
+    local pos = Instance.new("BodyPosition",torso)
+    local gyro = Instance.new("BodyGyro",torso)
+    pos.Name="EPIXPOS"
+    pos.maxForce = Vector3.new(math.huge, math.huge, math.huge)
+    pos.position = torso.Position
+    gyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+    gyro.CFrame = torso.CFrame
+    repeat
+    wait()
+    localplayer.Character.Humanoid.PlatformStand=true
+    local new=gyro.CFrame - gyro.CFrame.p + pos.position
+    if not keys.w and not keys.s and not keys.a and not keys.d then
+    speed=1
+end
+
+    if keys.w then
+    new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+    speed=speed+speedSET
+end
+
+    if keys.s then
+    new = new - workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+    speed=speed+speedSET
+end
+
+    if keys.d then
+    new = new * CFrame.new(speed,0,0)
+    speed=speed+speedSET
+end
+
+    if keys.a then
+    new = new * CFrame.new(-speed,0,0)
+    speed=speed+speedSET
+end
+
+    if speed>speedSET then
+    speed=speedSET
+end
+
+    pos.position=new.p
+    if keys.w then
+    gyro.CFrame = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad(speed*15),0,0)
+    elseif keys.s then
+    gyro.CFrame = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(math.rad(speed*15),0,0)
+    else
+    gyro.CFrame = workspace.CurrentCamera.CoordinateFrame
+end
+
+    until not Fly
+    if gyro then
+    gyro:Destroy()
+end
+
+    if pos then
+    pos:Destroy()
+end
+
+    flying=false
+    localplayer.Character.Humanoid.PlatformStand=false
+    speed=0
+end
+
+    e1=mouse.KeyDown:connect(function(key)
+    if not torso or not torso.Parent then
+    flying=false e1:disconnect() e2:disconnect() return
+end
+
+    if key=="w" then
+    keys.w=true
+    elseif key=="s" then
+    keys.s=true
+    elseif key=="a" then
+    keys.a=true
+    elseif key=="d" then
+    keys.d=true
+    end
+end)
+
+    e2=mouse.KeyUp:connect(function(key)
+    if key=="w" then
+    keys.w=false
+    elseif key=="s" then
+    keys.s=false
+    elseif key=="a" then
+    keys.a=false
+    elseif key=="d" then
+    keys.d=false
+    end
+end)
+    start()
+end
+
+
 Type = 1
 spawn(function()
 while wait(.1) do
@@ -2143,16 +2608,16 @@ end)
 spawn(function()
 while wait(.1) do
     Type = 1
-    wait(0.5)
+    wait(1)
     Type = 2
-    wait(0.5)
+    wait(1)
     Type = 3
-    wait(0.5)
+    wait(1)
     Type = 4
-    wait(0.5)
+    wait(1)
     Type = 5
-    wait(0.5)
-end
+    wait(1)
+	end
 end)
 
 function topos(Pos)
@@ -2169,6 +2634,8 @@ function topos(Pos)
             _G.Clip = false
         end
     end
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 IKAI = true
 if IKAI then
@@ -4706,6 +5173,7 @@ spawn(function()
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 									if v.Name == Ms and v.Humanoid.Health > 0 then
 										_G.PosMon = v.HumanoidRootPart.CFrame
+										_G.FastAttack2 = true
 										StatrMagnet = true
 										if v.Humanoid:FindFirstChild("Animator") then
 											v.Humanoid.Animator:Destroy()
@@ -4715,11 +5183,20 @@ spawn(function()
 										v.Humanoid.WalkSpeed = 0
 										v.HumanoidRootPart.CanCollide = false
 										v.HumanoidRootPart.Size = Vector3.new(5,5,5)
-										repeat wait(_G.FastAttackDelay)
+										repeat wait(0.1)
 											TelePBoss(CFrameQ)
 											EquipWeapon(_G.Setting_table.Weapon)
 											topos(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0) * Pos)
 											AttackNoCD()
+
+											--[[
+										if game.Workspace.Enemy.Character.Humanoid.Health then
+											StatrMagnet = false
+											wait(5)
+											StatrMagnet = true
+										end
+										]]--
+
 										until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
 										if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 										elseif Lv >= 1 and Lv <= 2499 then
@@ -4729,11 +5206,13 @@ spawn(function()
 									end
 								end
 								else
+								_G.FastAttack2 = false
 								StatrMagnet = false
 								if game.ReplicatedStorage:FindFirstChild(Ms) then
 									topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
 								else
 								topos(CFrameMon)
+								_G.FastAttack2 = false
 								end
 							end
 						end
@@ -4746,6 +5225,8 @@ spawn(function()
 	end
 end)
 
+-- Bringmonster
+
 spawn(function()
 	while task.wait() do
 		pcall(function()
@@ -4753,11 +5234,13 @@ spawn(function()
 				if Auto_Farm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-							if v.Name == Ms and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
+							if v.Name == Ms and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 240 then
 								if v.Humanoid:FindFirstChild("Animator") then
 									v.Humanoid.Animator:Destroy()
 								end
+
 								v.Humanoid:ChangeState(11)
+
 								v.Humanoid.JumpPower = 0
 								v.Humanoid.WalkSpeed = 0
 								v.HumanoidRootPart.CanCollide = false
@@ -4770,11 +5253,13 @@ spawn(function()
 					end
 				else
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-						if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
+						if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 240 then
 							if v.Humanoid:FindFirstChild("Animator") then
 								v.Humanoid.Animator:Destroy()
 							end
+							
 							v.Humanoid:ChangeState(11)
+
 							v.Humanoid.JumpPower = 0
 							v.Humanoid.WalkSpeed = 0
 							v.HumanoidRootPart.CanCollide = false
@@ -6474,7 +6959,7 @@ pcall(function()
 if _G.BringMonster then
 CheckQuest()
 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff" or Mon == "Monkey" or Mon == "Dragon Crew Warrior" or Mon == "Dragon Crew Archer") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 350 then
+if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff" or Mon == "Monkey" or Mon == "Dragon Crew Warrior" or Mon == "Dragon Crew Archer") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 240 then
 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 v.HumanoidRootPart.CFrame = PosMon
 v.Humanoid:ChangeState(14)
@@ -6484,7 +6969,7 @@ if v.Humanoid:FindFirstChild("Animator") then
 v.Humanoid.Animator:Destroy()
 end
 sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-elseif _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - PosMon.Position).magnitude <= 350 then
+elseif _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - PosMon.Position).magnitude <= 240 then
 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 v.HumanoidRootPart.CFrame = PosMon
 v.Humanoid:ChangeState(14)
@@ -7057,6 +7542,7 @@ MIo = {
 	"0.2"
 }
 
+--[[
 Setting:Toggle("Fast Attack",_G.Setting_table.FastAttack,function(vu)
 	_G.Setting_table.FastAttack = vu
 	Update_Setting(getgenv()['MyName'])
@@ -7092,6 +7578,7 @@ Setting:Dropdown("Fast Attack Delay ","0.2",MIo,function(vu)
 		_G.Fast_Delay = 0.2
 	end
 end)
+]]--
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -7121,7 +7608,6 @@ Setting:Toggle("Anti Cheat BETA(❗Do Not Turn Off❗)",true,function(value)
 CheckAntiCheatBypass()
 end)
 
---[[
 Setting:Toggle("Enable Attack",true,function(value)
 	_G.FastAttack2 = value
 	end)
@@ -7198,7 +7684,6 @@ local Client = game.Players.LocalPlayer
             end)
         end
     end)
-]]--
 
 -----------------
 

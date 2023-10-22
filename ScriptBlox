@@ -2591,39 +2591,28 @@ spawn(function()
 while wait(.1) do
     if Type == 1 then
         Pos = CFrame.new(0,PosY,0)
-    elseif Type == 2 then
-        Pos = CFrame.new(0,PosY,-15)
-    elseif Type == 3 then
-        Pos = CFrame.new(15,PosY,0)
-    elseif Type == 4 then
-        Pos = CFrame.new(0,PosY,15)	
-    elseif Type == 5 then
-        Pos = CFrame.new(-15,PosY,0)
-    elseif Type == 6 then
-        Pos = CFrame.new(0,15,0)
-    end
+		wait(.3)
+		Pos = CFrame.new(0,PosY,-15)
+		wait(.3)
+		Pos = CFrame.new(-15,PosY,0)
+		wait(.3)
+		Pos = CFrame.new(0,PosY,15)
+		wait(.3)
+		Pos = CFrame.new(-15,PosY,0)
+    	end
     end
 end)
 
 spawn(function()
 while wait(.1) do
     Type = 1
-    wait(1)
-    Type = 2
-    wait(1)
-    Type = 3
-    wait(1)
-    Type = 4
-    wait(1)
-    Type = 5
-    wait(1)
 	end
 end)
 
 function topos(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
-        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/140, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/150, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
         tween:Play()
         if Distance <= 250 then
             tween:Cancel()
@@ -5183,20 +5172,11 @@ spawn(function()
 										v.Humanoid.WalkSpeed = 0
 										v.HumanoidRootPart.CanCollide = false
 										v.HumanoidRootPart.Size = Vector3.new(5,5,5)
-										repeat wait(0.1)
+										repeat wait(0.2)
 											TelePBoss(CFrameQ)
 											EquipWeapon(_G.Setting_table.Weapon)
 											topos(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0) * Pos)
-											AttackNoCD()
-
-											--[[
-										if game.Workspace.Enemy.Character.Humanoid.Health then
-											StatrMagnet = false
-											wait(5)
-											StatrMagnet = true
-										end
-										]]--
-
+											AttackHit()
 										until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
 										if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 										elseif Lv >= 1 and Lv <= 2499 then
@@ -5219,7 +5199,6 @@ spawn(function()
 					end
 				end
 			else
-				wait(2)
 			end
 		end)
 	end
@@ -7684,6 +7663,61 @@ local Client = game.Players.LocalPlayer
             end)
         end
     end)
+
+	function GetBladeHit()
+		local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
+		local CmrFwLib = CombatFrameworkLib[2]
+		local p13 = CmrFwLib.activeController
+		local weapon = p13.blades[1]
+		if not weapon then 
+			return weapon
+		end
+		while weapon.Parent ~= game.Players.LocalPlayer.Character do
+			weapon = weapon.Parent 
+		end
+		return weapon
+	end
+	function AttackHit()
+		local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
+		local CmrFwLib = CombatFrameworkLib[2]
+		local plr = game.Players.LocalPlayer
+		for i = 1, 1 do
+			local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(plr.Character,{plr.Character.HumanoidRootPart},60)
+			local cac = {}
+			local hash = {}
+			for k, v in pairs(bladehit) do
+				if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
+					table.insert(cac, v.Parent.HumanoidRootPart)
+					hash[v.Parent] = true
+				end
+			end
+			bladehit = cac
+			if #bladehit > 0 then
+				pcall(function()
+					CmrFwLib.activeController.timeToNextAttack = 1
+					CmrFwLib.activeController.attacking = false
+					CmrFwLib.activeController.blocking = false
+					CmrFwLib.activeController.timeToNextBlock = 0
+					CmrFwLib.activeController.increment = 3
+					CmrFwLib.activeController.hitboxMagnitude = 120
+					CmrFwLib.activeController.focusStart = 0
+					game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetBladeHit()))
+					game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "")
+				end)
+			end
+		end
+	end
+	spawn(function()
+		while wait(.1) do
+			if _G.FastAttack2 then
+				pcall(function()
+					repeat task.wait(.2)
+						AttackHit()
+					until not _G.FastAttack2
+				end)
+			end
+		end
+	end)
 
 -----------------
 

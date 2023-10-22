@@ -111,7 +111,7 @@ _G.BGColor_1 = Color3.fromRGB(30,30,30)
 
 _G.Setting_table = {
     Auto_Farm = false,
-    FastAttack = true,
+    FastAttack = false,
 	Auto_Buso = true,
 	Auto_Ken = true,
 	Show_Damage = true,
@@ -1093,6 +1093,38 @@ function CheckQuestBoss()
 					CFrameQ = CFrame.new(-1151.48987, 16.1422901, -14445.6904, -0.316594511, -6.85698254e-08, -0.948560953, -2.05343067e-08, 1, -6.54346692e-08, 0.948560953, -1.23821675e-09, -0.316594511)
 					CFrameMon = CFrame.new(-777.070862, 23.5809536, -14453.0078, 0.33384338, 0, -0.942628562, 0, 1, 0, 0.942628562, 0, 0.33384338)
 					TelePBoss(CFrameQ)
+				elseif Lv >= 2450 and Lv <= 2474 or SelectMonster == "Isle Outlaw" then
+					Ms = "Isle Outlaw"
+					NameQuest = "TikiQuest1"
+					QuestLv = 1
+					NameMon = "Isle Outlaw"
+					CFrameQ = CFrame.new(-16548.8164, 55.6059914, -172.8125, 0.213092566, -0, -0.977032006, 0, 1, -0, 0.977032006, 0, 0.213092566)
+					CFrameMon = CFrame.new(-16369.2441, 57.0037842, -254.758057, 0.0903538913, 2.5388168e-08, -0.99590975, -4.36250076e-08, 1, 2.15345608e-08, 0.99590975, 4.15008365e-08, 0.0903538913)
+					TelePBoss(CFrameQ)
+				elseif Lv >= 2475 and Lv <= 2499 or SelectMonster == "Island Boy" then
+					Ms = "Island Boy"
+					NameQuest = "TikiQuest1"
+					QuestLv = 2
+					NameMon = "Island Boy"
+					CFrameQ = CFrame.new(-16548.8164, 55.6059914, -172.8125, 0.213092566, -0, -0.977032006, 0, 1, -0, 0.977032006, 0, 0.213092566)
+					CFrameMon = CFrame.new(-16724.8203, 82.5576553, -260.995087, -0.985985875, 0, -0.166828871, 0, 1, 0, 0.166828871, 0, -0.985985875)
+					TelePBoss(CFrameQ)
+				elseif Lv >= 2500 and Lv <= 2524 or SelectMonster == "Sun-kissed Warrior" then
+					Ms = "Sun-kissed Warrior"
+					NameQuest = "TikiQuest2"
+					QuestLv = 1
+					NameMon = "Sun-kissed Warrior"
+					CFrameQ = CFrame.new(-16541.0215, 54.770813, 1051.46118, 0.0410757065, -0, -0.999156058, 0, 1, -0, 0.999156058, 0, 0.0410757065)
+					CFrameMon = CFrame.new(-16336.0986, 105.910934, 1127.36401, 0.884881318, 0, 0.465816498, 0, 1, 0, -0.465816498, 0, 0.884881318)
+					TelePBoss(CFrameQ)
+				elseif Lv >= 2525 or SelectMonster == "Isle Champion" then
+					Ms = "Isle Champion"
+					NameQuest = "TikiQuest2"
+					QuestLv = 2
+					NameMon = "Isle Champion"
+					CFrameQ = CFrame.new(-16541.0215, 54.770813, 1051.46118, 0.0410757065, -0, -0.999156058, 0, 1, -0, 0.999156058, 0, 0.0410757065)
+					CFrameMon = CFrame.new(-16606.0918, 130.704803, 1087.90845, -0.933031023, 7.60136913e-08, 0.359795898, 4.91600538e-08, 1, -8.37859417e-08, -0.359795898, -6.04872952e-08, -0.933031023)
+					TelePBoss(CFrameQ)
 				end
 			end
 		end
@@ -1927,7 +1959,7 @@ function CheckQuestBoss()
 				elseif Lv >= 2525 or SelectMonster == "Isle Champion" then
 					Ms = "Isle Champion"
 					NameQuest = "TikiQuest2"
-					QuestLv = 2
+					QuestLv = 1
 					NameMon = "Isle Champion"
 					CFrameQ = CFrame.new(-16541.0215, 54.770813, 1051.46118, 0.0410757065, -0, -0.999156058, 0, 1, -0, 0.999156058, 0, 0.0410757065)
 					CFrameMon = CFrame.new(-16606.0918, 130.704803, 1087.90845, -0.933031023, 7.60136913e-08, 0.359795898, 4.91600538e-08, 1, -8.37859417e-08, -0.359795898, -6.04872952e-08, -0.933031023)
@@ -2053,6 +2085,14 @@ function EquipWeapon(ToolSe)
 	end
 end
 
+function UnequipWeapon(ToolSe)
+	if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
+		local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+		wait(.4)
+		game.Players.LocalPlayer.Character.Humanoid:UnequipTool(tool)
+	end
+end
+
 spawn(function()
     while wait(.1) do
         pcall(function()
@@ -2079,6 +2119,40 @@ spawn(function()
             end
         end)
     end
+end)
+
+Type = 1
+spawn(function()
+while wait(.1) do
+    if Type == 1 then
+        Pos = CFrame.new(0,PosY,0)
+    elseif Type == 2 then
+        Pos = CFrame.new(0,PosY,-15)
+    elseif Type == 3 then
+        Pos = CFrame.new(15,PosY,0)
+    elseif Type == 4 then
+        Pos = CFrame.new(0,PosY,15)	
+    elseif Type == 5 then
+        Pos = CFrame.new(-15,PosY,0)
+    elseif Type == 6 then
+        Pos = CFrame.new(0,15,0)
+    end
+    end
+end)
+
+spawn(function()
+while wait(.1) do
+    Type = 1
+    wait(0.5)
+    Type = 2
+    wait(0.5)
+    Type = 3
+    wait(0.5)
+    Type = 4
+    wait(0.5)
+    Type = 5
+    wait(0.5)
+end
 end)
 
 function topos(Pos)
@@ -4567,7 +4641,7 @@ spawn(function()
 							_G.Farm_Boss = nil
 							SelectMonster = nil
 							_G.Farm_Mon = nil
-							wait(1)
+							wait(.2)
 						end
 						if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
 							CheckQuestBoss()
@@ -4636,25 +4710,25 @@ spawn(function()
 										if v.Humanoid:FindFirstChild("Animator") then
 											v.Humanoid.Animator:Destroy()
 										end
-										v.Humanoid:ChangeState(15,false)
-										v.Humanoid:ChangeState(16,false)
+										v.Humanoid:ChangeState(11)
 										v.Humanoid.JumpPower = 0
 										v.Humanoid.WalkSpeed = 0
 										v.HumanoidRootPart.CanCollide = false
 										v.HumanoidRootPart.Size = Vector3.new(5,5,5)
-										repeat wait(_G.Fast_Delay)
+										repeat wait(_G.FastAttackDelay)
 											TelePBoss(CFrameQ)
 											EquipWeapon(_G.Setting_table.Weapon)
-											topos(v.HumanoidRootPart.CFrame*CFrame.new(0,20,0))
+											topos(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0) * Pos)
 											AttackNoCD()
 										until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
 										if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+										elseif Lv >= 1 and Lv <= 2499 then
 											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 										end
 										Attack = nil
 									end
 								end
-							else
+								else
 								StatrMagnet = false
 								if game.ReplicatedStorage:FindFirstChild(Ms) then
 									topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
@@ -6970,7 +7044,7 @@ if World2 or World3 then
 ------------------------------------------------
 
 if _G.Setting_table.FastAttack_Mode == nil then
-	_G.Setting_table.FastAttack_Mode = "0.1"
+	_G.Setting_table.FastAttack_Mode = "0.2"
 end
 
 MIo = {
@@ -6999,7 +7073,7 @@ spawn(function()
 	end
 end)
 
-Setting:Dropdown("Fast Attack Delay ","0.1",MIo,function(vu)
+Setting:Dropdown("Fast Attack Delay ","0.2",MIo,function(vu)
 	_G.Setting_table.FastAttack_Mode = vu
 	Update_Setting(getgenv()['MyName'])
 	if _G.Setting_table.FastAttack_Mode == "0" then
@@ -7047,6 +7121,7 @@ Setting:Toggle("Anti Cheat BETA(❗Do Not Turn Off❗)",true,function(value)
 CheckAntiCheatBypass()
 end)
 
+--[[
 Setting:Toggle("Enable Attack",true,function(value)
 	_G.FastAttack2 = value
 	end)
@@ -7061,11 +7136,11 @@ Setting:Toggle("Enable Attack",true,function(value)
 				   pcall(function()
 					xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
 					xShadowx.activeController.timeToNextAttack = 0
-					xShadowx.activeController.hitboxMagnitude = 9999
+					xShadowx.activeController.hitboxMagnitude = 60
 					xShadowx.activeController.active = false
 					xShadowx.activeController.timeToNextBlock = 0
-					xShadowx.activeController.focusStart = 0
-					xShadowx.activeController.increment = 4
+					xShadowx.activeController.focusStart = 1655503339.0980349
+					xShadowx.activeController.increment = 1
 					xShadowx.activeController.blocking = false
 					xShadowx.activeController.attacking = false
 					xShadowx.activeController.humanoid.AutoRotate = true
@@ -7097,6 +7172,35 @@ spawn(function()
 	end)
 end)
 		
+local Client = game.Players.LocalPlayer
+    local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
+    local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
+    spawn(function()
+        while task.wait() do
+            pcall(function()
+                if not shared.orl then shared.orl = STOPRL.wrapAttackAnimationAsync end
+                if not shared.cpc then shared.cpc = STOP.play end
+                    STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
+                    local Hits = STOPRL.getBladeHits(b,c,d)
+                    if Hits then
+                        if _G.FastAttack2 then
+                            STOP.play = function() end
+                            a:Play(0.01,0.01,0.01)
+                            func(Hits)
+                            STOP.play = shared.cpc
+                            wait(a.length * 0.5)
+                            a:Stop()
+                        else
+                            a:Play()
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+]]--
+
+-----------------
 
 Setting:Toggle("Remove Attack Animation",false,function(value)
     getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync 

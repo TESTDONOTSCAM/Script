@@ -111,7 +111,7 @@ _G.BGColor_1 = Color3.fromRGB(30,30,30)
 
 _G.Setting_table = {
     Auto_Farm = false,
-    FastAttack = false,
+    FastAttack = true,
 	Auto_Buso = true,
 	Auto_Ken = true,
 	Show_Damage = true,
@@ -206,44 +206,7 @@ function Com()
 end
 
 function TelePBoss(p)
-		if NameQuest == "FishmanQuest" then
-			_G.Stop_Tween = true
-			TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-			wait(.5)
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
-			_G.Stop_Tween = nil
-		elseif Ms == "God's Guard"  then
-			_G.Stop_Tween = true
-			TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-			wait(.5)
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
-			_G.Stop_Tween = nil
-		elseif NameQuest == "SkyExp1Quest" then
-			_G.Stop_Tween = true
-			TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-			wait(.5)
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
-			_G.Stop_Tween = nil
-		elseif NameQuest == "ShipQuest1" then
-			_G.Stop_Tween = true
-			TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-			wait(.5)
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
-			_G.Stop_Tween = nil
-		elseif NameQuest == "ShipQuest2" then
-			_G.Stop_Tween = true
-			TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-			wait(.5)
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
-			_G.Stop_Tween = nil
-		elseif NameQuest == "FrostQuest" then
-			_G.Stop_Tween = true
-			TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-			wait(.5)
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6508.5581054688, 89.034996032715, -132.83953857422))
-			_G.Stop_Tween = nil
-		end
-	end
+end
 
 function CheckQuestBoss()
 	-- Old World
@@ -629,7 +592,7 @@ function CheckQuestBoss()
 					QuestLv = 2
 					NameMon = "Fishman Commando"
 					CFrameQ = CFrame.new(61122.65234375, 18.497442245483, 1569.3997802734)
-					CFrameMon = CFrame.new(61738.3984375, 64.207321166992, 1433.8375244141)
+					CFrameMon = CFrame.new(61900.6211, 18.4828186, 1473.38196, 0.699908674, -1.60197153e-08, -0.714232326, -5.19895842e-08, 1, -7.33762278e-08, 0.714232326, 8.84893012e-08, 0.699908674)
 					if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
 					end
@@ -1261,9 +1224,9 @@ function CheckQuestBoss()
 					CFrameMon = CFrame.new(-5079.98096, 376.477356, -2194.17139, 0.465965867, -3.69776352e-08, 0.884802461, 3.40249851e-09, 1, 4.00000886e-08, -0.884802461, -1.56281423e-08, 0.465965867)
 					TelePBoss(CFrameQ)
 					SelectMonster = "Sky Bandit"
-				elseif SelectMonster == "Prisoner [Lv. 190]" then
+				elseif SelectMonster == "Prisoner" then
 					 
-					Ms = "Prisoner [Lv. 190]"
+					Ms = "Prisoner"
 					QuestLv = 1
 					NameQuest = "PrisonerQuest"
 					NameMon = "Prisoner"
@@ -1271,9 +1234,9 @@ function CheckQuestBoss()
 					CFrameMon = CFrame.new(5433.39307, 88.678093, 514.986877, 0.879988372, 0, -0.474995494, 0, 1, 0, 0.474995494, 0, 0.879988372)
 					TelePBoss(CFrameQ)
 					
-				elseif Lv == 210 or Lv <= 249 or SelectMonster == "Dangerous Prisoner [Lv. 210]" then
+				elseif Lv == 210 or Lv <= 249 or SelectMonster == "Dangerous Prisoner" then
 					 
-					Ms = "Dangerous Prisoner [Lv. 210]"
+					Ms = "Dangerous Prisoner"
 					QuestLv = 2
 					NameQuest = "PrisonerQuest"
 					NameMon = "Dangerous Prisoner"
@@ -1290,7 +1253,7 @@ function CheckQuestBoss()
 						_G.SelectBoss = "Warden [Lv. 220] [Boss]"
 					end
 					SelectMonster = "Prisoner [Lv. 190]"
-				elseif Lv == 250 or Lv <= 274 or SelectMonster == "Toga Warrior" then -- Toga Warrior
+				elseif Lv == 250 or Lv <= 299 or SelectMonster == "Toga Warrior" then -- Toga Warrior
 					 
 					Ms = "Toga Warrior"
 					NameQuest = "ColosseumQuest"
@@ -1299,18 +1262,36 @@ function CheckQuestBoss()
 					CFrameQ = CFrame.new(-1576.11743, 7.38933945, -2983.30762, 0.576966345, 1.22114863e-09, 0.816767931, -3.58496594e-10, 1, -1.24185606e-09, -0.816767931, 4.2370063e-10, 0.576966345)
 					CFrameMon = CFrame.new(-1779.97583, 44.6077499, -2736.35474, 0.984437346, 4.10396339e-08, 0.175734788, -3.62286876e-08, 1, -3.05844168e-08, -0.175734788, 2.3741821e-08, 0.984437346)
 					TelePBoss(CFrameQ)
-					
-				elseif Lv == 275 or Lv <= 324 or SelectMonster == "Gladiator" then -- Gladiato
-					 
-					Ms = "Gladiator"
-					NameQuest = "ColosseumQuest"
-					QuestLv = 2
-					NameMon = "Gladiato"
-					CFrameQ = CFrame.new(-1576.11743, 7.38933945, -2983.30762, 0.576966345, 1.22114863e-09, 0.816767931, -3.58496594e-10, 1, -1.24185606e-09, -0.816767931, 4.2370063e-10, 0.576966345)
-					CFrameMon = CFrame.new(-1274.75903, 58.1895943, -3188.16309, 0.464524001, 6.21005611e-08, 0.885560572, -4.80449414e-09, 1, -6.76054768e-08, -0.885560572, 2.71497012e-08, 0.464524001)
-					TelePBoss(CFrameQ)
-					SelectMonster = "Toga Warrior"
-				elseif SelectMonster == "Military Soldier" then -- Military Soldier
+
+				elseif Lv == 275 then
+
+					game:GetService("StarterGui"):SetCore("SendNotification", {
+						Title = "ScriptBlox"; 
+						Text = "Gladiator SpawnRate 1%"; 
+						Icon = "http://www.roblox.com/asset/?id=14355269935";
+						Duration = 10
+					})
+
+					wait(2)
+
+					game:GetService("StarterGui"):SetCore("SendNotification", {
+						Title = "ScriptBlox"; 
+						Text = "We Direct Auto Farm"; 
+						Icon = "http://www.roblox.com/asset/?id=14355269935";
+						Duration = 10
+					})
+
+					wait(2)
+
+					game:GetService("StarterGui"):SetCore("SendNotification", {
+						Title = "ScriptBlox"; 
+						Text = "Toga Warrior Monster"; 
+						Icon = "http://www.roblox.com/asset/?id=14355269935";
+						Duration = 60;
+						Button1 = "Understand"
+					})
+
+				elseif Lv == 300 or Lv <= 324 or SelectMonster == "Military Soldier" then -- Military Soldier
 					 
 					Ms = "Military Soldier"
 					NameQuest = "MagmaQuest"
@@ -1357,7 +1338,7 @@ function CheckQuestBoss()
 					QuestLv = 2
 					NameMon = "Fishman Commando"
 					CFrameQ = CFrame.new(61122.5625, 18.4716396, 1568.16504)
-					CFrameMon = CFrame.new(60946.6094, 48.6735229, 1525.916871)
+					CFrameMon = CFrame.new(61900.6211, 18.4828186, 1473.38196, 0.699908674, -1.60197153e-08, -0.714232326, -5.19895842e-08, 1, -7.33762278e-08, 0.714232326, 8.84893012e-08, 0.699908674)
 					if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 						_G.Stop_Tween = true
 						TP(CFrameQ)
@@ -1971,15 +1952,15 @@ function CheckQuestBoss()
 		function TP(P1)
 			if not _G.Stop_Tween then
 				local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-				Speed = 100
+				Speed = 150
 				if Distance < 250 then
-					Speed = 5000
+					Speed = 210
 				elseif Distance < 500 then
-					Speed = 650
+					Speed = 150
 				elseif Distance < 1000 then
-					Speed = 350
+					Speed = 150
 				elseif Distance >= 1000 then
-					Speed = 250
+					Speed = 150
 				end
 				Tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),{CFrame = P1})
 				if _G.Stop_Tween or Auto_Raid then
@@ -2023,13 +2004,13 @@ end)
 function TP3(P1)
 	local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
 	if Distance < 250 then
-		Speed = 10000
+		Speed = 210
 	elseif Distance < 500 then
-		Speed = 500
+		Speed = 150
 	elseif Distance < 1000 then
-		Speed = 250
+		Speed = 150
 	elseif Distance >= 1000 then
-		Speed = 250
+		Speed = 150
 	end
 	game:GetService("TweenService"):Create(
 		game.Players.LocalPlayer.Character.HumanoidRootPart,
@@ -2048,17 +2029,17 @@ end
 function TP2(P1)
 	local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
 	if Distance < 150 then
-		Speed = 5000
+		Speed = 210
 	elseif Distance < 200 then
-		Speed = 1500
+		Speed = 150
 	elseif Distance < 300 then
-		Speed = 800
+		Speed = 150
 	elseif Distance < 500 then
-		Speed = 500
+		Speed = 150
 	elseif Distance < 1000 then
-		Speed = 250
+		Speed = 150
 	elseif Distance >= 1000 then
-		Speed = 250
+		Speed = 150
 	end
 	game:GetService("TweenService"):Create(
 		game.Players.LocalPlayer.Character.HumanoidRootPart,
@@ -5097,6 +5078,7 @@ spawn(function()
 							_G.Farm_Boss = nil
 							SelectMonster = nil
 							_G.Farm_Mon = nil
+							_G.FastAttack2 = false
 							wait(.2)
 						end
 						if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -5108,25 +5090,31 @@ spawn(function()
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 							_G.Farm_Boss = true
+							_G.FastAttack2 = false
 						elseif SelectMonster ~= nil then
 							CheckLevel2()
+							_G.FastAttack2 = false
 							repeat wait(.2)
 								TelePBoss(CFrameQ)
 								TP(CFrameQ)
+								_G.FastAttack2 = false
 							until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+							_G.FastAttack2 = false
 							SelectMonster = nil
 							_G.Farm_Mon = nil
 						else
 							StatrMagnet = nil
 							CheckLevel2()
+							_G.FastAttack2 = false
 							repeat wait(.2)
 								TelePBoss(CFrameQ)
 								topos(CFrameQ)
 							until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+							_G.FastAttack2 = false
 						end
 					elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						if _G.Farm_Boss then
@@ -5142,7 +5130,7 @@ spawn(function()
 										v.HumanoidRootPart.CanCollide = false
 										v.HumanoidRootPart.Size = Vector3.new(5,5,5)
 										StatrMagnet = nil
-										repeat wait(_G.Fast_Delay)
+										repeat wait(0.2)
 											TelePBoss(CFrameQBoss)
 											EquipWeapon(_G.Setting_table.Weapon)
 											topos(v.HumanoidRootPart.CFrame*CFrame.new(0,30,50))
@@ -5199,6 +5187,7 @@ spawn(function()
 					end
 				end
 			else
+				wait(1)
 			end
 		end)
 	end
@@ -7753,9 +7742,7 @@ end)
         pcall(function()
             while wait() do
             if _G.AutoSetSpawn then
-            if game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-                end
             end
         end
     end)
@@ -13983,3 +13970,11 @@ Misc:Line()
     end)
     end
 end)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "ScriptBlox"; 
+	Text = "Loading Complete"; 
+	Icon = "http://www.roblox.com/asset/?id=14355269935";
+	Duration = 20;
+	Button1 = "Okay"
+})

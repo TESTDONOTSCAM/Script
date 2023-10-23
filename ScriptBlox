@@ -190,18 +190,20 @@ end
 
 function Text(value)
     game.StarterGui:SetCore("SendNotification", {
-        Title = "MODZ Notification", 
+        Title = "ScriptBlox", 
         Text = tostring(value),
-        Icon = "http://www.roblox.com/asset/?id=9606070311",
-        Duration = 10
+        Icon = "http://www.roblox.com/asset/?id=14355269935",
+        Duration = math.huge,
+		Button1 = "Okay"
     })
 end
 function Com()
     game.StarterGui:SetCore("SendNotification", {
-        Title = "MODZ Notification", 
+        Title = "ScriptBlox", 
         Text = "✅  Complete",
-        Icon = "http://www.roblox.com/asset/?id=9606070311",
-        Duration = 5
+        Icon = "http://www.roblox.com/asset/?id=14355269935",
+        Duration = math.huge,
+		Button1 = "Okay"
     })
 end
 
@@ -13671,18 +13673,11 @@ Dungeon:Line()
 Dungeon Table
 
 ]]
-    
 
-Dungeon:Toggle("Auto Raid",_G.Setting_table.Auto_Raid,function(vu)
-		Auto_Raid = vu
-		_G.Setting_table.Auto_Raid = vu
-		Update_Setting(getgenv()['MyName'])
-	end)
-
-Dungeon:Toggle("Auto Buy Chips",_G.Setting_table.Auto_Raid_Hop,function(vu)
-		Auto_Raid = vu
-		_G.Setting_table.Auto_Raid_Hop = vu
-		Update_Setting(getgenv()['MyName'])
+Dungeon:Toggle("Auto Raid",_G.Setting_table.Auto_Raid_Hop,function(vu)
+	Auto_Raid = vu
+	_G.Setting_table.Auto_Raid_Hop = vu
+	Update_Setting(getgenv()['MyName'])
 end)
 
 	Dungeon:Toggle("Next Islands",_G.Setting_table.Next_Islands,function(vu)

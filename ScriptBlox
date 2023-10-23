@@ -2784,6 +2784,20 @@ end
 
 ---------------------------------------------------------------
 
+function StopTween(target)
+	if not target then
+		_G.StopTween = true
+		wait()
+		topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+		wait()
+		if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip"):Destroy()
+		end
+		_G.StopTween = false
+		_G.Clip = false
+	end
+end
+
 		function TP(P1)
 			if not _G.Stop_Tween then
 				local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
@@ -3437,6 +3451,7 @@ function topos(Pos)
         if _G.StopTween == true then
             tween:Cancel()
             _G.Clip = false
+			_G.FastAttack2 = false
         end
     end
 
@@ -6091,6 +6106,7 @@ Main:Toggle("Auto Farm",_G.Setting_table.AutoFarm,function(vu)
 	Auto_Farm = vu
 	_G.Setting_table.AutoFarm = vu
 	Update_Setting(getgenv()['MyName'])
+	StopTween(Auto_Farm)
 end)
 
 	local plr = game.Players.LocalPlayer
@@ -13547,8 +13563,7 @@ _G.TeleportIsland = value
 if _G.TeleportIsland == true then
 game.Workspace.Gravity = 0
 game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
-game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
-repeat wait()
+game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false) repeat wait()
 if _G.SelectIsland == "WindMill" then
 topos(CFrame.new(979.79895019531, 16.516613006592, 1429.0466308594))
 elseif _G.SelectIsland == "Marine" then
@@ -13674,10 +13689,9 @@ Dungeon Table
 
 ]]
 
-Dungeon:Toggle("Auto Raid",_G.Setting_table.Auto_Raid_Hop,function(vu)
+Dungeon:Toggle("Auto Raid",_G.SettingRaid,function(vu)
 	Auto_Raid = vu
-	_G.Setting_table.Auto_Raid_Hop = vu
-	Update_Setting(getgenv()['MyName'])
+	_G.SettingRaid = vu
 end)
 
 	Dungeon:Toggle("Next Islands",_G.Setting_table.Next_Islands,function(vu)
@@ -13685,7 +13699,8 @@ end)
 		_G.Setting_table.Next_Islands = vu
 		Update_Setting(getgenv()['MyName'])
 	end)
-	if _G.Setting_table.Auto_Raid_Hop then
+
+	if _G.SettingRaid then
 		Auto_Raid = true
 	end
 	
@@ -13797,13 +13812,13 @@ end)
 								until game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true
 							end
 						else
-							if _G.Setting_table.Auto_Raid_Hop or _G.Setting_table.Melee_Hop or Auto_Phoenix_Awaken then
+							if _G.SettingRaid or _G.Setting_table.Melee_Hop or Auto_Phoenix_Awaken then
 								_G.Have_Fruit = nil
 								Raid_FG()
 							end
 							Buy_Chip()
 							wait(1)
-							if _G.Setting_table.Auto_Raid_Hop and not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Special Microchip") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Special Microchip") then
+							if _G.SettingRaid and not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Special Microchip") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Special Microchip") then
 								HopServer()
 								wait(50)
 							elseif Auto_Raid_Farm and not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Special Microchip") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Special Microchip") then

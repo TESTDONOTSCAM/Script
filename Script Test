@@ -15311,6 +15311,8 @@ Misc:Line()
     end
 end)
 
+Wait(20)
+
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "ScriptBlox"; 
 	Text = "Loading Complete"; 

@@ -21,7 +21,7 @@ repeat wait(1)
 
 until game.Players.localPlayer.Neutral == false
 if _G.Fast_Delay == nil then
-	_G.Fast_Delay = 0.01
+	_G.Fast_Delay = 0.2
 end
 spawn(function()
     while true do wait()
@@ -3539,7 +3539,7 @@ spawn(function()
 									v.Humanoid.WalkSpeed = 0
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-									repeat wait()
+									repeat wait(_G.Fast_Delay)
 										TelePBoss(CFrameQ)
 										EquipWeapon(_G.Setting_table.Weapon)
 										topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
@@ -3655,7 +3655,7 @@ spawn(function()
 									v.Humanoid.WalkSpeed = 0
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-									repeat wait(0.2)
+									repeat wait(_G.Fast_Delay)
 										TelePBoss(CFrameQ)
 										EquipWeapon(_G.Setting_table.Weapon)
 										topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
@@ -3770,7 +3770,7 @@ spawn(function()
 										v.Humanoid.WalkSpeed = 0
 										v.HumanoidRootPart.CanCollide = false
 										v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-										repeat wait()
+										repeat wait(_G.Fast_Delay)
 											TelePBoss(CFrameQ)
 											EquipWeapon(_G.Setting_table.Weapon)
 											topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
@@ -8664,136 +8664,87 @@ if World2 or World3 then
 
 ------------------------------------------------
 
-if _G.Setting_table.FastAttack_Mode == nil then
-	_G.Setting_table.FastAttack_Mode = "0.2"
+if _G.FastAttack_Mode == nil then
+	_G.FastAttack_Mode = "0.2"
 end
 
-MIo = {
-	"0",
-	"0.01",
-	"0.05",
-	"0.075",
-	"0.1",
-	"0.15",
-	"0.2"
-}
+MIo = {"Super Fast Attack", "0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"}
 
---[[
-Setting:Toggle("Fast Attack",_G.Setting_table.FastAttack,function(vu)
-	_G.Setting_table.FastAttack = vu
-	Update_Setting(getgenv()['MyName'])
+Setting:Toggle("Fast Attack",true,function(vu)
+	_G.FastAttack = vu
+end)
+
+local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
+CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+y = debug.getupvalues(CombatFrameworkR)[2]
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack then
+            if typeof(y) == "table" then
+                pcall(function()
+                    CameraShaker:Stop()
+                    y.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
+                    y.activeController.timeToNextAttack = 0
+                    y.activeController.hitboxMagnitude = 60
+                    y.activeController.active = false
+                    y.activeController.timeToNextBlock = 0
+                    y.activeController.focusStart = 1655503339.0980349
+                    y.activeController.increment = 1
+                    y.activeController.blocking = false
+                    y.activeController.attacking = false
+                    y.activeController.humanoid.AutoRotate = true
+                end)
+            end
+        end
+    end)
 end)
 spawn(function()
-	while wait() do
-		pcall(function()
-			if _G.Setting_table.FastAttack then
-				repeat wait(_G.Fast_Delay)
-					AttackNoCD()
-				until not _G.Setting_table.FastAttack
-			end
-		end)
-	end
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack == true then
+            game.Players.LocalPlayer.Character.Stun.Value = 0
+            game.Players.LocalPlayer.Character.Busy.Value = false        
+        end
+    end)
 end)
 
 Setting:Dropdown("Fast Attack Delay ","0.2",MIo,function(vu)
-	_G.Setting_table.FastAttack_Mode = vu
+	_G.FastAttack_Mode = vu
 	Update_Setting(getgenv()['MyName'])
-	if _G.Setting_table.FastAttack_Mode == "0" then
+	if _G.FastAttack_Mode == "Super Fast Attack" then
 		_G.Fast_Delay = 0
-	elseif _G.Setting_table.FastAttack_Mode == "0.01" then
-		_G.Fast_Delay = 0.01
-	elseif _G.Setting_table.FastAttack_Mode == "0.05" then
-		_G.Fast_Delay = 0.05
-	elseif _G.Setting_table.FastAttack_Mode == "0.075" then
-		_G.Fast_Delay = 0.075
-	elseif _G.Setting_table.FastAttack_Mode == "0.1" then
-		_G.Fast_Delay = 0.1
-	elseif _G.Setting_table.FastAttack_Mode == "0.15" then
-		_G.Fast_Delay = 0.15
-	elseif _G.Setting_table.FastAttack_Mode == "0.2" then
+	elseif _G.FastAttack_Mode == "0.2" then
 		_G.Fast_Delay = 0.2
+	elseif _G.FastAttack_Mode == "0.5" then
+		_G.Fast_Delay = 0.5
+	elseif _G.FastAttack_Mode == "0.15" then
+		_G.Fast_Delay = 0.15
+	elseif _G.FastAttack_Mode == "0.155" then
+		_G.Fast_Delay = 0.155
+	elseif _G.FastAttack_Mode == "0.16" then
+		_G.Fast_Delay = 0.16
+	elseif _G.FastAttack_Mode == "0.165" then
+		_G.Fast_Delay = 0.165
+	elseif _G.FastAttack_Mode == "0.17" then
+		_G.Fast_Delay = 0.17
+	elseif _G.FastAttack_Mode == "0.175" then
+		_G.Fast_Delay = 0.175
+	elseif _G.FastAttack_Mode == "0.18" then
+		_G.Fast_Delay = 0.18
+	elseif _G.FastAttack_Mode == "0.185" then
+		_G.Fast_Delay = 0.185
+	elseif _G.FastAttack_Mode == "0.190" then
+		_G.Fast_Delay = 0.190
+	elseif _G.FastAttack_Mode == "0.195" then
+		_G.Fast_Delay = 0.195
+	elseif _G.FastAttack_Mode == "1" then
+		_G.Fast_Delay = 0.1
+	elseif _G.FastAttack_Mode == "1.5" then
+		_G.Fast_Delay = 1.5
+	elseif _G.FastAttack_Mode == "2" then
+		_G.Fast_Delay = 2
 	end
 end)
-]]--
 
---------------------------------------------------------------------------------------------------------------------------------------------------
-
-Setting:Seperator("\\\\\ Other Setting //")
-
-function CheckAntiCheatBypass()
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
-        if v:IsA("LocalScript") then
-            if v.Name == "General" or v.Name == "Shiftlock"  or v.Name == "FallDamage" or v.Name == "4444" or v.Name == "CamBob" or v.Name == "JumpCD" or v.Name == "Looking" or v.Name == "Run" then
-                v:Destroy()
-            end
-        end
-     end
-     for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
-        if v:IsA("LocalScript") then
-            if v.Name == "RobloxMotor6DBugFix" or v.Name == "Clans"  or v.Name == "Codes" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
-                v:Destroy()
-            end
-        end
-     end
-    end
-
-CheckAntiCheatBypass()
-
-Setting:Toggle("Do Not Turn This Off",true,function(value)
-  _G.SafeFarm = value
-CheckAntiCheatBypass()
-end)
-
-Setting:Toggle("Fast Attack",true,function(value)
-	_G.FastAttack2 = value
-	end)
-	
-	require(game.ReplicatedStorage.Util.CameraShaker):Stop()
-	xShadowFastAttackx = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-	xShadowx = debug.getupvalues(xShadowFastAttackx)[2]
-	spawn(function()
-	   game:GetService("RunService").RenderStepped:Connect(function()
-		   if _G.FastAttack2 then
-			   if typeof(xShadowx) == "table" then
-				   pcall(function()
-					xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
-					xShadowx.activeController.timeToNextAttack = 0
-					xShadowx.activeController.hitboxMagnitude = 60
-					xShadowx.activeController.active = false
-					xShadowx.activeController.timeToNextBlock = 0
-					xShadowx.activeController.focusStart = 1655503339.0980349
-					xShadowx.activeController.increment = 1
-					xShadowx.activeController.blocking = false
-					xShadowx.activeController.attacking = false
-					xShadowx.activeController.humanoid.AutoRotate = true
-					sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
-				end)
-			end
-		end
-	end)
-end)
-
-spawn(function()
-	game:GetService("RunService").RenderStepped:Connect(function()
-		if _G.FastAttack2 then
-			pcall(function()
-				game:GetService'VirtualUser':CaptureController()
-				game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
-			end)
-		end
-	end)
-end)
-		
-spawn(function()
-	game:GetService("RunService").RenderStepped:Connect(function()
-		if _G.FastAttack2 then
-			game.Players.LocalPlayer.Character.Stun.Value = 0
-			game.Players.LocalPlayer.Character.Humanoid.Sit = false
-			game.Players.LocalPlayer.Character.Busy.Value = false        
-		end
-	end)
-end)
-		
 local Client = game.Players.LocalPlayer
     local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
     local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
@@ -8805,7 +8756,7 @@ local Client = game.Players.LocalPlayer
                     STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
                     local Hits = STOPRL.getBladeHits(b,c,d)
                     if Hits then
-                        if _G.FastAttack2 then
+                        if _G.FastAttack then
                             STOP.play = function() end
                             a:Play(0.01,0.01,0.01)
                             func(Hits)
@@ -8866,16 +8817,97 @@ local Client = game.Players.LocalPlayer
 	end
 	spawn(function()
 		while wait(.1) do
-			if _G.FastAttack2 then
+			if _G.FastAttack then
 				pcall(function()
-					repeat task.wait(.2)
+					repeat task.wait(_G.Fast_Delay)
 						AttackHit()
-					until not _G.FastAttack2
+					until not _G.FastAttack
 				end)
 			end
 		end
 	end)
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Setting:Seperator("\\\\\ Other Setting //")
+
+function CheckAntiCheatBypass()
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "General" or v.Name == "Shiftlock"  or v.Name == "FallDamage" or v.Name == "4444" or v.Name == "CamBob" or v.Name == "JumpCD" or v.Name == "Looking" or v.Name == "Run" then
+                v:Destroy()
+            end
+        end
+     end
+     for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "RobloxMotor6DBugFix" or v.Name == "Clans"  or v.Name == "Codes" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
+                v:Destroy()
+            end
+        end
+     end
+    end
+
+CheckAntiCheatBypass()
+
+Setting:Toggle("Do Not Turn This Off",true,function(value)
+  _G.SafeFarm = value
+CheckAntiCheatBypass()
+end)
+
+--[[
+Setting:Toggle("Fast Attack",true,function(value)
+	_G.FastAttack2 = value
+	end)
+	
+	require(game.ReplicatedStorage.Util.CameraShaker):Stop()
+	xShadowFastAttackx = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+	xShadowx = debug.getupvalues(xShadowFastAttackx)[2]
+	spawn(function()
+	   game:GetService("RunService").RenderStepped:Connect(function()
+		   if _G.FastAttack2 then
+			   if typeof(xShadowx) == "table" then
+				   pcall(function()
+					xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
+					xShadowx.activeController.timeToNextAttack = 0
+					xShadowx.activeController.hitboxMagnitude = 60
+					xShadowx.activeController.active = false
+					xShadowx.activeController.timeToNextBlock = 0
+					xShadowx.activeController.focusStart = 1655503339.0980349
+					xShadowx.activeController.increment = 1
+					xShadowx.activeController.blocking = false
+					xShadowx.activeController.attacking = false
+					xShadowx.activeController.humanoid.AutoRotate = true
+					sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
+				end)
+			end
+		end
+	end)
+end)
+
+spawn(function()
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if _G.FastAttack2 then
+			pcall(function()
+				game:GetService'VirtualUser':CaptureController()
+				game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+			end)
+		end
+	end)
+end)
+		
+spawn(function()
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if _G.FastAttack2 then
+			game.Players.LocalPlayer.Character.Stun.Value = 0
+			game.Players.LocalPlayer.Character.Humanoid.Sit = false
+			game.Players.LocalPlayer.Character.Busy.Value = false        
+		end
+	end)
+end)
+]]--
+	
 -----------------
 
 Setting:Toggle("Remove Attack Animation",false,function(value)
@@ -9381,7 +9413,7 @@ AutoQuest:Toggle("Auto Evo Race",_G.Auto_EvoRace,function(value)
 	if game:GetService("Workspace").Enemies:FindFirstChild("Swan Pirate") then
 	for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 	if v.Name == "Swan Pirate" then
-	repeat task.wait()
+	repeat task.wait(_G.Fast_Delay)
 	EquipWeapon(_G.Setting_table.Weapon)
 	TP2(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0) * Pos)
 	v.HumanoidRootPart.CanCollide = false
@@ -15301,8 +15333,6 @@ Misc:Line()
     end)
     end
 end)
-
-wait(10)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "ScriptBlox"; 

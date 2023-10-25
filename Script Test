@@ -14191,8 +14191,8 @@ if World3 then
 
 Race:Seperator("Race V4")
 
-Race:Toggle("Move Cam to Moon",false,function()
-	_G.AutoDooHee
+Race:Toggle("Move Cam to Moon",false,function(vu)
+	_G.AutoDooHee = vu
 end)
     
 spawn(function()
@@ -14208,35 +14208,35 @@ spawn(function()
     end
 end)
 
-Race:Button("Teleport To Temple of Time",function()
+Race:Button("Teleport To Temple of Time",function(va)
 	Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
 end)
 
-Race:Button("Teleport To Lever Pull",function()
+Race:Button("Teleport To Lever Pull",function(va)
 	topos(CFrame.new(28575.181640625, 14936.6279296875, 72.31636810302734))
 end)
 
-Race:Button("Teleport To Human Door",function()
+Race:Button("Teleport To Human Door",function(va)
 	topos(CFrame.new(29237.294921875, 14889.4267578125, -206.94955444335938))
 end)
 
-Race:Button("Teleport To Mink Door",function()
+Race:Button("Teleport To Mink Door",function(va)
 	topos(CFrame.new(29020.66015625, 14889.4267578125, -379.2682800292969))
 end)
 
-Race:Button("Teleport To Shark Door",function()
+Race:Button("Teleport To Shark Door",function(va)
 	topos(CFrame.new(28224.056640625, 14889.4267578125, -210.5872039794922))
 end)
 
-Race:Button("Teleport To Angel Door",function()
+Race:Button("Teleport To Angel Door",function(va)
 	topos(CFrame.new(28967.408203125, 14918.0751953125, 234.31198120117188))
 end)
 
-Race:Button("Teleport To Cyborg Door",function()
+Race:Button("Teleport To Cyborg Door",function(va)
 	topos(CFrame.new(28492.4140625, 14894.4267578125, -422.1100158691406))
 end)
 
-Race:Button("Teleport To Ghoul Door",function()
+Race:Button("Teleport To Ghoul Door",function(va)
 	topos(CFrame.new(28672.720703125, 14889.1279296875, 454.5961608886719))
 end)
 
@@ -15310,8 +15310,6 @@ Misc:Line()
     end)
     end
 end)
-
-wait(20)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "ScriptBlox"; 

@@ -136,23 +136,23 @@ getgenv()['JsonDecode'] = function(msg)
     return game:GetService("HttpService"):JSONDecode(msg)
 end
 getgenv()['Check_Setting'] = function(Name)
-    if not _G.Dis and not isfolder('Switch Hub BF Premium') then
-        makefolder('Switch Hub BF Premium')
+    if not _G.Dis and not isfolder('ScriptBlox Premium') then
+        makefolder('ScriptBlox Prmeium')
     end
-    if not _G.Dis and not isfile('Switch Hub BF Premium/'..Name..'.json') then
-        writefile('Switch Hub BF Premium/'..Name..'.json',JsonEncode(_G.Setting_table))
+    if not _G.Dis and not isfile('ScriptBlox Premium/'..Name..'.json') then
+        writefile('ScriptBlox Premium/'..Name..'.json',JsonEncode(_G.Setting_table))
     end
 end
 getgenv()['Get_Setting'] = function(Name)
-    if not _G.Dis and isfolder('Switch Hub BF Premium') and isfile('Switch Hub BF Premium/'..Name..'.json') then
-        _G.Setting_table = JsonDecode(readfile('Switch Hub BF Premium/'..Name..'.json'))
+    if not _G.Dis and isfolder('ScriptBlox Premium') and isfile('ScriptBlox Premium/'..Name..'.json') then
+        _G.Setting_table = JsonDecode(readfile('ScriptBlox Premium/'..Name..'.json'))
         return _G.Setting_table
 	elseif not _G.Dis then
         Check_Setting(Name)
     end
 end
 getgenv()['Update_Setting'] = function(Name)
-    if not _G.Dis and isfolder('Switch Hub BF Premium') and isfile('Switch Hub BF Premium/'..Name..'.json') then
+    if not _G.Dis and isfolder('ScriptBlox Premium') and isfile('ScriptBlox Premium/'..Name..'.json') then
         writefile('Switch Hub BF Premium/'..Name..'.json',JsonEncode(_G.Setting_table))
 	elseif not _G.Dis then
         Check_Setting(Name)
@@ -6283,32 +6283,26 @@ if World1 or World2 then
 		"Double Quest"
 	   },function(vu)
 		Select_Mode_Farm = vu
-		_G.Setting_table.Mode_FarmW2 = vu
+		_G.Setting_table.Farm_Mode = vu
 		Update_Setting(getgenv()['MyName'])
 	end)
 end
-
 
 Mode = {
 	"Level Farm",
 	"Double Quest"
 }
 
-Main:Dropdown("FastAttack","Level Farm",Mode,function(vu)
+Main:Dropdown("Select Mode Farm","Level Farm",Mode,_G.Setting_table.Farm_Mode,function(vu)
 	Select_Mode_Farm = vu
 	_G.Setting_table.Farm_Mode = vu
-Update_Setting(getgenv()['MyName'])
+	Update_Setting(getgenv()['MyName'])
 end)
 
-
 if World3 then
-Main:Dropdown2("Select Mode Farm", {
-	"Level Farm",
-	"Double Quest",
-	"Bone Farm"
-   },function(vu)
+Main:Dropdown2("Select Mode Farm",{"Level Farm","Double Quest","Bone Farm"},function(vu)
 	Select_Mode_Farm = vu
-	_G.Setting_table.Mode_FarmW3 = vu
+	_G.Setting_table.Farm_Mode = vu
 	Update_Setting(getgenv()['MyName'])
 	end)
 end
@@ -6324,6 +6318,7 @@ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
         table.insert(Waspon ,v.Name)
     end
 end
+
 if type(_G.Setting_table.Weapon) == 'string' then
 else
 	_G.Setting_table.Weapon = ""
@@ -7913,7 +7908,7 @@ end)
 
 Setting:Toggle("Save All Member",_G.Setting_table.Save_All_Member,function(vu)
 	_G.Setting_table.Save_All_Member = vu
-	
+
 	if vu then
 		_G.Dis = nil
 	end

@@ -3543,7 +3543,6 @@ spawn(function()
 										TelePBoss(CFrameQ)
 										EquipWeapon(_G.Setting_table.Weapon)
 										topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-										AttackHit()
 										game:GetService'VirtualUser':CaptureController()
 										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 									until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
@@ -3658,11 +3657,12 @@ spawn(function()
 									v.Humanoid.WalkSpeed = 0
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-									repeat wait(_G.Fast_Delay)
+									repeat task.wait()
 										TelePBoss(CFrameQ)
 										EquipWeapon(_G.Setting_table.Weapon)
 										topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-										AttackHit()
+										game:GetService'VirtualUser':CaptureController()
+										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 									until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
 									if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 									elseif Lv >= 1 and Lv <= 2499 then
@@ -3773,11 +3773,12 @@ spawn(function()
 										v.Humanoid.WalkSpeed = 0
 										v.HumanoidRootPart.CanCollide = false
 										v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-										repeat wait(_G.Fast_Delay)
+										repeat task.wait()
 											TelePBoss(CFrameQ)
 											EquipWeapon(_G.Setting_table.Weapon)
 											topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-											AttackHit()
+											game:GetService'VirtualUser':CaptureController()
+											game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 										until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
 										if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 										elseif Lv >= 1 and Lv <= 2499 then

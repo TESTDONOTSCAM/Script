@@ -3539,7 +3539,7 @@ spawn(function()
 									v.Humanoid.WalkSpeed = 0
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-									repeat wait(_G.Fast_Delay)
+									repeat task.wait()
 										TelePBoss(CFrameQ)
 										EquipWeapon(_G.Setting_table.Weapon)
 										topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)

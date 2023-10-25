@@ -3448,7 +3448,7 @@ spawn(function()
 	while wait() do
 		pcall(function()
 		if Auto_Farm then
-			if _G.Select_Mode_Farm == "Level Farm" then
+			if Select_Mode_Farm == "Level Farm" then
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -3567,7 +3567,7 @@ spawn(function()
 						end
 					end
 				end
-			elseif _G.Select_Mode_Farm == "Double Quest" then
+			elseif Select_Mode_Farm == "Double Quest" then
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -3683,7 +3683,7 @@ spawn(function()
 							end
 						end
 					end
-				elseif _G.Select_Mode_Farm == "Bone Farm" then
+				elseif Select_Mode_Farm == "Bone Farm" then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 						if _G.Farm_Boss then
 							_G.SelectBoss = nil
@@ -6277,34 +6277,34 @@ if World1 or World2 then
 	Main:Dropdown2("Select Mode Farm", {
 		"Level Farm",
 		"Double Quest"
-	   },function(value)
-		_G.Select_Mode_Farm = value	
-		_G.Setting_table.Mode_FarmW2 = value
+	   },function(vu)
+		Select_Mode_Farm = vu
+		_G.Setting_table.Mode_FarmW2 = vu
 		Update_Setting(getgenv()['MyName'])
 	end)
 end
 
---[[
+
 Mode = {
 	"Level Farm",
 	"Double Quest"
 }
 
-Main:Dropdown("FastAttack","Level Farm",Mode,function(value)
-	_G.Select_Mode_Farm = value
-	_G.Setting_table.Farm_Mode = value
+Main:Dropdown("FastAttack","Level Farm",Mode,function(vu)
+	Select_Mode_Farm = vu
+	_G.Setting_table.Farm_Mode = vu
 Update_Setting(getgenv()['MyName'])
 end)
-]]--
+
 
 if World3 then
 Main:Dropdown2("Select Mode Farm", {
 	"Level Farm",
 	"Double Quest",
 	"Bone Farm"
-   },function(value)
-	_G.Select_Mode_Farm = value	
-	_G.Setting_table.Mode_FarmW3 = value
+   },function(vu)
+	Select_Mode_Farm = vu
+	_G.Setting_table.Mode_FarmW3 = vu
 	Update_Setting(getgenv()['MyName'])
 	end)
 end

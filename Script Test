@@ -6270,6 +6270,10 @@ Main Farm Table
 
 ]]
 
+if _G.Setting_table.Farm_Mode == nil then
+	_G.Setting_table.Farm_Mode = "Level Farm"
+end
+
 Main:Line()
 Main:Seperator("\\\\\ Auto Farm //")
 
@@ -7888,6 +7892,40 @@ Setting Table
 ]]
 
 Setting:Line()
+
+Setting:Seperator("\\\\\ Save Config //")
+
+Setting:Toggle("Save Member",_G.Setting_table.Save_Member,function(vu)
+	_G.Setting_table.Save_Member = vu
+
+	if vu then
+		_G.Dis = nil
+	end
+
+	Update_Setting(_G.Check_Save_Setting)
+	if _G.Setting_table.Save_Member then
+		getgenv()['MyName'] = game.Players.LocalPlayer.Name
+		Update_Setting(getgenv()['MyName'])
+		Check_Setting(getgenv()['MyName'])
+		Get_Setting(getgenv()['MyName'])
+	end
+end)
+
+Setting:Toggle("Save All Member",_G.Setting_table.Save_All_Member,function(vu)
+	_G.Setting_table.Save_All_Member = vu
+	
+	if vu then
+		_G.Dis = nil
+	end
+	Update_Setting(_G.Check_Save_Setting)
+	if _G.Setting_table.Save_All_Member then
+		getgenv()['MyName'] = "AllMember"
+		Update_Setting(getgenv()['MyName'])
+		Check_Setting(getgenv()['MyName'])
+		Get_Setting(getgenv()['MyName'])
+	end
+end)
+
 Setting:Seperator("\\\\\ Farm Setting //")
 
 if World1 then

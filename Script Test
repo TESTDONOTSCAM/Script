@@ -8710,38 +8710,47 @@ end)
 Setting:Dropdown("Fast Attack Delay ","0.2",MIo,function(vu)
 	_G.FastAttack_Mode = vu
 	Update_Setting(getgenv()['MyName'])
-	if _G.FastAttack_Mode == "Super Fast Attack" then
-		_G.Fast_Delay = 0
-	elseif _G.FastAttack_Mode == "0.2" then
-		_G.Fast_Delay = 0.2
-	elseif _G.FastAttack_Mode == "0.5" then
-		_G.Fast_Delay = 0.5
-	elseif _G.FastAttack_Mode == "0.15" then
-		_G.Fast_Delay = 0.15
-	elseif _G.FastAttack_Mode == "0.155" then
-		_G.Fast_Delay = 0.155
-	elseif _G.FastAttack_Mode == "0.16" then
-		_G.Fast_Delay = 0.16
-	elseif _G.FastAttack_Mode == "0.165" then
-		_G.Fast_Delay = 0.165
-	elseif _G.FastAttack_Mode == "0.17" then
-		_G.Fast_Delay = 0.17
-	elseif _G.FastAttack_Mode == "0.175" then
-		_G.Fast_Delay = 0.175
-	elseif _G.FastAttack_Mode == "0.18" then
-		_G.Fast_Delay = 0.18
-	elseif _G.FastAttack_Mode == "0.185" then
-		_G.Fast_Delay = 0.185
-	elseif _G.FastAttack_Mode == "0.190" then
-		_G.Fast_Delay = 0.190
-	elseif _G.FastAttack_Mode == "0.195" then
-		_G.Fast_Delay = 0.195
-	elseif _G.FastAttack_Mode == "1" then
-		_G.Fast_Delay = 0.1
-	elseif _G.FastAttack_Mode == "1.5" then
-		_G.Fast_Delay = 1.5
-	elseif _G.FastAttack_Mode == "2" then
-		_G.Fast_Delay = 2
+end)
+
+spawn(function()
+	while wait(.1) do
+		if _G.FastAttack_Mode then
+			pcall(function()
+				if _G.FastAttack_Mode == "Super Fast Attack" then
+					_G.Fast_Delay = 0
+				elseif _G.FastAttack_Mode == "0.2" then
+					_G.Fast_Delay = 0.2
+				elseif _G.FastAttack_Mode == "0.5" then
+					_G.Fast_Delay = 0.5
+				elseif _G.FastAttack_Mode == "0.15" then
+					_G.Fast_Delay = 0.15
+				elseif _G.FastAttack_Mode == "0.155" then
+					_G.Fast_Delay = 0.155
+				elseif _G.FastAttack_Mode == "0.16" then
+					_G.Fast_Delay = 0.16
+				elseif _G.FastAttack_Mode == "0.165" then
+					_G.Fast_Delay = 0.165
+				elseif _G.FastAttack_Mode == "0.17" then
+					_G.Fast_Delay = 0.17
+				elseif _G.FastAttack_Mode == "0.175" then
+					_G.Fast_Delay = 0.175
+				elseif _G.FastAttack_Mode == "0.18" then
+					_G.Fast_Delay = 0.18
+				elseif _G.FastAttack_Mode == "0.185" then
+					_G.Fast_Delay = 0.185
+				elseif _G.FastAttack_Mode == "0.190" then
+					_G.Fast_Delay = 0.190
+				elseif _G.FastAttack_Mode == "0.195" then
+					_G.Fast_Delay = 0.195
+				elseif _G.FastAttack_Mode == "1" then
+					_G.Fast_Delay = 0.1
+				elseif _G.FastAttack_Mode == "1.5" then
+					_G.Fast_Delay = 1.5
+				elseif _G.FastAttack_Mode == "2" then
+					_G.Fast_Delay = 2
+				end
+			end)
+		end
 	end
 end)
 

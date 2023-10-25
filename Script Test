@@ -13668,7 +13668,7 @@ Teleport:Line()
 
 Teleport:Seperator("Full Moon")
 
-local FM = Teleport:AddLabel("Third World")
+local FM = Teleport:Label("Third World")
 
 task.spawn(function()
     while task.wait() do
@@ -15311,7 +15311,7 @@ Misc:Line()
     end
 end)
 
-Wait(20)
+Wait(10)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "ScriptBlox"; 

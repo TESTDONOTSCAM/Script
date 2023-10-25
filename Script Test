@@ -6293,7 +6293,7 @@ Mode = {
 	"Double Quest"
 }
 
-Main:Dropdown("Select Mode Farm","Level Farm",Mode,_G.Setting_table.Farm_Mode,function(vu)
+Main:Dropdown("Select Mode Farm","Level Farm",_G.Setting_table.Farm_Mode,Mode,function(vu)
 	Select_Mode_Farm = vu
 	_G.Setting_table.Farm_Mode = vu
 	Update_Setting(getgenv()['MyName'])

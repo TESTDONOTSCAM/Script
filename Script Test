@@ -6270,37 +6270,19 @@ Main Farm Table
 
 ]]
 
-if _G.Setting_table.Farm_Mode == nil then
-	_G.Setting_table.Farm_Mode = "Level Farm"
-end
-
 Main:Line()
 Main:Seperator("\\\\\ Auto Farm //")
 
 if World1 or World2 then
-	Main:Dropdown2("Select Mode Farm", {
-		"Level Farm",
-		"Double Quest"
-	   },function(vu)
+	Main:Dropdown2("Select Mode Farm", {"Level Farm","Double Quest"},function(vu)
 		Select_Mode_Farm = vu
 		_G.Setting_table.Farm_Mode = vu
 		Update_Setting(getgenv()['MyName'])
 	end)
 end
 
-Mode = {
-	"Level Farm",
-	"Double Quest"
-}
-
-Main:Dropdown("Select Mode Farm","Level Farm",_G.Setting_table.Farm_Mode,Mode,function(vu)
-	Select_Mode_Farm = vu
-	_G.Setting_table.Farm_Mode = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-
 if World3 then
-Main:Dropdown2("Select Mode Farm",{"Level Farm","Double Quest","Bone Farm"},function(vu)
+Main:Dropdown2("Select Mode Farm", {"Level Farm","Double Quest","Bone Farm"},function(vu)
 	Select_Mode_Farm = vu
 	_G.Setting_table.Farm_Mode = vu
 	Update_Setting(getgenv()['MyName'])

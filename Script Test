@@ -14649,7 +14649,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
-wait(60)
+wait(30)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Game Shutdown"; 
@@ -14658,7 +14658,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Duration = 10;
 })
 
-wait(10)
+wait(11)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Game Shutdown"; 
@@ -14667,7 +14667,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Duration = 10;
 })
 
-wait(10)
+wait(11)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Game Shutdown"; 
@@ -14676,7 +14676,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Duration = 10;
 })
 
-wait(10)
+wait(11)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "ScriptBlox"; 
@@ -14685,8 +14685,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Duration = 10;
 })
 
-wait(5)
+wait(1)
 
 game.Players.LocalPlayer:Kick("Kick Anti Reset Safety")
-wait(1)
 Hop()

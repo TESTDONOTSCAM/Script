@@ -58,37 +58,37 @@ elseif placeId == 7449423635 then
 end
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "ScriptBlox"; 
-	Text = "Please Wait"; 
+	Title = "ScriptBlox SAVE"; 
+	Text = "Auto Kick In 2 Hours"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 5
+	Duration = 10
 })
 
 wait(2)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "ScriptBlox"; 
+	Title = "ScriptBlox SAVE"; 
 	Text = "Script Still On Loading"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 3
+	Duration = 10
 })
 
 wait(2)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "ScriptBlox"; 
-	Text = "This Take A While"; 
+	Title = "ScriptBlox SAVE"; 
+	Text = "Script On Loading"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 5
+	Duration = 10
 })
 
 wait(1)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "ScriptBlox"; 
-	Text = "Script on Load 60 Second"; 
+	Title = "ScriptBlox SAVE"; 
+	Text = "Auto Kick in 2 Hours"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 10
+	Duration = 12000
 })
 
 _G.BGColor_1 = Color3.fromRGB(30,30,30)
@@ -14631,7 +14631,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
-wait(30)
+wait(12000)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Game Shutdown"; 

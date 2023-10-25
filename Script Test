@@ -6278,8 +6278,8 @@ if World1 or World2 then
 		"Level Farm",
 		"Double Quest"
 	   },function(value)
-		_G.Select_Mode_FarmW12 = value	
-		_G.Setting_table.Mode_Farm = value
+		_G.Select_Mode_Farm = value	
+		_G.Setting_table.Mode_FarmW2 = value
 		Update_Setting(getgenv()['MyName'])
 	end)
 end
@@ -6303,8 +6303,8 @@ Main:Dropdown2("Select Mode Farm", {
 	"Double Quest",
 	"Bone Farm"
    },function(value)
-	_G.Select_Mode_FarmW3 = value	
-	_G.Setting_table.Mode_Farm = value
+	_G.Select_Mode_Farm = value	
+	_G.Setting_table.Mode_FarmW3 = value
 	Update_Setting(getgenv()['MyName'])
 	end)
 end

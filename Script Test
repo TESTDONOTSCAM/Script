@@ -62,5 +62,4 @@ end
 
 game.Players.LocalPlayer:Kick("Kick Anti Reset Safety")
 wait(1)
-game:Shutdown()
 Hop()

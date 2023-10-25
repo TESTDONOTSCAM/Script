@@ -153,7 +153,7 @@ getgenv()['Get_Setting'] = function(Name)
 end
 getgenv()['Update_Setting'] = function(Name)
     if not _G.Dis and isfolder('ScriptBlox Premium') and isfile('ScriptBlox Premium/'..Name..'.json') then
-        writefile('Switch Hub BF Premium/'..Name..'.json',JsonEncode(_G.Setting_table))
+        writefile('ScriptBlox Premium/'..Name..'.json',JsonEncode(_G.Setting_table))
 	elseif not _G.Dis then
         Check_Setting(Name)
     end

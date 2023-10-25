@@ -7531,7 +7531,7 @@ if v.Name == "Cake Prince" then
 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
 repeat task.wait()
 AutoHaki()
-EquipWeapon(_G.SelectWeapon)
+EquipWeapon(_G.Setting_table.Weapon)
 v.HumanoidRootPart.CanCollide = false
 v.Humanoid.WalkSpeed = 0
 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -7557,7 +7557,7 @@ if v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Sta
 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
 repeat task.wait()
 AutoHaki()
-EquipWeapon(_G.SelectWeapon)
+EquipWeapon(_G.Setting_table.Weapon)
 v.HumanoidRootPart.CanCollide = false
 v.Humanoid.WalkSpeed = 0
 v.Head.CanCollide = false
@@ -7663,7 +7663,7 @@ if v.Name == "Cake Queen" then
 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
 repeat task.wait()
 AutoHaki()
-EquipWeapon(_G.SelectWeapon)
+EquipWeapon(_G.Setting_table.Weapon)
 v.HumanoidRootPart.CanCollide = false
 v.Humanoid.WalkSpeed = 0
 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -7729,7 +7729,7 @@ if v.Name == "Diablo" or v.Name == "Deandre" or v.Name == "Urban" then
 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
 repeat task.wait()
 AutoHaki()
-EquipWeapon(_G.SelectWeapon)
+EquipWeapon(_G.Setting_table.Weapon)
 v.HumanoidRootPart.CanCollide = false
 v.Humanoid.WalkSpeed = 0
 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -7786,7 +7786,7 @@ if game:GetService("Workspace").Enemies:FindFirstChild("Soul Reaper") then
 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 if string.find(v.Name , "Soul Reaper") then
 repeat task.wait()
-EquipWeapon(_G.SelectWeapon)
+EquipWeapon(_G.Setting_table.Weapon)
 AutoHaki()
 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 topos(v.HumanoidRootPart.CFrame*CFrame.new(5,10,7))
@@ -7831,7 +7831,7 @@ if v.Name == ("rip_indra True Form" or v.Name == "rip_indra") and v.Humanoid.Hea
 repeat task.wait()
 pcall(function()
 AutoHaki()
-EquipWeapon(_G.SelectWeapon)
+EquipWeapon(_G.Setting_table.Weapon)
 v.HumanoidRootPart.CanCollide = false
 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -7880,7 +7880,7 @@ if v.Name == "Don Swan" and v.Humanoid.Health > 0 and v:IsA("Model") and v:FindF
 repeat task.wait()
 pcall(function()
 AutoHaki()
-EquipWeapon(_G.SelectWeapon)
+EquipWeapon(_G.Setting_table.Weapon)
 v.HumanoidRootPart.CanCollide = false
 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -7953,7 +7953,7 @@ if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.H
 PosMonSaber = v.HumanoidRootPart.CFrame
 repeat task.wait()
 AutoHaki()
-EquipWeapon(_G.SelectWeapon)
+EquipWeapon(_G.Setting_table.Weapon)
 v.HumanoidRootPart.CanCollide = false
 v.Humanoid.WalkSpeed = 0
 v.HumanoidRootPart.CFrame = PosMonSaber
@@ -8033,7 +8033,7 @@ if game:GetService("Workspace").Enemies:FindFirstChild("Ship Deckhand") or game:
 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 if string.find(v.Name, "Ship") then
 repeat task.wait()
-EquipWeapon(_G.SelectWeapon)
+EquipWeapon(_G.Setting_table.Weapon)
 AutoHaki()
 if string.find(v.Name,"Ship") then
 v.HumanoidRootPart.CanCollide = false
@@ -9815,7 +9815,7 @@ AutoQuest:Toggle("Auto Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
 	if v.Name == "Stone" then
 	OldCFrameRainbow = v.HumanoidRootPart.CFrame
 	repeat task.wait()
-	EquipWeapon(_G.SelectWeapon)
+	EquipWeapon(_G.Setting_table.Weapon)
 	topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
 	v.HumanoidRootPart.CanCollide = false
 	v.HumanoidRootPart.CFrame = OldCFrameRainbow
@@ -9835,7 +9835,7 @@ AutoQuest:Toggle("Auto Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
 	if v.Name == "Island Empress" then
 	OldCFrameRainbow = v.HumanoidRootPart.CFrame
 	repeat task.wait()
-	EquipWeapon(_G.SelectWeapon)
+	EquipWeapon(_G.Setting_table.Weapon)
 	topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
 	v.HumanoidRootPart.CanCollide = false
 	v.HumanoidRootPart.CFrame = OldCFrameRainbow
@@ -9855,7 +9855,7 @@ AutoQuest:Toggle("Auto Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
 	if v.Name == "Kilo Admiral" then
 	OldCFrameRainbow = v.HumanoidRootPart.CFrame
 	repeat task.wait()
-	EquipWeapon(_G.SelectWeapon)
+	EquipWeapon(_G.Setting_table.Weapon)
 	topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
 	v.HumanoidRootPart.CanCollide = false
 	v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -9875,7 +9875,7 @@ AutoQuest:Toggle("Auto Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
 	if v.Name == "Captain Elephant" then
 	OldCFrameRainbow = v.HumanoidRootPart.CFrame
 	repeat task.wait()
-	EquipWeapon(_G.SelectWeapon)
+	EquipWeapon(_G.Setting_table.Weapon)
 	topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
 	v.HumanoidRootPart.CanCollide = false
 	v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -9895,7 +9895,7 @@ AutoQuest:Toggle("Auto Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
 	if v.Name == "Beautiful Pirate" then
 	OldCFrameRainbow = v.HumanoidRootPart.CFrame
 	repeat task.wait()
-	EquipWeapon(_G.SelectWeapon)
+	EquipWeapon(_G.Setting_table.Weapon)
 	topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
 	v.HumanoidRootPart.CanCollide = false
 	v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -9963,7 +9963,7 @@ AutoQuest:Toggle("Auto Musketeer Hat",_G.AutoMusketeerHat,function(value)
 		if v.Name == "Forest Pirate" then
 		repeat task.wait()
 		pcall(function()
-		EquipWeapon(_G.SelectWeapon)
+		EquipWeapon(_G.Setting_table.Weapon)
 		AutoHaki()
 		v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 		topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -9996,7 +9996,7 @@ AutoQuest:Toggle("Auto Musketeer Hat",_G.AutoMusketeerHat,function(value)
 		OldCFrameElephant = v.HumanoidRootPart.CFrame
 		repeat task.wait()
 		pcall(function()
-		EquipWeapon(_G.SelectWeapon)
+		EquipWeapon(_G.Setting_table.Weapon)
 		AutoHaki()
 		v.HumanoidRootPart.CanCollide = false
 		v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -13221,13 +13221,13 @@ if _G.SelectPly ~= nil then
 if game.Players:FindFirstChild(_G.SelectPly) then
 if game.Players:FindFirstChild(_G.SelectPly).Character.Humanoid.Health > 0 then
 repeat task.wait()
-EquipWeapon(_G.SelectWeapon)
+EquipWeapon(_G.Setting_table.Weapon)
 AutoHaki()
 game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CanCollide = false
 topos(game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CFrame * CFrame.new(0,35,0))
 spawn(function()
 pcall(function()
-if _G.SelectWeapon == SelectWeaponSword then
+if _G.Setting_table.Weapon == SelectWeaponSword then
 local args = {
 [1] = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.Position,
 [2] = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart
@@ -13617,6 +13617,7 @@ Teleport Table
 
 ]]
 	
+--[[
 if W then
 	Teleport:Toggle("Auto Farm Factory",_G.AutoFactory,function(value)
 	_G.AutoFactory = value
@@ -13632,7 +13633,7 @@ if W then
 	if v.Name == "Core" and v.Humanoid.Health > 0 then
 	repeat task.wait()
 	AutoHaki()
-	EquipWeapon(_G.SelectWeapon)
+	EquipWeapon(_G.Setting_table.Weapon)
 	topos(CFrame.new(448.46756, 199.356781, -441.389252))
 	game:GetService("VirtualUser"):CaptureController()
 	game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
@@ -13663,6 +13664,7 @@ if W then
 	end
 	end)
 end
+]]--
 
 Teleport:Line()
 
@@ -13710,17 +13712,6 @@ Teleport:Toggle("Teleport To Mirage Island",false,function(Val)
 	StopTween(_G.AutoMysticIsland)
 end)
 
-spawn(function()
-    pcall(function()
-    while wait() do
-        if _G.Miragenpc then
-            if game:GetService("Workspace").NPCs:FindFirstChild("Advanced Fruit Dealer") then
-                topos(CFrame.new(game:GetService("Workspace").NPCs["Advanced Fruit Dealer"].HumanoidRootPart.Position))
-                end
-            end
-        end
-    end)
-end)
 spawn(function()
     pcall(function()
         while wait() do
@@ -15311,7 +15302,7 @@ Misc:Line()
     end
 end)
 
-Wait(10)
+wait(10)
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "ScriptBlox"; 

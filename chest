@@ -256,6 +256,6 @@ local UIPadding = Instance.new("UIPadding")
 UIPadding.Parent = YTNAME
 UIPadding.PaddingLeft = UDim.new(0, 6)
 
-wait(5)
+wait(1)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/ChestFarm"))()

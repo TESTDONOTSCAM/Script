@@ -3919,11 +3919,11 @@ spawn(function()
 								if v.Humanoid:FindFirstChild("Animator") then
 									v.Humanoid.Animator:Destroy()
 								end
-								v.Humanoid:ChangeState(11)
+								v.Humanoid:ChangeState(14)
 								v.Humanoid.JumpPower = 0
 								v.Humanoid.WalkSpeed = 0
 								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(5,5,5)
+								v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 								v.HumanoidRootPart.CFrame = _G.PosMon
 								sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
 								Attack = true
@@ -3936,11 +3936,11 @@ spawn(function()
 							if v.Humanoid:FindFirstChild("Animator") then
 								v.Humanoid.Animator:Destroy()
 							end
-							v.Humanoid:ChangeState(11)
+							v.Humanoid:ChangeState(14)
 							v.Humanoid.JumpPower = 0
 							v.Humanoid.WalkSpeed = 0
 							v.HumanoidRootPart.CanCollide = false
-							v.HumanoidRootPart.Size = Vector3.new(5,5,5)
+							v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 							v.HumanoidRootPart.CFrame = _G.PosMon
 							sethiddenproperty(game.Players.LocalPlayer, "MaximumSimulationRadius",  math.huge)
 							sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  9e20)
@@ -3958,7 +3958,7 @@ end
 
 MIo = {"Super Fast Attack", "0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"}
 
-Setting:Toggle("Fast Attack","14960208781",_G.Setting_table.FastAttack,function(vu)
+General_Tab:Toggle("Fast Attack","14960208781",_G.Setting_table.FastAttack,function(vu)
 	_G.FastAttack = vu
 	_G.Setting_table.FastAttack = vu
 	Update_Setting(getgenv()['MyName'])
@@ -4000,7 +4000,7 @@ spawn(function()
     end)
 end)
 
-Setting:Dropdown("Fast Attack Delay ","0.2",MIo,function(vu)
+General_Tab:Dropdown("Fast Attack Delay ","0.2",MIo,function(vu)
 	_G.FastAttack_Mode = vu
 	Update_Setting(getgenv()['MyName'])
 end)

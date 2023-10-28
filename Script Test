@@ -2766,6 +2766,76 @@ end
 
 ---------------------------------------------------------------
 
+function MagmaW1()
+	local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
+	if _G.Upto then
+		Lv = Lv + 100
+	end
+if World1 then
+	if Lv >= 325 then -- Military Spy			 
+	Ms = "Military Spy"
+	NameQuest = "MagmaQuest"
+	QuestLv = 2
+	NameMon = "Military Spy"
+	CFrameQ = CFrame.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
+	CFrameMon = CFrame.new(-5787.99023, 120.864456, 8762.25293, -0.188358366, -1.84706277e-08, 0.982100308, -1.23782129e-07, 1, -4.93306951e-09, -0.982100308, -1.22495649e-07, -0.188358366)
+	TelePBoss(CFrameQ)
+	end
+end
+
+function AngelW1()
+	local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
+	if _G.Upto then
+		Lv = Lv + 100
+	end
+if World1 then
+	if Lv >= 550 then -- Military Spy			 
+		Ms = "Royal Soldier"
+		NameQuest = "SkyExp2Quest"
+		QuestLv = 2
+		NameMon = "Royal Soldier"
+		CFrameQ = CFrame.new(-7906.81592, 5634.6626, -1411.99194, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+		CFrameMon = CFrame.new(-7837.31152, 5649.65186, -1791.08582, -0.716008604, 0.0104285581, -0.698013008, 5.02521061e-06, 0.99988848, 0.0149335321, 0.69809103, 0.0106890313, -0.715928733)
+		TelePBoss(CFrameQ)
+	end
+end
+
+function LeatherW1()
+	local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
+	if _G.Upto then
+		Lv = Lv + 100
+	end
+if World1 then
+	if Lv >= 30 then -- Military Spy			 
+		Ms = "Pirate"
+		NameQuest = "BuggyQuest1"
+		QuestLv = 1
+		NameMon = "Pirate"
+		CFrameQ = CFrame.new(-1141.07483, 4.10001802, 3831.5498, 0.965929627, -0, -0.258804798, 0, 1, -0, 0.258804798, 0, 0.965929627)
+		CFrameMon = CFrame.new(-1169.5365, 5.09531212, 3933.84082, -0.971822679, -3.73200315e-09, 0.235713184, -4.16762763e-10, 1, 1.41145424e-08, -0.235713184, 1.3618596e-08, -0.971822679)
+		TelePBoss(CFrameQ)
+	end
+end
+
+function ScrapW1()
+	local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
+	if _G.Upto then
+		Lv = Lv + 100
+	end
+if World1 then
+	if Lv >= 40 then -- Military Spy			 
+		Ms = "Brute"
+		NameQuest = "BuggyQuest1"
+		QuestLv = 2
+		NameMon = "Brute"
+		CFrameQ = CFrame.new(-1141.07483, 4.10001802, 3831.5498, 0.965929627, -0, -0.258804798, 0, 1, -0, 0.258804798, 0, 0.965929627)
+		CFrameMon = CFrame.new(-1165.09985, 15.1531372, 4363.51514, -0.962800264, 1.17564889e-06, 0.270213336, 2.60172015e-07, 1, -3.4237969e-06, -0.270213336, -3.22613073e-06, -0.962800264)
+		TelePBoss(CFrameQ)
+	end
+end
+
+---------------------------------------------------------------
+
 function AutoHaki()
 	if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
@@ -3921,6 +3991,487 @@ spawn(function()
 		end
 	end)
 end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+spawn(function()
+	while wait() do
+		pcall(function()
+		if Auto_Farm then
+			if _G.Select_Material == "Magma Ore [World 1]" then
+				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+					if _G.Farm_Boss then
+						_G.SelectBoss = nil
+						_G.Farm_Boss = nil
+						SelectMonster = nil
+						_G.Farm_Mon = nil
+						_G.FastAttack2 = false
+						wait(.2)
+					end
+					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
+						CheckQuestBoss()
+						repeat wait(.2)
+							TelePBoss(CFrameQBoss)
+							TP(CFrameQBoss)
+						until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+						_G.Farm_Boss = true
+						_G.FastAttack2 = false
+					elseif SelectMonster ~= nil then
+						MagmaW1()
+						AutoHaki()
+						_G.FastAttack2 = false
+						repeat wait(.2)
+							TelePBoss(CFrameQ)
+							TP(CFrameQ)
+							_G.FastAttack2 = false
+						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+						_G.FastAttack2 = false
+						SelectMonster = nil
+						_G.Farm_Mon = nil
+					else
+						StatrMagnet = nil
+						MagmaW1()
+						AutoHaki()
+						_G.FastAttack2 = false
+						repeat wait(.2)
+							TelePBoss(CFrameQ)
+							topos(CFrameQ)
+						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+						_G.FastAttack2 = false
+					end
+				elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+					if _G.Farm_Boss then
+						if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
+							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+								if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then
+									if v.Humanoid:FindFirstChild("Animator") then
+										v.Humanoid.Animator:Destroy()
+									end
+									v.Humanoid:ChangeState(11)
+									v.Humanoid.JumpPower = 0
+									v.Humanoid.WalkSpeed = 0
+									v.HumanoidRootPart.CanCollide = false
+									v.HumanoidRootPart.Size = Vector3.new(5,5,5)
+									StatrMagnet = nil
+									repeat wait(0.3)
+										TelePBoss(CFrameQBoss)
+										EquipWeapon(_G.Setting_table.Weapon)
+										topos(v.HumanoidRootPart.CFrame*CFrame.new(0,30,50))
+										AttackNoCD()
+									until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+									if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+										game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+									end
+								end
+							end
+						else
+							topos(CFrameBoss*CFrame.new(0,30,0))
+							TelePBoss(CFrameBoss)
+						end
+					else
+						if game.Workspace.Enemies:FindFirstChild(Ms) then
+							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+								if v.Name == Ms and v.Humanoid.Health > 0 then
+									_G.PosMon = v.HumanoidRootPart.CFrame
+									_G.FastAttack2 = true
+									StatrMagnet = true
+									if v.Humanoid:FindFirstChild("Animator") then
+										v.Humanoid.Animator:Destroy()
+									end
+									v.Humanoid:ChangeState(11)
+									v.Humanoid.JumpPower = 0
+									v.Humanoid.WalkSpeed = 0
+									v.HumanoidRootPart.CanCollide = false
+									v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+									repeat task.wait()
+										TelePBoss(CFrameQ)
+										EquipWeapon(_G.Setting_table.Weapon)
+										topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+										game:GetService'VirtualUser':CaptureController()
+										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+									until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+									if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+									elseif Lv >= 1 and Lv <= 2499 then
+										game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+									elseif Lv >= 2525 then
+										game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+									end
+									Attack = nil
+								end
+							end
+							else
+							_G.FastAttack2 = false
+							StatrMagnet = false
+							if game.ReplicatedStorage:FindFirstChild(Ms) then
+								topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+							else
+							topos(CFrameMon)
+							_G.FastAttack2 = false
+							end
+						end
+					end
+				end
+			elseif _G.Select_Material == "Angel Wings [World 1]" then
+				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+					if _G.Farm_Boss then
+						_G.SelectBoss = nil
+						_G.Farm_Boss = nil
+						SelectMonster = nil
+						_G.Farm_Mon = nil
+						_G.FastAttack2 = false
+						wait(.2)
+					end
+					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
+						CheckQuestBoss()
+						repeat wait()
+							TelePBoss(CFrameQBoss)
+							TP(CFrameQBoss)
+						until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+						_G.Farm_Boss = true
+						_G.FastAttack2 = false
+					elseif SelectMonster ~= nil then
+						AngelW1()
+						AutoHaki()
+						_G.FastAttack2 = false
+						repeat wait(.2)
+							TelePBoss(CFrameQ)
+							TP(CFrameQ)
+							_G.FastAttack2 = false
+						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+						_G.FastAttack2 = false
+						SelectMonster = nil
+						_G.Farm_Mon = nil
+					else
+						StatrMagnet = nil
+						AngelW1()
+						AutoHaki()
+						_G.FastAttack2 = false
+						repeat wait(.2)
+							TelePBoss(CFrameQ)
+							topos(CFrameQ)
+						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+						_G.FastAttack2 = false
+					end
+				elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+					if _G.Farm_Boss then
+						if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
+							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+								if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then
+									if v.Humanoid:FindFirstChild("Animator") then
+										v.Humanoid.Animator:Destroy()
+									end
+									v.Humanoid:ChangeState(11)
+									v.Humanoid.JumpPower = 0
+									v.Humanoid.WalkSpeed = 0
+									v.HumanoidRootPart.CanCollide = false
+									v.HumanoidRootPart.Size = Vector3.new(5,5,5)
+									StatrMagnet = nil
+									repeat wait()
+										TelePBoss(CFrameQBoss)
+										EquipWeapon(_G.Setting_table.Weapon)
+										topos(v.HumanoidRootPart.CFrame*CFrame.new(0,30,50))
+									until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+									if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+										game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+									end
+								end
+							end
+						else
+							topos(CFrameBoss*CFrame.new(0,30,0))
+							TelePBoss(CFrameBoss)
+						end
+					else
+						if game.Workspace.Enemies:FindFirstChild(Ms) then
+							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+								if v.Name == Ms and v.Humanoid.Health > 0 then
+									_G.PosMon = v.HumanoidRootPart.CFrame
+									_G.FastAttack2 = true
+									StatrMagnet = true
+									if v.Humanoid:FindFirstChild("Animator") then
+										v.Humanoid.Animator:Destroy()
+									end
+									v.Humanoid:ChangeState(11)
+									v.Humanoid.JumpPower = 0
+									v.Humanoid.WalkSpeed = 0
+									v.HumanoidRootPart.CanCollide = false
+									v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+									repeat task.wait()
+										TelePBoss(CFrameQ)
+										EquipWeapon(_G.Setting_table.Weapon)
+										topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+										game:GetService'VirtualUser':CaptureController()
+										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+									until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+									if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+									elseif Lv >= 1 and Lv <= 2499 then
+										game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+									end
+									Attack = nil
+								end
+							end
+							else
+							_G.FastAttack2 = false
+							StatrMagnet = false
+							if game.ReplicatedStorage:FindFirstChild(Ms) then
+								topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+							else
+							topos(CFrameMon)
+							_G.FastAttack2 = false
+								end
+							end
+						end
+					end
+				elseif _G.Select_Material == "Leather [World 1]" then
+					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+						if _G.Farm_Boss then
+							_G.SelectBoss = nil
+							_G.Farm_Boss = nil
+							SelectMonster = nil
+							_G.Farm_Mon = nil
+							_G.FastAttack2 = false
+							wait(.2)
+						end
+						if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
+							CheckQuestBoss()
+							repeat wait()
+								TelePBoss(CFrameQBoss)
+								TP(CFrameQBoss)
+							until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+							_G.Farm_Boss = true
+							_G.FastAttack2 = false
+						elseif SelectMonster ~= nil then
+							LeatherW1()
+							AutoHaki()
+							_G.FastAttack2 = false
+							repeat wait(.2)
+								TelePBoss(CFrameQ)
+								TP(CFrameQ)
+								_G.FastAttack2 = false
+							until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+							_G.FastAttack2 = false
+							SelectMonster = nil
+							_G.Farm_Mon = nil
+						else
+							StatrMagnet = nil
+							LeatherW1()
+							AutoHaki()
+							_G.FastAttack2 = false
+							repeat wait(.2)
+								TelePBoss(CFrameQ)
+								topos(CFrameQ)
+							until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+							_G.FastAttack2 = false
+						end
+					elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+						if _G.Farm_Boss then
+							if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
+								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+									if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then
+										if v.Humanoid:FindFirstChild("Animator") then
+											v.Humanoid.Animator:Destroy()
+										end
+										v.Humanoid:ChangeState(11)
+										v.Humanoid.JumpPower = 0
+										v.Humanoid.WalkSpeed = 0
+										v.HumanoidRootPart.CanCollide = false
+										v.HumanoidRootPart.Size = Vector3.new(5,5,5)
+										StatrMagnet = nil
+										repeat wait()
+											TelePBoss(CFrameQBoss)
+											EquipWeapon(_G.Setting_table.Weapon)
+											topos(v.HumanoidRootPart.CFrame*CFrame.new(0,30,50))
+										until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+										if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+										end
+									end
+								end
+							else
+								topos(CFrameBoss*CFrame.new(0,30,0))
+								TelePBoss(CFrameBoss)
+							end
+						else
+							if game.Workspace.Enemies:FindFirstChild(Ms) then
+								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+									if v.Name == Ms and v.Humanoid.Health > 0 then
+										_G.PosMon = v.HumanoidRootPart.CFrame
+										_G.FastAttack2 = true
+										StatrMagnet = true
+										if v.Humanoid:FindFirstChild("Animator") then
+											v.Humanoid.Animator:Destroy()
+										end
+										v.Humanoid:ChangeState(11)
+										v.Humanoid.JumpPower = 0
+										v.Humanoid.WalkSpeed = 0
+										v.HumanoidRootPart.CanCollide = false
+										v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+										repeat task.wait()
+											TelePBoss(CFrameQ)
+											EquipWeapon(_G.Setting_table.Weapon)
+											topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+											game:GetService'VirtualUser':CaptureController()
+											game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+										until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+										if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+										elseif Lv >= 1 and Lv <= 2499 then
+											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+										end
+										Attack = nil
+									end
+								end
+								else
+								_G.FastAttack2 = false
+								StatrMagnet = false
+								if game.ReplicatedStorage:FindFirstChild(Ms) then
+									topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+								else
+								topos(CFrameMon)
+								_G.FastAttack2 = false
+									end
+								end
+							end
+						end
+					elseif _G.Select_Material == "Leather [World 1]" then
+						if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+							if _G.Farm_Boss then
+								_G.SelectBoss = nil
+								_G.Farm_Boss = nil
+								SelectMonster = nil
+								_G.Farm_Mon = nil
+								_G.FastAttack2 = false
+								wait(.2)
+							end
+							if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
+								CheckQuestBoss()
+								repeat wait()
+									TelePBoss(CFrameQBoss)
+									TP(CFrameQBoss)
+								until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+								_G.Farm_Boss = true
+								_G.FastAttack2 = false
+							elseif SelectMonster ~= nil then
+								ScrapW1()
+								AutoHaki()
+								_G.FastAttack2 = false
+								repeat wait(.2)
+									TelePBoss(CFrameQ)
+									TP(CFrameQ)
+									_G.FastAttack2 = false
+								until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+								_G.FastAttack2 = false
+								SelectMonster = nil
+								_G.Farm_Mon = nil
+							else
+								StatrMagnet = nil
+								ScrapW1()
+								AutoHaki()
+								_G.FastAttack2 = false
+								repeat wait(.2)
+									TelePBoss(CFrameQ)
+									topos(CFrameQ)
+								until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+								_G.FastAttack2 = false
+							end
+						elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+							if _G.Farm_Boss then
+								if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
+									for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+										if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then
+											if v.Humanoid:FindFirstChild("Animator") then
+												v.Humanoid.Animator:Destroy()
+											end
+											v.Humanoid:ChangeState(11)
+											v.Humanoid.JumpPower = 0
+											v.Humanoid.WalkSpeed = 0
+											v.HumanoidRootPart.CanCollide = false
+											v.HumanoidRootPart.Size = Vector3.new(5,5,5)
+											StatrMagnet = nil
+											repeat wait()
+												TelePBoss(CFrameQBoss)
+												EquipWeapon(_G.Setting_table.Weapon)
+												topos(v.HumanoidRootPart.CFrame*CFrame.new(0,30,50))
+											until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+											if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+											end
+										end
+									end
+								else
+									topos(CFrameBoss*CFrame.new(0,30,0))
+									TelePBoss(CFrameBoss)
+								end
+							else
+								if game.Workspace.Enemies:FindFirstChild(Ms) then
+									for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+										if v.Name == Ms and v.Humanoid.Health > 0 then
+											_G.PosMon = v.HumanoidRootPart.CFrame
+											_G.FastAttack2 = true
+											StatrMagnet = true
+											if v.Humanoid:FindFirstChild("Animator") then
+												v.Humanoid.Animator:Destroy()
+											end
+											v.Humanoid:ChangeState(11)
+											v.Humanoid.JumpPower = 0
+											v.Humanoid.WalkSpeed = 0
+											v.HumanoidRootPart.CanCollide = false
+											v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+											repeat task.wait()
+												TelePBoss(CFrameQ)
+												EquipWeapon(_G.Setting_table.Weapon)
+												topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+												game:GetService'VirtualUser':CaptureController()
+												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+											until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+											if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+											elseif Lv >= 1 and Lv <= 2499 then
+												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+											end
+											Attack = nil
+										end
+									end
+									else
+									_G.FastAttack2 = false
+									StatrMagnet = false
+									if game.ReplicatedStorage:FindFirstChild(Ms) then
+										topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+									else
+									topos(CFrameMon)
+									_G.FastAttack2 = false
+									end
+								end
+							end
+						end
+					end
+				end
+			end)
+		end
+	end)
+
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -6476,6 +7027,50 @@ end)
 
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 Camera:Stop()
+
+-----------------------------------------------------------------------------
+
+Main:Seperator("\\\\\ Farm Material //")
+
+if World1 then
+	Main:Dropdown2("Select Material", {
+		"Magma Ore [World 1]",
+		"Angel Wings [World 1]",
+		"Leather [World 1]",
+		"Scrap Metal [ World 1]"
+	   },function(value)
+		_G.Select_Material = value	
+	end)
+end
+
+if World2 then
+	Main:Dropdown2("Select Material", {
+		"Mystic Droplet [World 2]",
+		"Magma Ore [World 2]",
+		"Leather [World 2]",
+		"Demonic Wisp [World 2]",
+		"Vampire Fang [World 2]",
+		"Radioactive Material [World 2]"
+	   },function(value)
+		_G.Select_Material = value	
+	end)
+end
+
+if World3 then
+	Main:Dropdown2("Select Material", {
+		"Leather [World 3]",
+		"Scrap Metal [World 3]",
+		"Conjured Cocoa [World 3]",
+		"Dragon Scale [World 3]",
+		"Gunpowder [World 3]",
+		"Fish Tail [World 3]",
+		"Mini Tusk [World 3]"
+	   },function(value)
+		_G.Select_Material = value	
+	end)
+end
+
+--------------------------------------------------------------------------------
 
 Main:Button("Refresh Weapon",function(vu)
 	Select_W:Clear()

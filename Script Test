@@ -3410,13 +3410,13 @@ spawn(function()
 while wait(.1) do
     if Type == 1 then
         Pos = CFrame.new(0,PosY,0)
-		wait(.3)
+		wait(.1)
 		Pos = CFrame.new(0,PosY,-30)
-		wait(.3)
+		wait(.1)
 		Pos = CFrame.new(30,PosY,0)
-		wait(.3)
+		wait(.1)
 		Pos = CFrame.new(0,PosY,30)
-		wait(.3)
+		wait(.1)
 		Pos = CFrame.new(-30,PosY,0)
     	end
     end
@@ -3902,7 +3902,7 @@ end
 
 spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
-		if Auto_Farm then
+		if Auto_Farm or Farm_Material then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
 				setfflag("HumanoidParallelRemoveNoPhysics", "False")
 				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")

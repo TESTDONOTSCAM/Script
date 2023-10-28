@@ -3936,7 +3936,7 @@ spawn(function()
 	while wait(.1) do
 		pcall(function()
 			if Farm_Material then
-				Auto_Farm = false
+				_G.Setting_table.AutoFarm = false
 				Farm_Material = true
 				StopTween(Auto_Farm)
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then

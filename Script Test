@@ -6529,7 +6529,7 @@ SelectMath = {
 end
 
 Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)
-	_G.Select_Material
+	_G.Select_Material = value
 end)
 
 Main:Seperator("\\\\\ Mastery //")

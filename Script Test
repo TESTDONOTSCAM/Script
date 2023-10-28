@@ -2712,6 +2712,7 @@ function DoubleQ()
 			CFrameQ = CFrame.new(-16541.0215, 54.770813, 1051.46118, 0.0410757065, -0, -0.999156058, 0, 1, -0, 0.999156058, 0, 0.0410757065)
 			CFrameMon = CFrame.new(-16606.0918, 130.704803, 1087.90845, -0.933031023, 7.60136913e-08, 0.359795898, 4.91600538e-08, 1, -8.37859417e-08, -0.359795898, -6.04872952e-08, -0.933031023)
 			TelePBoss(CFrameQ)
+
 			SelectMonster = "Sun-kissed Warrior"
 		end
 	end
@@ -3926,7 +3927,7 @@ spawn(function()
 	while wait(.1) do
 		pcall(function()
 			if Auto_Farm then
-				if not Mix_Farm then
+				--if  then
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -4045,7 +4046,7 @@ spawn(function()
 						end
 					end
 				end
-			end
+			--end
 			end
 		end)
 	end

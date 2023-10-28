@@ -3907,8 +3907,8 @@ spawn(function()
 					LOL1.Name = "LOL1"
 					LOL1.Parent = game.Workspace
 					LOL1.Anchored = true
-					LOL1.Transparency = 0.9
-					LOL1.Size = Vector3.new(25,0.5,25)
+					LOL1.Transparency = 1
+					LOL1.Size = Vector3.new(50,0.5,50)
 				elseif game:GetService("Workspace"):FindFirstChild("LOL1") then
 					game.Workspace["LOL1"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3.8,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
 				end
@@ -6796,35 +6796,32 @@ Main:Seperator("Material Farm")
 local SelectMath
 if World1 then
 	SelectMath = {
+ "Leather",
  "Magma Ore",
  "Angel Wings",
- "Leather",
  "Scrap Metal",
- "Radioactive Material",
  }
 
 elseif World2 then
 SelectMath = {
- "Mystic Droplet",
- "Magma Ore",
  "Leather",
+ "Magma Ore",
  "Scrap Metal",
  "Demonic Wisp",
  "Vampire Fang",
+ "Mystic Droplet",
  "Radioactive Material",
  }
 
 elseif World3 then
 SelectMath = {
  "Leather",
- "Scrap Metal",
- "Vampire Fang",
- "Conjured Cocoa",
- "Dragon Scale",
- "Gunpowder",
  "Fish Tail",
  "Mini Tusk",
- "Radioactive Material",
+ "Gunpowder",
+ "Scrap Metal",
+ "Dragon Scale",
+ "Conjured Cocoa",
  }
 end
 

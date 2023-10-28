@@ -3450,6 +3450,9 @@ spawn(function()
 		pcall(function()
 		if Auto_Farm then
 			if _G.Select_Mode_Farm == "Level Farm" then
+				Farm_Material = false
+				StopTween(Farm_Material)
+				Auto_Farm = true
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -3457,9 +3460,6 @@ spawn(function()
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 						_G.FastAttack2 = false
-						Farm_Material = false
-						StopTween(Farm_Material)
-						Auto_Farm = true
 						wait(.2)
 					end
 					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3572,6 +3572,9 @@ spawn(function()
 					end
 				end
 			elseif _G.Select_Mode_Farm == "Double Quest" then
+				Farm_Material = false
+				StopTween(Farm_Material)
+				Auto_Farm = true
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -3579,9 +3582,6 @@ spawn(function()
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 						_G.FastAttack2 = false
-						Farm_Material = false
-						StopTween(Farm_Material)
-						Auto_Farm = true
 						wait(.2)
 					end
 					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3691,6 +3691,9 @@ spawn(function()
 						end
 					end
 				elseif _G.Select_Mode_Farm == "Bone Farm" then
+					Farm_Material = false
+					StopTween(Farm_Material)
+					Auto_Farm = true
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 						if _G.Farm_Boss then
 							_G.SelectBoss = nil
@@ -3698,9 +3701,6 @@ spawn(function()
 							SelectMonster = nil
 							_G.Farm_Mon = nil
 							_G.FastAttack2 = false
-							Farm_Material = false
-							StopTween(Farm_Material)
-							Auto_Farm = true
 							wait(.2)
 						end
 						if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then

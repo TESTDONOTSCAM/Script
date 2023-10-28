@@ -3907,7 +3907,7 @@ spawn(function()
 					LOL1.Name = "LOL1"
 					LOL1.Parent = game.Workspace
 					LOL1.Anchored = true
-					LOL1.Transparency = 1
+					LOL1.Transparency = 0.8
 					LOL1.Size = Vector3.new(50,0.5,50)
 				elseif game:GetService("Workspace"):FindFirstChild("LOL1") then
 					game.Workspace["LOL1"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3.8,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
@@ -6733,39 +6733,33 @@ spawn(function()
 				if Auto_Farm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-							if v.Name == Ms and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 240 then
+							if v.Name == Ms and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 375 then
 								if v.Humanoid:FindFirstChild("Animator") then
 									v.Humanoid.Animator:Destroy()
 								end
-
 								v.Humanoid:ChangeState(14)
-
 								v.Humanoid.JumpPower = 0
 								v.Humanoid.WalkSpeed = 0
 								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 								v.HumanoidRootPart.CFrame = _G.PosMon
-								sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
-								Attack = true
+								sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
 							end
 						end
 					end
 				else
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-						if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 240 then
+						if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
 							if v.Humanoid:FindFirstChild("Animator") then
 								v.Humanoid.Animator:Destroy()
 							end
-							
 							v.Humanoid:ChangeState(14)
-
 							v.Humanoid.JumpPower = 0
 							v.Humanoid.WalkSpeed = 0
 							v.HumanoidRootPart.CanCollide = false
-							v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 							v.HumanoidRootPart.CFrame = _G.PosMon
-							sethiddenproperty(game.Players.LocalPlayer, "MaximumSimulationRadius",  math.huge)
-							sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  9e20)
+							sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
 						end
 					end
 				end
@@ -6795,26 +6789,34 @@ Main:Seperator("Material Farm")
 
 local SelectMath
 if World1 then
-	SelectMath = {
- "Leather",
- "Magma Ore",
- "Angel Wings",
- "Scrap Metal",
- }
+
+SelectMath = {
+
+"Leather",
+"Magma Ore",
+"Angel Wings",
+"Scrap Metal",
+
+}
 
 elseif World2 then
+
 SelectMath = {
- "Leather",
- "Magma Ore",
- "Scrap Metal",
- "Demonic Wisp",
- "Vampire Fang",
- "Mystic Droplet",
- "Radioactive Material",
- }
+
+"Leather",
+"Magma Ore",
+"Scrap Metal",
+"Demonic Wisp",
+"Vampire Fang",
+"Mystic Droplet",
+"Radioactive Material",
+
+}
 
 elseif World3 then
+
 SelectMath = {
+
  "Leather",
  "Fish Tail",
  "Mini Tusk",
@@ -6822,7 +6824,8 @@ SelectMath = {
  "Scrap Metal",
  "Dragon Scale",
  "Conjured Cocoa",
- }
+
+}
 end
 
 Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)

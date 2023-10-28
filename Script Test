@@ -3457,6 +3457,7 @@ spawn(function()
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 						_G.FastAttack2 = false
+						Farm_Material = false
 						wait(.2)
 					end
 					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3576,6 +3577,7 @@ spawn(function()
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 						_G.FastAttack2 = false
+						Farm_Material = false
 						wait(.2)
 					end
 					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3692,6 +3694,7 @@ spawn(function()
 							SelectMonster = nil
 							_G.Farm_Mon = nil
 							_G.FastAttack2 = false
+							Farm_Material = false
 							wait(.2)
 						end
 						if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3926,8 +3929,8 @@ end)
 spawn(function()
 	while wait(.1) do
 		pcall(function()
-			if Auto_Farm then
-				--if  then
+			if Farm_Material then
+				Auto_Farm = false
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -4046,7 +4049,6 @@ spawn(function()
 						end
 					end
 				end
-			--end
 			end
 		end)
 	end
@@ -6250,7 +6252,7 @@ Line.Size = UDim2.new(1.028, -9, 0, 4)
 	end
 end
 
-local win = library:Window("FROST",[[ScriptBlox Premasdaium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
+local win = library:Window("FROST",[[ScriptBlox Premium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
 
 local User = win:Tab("        Status","rbxassetid://14355269935")
     local Main = win:Tab("        Main","rbxassetid://14764164264")
@@ -6625,26 +6627,6 @@ Main:Dropdown2("Select Mode Farm", {
 	end)
 end
 
-Waspon = {}
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
-    if v:IsA("Tool") then
-        table.insert(Waspon ,v.Name)
-    end
-end
-for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
-    if v:IsA("Tool") then
-        table.insert(Waspon ,v.Name)
-    end
-end
-if type(_G.Setting_table.Weapon) == 'string' then
-else
-	_G.Setting_table.Weapon = ""
-end
-local Select_W = Main:Dropdown("Select Weapon",_G.Setting_table.Weapon,Waspon,function(vu)
-	_G.Setting_table.Weapon = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-
 Main:Toggle("Auto Farm",_G.Setting_table.AutoFarm,function(vu)
 	Auto_Farm = vu
 	_G.Setting_table.AutoFarm = vu
@@ -6772,6 +6754,28 @@ end)
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 Camera:Stop()
 
+Main:Seperator("Weapon")
+
+Waspon = {}
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+    if v:IsA("Tool") then
+        table.insert(Waspon ,v.Name)
+    end
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
+    if v:IsA("Tool") then
+        table.insert(Waspon ,v.Name)
+    end
+end
+if type(_G.Setting_table.Weapon) == 'string' then
+else
+	_G.Setting_table.Weapon = ""
+end
+local Select_W = Main:Dropdown("Select Weapon",_G.Setting_table.Weapon,Waspon,function(vu)
+	_G.Setting_table.Weapon = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+
 Main:Button("Refresh Weapon",function(vu)
 	Select_W:Clear()
 	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
@@ -6833,7 +6837,11 @@ Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)
 	_G.Select_Material = value
 end)
 
-Main:Seperator("\\\\\ Mastery //")
+Main:Toggle("Farm Material",false,function(value)
+	Farm_Material = value
+end)
+
+Main:Seperator("Mastery")
 
 Main:LabelWarn("Not Fixed")
 
@@ -7245,7 +7253,7 @@ spawn(function()
 	end
 end)
 
-Main:Seperator("\\\\\ Boss Farm //")
+Main:Seperator("Boss Farm")
 
 Main:LabelWarn("Not Fixed")
 

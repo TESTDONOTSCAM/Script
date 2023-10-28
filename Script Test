@@ -3457,7 +3457,7 @@ spawn(function()
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 						_G.FastAttack2 = false
-						Farm_Material = false
+						
 						wait(.2)
 					end
 					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3577,7 +3577,7 @@ spawn(function()
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 						_G.FastAttack2 = false
-						Farm_Material = false
+						
 						wait(.2)
 					end
 					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3694,7 +3694,7 @@ spawn(function()
 							SelectMonster = nil
 							_G.Farm_Mon = nil
 							_G.FastAttack2 = false
-							Farm_Material = false
+							
 							wait(.2)
 						end
 						if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3803,6 +3803,9 @@ spawn(function()
 								end
 							end
 						end
+					elseif _G.Select_Mode_Farm == "Stop Farm" then
+						StopTween(Auto_Farm)
+						Auto_Farm = false
 					end
 				end
 			end)
@@ -3929,8 +3932,7 @@ end)
 spawn(function()
 	while wait(.1) do
 		pcall(function()
-			if Farm_Material then
-				Auto_Farm = false
+			if Auto_Farm then
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -4219,6 +4221,9 @@ elseif _G.Select_Material == "Mini Tusk" then
 		CFrameMon = CFrame.new(-13869.172851563, 564.95251464844, -7084.4135742188)
 		TelePBoss(CFrameQ)
 		end
+elseif _G.Select_Material == "Stop Material" then
+	StopTween(Auto_Farm)
+	Auto_Farm = false
 	end
 end
 	
@@ -6610,6 +6615,7 @@ Main:Seperator("\\\\\ Auto Farm //")
 
 if World1 or World2 then
 	Main:Dropdown2("Select Mode Farm", {
+		"Stop Farm",
 		"Level Farm",
 		"Double Quest"
 	   },function(value)
@@ -6619,6 +6625,7 @@ end
 
 if World3 then
 Main:Dropdown2("Select Mode Farm", {
+	"Stop Farm",
 	"Level Farm",
 	"Double Quest",
 	"Bone Farm"
@@ -6797,6 +6804,7 @@ if World1 then
 
 SelectMath = {
 
+"Stop Material",
 "Leather",
 "Magma Ore",
 "Angel Wings",
@@ -6808,6 +6816,7 @@ elseif World2 then
 
 SelectMath = {
 
+"Stop Material",
 "Leather",
 "Magma Ore",
 "Scrap Metal",
@@ -6822,6 +6831,7 @@ elseif World3 then
 
 SelectMath = {
 
+"Stop Material",
  "Leather",
  "Fish Tail",
  "Mini Tusk",
@@ -6835,11 +6845,6 @@ end
 
 Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)
 	_G.Select_Material = value
-end)
-
-Main:Toggle("Farm Material",false,function(value)
-	Farm_Material = value
-	StopTween(Farm_Material)
 end)
 
 Main:Seperator("Mastery")

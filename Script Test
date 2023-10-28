@@ -6839,6 +6839,7 @@ end)
 
 Main:Toggle("Farm Material",false,function(value)
 	Farm_Material = value
+	StopTween(Farm_Material)
 end)
 
 Main:Seperator("Mastery")

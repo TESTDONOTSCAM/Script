@@ -7368,7 +7368,7 @@ spawn(function()
 				if Auto_Boss then
 					if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then
+							if v.Name == MsBoss and v.Humanoid.Health > 0 then
 								if v.Humanoid:FindFirstChild("Animator") then
 									v.Humanoid.Animator:Destroy()
 								end

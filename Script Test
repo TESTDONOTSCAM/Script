@@ -6799,6 +6799,7 @@ SelectMath = {
 "Scrap Metal",
 
 }
+table.insert(SelectMath, v.Mat)
 
 elseif World2 then
 
@@ -6813,6 +6814,7 @@ SelectMath = {
 "Radioactive Material",
 
 }
+table.insert(SelectMath, v.Mat)
 
 elseif World3 then
 
@@ -6827,6 +6829,8 @@ SelectMath = {
  "Conjured Cocoa",
 
 }
+table.insert(SelectMath, v.Mat)
+
 end
 
 if type(_G.Select_Material) == 'string' then
@@ -6841,7 +6845,7 @@ end)
 Main:Button("Clear Material",function(value)
 	Select_M:Clear()
 	wait(0.5)
-	Select_M:Add(SelectMath)
+	Select_M:Add(v.Mat)
 end)
 
 Main:Seperator("Mastery")

@@ -6787,7 +6787,7 @@ end)
 
 Main:Seperator("Material Farm")
 
-SelectMath = {}
+local SelectMath
 
 if World1 then
 
@@ -6800,8 +6800,9 @@ SelectMath = {
 
 }
 table.insert(SelectMath)
+end
 
-elseif World2 then
+if World2 then
 
 SelectMath = {
 
@@ -6815,8 +6816,9 @@ SelectMath = {
 
 }
 table.insert(SelectMath)
+end
 
-elseif World3 then
+if World3 then
 
 SelectMath = {
 
@@ -6830,7 +6832,6 @@ SelectMath = {
 
 }
 table.insert(SelectMath)
-
 end
 
 if type(_G.Select_Material) == 'string' then

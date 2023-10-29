@@ -7294,7 +7294,7 @@ Main:Seperator("\\\\\ Bosses //")
     end
     end
     
-    local BossName = Main:Dropdown("Select Boss",Boss,function(value)
+    local BossName = Main:Dropdown2("Select Boss",Boss,function(value)
     _G.SelectBoss = value
     end)
     

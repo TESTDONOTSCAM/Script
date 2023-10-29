@@ -211,20 +211,9 @@ function TelePBoss(p)
 end
 
 function CheckQuestBoss()
-	-- Old World
-		if _G.SelectBoss == "Saber Expert" then
-			MsBoss = "Saber Expert"
-			NameBoss = "Saber Expert"
-			CFrameBoss = CFrame.new(-1458.89502, 29.8870335, -50.633564, 0.858821094, 1.13848939e-08, 0.512275636, -4.85649254e-09, 1, -1.40823326e-08, -0.512275636, 9.6063415e-09, 0.858821094)
-		elseif _G.SelectBoss == "The Saw" then
-			MsBoss = "The Saw"
-			NameBoss = "The Saw"
-			CFrameBoss = CFrame.new(-683.519897, 13.8534927, 1610.87854, -0.290192783, 6.88365773e-08, 0.956968188, 6.98413629e-08, 1, -5.07531119e-08, -0.956968188, 5.21077759e-08, -0.290192783)
-		elseif _G.SelectBoss == "Greybeard" then
-			MsBoss = "Greybeard"
-			NameBoss = "Greybeard"
-			CFrameBoss = CFrame.new(-4955.72949, 80.8163834, 4305.82666, -0.433646321, -1.03394289e-08, 0.901083171, -3.0443168e-08, 1, -3.17633075e-09, -0.901083171, -2.88092288e-08, -0.433646321)
-		elseif _G.SelectBoss == "The Gorilla King" then
+	-- World 1
+	if World1 then
+		if _G.SelectBoss == "The Gorilla King" then
 			MsBoss = "The Gorilla King" 
 			NameBoss = "The Gorilla King"
 			NameQuestBoss = "JungleQuest"
@@ -240,6 +229,19 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(-1139.59717, 4.75205183, 3825.16211, -0.959730506, -7.5857054e-09, 0.280922383, -4.06310328e-08, 1, -1.11807175e-07, -0.280922383, -1.18718916e-07, -0.959730506)
 			CFrameBoss = CFrame.new(-1147.65173, 32.5966301, 4156.02588, 0.956680477, -1.77109952e-10, -0.29113996, 5.16530874e-10, 1, 1.08897802e-09, 0.29113996, -1.19218679e-09, 0.956680477)
 			TelePBoss(CFrameBoss)
+		elseif _G.SelectBoss == "The Saw" then
+			MsBoss = "The Saw"
+			NameBoss = "The Saw"
+			CFrameBoss = CFrame.new(-683.519897, 13.8534927, 1610.87854, -0.290192783, 6.88365773e-08, 0.956968188, 6.98413629e-08, 1, -5.07531119e-08, -0.956968188, 5.21077759e-08, -0.290192783)
+			TelePBoss(CFrameBoss)
+
+			--[[
+		elseif _G.SelectBoss == "Greybeard" then
+			MsBoss = "Greybeard"
+			NameBoss = "Greybeard"
+			CFrameBoss = CFrame.new(-4955.72949, 80.8163834, 4305.82666, -0.433646321, -1.03394289e-08, 0.901083171, -3.0443168e-08, 1, -3.17633075e-09, -0.901083171, -2.88092288e-08, -0.433646321)
+			]]--
+
 		elseif _G.SelectBoss == "Yeti" then
 			MsBoss = "Yeti"
 			NameBoss = "Yeti"
@@ -252,6 +254,7 @@ function CheckQuestBoss()
 			MsBoss = "Mob Leader"
 			NameBoss = "Mob Leader"
 			CFrameBoss = CFrame.new(-2848.59399, 7.4272871, 5342.44043, -0.928248107, -8.7248246e-08, 0.371961564, -7.61816636e-08, 1, 4.44474857e-08, -0.371961564, 1.29216433e-08, -0.92824)
+			TelePBoss(CFrameBoss)
 		elseif _G.SelectBoss == "Vice Admiral" then
 			MsBoss = "Vice Admiral"
 			NameBoss = "Vice Admiral"
@@ -259,6 +262,11 @@ function CheckQuestBoss()
 			QuestLvBoss = 2
 			CFrameQBoss = CFrame.new(-5035.42285, 28.6520386, 4324.50293, -0.0611100644, -8.08395768e-08, 0.998130739, -1.57416586e-08, 1, 8.00271849e-08, -0.998130739, -1.08217701e-08, -0.0611100644)
 			CFrameBoss = CFrame.new(-5078.45898, 99.6520691, 4402.1665, -0.555574954, -9.88630566e-11, 0.831466436, -6.35508286e-08, 1, -4.23449258e-08, -0.831466436, -7.63661632e-08, -0.555574954)
+			TelePBoss(CFrameBoss)
+		elseif _G.SelectBoss == "Saber Expert" then
+			MsBoss = "Saber Expert"
+			NameBoss = "Saber Expert"
+			CFrameBoss = CFrame.new(-1458.89502, 29.8870335, -50.633564, 0.858821094, 1.13848939e-08, 0.512275636, -4.85649254e-09, 1, -1.40823326e-08, -0.512275636, 9.6063415e-09, 0.858821094)
 			TelePBoss(CFrameBoss)
 		elseif _G.SelectBoss == "Warden" then
 			MsBoss = "Warden"
@@ -268,8 +276,8 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(4851.35059, 5.68744135, 743.251282, -0.538484037, -6.68303741e-08, -0.842635691, 1.38001752e-08, 1, -8.81300792e-08, 0.842635691, -5.90851599e-08, -0.538484037)
 			CFrameBoss = CFrame.new(5232.5625, 5.26856995, 747.506897, 0.943829298, -4.5439414e-08, 0.330433697, 3.47818627e-08, 1, 3.81658154e-08, -0.330433697, -2.45289105e-08, 0.943829298)
 			TelePBoss(CFrameBoss)
-		elseif _G.SelectBoss == "Chief Warden [Lv. 230]" then
-			MsBoss = "Chief Warden [Lv. 230]"
+		elseif _G.SelectBoss == "Chief Warden" then
+			MsBoss = "Chief Warden"
 			NameBoss = "Chief Warden"
 			NameQuestBoss = "ImpelQuest"
 			QuestLvBoss = 2
@@ -299,16 +307,18 @@ function CheckQuestBoss()
 			QuestLvBoss = 3
 			CFrameQBoss = CFrame.new(61123.0859, 18.5066795, 1570.18018, 0.927145958, 1.0624845e-07, 0.374700129, -6.98219367e-08, 1, -1.10790765e-07, -0.374700129, 7.65569368e-08, 0.927145958)
 			CFrameBoss = CFrame.new(61351.7773, 31.0306778, 1113.31409, 0.999974668, 0, -0.00714713801, 0, 1.00000012, 0, 0.00714714266, 0, 0.999974549)
+			TelePBoss(CFrameBoss)
 			if (CFrameQBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
 			end
-		elseif _G.SelectBoss == "Wysper [Lv. 500]" then
-			MsBoss = "Wysper [Lv. 500]"
+		elseif _G.SelectBoss == "Wysper" then
+			MsBoss = "Wysper"
 			NameBoss = "Wysper"
 			NameQuestBoss = "SkyExp1Quest"
 			QuestLvBoss = 3
 			CFrameQBoss = CFrame.new(-7862.94629, 5545.52832, -379.833954, 0.462944925, 1.45838088e-08, -0.886386991, 1.0534996e-08, 1, 2.19553424e-08, 0.886386991, -1.95022007e-08, 0.462944925)
 			CFrameBoss = CFrame.new(-7925.48389, 5550.76074, -636.178345, 0.716468513, -1.22915289e-09, 0.697619379, 3.37381434e-09, 1, -1.70304748e-09, -0.697619379, 3.57381835e-09, 0.716468513)
+			TelePBoss(CFrameBoss)
 			if (CFrameQBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
 			end
@@ -328,8 +338,12 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(5253.54834, 38.5361786, 4050.45166, -0.0112687312, -9.93677887e-08, -0.999936521, 2.55291371e-10, 1, -9.93769547e-08, 0.999936521, -1.37512213e-09, -0.0112687312)
 			CFrameBoss = CFrame.new(6041.82813, 52.7112198, 3907.45142, -0.563162148, 1.73805248e-09, -0.826346457, -5.94632716e-08, 1, 4.26280238e-08, 0.826346457, 7.31437524e-08, -0.563162148)
 			TelePBoss(CFrameBoss)
-		-- New World
-		elseif _G.SelectBoss == "Diamond" then
+		end
+	end
+
+		-- World 2
+	if World2 then
+		if _G.SelectBoss == "Diamond" then
 			MsBoss = "Diamond"
 			NameBoss = "Diamond"
 			NameQuestBoss = "Area1Quest"
@@ -366,18 +380,6 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(-6059.96191, 15.9868021, -4904.7373, -0.444992423, -3.0874483e-09, 0.895534337, -3.64098796e-08, 1, -1.4644522e-08, -0.895534337, -3.91229982e-08, -0.444992423)
 			CFrameBoss = CFrame.new(-5115.72754, 23.7664986, -5338.2207, 0.251453817, 1.48345061e-08, -0.967869282, 4.02796978e-08, 1, 2.57916977e-08, 0.967869282, -4.54708946e-08, 0.251453817)
 			TelePBoss(CFrameBoss)
-		elseif _G.SelectBoss == "Cursed Captain" then
-			MsBoss = "Cursed Captain"
-			NameBoss = "Cursed Captain"
-			CFrameBoss = CFrame.new(916.928589, 181.092773, 33422, -0.999505103, 9.26310495e-09, 0.0314563364, 8.42916226e-09, 1, -2.6643713e-08, -0.0314563364, -2.63653774e-08, -0.999505103)
-		elseif _G.SelectBoss == "Darkbeard" then
-			MsBoss = "Darkbeard"
-			NameBoss = "Darkbeard"
-			CFrameBoss = CFrame.new(3876.00366, 24.6882591, -3820.21777, -0.976951957, 4.97356325e-08, 0.213458836, 4.57335361e-08, 1, -2.36868622e-08, -0.213458836, -1.33787044e-08, -0.976951957)
-		elseif _G.SelectBoss == "Order" then
-			MsBoss = "Order"
-			NameBoss = "Order"
-			CFrameBoss = CFrame.new(-6221.15039, 16.2351036, -5045.23584, -0.380726993, 7.41463495e-08, 0.924687505, 5.85604774e-08, 1, -5.60738549e-08, -0.924687505, 3.28013137e-08, -0.380726993)
 		elseif _G.SelectBoss == "Awakened Ice Admiral" then
 			MsBoss = "Awakened Ice Admiral"
 			NameBoss = "Awakened Ice Admiral"
@@ -394,8 +396,11 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(-3053.89648, 236.881363, -10148.2324, -0.985987961, -3.58504737e-09, 0.16681771, -3.07832915e-09, 1, 3.29612559e-09, -0.16681771, 2.73641976e-09, -0.985987961)
 			CFrameBoss = CFrame.new(-3570.18652, 123.328949, -11555.9072, 0.465199202, -1.3857326e-08, 0.885206044, 4.0332897e-09, 1, 1.35347511e-08, -0.885206044, -2.72606271e-09, 0.465199202)
 			TelePBoss(CFrameBoss)
-		-- Thire World
-		elseif _G.SelectBoss == "Stone" then
+		end
+	end
+		-- World 3
+	if World3 then
+		if _G.SelectBoss == "Stone" then
 			MsBoss = "Stone"
 			NameBoss = "Stone"
 			NameQuestBoss = "PiratePortQuest"             
@@ -435,21 +440,25 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(-12686, 391, -9902)
 			CFrameBoss = CFrame.new(5182, 23, -20)
 			TelePBoss(CFrameBoss)
-		elseif _G.SelectBoss == "rip_indra True Form" then
-			MsBoss = "rip_indra True Form"
-			NameBoss = "rip_indra True Form"
-			CFrameBoss = CFrame.new(-5359, 424, -2735)
-			TelePBoss(CFrameBoss)
 		elseif _G.SelectBoss == "Longma" then
 			MsBoss = "Longma"
 			NameBoss = "Longma"
 			CFrameBoss = CFrame.new(-10248.3936, 353.79129, -9306.34473)
+			TelePBoss(CFrameBoss)
+
+			--[[
+		elseif _G.SelectBoss == "rip_indra True Form" then
+			MsBoss = "rip_indra True Form"
+			NameBoss = "rip_indra True Form"
+			CFrameBoss = CFrame.new(-5359, 424, -2735)
 			TelePBoss(CFrameBoss)
 		elseif _G.SelectBoss == "Soul Reaper" then
 			MsBoss = "Soul Reaper"
 			NameBoss = "Soul Reaper"
 			CFrameBoss = CFrame.new(-9515.62109, 315.925537, 6691.12012)
 			TelePBoss(CFrameBoss)
+			--]]
+
 		elseif _G.SelectBoss == "Cake Queen" then
 			MsBoss = "Cake Queen"
 			NameBoss = "Cake Queen"
@@ -3450,6 +3459,9 @@ spawn(function()
 		pcall(function()
 		if Auto_Farm then
 			if _G.Select_Mode_Farm == "Level Farm" then
+				Farm_Material = false
+				StopTween(Farm_Material)
+				Auto_Farm = true
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -3569,6 +3581,9 @@ spawn(function()
 					end
 				end
 			elseif _G.Select_Mode_Farm == "Double Quest" then
+				Farm_Material = false
+				StopTween(Farm_Material)
+				Auto_Farm = true
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -3685,6 +3700,9 @@ spawn(function()
 						end
 					end
 				elseif _G.Select_Mode_Farm == "Bone Farm" then
+					Farm_Material = false
+					StopTween(Farm_Material)
+					Auto_Farm = true
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 						if _G.Farm_Boss then
 							_G.SelectBoss = nil
@@ -3893,7 +3911,7 @@ end
 
 spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
-		if Auto_Farm then
+		if Auto_Farm or Farm_Material then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
 				setfflag("HumanoidParallelRemoveNoPhysics", "False")
 				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -3927,8 +3945,10 @@ end)
 spawn(function()
 	while wait(.1) do
 		pcall(function()
-			if Auto_Farm then
-				if _G.Select_Material == nil then
+			if Farm_Material then
+				_G.Setting_table.AutoFarm = false
+				Farm_Material = true
+				StopTween(Auto_Farm)
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -4047,7 +4067,6 @@ spawn(function()
 						end
 					end
 				end
-			end
 			end
 		end)
 	end
@@ -6691,7 +6710,6 @@ end)
                 end
             end
         end
-
         if Auto_Farm_Bounty or Auto_Farm_Fruit and not Mix_Farm then
             local Fast = getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
             local Lop = Fast[2]
@@ -6788,13 +6806,11 @@ Main:Button("Refresh Weapon",function(vu)
 	end
 end)
 
+--[[
+
 Main:Seperator("Material Farm")
 
-Main:LabelWarn("Soon")
-
---[[
 local SelectMath
-
 if World1 then
 
 SelectMath = {
@@ -6833,25 +6849,15 @@ SelectMath = {
  "Conjured Cocoa",
 
 }
-
 end
 
-if type(_G.Select_Material) == 'string' then
-else
-	_G.Select_Material = ""
-end
-
-local Select_M = Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)
+Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)
 	_G.Select_Material = value
 end)
 
---]]
-
---[[
-Main:Button("Clear Material",function(value)
-	Select_M:Clear()
-	wait(0.5)
-	Select_M:Add(SelectMath)
+Main:Toggle("Farm Material",false,function(value)
+	Farm_Material = value
+	StopTween(Farm_Material)
 end)
 ]]--
 
@@ -6878,7 +6884,7 @@ spawn(function()
 			if Auto_Farm_Fruit then
 				if not Mix_Farm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-						CheckLevel2()
+						CheckLevel()
 						if (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10 then
                             TP(CFrameQ)
                         else
@@ -6886,7 +6892,7 @@ spawn(function()
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
                         end
 					elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-						CheckLevel2()
+						CheckLevel()
 						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 							if game.Workspace.Enemies:FindFirstChild(Ms) then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
@@ -6900,11 +6906,9 @@ spawn(function()
 											local percent = (health / maxhealth) * 100
 											if percent <= MinHealth then
 												EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
-												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0))
+												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
 												PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
 												UseSkillMasteryDevilFruit = true
-												game:GetService'VirtualUser':CaptureController()
-												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then
 													if SkillZ  and v.Humanoid.Health > 0 then
 														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
@@ -6934,7 +6938,7 @@ spawn(function()
 														game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
 													end  
 												elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Venom-Venom") then
-													if SkillZ and v.Humanoid.Health > 0 then
+													if SkillZ and v.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(7.6, 7.676, 3.686) then
 													else
 														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
 														wait(.1)
@@ -6983,9 +6987,7 @@ spawn(function()
 												end
 												UseSkillMasteryDevilFruit = false
 												EquipWeapon(_G.Setting_table.Weapon)
-												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0))
-												game:GetService'VirtualUser':CaptureController()
-												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
 												local health = v.Humanoid.Health
 												local maxhealth = v.Humanoid.MaxHealth
 												local percent = (health / maxhealth) * 100
@@ -7020,8 +7022,6 @@ spawn(function()
 												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
 												PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
 												UseSkillMasteryDevilFruit = true
-												game:GetService'VirtualUser':CaptureController()
-												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then
 													if SkillZ  and v.Humanoid.Health > 0 then
 														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
@@ -7082,8 +7082,6 @@ spawn(function()
 													end
 												end
 												UseSkillMasteryDevilFruit = false
-												game:GetService'VirtualUser':CaptureController()
-												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												EquipWeapon(_G.Setting_table.Weapon)
 												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
 												local health = v.Humanoid.Health
@@ -7141,7 +7139,7 @@ spawn(function()
 			if Auto_Farm_Gun then
 				if not Mix_Farm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-						CheckLevel2()
+						CheckLevel()
 						if (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10 then
                             TP(CFrameQ)
                         else
@@ -7149,7 +7147,7 @@ spawn(function()
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
                         end
 					elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-						CheckLevel2()
+						CheckLevel()
 						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 							if game.Workspace.Enemies:FindFirstChild(Ms) then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
@@ -7173,8 +7171,6 @@ spawn(function()
 											if percent <= MinHealthGun then
 												EquipWeapon(SelectToolWeaponGun)
 												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
-												game:GetService'VirtualUser':CaptureController()
-												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												_G.Mon = v
 												game:GetService("Players").LocalPlayer.Character:FindFirstChild(SelectToolWeaponGun).MousePos.Value = v.HumanoidRootPart.Position
 												PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
@@ -7200,8 +7196,7 @@ spawn(function()
 												local maxhealth = v.Humanoid.MaxHealth
 												local percent = (health / maxhealth) * 100
 												if percent > MinHealth and v.Humanoid.Health > 0 then
-													game:GetService'VirtualUser':CaptureController()
-													game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+													game:GetService'VirtualUser':Button1Down(Vector2.new(1280,600))
 												else
 													EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
 													wait(1)
@@ -7241,8 +7236,6 @@ spawn(function()
 												game:GetService("Players").LocalPlayer.Character:FindFirstChild(SelectToolWeaponGun).MousePos.Value = v.HumanoidRootPart.Position
 												PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
 												UseSkillMasteryDevilFruit = true
-												game:GetService'VirtualUser':CaptureController()
-												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												if SkillZ  and v.Humanoid.Health > 0 then
 													game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
 													wait(.1)
@@ -7261,8 +7254,7 @@ spawn(function()
 												local maxhealth = v.Humanoid.MaxHealth
 												local percent = (health / maxhealth) * 100
 												if percent > MinHealth and v.Humanoid.Health > 0 then
-													game:GetService'VirtualUser':CaptureController()
-													game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+													game:GetService'VirtualUser':Button1Down(Vector2.new(1280,600))
 												else
 													EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
 													wait(1)
@@ -7281,33 +7273,6 @@ spawn(function()
 	end
 end)
 
-Main:Seperator("\\\\\ Bosses //")
-    
-    local Boss = {}
-    
-for i, v in pairs(game.Workspace["_WorldOrigin"].EnemySpawns:GetChildren()) do
-	if string.find(v.Name, v.DisplayName, "Boss") then
-		if v.Name == "Ice Admiral" then
-		else
-		table.insert(Boss, v.Name, v.DisplayName)
-		end
-	end
-end
-		
-local BossName = Main:Dropdown2("Select Boss",Boss,function(value)
-	_G.SelectBoss = value
-end)
-		
-Main:Button("Refresh Boss",function()
-	BossName:Clear()
-		for i, v in pairs(game.Workspace["_WorldOrigin"].EnemySpawns:GetChildren()) do
-		if string.find(v.Name, v.DisplayName, "Boss") then
-		BossName:Add(v.Name)
-		end
-	end
-end)
-
---[[
 Main:Seperator("Boss Farm")
 
 Main:LabelWarn("Not Fixed")
@@ -7316,326 +7281,97 @@ Main:Toggle("Auto Boss",_G.Setting_table.Farm_Boss,function(vu)
 	Auto_Farm_Boss = vu
 	_G.Setting_table.Farm_Boss = vu
 	Update_Setting(getgenv()['MyName'])
+	StopTween(Auto_Farm_Boss)
 end)
 
 spawn(function()
-	while wait(.5) do
-		pcall(function()
-			if Auto_Farm_Boss then
-				if not Mix_Farm or Auto_Farm_Boss_Ex then
-					if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) or game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-						Mix_Farm = true
-						Auto_Farm_Boss_Ex = true
-						if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) then
-							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-								if v.Name == _G.Setting_table.Boss_Name and v.Humanoid.Health > 0 then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-									if v.Humanoid:FindFirstChild("Animator") then
-										v.Humanoid.Animator:Destroy()
-									end
-									repeat wait(.2)
-										EquipWeapon(_G.Setting_table.Weapon)
-										TP(v.HumanoidRootPart.CFrame*CFrame.new(0,10,0))
-										AttackHit()
-									until v.Humanoid.Health <= 0 or not v.Parent or Auto_Farm_Boss == false
-									Mix_Farm = nil
-									Auto_Farm_Boss_Ex = nil
-								end
-							end
-						elseif game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-							TP(game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name).HumanoidRootPart.CFrame*CFrame.new(0,10,0))
-						end
-					elseif game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Lock) or game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Lock) then
-						Mix_Farm = true
-						Auto_Farm_Boss_Ex = true
-						if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Lock) then
-							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-								if v.Name == _G.Setting_table.Boss_Lock and v.Humanoid.Health > 0 then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-									if v.Humanoid:FindFirstChild("Animator") then
-										v.Humanoid.Animator:Destroy()
-									end
-									repeat wait(.2)
-										TP(v.HumanoidRootPart.CFrame*CFrame.new(0,10,0))
-										AttackHit()
-									until v.Humanoid.Health <= 0 or not v.Parent or Auto_Farm_Boss == false
-									Mix_Farm = nil
-									Auto_Farm_Boss_Ex = nil
-								end
-							end
-						elseif game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Lock) then
-							TP(game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Lock).HumanoidRootPart.CFrame*CFrame.new(0,10,0))
-						end
-					elseif Auto_Farm_Boss_Ex then
-						Mix_Farm = nil
-						Auto_Farm_Boss_Ex = nil
-					else
-						wait(3)
-					end
-				end
-			elseif _G.Setting_table.Auto_Farm_Boss_Hop then
-				if Ping == nil then
-					Hop_Boss()
-					wait(1)
-					print("....".._G.Setting_table.Boss_Name)
-					Ping = true
-				end
-				if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) or game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-					Mix_Farm = true
-					Auto_Farm_Boss_Ex = true
-					if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == _G.Setting_table.Boss_Name and v.Humanoid.Health > 0 then
-								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								repeat wait(.2)
-									EquipWeapon(_G.Setting_table.Weapon)
-									TP(v.HumanoidRootPart.CFrame*CFrame.new(0,10,0))
-									AttackHit()
-								until v.Humanoid.Health <= 0 or not v.Parent or _G.Setting_table.Auto_Farm_Boss_Hop == false
-								Mix_Farm = nil
-								Auto_Farm_Boss_Ex = nil
-								Ping = nil
-							end
-						end
-					elseif game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-						TP(game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name).HumanoidRootPart.CFrame*CFrame.new(0,10,0))
-					end
-				elseif Auto_Farm_Boss_Ex then
-					Mix_Farm = nil
-					Auto_Farm_Boss_Ex = nil
-					Ping = nil
-				else
-					wait(5)
-					if not game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) and not game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-						Hop_Boss()
-						wait(1)
-						print("....".._G.Setting_table.Boss_Name)
-						wait(3)
-						if not game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) and not game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-							HopServer()
-							wait(50)
-						end
-					end
-				end
-			elseif Auto_Farm_Boss_Ex then
-				Mix_Farm = nil
-				Auto_Farm_Boss_Ex = nil
-			else
-				wait(3)
-			end
-		end)
-	end
-end)
+	while wait() do
+	if Auto_Farm_Boss then
+	pcall(function()
 
-Main:Toggle("Farm All Boss",_G.Setting_table.Farm_All_Boss,function(vu)
-	Auto_Farm_Boss_All = vu
-	_G.Setting_table.Farm_All_Boss = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-function Hop_Boss()
-	CheckBoss()
-	for i,v in pairs(Boss_A) do
-		for i2,v2 in pairs(_G.Setting_table.Boss_All_Select) do
-			if v == v2 then
-				print(v)
-				_G.Setting_table.Boss_Name = v
-				return 
-			end
-		end
-	end
-end
-function H_B()
-	CheckBoss()
-	for i,v in pairs(Boss_A) do
-		if type(v) == 'string' then
-			print(v)
-			_G.Setting_table.Boss_Name = v
-			return
-		end
-	end
-end
-spawn(function()
-	while wait(.5) do
-		pcall(function()
-			if Auto_Farm_Boss_All then
-				if not Mix_Farm or Auto_Farm_Boss_All_Ex then
-					if Ping == nil then
-						H_B()
-						wait(1)
-						print("....".._G.Setting_table.Boss_Name)
-						Ping = true
-					end
-					if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) or game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-						Mix_Farm = true
-						Auto_Farm_Boss_All_Ex = true
-						if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) then
-							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-								if v.Name == _G.Setting_table.Boss_Name and v.Humanoid.Health > 0 then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-									if v.Humanoid:FindFirstChild("Animator") then
-										v.Humanoid.Animator:Destroy()
-									end
-									repeat wait(_G.Fast_Delay)
-										EquipWeapon(_G.Setting_table.Weapon)
-										TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
-										AttackNoCD()
-									until v.Humanoid.Health <= 0 or not v.Parent or Auto_Farm_Boss_All == false
-									Mix_Farm = nil
-									Auto_Farm_Boss_All_Ex = nil
-									Ping = nil
-								end
-							end
-						elseif game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-							TP(game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name).HumanoidRootPart.CFrame*CFrame.new(0,30,0))
-						end
-					elseif Auto_Farm_Boss_All_Ex then
-						Mix_Farm = nil
-						Auto_Farm_Boss_All_Ex = nil
-						Ping = nil
-					else
-						Ping = nil
-						wait(5)
-					end
-				end
-			elseif _G.Setting_table.Auto_Farm_Boss_All_Hop then
-				if not Mix_Farm or Auto_Farm_Boss_All_Ex then
-					if Ping == nil then
-						H_B()
-						wait(1)
-						print("....".._G.Setting_table.Boss_Name)
-						Ping = true
-					end
-					if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) or game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-						Mix_Farm = true
-						Auto_Farm_Boss_All_Ex = true
-						if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) then
-							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-								if v.Name == _G.Setting_table.Boss_Name and v.Humanoid.Health > 0 then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-									if v.Humanoid:FindFirstChild("Animator") then
-										v.Humanoid.Animator:Destroy()
-									end
-									repeat wait(_G.Fast_Delay)
-										EquipWeapon(_G.Setting_table.Weapon)
-										TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
-										AttackNoCD()
-									until v.Humanoid.Health <= 0 or not v.Parent or _G.Setting_table.Auto_Farm_Boss_All_Hop == false
-									Mix_Farm = nil
-									Auto_Farm_Boss_All_Ex = nil
-									Ping = nil
-								end
-							end
-						elseif game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-							TP(game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name).HumanoidRootPart.CFrame*CFrame.new(0,30,0))
-						end
-					elseif Auto_Farm_Boss_All_Ex then
-						Mix_Farm = nil
-						Auto_Farm_Boss_All_Ex = nil
-						Ping = nil
-					else
-						Ping = nil
-						wait(5)
-						if not game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) and not game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-							if Ping == nil then
-								H_B()
-								wait(1)
-								print("....".._G.Setting_table.Boss_Name)
-								Ping = true
-							end
-							wait(3)
-							if not game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Boss_Name) and not game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Boss_Name) then
-								HopServer()
-								wait(50)
-							end
-						end
-					end
-				end
-			elseif Auto_Farm_Boss_All_Ex then
-				Mix_Farm = nil
-				Auto_Farm_Boss_All_Ex = nil
-				Ping = nil
-			else
-				wait(2)
-			end
-		end)
-	end
-end)
+	game.Workspace.Gravity = 0
+	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
+	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
 
-Boss_A = {}
-function CheckBoss()
-	for i,v in pairs(Boss_A) do
-		table.remove(Boss_A,i)
-	end
-	for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-		if string.find(v.Name,"[Boss]") then
-			table.insert(Boss_A,v.Name)
-		end
-	end
-	for i,v in pairs(game.ReplicatedStorage:GetChildren()) do
-		if string.find(v.Name,"[Boss]") then
-			table.insert(Boss_A,v.Name)
-		end
-	end
+	local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
+	if not string.find(QuestTitle, MsBoss) then
+	StatrMagnet = false
+	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 end
+
+	if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+	StatrMagnet = false
+	CheckQuestBoss()
+	repeat wait() topos(CFrameQBoss) until (CFrameQBoss.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not Auto_Farm_Boss
+	if (CFrameQBoss.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then
+	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuestBoss,QuestLvBoss)
+end
+
+	elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+	CheckQuestBoss()
+		if game:GetService("Workspace").Enemies:FindFirstChild(MsBoss) then
+			for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+				if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+				if v.Name == MsBoss then
+
+				repeat wait()
+					if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+					EquipWeapon(_G.Setting_table.Weapon)
+					AutoHaki()
+					_G.PosMon = v.HumanoidRootPart.CFrame
+					topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+					v.HumanoidRootPart.CanCollide = false
+					v.Humanoid.WalkSpeed = 0
+					v.Head.CanCollide = false
+					v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+					StatrMagnet = true -- true
+					--topos(v.HumanoidRootPart.CFrame * MethodFarm)
+					game:GetService'VirtualUser':CaptureController()
+					game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+						else
+						StatrMagnet = false
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+					end
+				until not _G.AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+								end
+							end
+						end
+					else
+						StatrMagnet = false
+					if game:GetService("ReplicatedStorage"):FindFirstChild(MsBoss) then
+						topos(game:GetService("ReplicatedStorage"):FindFirstChild(MsBoss).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+					else
+					topos(CFrameBoss)
+						end
+					end
+				end
+			end)
+		end
+	end
+end)
 
 Boss = {}
-for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-	if string.find(v.Name,"[Boss]") then
-		table.insert(Boss,v.Name)
-	end
-end
-for i,v in pairs(game.ReplicatedStorage:GetChildren()) do
-	if string.find(v.Name,"[Boss]") then
-		table.insert(Boss,v.Name)
-	end
-end
 
-if type(_G.Setting_table.Boss_Name) == 'string' then
-else
-	_G.Setting_table.Boss_Name = ""
-end
+if World1 then
 
-Boss_List = {
-	"Saber Expert" ,
-	"Thunder God",
-	"Diamond",
-	"Jeremy",
-	"Fajita",
-	"Don Swan",
-	"Darkbeard",
-	"Tide Keeper",
-	"Island Empress",
-	"Captain Elephant",
-	"rip_indra True Form",
-	"Longma",
-	"Soul Reaper",
-	"Cake Queen"
+Boss = {
+
+"The Gorilla King [Lv. 25]",
+"Bobby [Lv. 55]",
+"The Saw [Lv. 100]",
+"Yeti",
+"Mob Leader",
+"Vice Admiral",
+"Saber Expert",
+"Warden",
+
 }
-local Select_B = Main:Dropdown("Select Boss",_G.Setting_table.Boss_Name,Boss,function(vu)
-	_G.Setting_table.Boss_Name = vu
-	Update_Setting(getgenv()['MyName'])
+end
+
+
+Main:Dropdown2("Select Boss",Boss,function(vu)
+	_G.SelectBoss = vu
 end)
-local Select_BK = Main:Dropdown("Select Lock Boss",_G.Setting_table.Boss_Lock,Boss_List,function(vu)
-	_G.Setting_table.Boss_Lock = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-Main:Button("Refresh Boss",function(vu)
-	Select_B:Clear()
-	for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-		if string.find(v.Name,"[Boss]") then
-			Select_B:Add(v.Name)
-		end
-	end
-	for i,v in pairs(game.ReplicatedStorage:GetChildren()) do
-		if string.find(v.Name,"[Boss]") then
-			Select_B:Add(v.Name)
-		end
-	end
-end)
---]]
 
 Main:Seperator("\\\\\ Select Monster //")
 
@@ -9118,7 +8854,7 @@ end
 MIo = {"Super Fast Attack", "0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"}
 
 Setting:Toggle("Fast Attack",true,function(vu)
-	_G.FastAttack2 = vu
+	_G.FastAttack = vu
 end)
 
 require(game.ReplicatedStorage.Util.CameraShaker):Stop()
@@ -9129,7 +8865,7 @@ xShadowx = debug.getupvalues(xShadowFastAttackx)[2]
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack2 then
+        if _G.FastAttack then
             if typeof(xShadowx) == "table" then
                 pcall(function()
                     xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
@@ -9150,7 +8886,7 @@ end)
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack2 == true then
+        if _G.FastAttack == true then
             game.Players.LocalPlayer.Character.Stun.Value = 0
             game.Players.LocalPlayer.Character.Busy.Value = false        
         end
@@ -9215,7 +8951,7 @@ local Client = game.Players.LocalPlayer
                     STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
                     local Hits = STOPRL.getBladeHits(b,c,d)
                     if Hits then
-                        if _G.FastAttack2 then
+                        if _G.FastAttack then
                             STOP.play = function() end
                             a:Play(0.01,0.01,0.01)
                             func(Hits)
@@ -9276,11 +9012,11 @@ local Client = game.Players.LocalPlayer
 	end
 	spawn(function()
 		while wait(.1) do
-			if _G.FastAttack2 then
+			if _G.FastAttack then
 				pcall(function()
 					repeat task.wait(_G.Fast_Delay)
 						AttackHit()
-					until not _G.FastAttack2
+					until not _G.FastAttack
 				end)
 			end
 		end

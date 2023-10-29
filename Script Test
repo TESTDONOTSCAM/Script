@@ -460,7 +460,7 @@ function CheckQuestBoss()
 			TelePBoss(CFrameBoss)
 			--]]
 
-		elseif _G.SelectBoss == "Cake Queen" then
+			elseif _G.SelectBoss == "Cake Queen" then
 			MsBoss = "Cake Queen"
 			NameBoss = "Cake Queen"
 			NameQuestBoss = "IceCreamIslandQuest"             
@@ -7279,8 +7279,7 @@ Main:Seperator("Boss Farm")
 
 Main:LabelWarn("Not Fixed")
 
-Boss = {}
-
+local Boss
 if World1 then
 
 Boss = {
@@ -7297,11 +7296,12 @@ Boss = {
 "Swan [Lv. 240]",
 "Magma Admiral [Lv. 350]",
 "Fishman Lord [Lv. 425]",
-"Wysper [Lv. 500]"
+"Wysper [Lv. 500]",
 "Thunder God [Lv. 575]",
 "Cyborg [Lv. 675]",
 
 }
+
 end
 
 Main:Dropdown("Select Boss",_G.SelectBoss,Boss,function(vu)

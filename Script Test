@@ -6835,7 +6835,7 @@ end
 
 if type(_G.Select_Material) == 'string' then
 else
-	_G.Select_Material = SelectMath
+	_G.Select_Material = ""
 end
 
 local Select_M = Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)

@@ -210,6 +210,7 @@ end
 function TelePBoss(p)
 end
 
+
 function CheckQuestBoss()
 	-- World 1
 	if World1 then
@@ -469,6 +470,7 @@ function CheckQuestBoss()
 			TelePBoss(CFrameBoss)
 		end
 	end
+end
 
 		function CheckLevel()
 			local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
@@ -7277,17 +7279,38 @@ Main:Seperator("Boss Farm")
 
 Main:LabelWarn("Not Fixed")
 
+Boss = {}
+
+if World1 then
+
+Boss = {
+
+"The Gorilla King [Lv. 25]",
+"Bobby [Lv. 55]",
+"The Saw [Lv. 100]",
+"Yeti",
+"Mob Leader",
+"Vice Admiral",
+"Saber Expert",
+"Warden",
+
+}
+end
+
+Main:Dropdown("Select Boss",_G.SelectBoss,Boss,function(vu)
+	_G.SelectBoss = vu
+end)
+
 Main:Toggle("Auto Boss",_G.Setting_table.Farm_Boss,function(vu)
-	Auto_Farm_Boss = vu
+	Auto_Boss = vu
 	_G.Setting_table.Farm_Boss = vu
 	Update_Setting(getgenv()['MyName'])
-	StopTween(Auto_Farm_Boss)
 end)
 
 spawn(function()
 	while wait() do
 		pcall(function()
-		if Auto_Farm_Boss then
+		if Auto_Boss then
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if _G.Farm_Boss then
 					_G.SelectBoss = nil
@@ -7409,29 +7432,6 @@ spawn(function()
 			end
 		end)
 	end
-end)
-
-Boss = {}
-
-if World1 then
-
-Boss = {
-
-"The Gorilla King [Lv. 25]",
-"Bobby [Lv. 55]",
-"The Saw [Lv. 100]",
-"Yeti",
-"Mob Leader",
-"Vice Admiral",
-"Saber Expert",
-"Warden",
-
-}
-end
-
-
-Main:Dropdown("Select Boss",_G.SelectBoss,Boss,function(vu)
-	_G.SelectBoss = vu
 end)
 
 Main:Seperator("\\\\\ Select Monster //")

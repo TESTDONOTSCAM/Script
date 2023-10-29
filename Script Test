@@ -7286,7 +7286,7 @@ Main:Seperator("\\\\\ Bosses //")
     local Boss = {}
     
 	for i, v in pairs(game.Workspace["_WorldOrigin"].EnemySpawns:GetChildren()) do
-		if string.find(v.DisplayName, "[Boss]") then
+		if string.find(v.DisplayName, "Boss") then
 		if v.Name == "Ice Admiral" then
 		else
 		table.insert(Boss, v.Name)
@@ -7301,7 +7301,7 @@ Main:Seperator("\\\\\ Bosses //")
 		Main:Button("Refresh Boss",function()
 		BossName:Clear()
 		for i, v in pairs(game.Workspace["_WorldOrigin"].EnemySpawns:GetChildren()) do
-		if string.find(v.DisplayName, "[Boss]") then
+		if string.find(v.DisplayName, "Boss") then
 		BossName:Add(v.Name)
 		end
 		end

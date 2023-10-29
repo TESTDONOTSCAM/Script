@@ -6885,7 +6885,7 @@ spawn(function()
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
                         end
 					elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-						CheckLevel()
+						CheckLevel2()
 						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 							if game.Workspace.Enemies:FindFirstChild(Ms) then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
@@ -6899,9 +6899,11 @@ spawn(function()
 											local percent = (health / maxhealth) * 100
 											if percent <= MinHealth then
 												EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
-												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
+												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0))
 												PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
 												UseSkillMasteryDevilFruit = true
+												game:GetService'VirtualUser':CaptureController()
+												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then
 													if SkillZ  and v.Humanoid.Health > 0 then
 														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
@@ -6980,7 +6982,9 @@ spawn(function()
 												end
 												UseSkillMasteryDevilFruit = false
 												EquipWeapon(_G.Setting_table.Weapon)
-												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
+												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0))
+												game:GetService'VirtualUser':CaptureController()
+												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												local health = v.Humanoid.Health
 												local maxhealth = v.Humanoid.MaxHealth
 												local percent = (health / maxhealth) * 100
@@ -7015,6 +7019,8 @@ spawn(function()
 												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
 												PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
 												UseSkillMasteryDevilFruit = true
+												game:GetService'VirtualUser':CaptureController()
+												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then
 													if SkillZ  and v.Humanoid.Health > 0 then
 														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
@@ -7075,6 +7081,8 @@ spawn(function()
 													end
 												end
 												UseSkillMasteryDevilFruit = false
+												game:GetService'VirtualUser':CaptureController()
+												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												EquipWeapon(_G.Setting_table.Weapon)
 												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
 												local health = v.Humanoid.Health
@@ -7164,6 +7172,8 @@ spawn(function()
 											if percent <= MinHealthGun then
 												EquipWeapon(SelectToolWeaponGun)
 												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
+												game:GetService'VirtualUser':CaptureController()
+												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												_G.Mon = v
 												game:GetService("Players").LocalPlayer.Character:FindFirstChild(SelectToolWeaponGun).MousePos.Value = v.HumanoidRootPart.Position
 												PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
@@ -7189,7 +7199,8 @@ spawn(function()
 												local maxhealth = v.Humanoid.MaxHealth
 												local percent = (health / maxhealth) * 100
 												if percent > MinHealth and v.Humanoid.Health > 0 then
-													game:GetService'VirtualUser':Button1Down(Vector2.new(1280,600))
+													game:GetService'VirtualUser':CaptureController()
+													game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												else
 													EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
 													wait(1)
@@ -7229,6 +7240,8 @@ spawn(function()
 												game:GetService("Players").LocalPlayer.Character:FindFirstChild(SelectToolWeaponGun).MousePos.Value = v.HumanoidRootPart.Position
 												PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
 												UseSkillMasteryDevilFruit = true
+												game:GetService'VirtualUser':CaptureController()
+												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												if SkillZ  and v.Humanoid.Health > 0 then
 													game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
 													wait(.1)
@@ -7247,7 +7260,8 @@ spawn(function()
 												local maxhealth = v.Humanoid.MaxHealth
 												local percent = (health / maxhealth) * 100
 												if percent > MinHealth and v.Humanoid.Health > 0 then
-													game:GetService'VirtualUser':Button1Down(Vector2.new(1280,600))
+													game:GetService'VirtualUser':CaptureController()
+													game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												else
 													EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
 													wait(1)

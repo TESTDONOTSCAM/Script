@@ -6831,7 +6831,7 @@ end
 
 if type(_G.Select_Material) == 'string' then
 else
-	_G.Select_Material = ""
+	_G.Select_Material = SelectMath
 end
 
 local Select_M = Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)
@@ -6921,7 +6921,7 @@ spawn(function()
 														game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
 													end  
 												elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Venom-Venom") then
-													if SkillZ and v.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(7.6, 7.676, 3.686) then
+													if SkillZ and v.Humanoid.Health > 0 then
 													else
 														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
 														wait(.1)

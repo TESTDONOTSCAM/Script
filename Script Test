@@ -3923,6 +3923,7 @@ spawn(function()
 	end)
 end)
 
+--[[
 spawn(function()
 	while wait(.1) do
 		pcall(function()
@@ -4051,6 +4052,7 @@ spawn(function()
 		end)
 	end
 end)
+]]--
 
 function SelectMathe()
 	local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
@@ -6787,6 +6789,9 @@ end)
 
 Main:Seperator("Material Farm")
 
+Main:LabelWarn("Soon")
+
+--[[
 local SelectMath
 
 if World1 then
@@ -6838,6 +6843,8 @@ end
 local Select_M = Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)
 	_G.Select_Material = value
 end)
+
+--]]
 
 --[[
 Main:Button("Clear Material",function(value)

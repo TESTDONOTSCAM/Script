@@ -6787,7 +6787,8 @@ end)
 
 Main:Seperator("Material Farm")
 
-local SelectMath
+SelectMath = {}
+
 if World1 then
 
 SelectMath = {

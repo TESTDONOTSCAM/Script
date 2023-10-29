@@ -7430,7 +7430,7 @@ Boss = {
 end
 
 
-Main:Dropdown2("Select Boss",Boss,function(vu)
+Main:Dropdown("Select Boss",_G.SelectBoss,Boss,function(vu)
 	_G.SelectBoss = vu
 end)
 

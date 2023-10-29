@@ -3913,7 +3913,7 @@ end
 
 spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
-		if Auto_Farm or Farm_Material then
+		if Auto_Farm or Auto_Boss then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
 				setfflag("HumanoidParallelRemoveNoPhysics", "False")
 				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")

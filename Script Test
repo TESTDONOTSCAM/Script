@@ -7285,27 +7285,27 @@ Main:Seperator("\\\\\ Bosses //")
     
     local Boss = {}
     
-	for i, v in pairs(game.Workspace["_WorldOrigin"].EnemySpawns:GetChildren()) do
-		if string.find(v.Name, "Boss") then
+for i, v in pairs(game.Workspace["_WorldOrigin"].EnemySpawns:GetChildren()) do
+	if string.find(v.Name, v.DisplayName, "Boss") then
 		if v.Name == "Ice Admiral" then
 		else
-		table.insert(Boss, v.Name)
+		table.insert(Boss, v.Name, v.DisplayName)
 		end
-		end
-		end
+	end
+end
 		
-		local BossName = Main:Dropdown2("Select Boss",Boss,function(value)
-		_G.SelectBoss = value
-		end)
+local BossName = Main:Dropdown2("Select Boss",Boss,function(value)
+	_G.SelectBoss = value
+end)
 		
-		Main:Button("Refresh Boss",function()
-		BossName:Clear()
+Main:Button("Refresh Boss",function()
+	BossName:Clear()
 		for i, v in pairs(game.Workspace["_WorldOrigin"].EnemySpawns:GetChildren()) do
-		if string.find(v.Name, "Boss") then
+		if string.find(v.Name, v.DisplayName, "Boss") then
 		BossName:Add(v.Name)
 		end
-		end
-		end)
+	end
+end)
 
 --[[
 Main:Seperator("Boss Farm")

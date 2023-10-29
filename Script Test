@@ -3450,9 +3450,6 @@ spawn(function()
 		pcall(function()
 		if Auto_Farm then
 			if _G.Select_Mode_Farm == "Level Farm" then
-				Farm_Material = false
-				StopTween(Farm_Material)
-				Auto_Farm = true
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -3572,9 +3569,6 @@ spawn(function()
 					end
 				end
 			elseif _G.Select_Mode_Farm == "Double Quest" then
-				Farm_Material = false
-				StopTween(Farm_Material)
-				Auto_Farm = true
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -3691,9 +3685,6 @@ spawn(function()
 						end
 					end
 				elseif _G.Select_Mode_Farm == "Bone Farm" then
-					Farm_Material = false
-					StopTween(Farm_Material)
-					Auto_Farm = true
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 						if _G.Farm_Boss then
 							_G.SelectBoss = nil
@@ -3902,7 +3893,7 @@ end
 
 spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
-		if Auto_Farm or Farm_Material then
+		if Auto_Farm then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
 				setfflag("HumanoidParallelRemoveNoPhysics", "False")
 				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -3935,10 +3926,8 @@ end)
 spawn(function()
 	while wait(.1) do
 		pcall(function()
-			if Farm_Material then
-				_G.Setting_table.AutoFarm = false
-				Farm_Material = true
-				StopTween(Auto_Farm)
+			if Auto_Farm then
+				if _G.Select_Material == nil then
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -4057,6 +4046,7 @@ spawn(function()
 						end
 					end
 				end
+			end
 			end
 		end)
 	end
@@ -6838,13 +6828,19 @@ SelectMath = {
 }
 end
 
-Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)
+if type(_G.Select_Material) == 'string' then
+else
+	_G.Select_Material = ""
+end
+
+local Select_M = Main:Dropdown("Select Material",_G.Select_Material,SelectMath,function(value)
 	_G.Select_Material = value
 end)
 
-Main:Toggle("Farm Material",false,function(value)
-	Farm_Material = value
-	StopTween(Farm_Material)
+Main:Button("Clear Material",function(value)
+	Select_M:Clear()
+	wait(0.5)
+	Select_M:Add(SelectMath)
 end)
 
 Main:Seperator("Mastery")

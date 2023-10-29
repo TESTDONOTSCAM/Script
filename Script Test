@@ -6691,6 +6691,7 @@ end)
                 end
             end
         end
+
         if Auto_Farm_Bounty or Auto_Farm_Fruit and not Mix_Farm then
             local Fast = getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
             local Lop = Fast[2]
@@ -6877,7 +6878,7 @@ spawn(function()
 			if Auto_Farm_Fruit then
 				if not Mix_Farm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-						CheckLevel()
+						CheckLevel2()
 						if (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10 then
                             TP(CFrameQ)
                         else
@@ -7140,7 +7141,7 @@ spawn(function()
 			if Auto_Farm_Gun then
 				if not Mix_Farm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-						CheckLevel()
+						CheckLevel2()
 						if (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10 then
                             TP(CFrameQ)
                         else
@@ -7148,7 +7149,7 @@ spawn(function()
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
                         end
 					elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-						CheckLevel()
+						CheckLevel2()
 						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 							if game.Workspace.Enemies:FindFirstChild(Ms) then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
@@ -9085,7 +9086,7 @@ end
 MIo = {"Super Fast Attack", "0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"}
 
 Setting:Toggle("Fast Attack",true,function(vu)
-	_G.FastAttack = vu
+	_G.FastAttack2 = vu
 end)
 
 require(game.ReplicatedStorage.Util.CameraShaker):Stop()
@@ -9096,7 +9097,7 @@ xShadowx = debug.getupvalues(xShadowFastAttackx)[2]
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack then
+        if _G.FastAttack2 then
             if typeof(xShadowx) == "table" then
                 pcall(function()
                     xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
@@ -9117,7 +9118,7 @@ end)
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack == true then
+        if _G.FastAttack2 == true then
             game.Players.LocalPlayer.Character.Stun.Value = 0
             game.Players.LocalPlayer.Character.Busy.Value = false        
         end
@@ -9182,7 +9183,7 @@ local Client = game.Players.LocalPlayer
                     STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
                     local Hits = STOPRL.getBladeHits(b,c,d)
                     if Hits then
-                        if _G.FastAttack then
+                        if _G.FastAttack2 then
                             STOP.play = function() end
                             a:Play(0.01,0.01,0.01)
                             func(Hits)
@@ -9243,11 +9244,11 @@ local Client = game.Players.LocalPlayer
 	end
 	spawn(function()
 		while wait(.1) do
-			if _G.FastAttack then
+			if _G.FastAttack2 then
 				pcall(function()
 					repeat task.wait(_G.Fast_Delay)
 						AttackHit()
-					until not _G.FastAttack
+					until not _G.FastAttack2
 				end)
 			end
 		end

@@ -6814,7 +6814,7 @@ SelectMath = {
 "Radioactive Material",
 
 }
-table.insert(SelectMath, v.Mat)
+table.insert(SelectMath, v.Name)
 
 elseif World3 then
 
@@ -6829,7 +6829,7 @@ SelectMath = {
  "Conjured Cocoa",
 
 }
-table.insert(SelectMath, v.Mat)
+table.insert(SelectMath, v.Name)
 
 end
 
@@ -6845,7 +6845,7 @@ end)
 Main:Button("Clear Material",function(value)
 	Select_M:Clear()
 	wait(0.5)
-	Select_M:Add(v.Mat)
+	Select_M:Add(v.Name)
 end)
 
 Main:Seperator("Mastery")

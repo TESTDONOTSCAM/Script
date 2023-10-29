@@ -7321,7 +7321,7 @@ spawn(function()
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if Auto_Boss then
 					_G.SelectBoss = nil
-					Auto_Boss = nil
+					_G.Auto_Boss = nil
 					SelectMonster = nil
 					_G.Farm_Mon = nil
 					_G.FastAttack2 = false

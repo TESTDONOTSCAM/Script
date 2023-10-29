@@ -7319,9 +7319,9 @@ spawn(function()
 		pcall(function()
 		if Auto_Boss then
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if _G.Boss then
+				if Auto_Boss then
 					_G.SelectBoss = nil
-					_G.Farm_Boss = nil
+					Auto_Boss = nil
 					SelectMonster = nil
 					_G.Farm_Mon = nil
 					_G.FastAttack2 = false
@@ -7365,7 +7365,7 @@ spawn(function()
 					_G.FastAttack2 = false
 				end
 			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-				if _G.Boss then
+				if Auto_Boss then
 					if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 							if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then

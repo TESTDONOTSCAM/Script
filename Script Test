@@ -7289,7 +7289,7 @@ Main:Seperator("\\\\\ Bosses //")
 		if string.find(v.DisplayName, "Boss") then
 		if v.Name == "Ice Admiral" then
 		else
-		table.insert(Boss, v.Name)
+		table.insert(Boss, v.DisplayName)
 		end
 		end
 		end
@@ -7302,7 +7302,7 @@ Main:Seperator("\\\\\ Bosses //")
 		BossName:Clear()
 		for i, v in pairs(game.Workspace["_WorldOrigin"].EnemySpawns:GetChildren()) do
 		if string.find(v.DisplayName, "Boss") then
-		BossName:Add(v.Name)
+		BossName:Add(v.DisplayName)
 		end
 		end
 		end)

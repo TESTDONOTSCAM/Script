@@ -6799,10 +6799,8 @@ SelectMath = {
 "Scrap Metal",
 
 }
-table.insert(SelectMath)
-end
 
-if World2 then
+elseif World2 then
 
 SelectMath = {
 
@@ -6815,10 +6813,8 @@ SelectMath = {
 "Radioactive Material",
 
 }
-table.insert(SelectMath)
-end
 
-if World3 then
+elseif World3 then
 
 SelectMath = {
 
@@ -6831,7 +6827,7 @@ SelectMath = {
  "Conjured Cocoa",
 
 }
-table.insert(SelectMath)
+
 end
 
 if type(_G.Select_Material) == 'string' then
@@ -6843,11 +6839,13 @@ local Select_M = Main:Dropdown("Select Material",_G.Select_Material,SelectMath,f
 	_G.Select_Material = value
 end)
 
+--[[
 Main:Button("Clear Material",function(value)
 	Select_M:Clear()
 	wait(0.5)
 	Select_M:Add(SelectMath)
 end)
+]]--
 
 Main:Seperator("Mastery")
 

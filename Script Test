@@ -7285,14 +7285,16 @@ Main:Seperator("\\\\\ Bosses //")
     
     local Boss = {}
     
-    for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
-    if string.find(v.Name, "Boss") then
-    if v.Name == "Ice Admiral" then
-    else
-    table.insert(Boss, v.Name)
-    end
-    end
-    end
+	for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+		if string.find(v.DisplayName,"[Boss]") then
+			table.insert(Boss, v.Name)
+		end
+	end
+	for i,v in pairs(game.ReplicatedStorage:GetChildren()) do
+		if string.find(v.DisplayName,"[Boss]") then
+			table.insert(Boss, v.Name)
+		end
+	end
     
     local BossName = Main:Dropdown2("Select Boss",Boss,function(value)
     _G.SelectBoss = value
@@ -7300,12 +7302,17 @@ Main:Seperator("\\\\\ Bosses //")
     
     Main:Button("Refresh Boss",function()
     BossName:Clear()
-    for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
-    if string.find(v.Name, "Boss") then
-    BossName:Add(v.Name)
-    end
-    end
-    end)
+    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+		if string.find(v.DisplayName,"[Boss]") then
+			BossName:Add(v.Name)
+		end
+	end
+	for i,v in pairs(game.ReplicatedStorage:GetChildren()) do
+		if string.find(v.DisplayName,"[Boss]") then
+			BossName:Add(v.Name)
+		end
+	end
+end)
 
 --[[
 Main:Seperator("Boss Farm")

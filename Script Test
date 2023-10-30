@@ -5436,13 +5436,6 @@ DropTitle.TextSize = 12.000
 DropTitle.TextXAlignment = Enum.TextXAlignment.Left
 end
 
-DropTitlePadding.Name = "DropTitlePadding"
-DropTitlePadding.Parent = DropTitle
-DropTitlePadding.PaddingTop = UDim.new(0, 3)
-
-UIPadding_11.Parent = Dropdown
-UIPadding_11.PaddingLeft = UDim.new(0, 10)
-
 DropImage.Name = "Icon"
 DropImage.Parent = Dropdown
 DropImage.AnchorPoint = Vector2.new(1, 0)

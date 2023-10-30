@@ -5551,12 +5551,12 @@ Item.MouseButton1Click:Connect(function()
  end)
 end
 
-DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 10)
+DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 100)
 
 DropButton.MouseButton1Click:Connect(function()
  if isdropping == false then
  isdropping = true
- Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 200),"Out","Quad",0.3,true)
+ Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 400),"Out","Quad",0.3,true)
  TweenService:Create(
   DropImage,
   TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -6954,23 +6954,7 @@ Boss = {
 
 end
 
-Main:Dropdown2("Seleect Boss",{
-	"The Gorilla King [Lv. 25]",
-	"Bobby [Lv. 55]",
-	"The Saw [Lv. 100]",
-	"Yeti [Lv. 110]",
-	"Mob Leader [Lv. 120]",
-	"Vice Admiral [Lv. 130]",
-	"Saber Expert [Lv. 200]",
-	"Warden [Lv. 220]",
-	"Chief Warden [Lv. 230]",
-	"Swan [Lv. 240]",
-	"Magma Admiral [Lv. 350]",
-	"Fishman Lord [Lv. 425]",
-	"Wysper [Lv. 500]",
-	"Thunder God [Lv. 575]",
-	"Cyborg [Lv. 675]"
-	},function(vu)
+Main:Dropdown("Select Boss",_G.SelectBoss,Boss,function(vu)
 	_G.SelectBoss = vu
 end)
 

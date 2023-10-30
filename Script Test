@@ -3929,7 +3929,7 @@ spawn(function()
 					LOL1.Parent = game.Workspace
 					LOL1.Anchored = true
 					LOL1.Transparency = 0.8
-					LOL1.Size = Vector3.new(35,1,35)
+					LOL1.Size = Vector3.new(35,0.5,35)
 				elseif game:GetService("Workspace"):FindFirstChild("LOL1") then
 					game.Workspace["LOL1"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3.8,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
 				end

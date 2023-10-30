@@ -214,7 +214,7 @@ end
 function CheckQuestBoss()
 	-- World 1
 	if World1 then
-		if _G.SelectBoss == "The Gorilla King" then
+		if _G.SelectBoss == "The Gorilla King [Lv. 25]" then
 			MsBoss = "The Gorilla King" 
 			NameBoss = "The Gorilla King"
 			NameQuestBoss = "JungleQuest"
@@ -222,7 +222,7 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(-1604.12012, 36.8521118, 154.23732, 0.0648873374, -4.70858913e-06, -0.997892559, 1.41431883e-07, 1, -4.70933674e-06, 0.997892559, 1.64442184e-07, 0.0648873374)
 			CFrameBoss = CFrame.new(-1223.52808, 6.27936459, -502.292664, 0.310949147, -5.66602516e-08, 0.950426519, -3.37275488e-08, 1, 7.06501808e-08, -0.950426519, -5.40241736e-08, 0.310949147)
 			TelePBoss(CFrameBoss)
-		elseif _G.SelectBoss == "Bobby" then
+		elseif _G.SelectBoss == "Bobby [Lv. 55]" then
 			MsBoss = "Bobby"
 			NameBoss = "Bobby"
 			NameQuestBoss = "BuggyQuest1"
@@ -7284,8 +7284,8 @@ if World1 then
 
 Boss = {
 
-"The Gorilla King",
-"Bobby",
+"The Gorilla King [Lv. 25]",
+"Bobby [Lv. 55]",
 "The Saw [Lv. 100]",
 "Yeti [Lv. 110]",
 "Mob Leader [Lv. 120]",

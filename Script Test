@@ -5702,13 +5702,6 @@ function main:Dropdown2(text,option,callback)
  DropTitle2.TextSize = 16.000
  DropTitle2.TextXAlignment = Enum.TextXAlignment.Left
  
- DropTitlePadding2.Name = "DropTitlePadding"
- DropTitlePadding2.Parent = DropTitle2
- DropTitlePadding2.PaddingTop = UDim.new(0, 3)
- 
- UIPadding_112.Parent = Dropdown2
- UIPadding_112.PaddingLeft = UDim.new(0, 10)
- 
  DropImage2.Name = "Icon"
  DropImage2.Parent = Dropdown2
  DropImage2.AnchorPoint = Vector2.new(1, 0)
@@ -5728,7 +5721,7 @@ function main:Dropdown2(text,option,callback)
  DropScroll2.BorderSizePixel = 0
  DropScroll2.Position = UDim2.new(0, 0, 0, 26)
  DropScroll2.Selectable = false
- DropScroll2.Size = UDim2.new(0.976000011, 0, 0, -100)
+ DropScroll2.Size = UDim2.new(0.976000011, 0, 0, -31)
  DropScroll2.CanvasSize = UDim2.new(0,0,0,0)
  DropScroll2.ScrollBarThickness = 3
  
@@ -5766,7 +5759,7 @@ function main:Dropdown2(text,option,callback)
     Item2.BackgroundTransparency = 0.600
     Item2.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Item2.BorderSizePixel = 0
-    Item2.Size = UDim2.new(0.976000011, 0, 0, 31)
+    Item2.Size = UDim2.new(0.976000011, 0, 0, 26)
     Item2.Font = Enum.Font.SourceSans
     Item2.Text = tostring(v)
     Item2.TextColor3 = Color3.fromRGB(255,255,255)
@@ -5844,7 +5837,7 @@ function main:Dropdown2(text,option,callback)
     Item2.BackgroundTransparency = 1.000
     Item2.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Item2.BorderSizePixel = 0
-    Item2.Size = UDim2.new(0.976000011, 0, 0, 31)
+    Item2.Size = UDim2.new(0.976000011, 0, 0, 26)
     Item2.Font = Enum.Font.SourceSans
     Item2.Text = tostring(t)
     Item2.TextColor3 = Color3.fromRGB(255,255,255)

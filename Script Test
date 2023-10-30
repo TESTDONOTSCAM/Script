@@ -3873,9 +3873,10 @@ spawn(function()
 					_G.FastAttack = false
 				end
 			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-				if Auto_Boss then
+			elseif Auto_Boss then
 					if game.Workspace.Enemies:FindFirstChild(MsQBoss) then
+						if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 							if v.Name == MsQBoss and v.Humanoid.Health > 0 then
 								_G.PosMon = v.HumanoidRootPart.CFrame

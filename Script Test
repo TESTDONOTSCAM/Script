@@ -5509,7 +5509,7 @@ end
 		 end)
 		end
 		
-		DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout221.AbsoluteContentSize.Y + 10)
+		DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout211.AbsoluteContentSize.Y + 10)
 		
 		DropButton.MouseButton1Click:Connect(function()
 		 if isdropping == false then

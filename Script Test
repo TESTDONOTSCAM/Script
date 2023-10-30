@@ -5728,7 +5728,7 @@ function main:Dropdown2(text,option,callback)
  DropScroll2.BorderSizePixel = 0
  DropScroll2.Position = UDim2.new(0, 0, 0, 26)
  DropScroll2.Selectable = false
- DropScroll2.Size = UDim2.new(1.00538611, -8, 0.99999994, -30)
+ DropScroll2.Size = UDim2.new(0.976000011, 0, 0, -100)
  DropScroll2.CanvasSize = UDim2.new(0,0,0,0)
  DropScroll2.ScrollBarThickness = 3
  

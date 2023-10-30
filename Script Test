@@ -3920,7 +3920,7 @@ spawn(function()
 								v.HumanoidRootPart.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 								repeat task.wait()
-									TelePBoss(CFrameQBoss)
+									TelePBoss(CFrameBoss)
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()

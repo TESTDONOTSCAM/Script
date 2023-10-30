@@ -3873,10 +3873,8 @@ spawn(function()
 					_G.FastAttack = false
 				end
 			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-			elseif Auto_Boss then
+			if Auto_Boss then
 					if game.Workspace.Enemies:FindFirstChild(MsQBoss) then
-						if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 							if v.Name == MsQBoss and v.Humanoid.Health > 0 then
 								_G.PosMon = v.HumanoidRootPart.CFrame
@@ -3892,6 +3890,7 @@ spawn(function()
 								_G.FastAtteack2 = true
 								repeat task.wait()
 									TelePBoss(CFrameYBoss)
+									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()

@@ -5415,7 +5415,7 @@ DropTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 DropTitle.BackgroundTransparency = 1.000
 DropTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 DropTitle.BorderSizePixel = 0
-DropTitle.Size = UDim2.new(1, -30, 0, 26)
+DropTitle.Size = UDim2.new(0.976000011, 0, 0, 31)
 DropTitle.Font = Enum.Font.Ubuntu
 DropTitle.Text = text.. " : "..old
 DropTitle.TextColor3 = Color3.fromRGB(255,255,255)
@@ -5428,11 +5428,11 @@ DropTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 DropTitle.BackgroundTransparency = 1.000
 DropTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 DropTitle.BorderSizePixel = 0
-DropTitle.Size = UDim2.new(1, -30, 0, 26)
+DropTitle.Size = UDim2.new(0.976000011, 0, 0, 31)
 DropTitle.Font = Enum.Font.Ubuntu
 DropTitle.Text = text.. " : "
 DropTitle.TextColor3 = Color3.fromRGB(255,255,255)
-DropTitle.TextSize = 16.000
+DropTitle.TextSize = 12.000
 DropTitle.TextXAlignment = Enum.TextXAlignment.Left
 end
 
@@ -5456,14 +5456,13 @@ DropImage.Image = "http://www.roblox.com/asset/?id=13871407485"
 
 DropScroll.Name = "DropScroll"
 DropScroll.Parent = Dropdown
-DropScroll.Active = true
 DropScroll.BackgroundColor3 = Color3.fromRGB(0,0,0)
 DropScroll.BackgroundTransparency = 1.000
 DropScroll.BorderColor3 = Color3.fromRGB(0, 0, 0)
 DropScroll.BorderSizePixel = 0
 DropScroll.Position = UDim2.new(0, 0, 0, 26)
 DropScroll.Selectable = false
-DropScroll.Size = UDim2.new(1.00538611, -8, 0.99999994, 100)
+DropScroll.Size = UDim2.new(1.00538611, -8, 0.99999994, -30)
 DropScroll.CanvasSize = UDim2.new(0,0,0,0)
 DropScroll.ScrollBarThickness = 3
 
@@ -5696,7 +5695,7 @@ function main:Dropdown2(text,option,callback)
  DropTitle2.BackgroundTransparency = 1.000
  DropTitle2.BorderColor3 = Color3.fromRGB(0, 0, 0)
  DropTitle2.BorderSizePixel = 0
- DropTitle2.Size = UDim2.new(1, -30, 0, 26)
+ DropTitle2.Size = UDim2.new(0.976000011, 0, 0, 31)
  DropTitle2.Font = Enum.Font.Ubuntu
  DropTitle2.Text = text.. " : "
  DropTitle2.TextColor3 = Color3.fromRGB(255,255,255)
@@ -5723,14 +5722,13 @@ function main:Dropdown2(text,option,callback)
  
  DropScroll2.Name = "DropScroll"
  DropScroll2.Parent = Dropdown2
- DropScroll2.Active = true
  DropScroll2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
  DropScroll2.BackgroundTransparency = 1.000
  DropScroll2.BorderColor3 = Color3.fromRGB(0, 0, 0)
  DropScroll2.BorderSizePixel = 0
  DropScroll2.Position = UDim2.new(0, 0, 0, 26)
  DropScroll2.Selectable = false
- DropScroll2.Size = UDim2.new(1.00538611, -8, 0.99999994, 100)
+ DropScroll2.Size = UDim2.new(1.00538611, -8, 0.99999994, -30)
  DropScroll2.CanvasSize = UDim2.new(0,0,0,0)
  DropScroll2.ScrollBarThickness = 3
  

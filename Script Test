@@ -3928,7 +3928,6 @@ spawn(function()
 					LOL1.Name = "LOL1"
 					LOL1.Parent = game.Workspace
 					LOL1.Anchored = true
-					LOL1.CanCollide = true
 					LOL1.Transparency = 0.8
 					LOL1.Size = Vector3.new(35,1,35)
 				elseif game:GetService("Workspace"):FindFirstChild("LOL1") then
@@ -7329,12 +7328,12 @@ spawn(function()
 					_G.FastAttack2 = false
 					wait(.2)
 				end
-				if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
-					CheckQuestBoss()
+				if _G.SelectBowss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBowss) or _G.SelecwtBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelecwtBoss) then
+					CheckQuestBowss()
 					repeat wait(.2)
-						TelePBoss(CFrameQBoss)
-						TP(CFrameQBoss)
-					until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+						TelePBoss(CFrameQBowss)
+						TP(CFrameQwBoss)
+					until (CFrameQwBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					_G.Farm_Boss = true
@@ -7382,13 +7381,13 @@ spawn(function()
 								StatrMagnet = nil
 								_G.FastAttack2 = true
 								repeat task.wait()
-									TelePBoss(CFrameQBoss)
+									TelePBoss(CFrameQBowss)
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
 									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
 									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 								end
 							end

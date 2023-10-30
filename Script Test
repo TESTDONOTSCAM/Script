@@ -15689,7 +15689,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
-TEST:Toggle("Auto Buy Boat",false,function(val)
+TEST:Button("Auto Buy Boat",function(val)
 	_G.Boat = val
 end)
 

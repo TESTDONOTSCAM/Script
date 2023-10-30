@@ -2776,6 +2776,14 @@ elseif Lv >= 2050 or SelectMonster == "Posessed Mummy" then
 	end
 end
 
+function CheckBeast()
+if World3 then
+		MsB = "PirateBrigade"
+		NameMonB = "PirateBrigade"
+		CFrameBeast = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
+		TelePBoss(CFrameBeast)
+	end
+end
 ---------------------------------------------------------------
 
 function AutoHaki()
@@ -2918,7 +2926,7 @@ end
 spawn(function()
     while wait(.1) do
         pcall(function()
-            if _G.Clip or Auto_BossNQ or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or _G.Setting_table.Death_Step or _G.Setting_table.Sharkman_Karate or _G.Setting_table.Electric_Claw or _G.Setting_table.Dragon_Talon or _G.Setting_table.Superhuman or Auto_World3 or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Boss_Hop or _G.Setting_table.Auto_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or Auto_Farm_Sword or Auto_Farm or Auto_Farm_Gun or Auto_Boss_All or Auto_Boss or Auto_Farm_Fruit then
+            if _G.Clip or _G.Sail or Auto_BossNQ or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or _G.Setting_table.Death_Step or _G.Setting_table.Sharkman_Karate or _G.Setting_table.Electric_Claw or _G.Setting_table.Dragon_Talon or _G.Setting_table.Superhuman or Auto_World3 or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Boss_Hop or _G.Setting_table.Auto_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or Auto_Farm_Sword or Auto_Farm or Auto_Farm_Gun or Auto_Boss_All or Auto_Boss or Auto_Farm_Fruit then
 				if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
 					game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
 					wait(5)
@@ -4141,7 +4149,7 @@ end
 
 spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
-		if Auto_Farm or Auto_Boss or Auto_BossNQ or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Auto_Yama or Auto_Tushita then
+		if Auto_Farm or Auto_Boss or _G.Sail or Auto_BossNQ or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Auto_Yama or Auto_Tushita then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
 				setfflag("HumanoidParallelRemoveNoPhysics", "False")
 				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -15689,6 +15697,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
+--[[
 TEST:Button("Auto Buy Boat",function()
 	local args = {
 		[1] = "BuyBoat",
@@ -15696,17 +15705,111 @@ TEST:Button("Auto Buy Boat",function()
 	}
 	game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
 end)
+]]--
 
 TEST:Toggle("TEST",false,function(val)
 	_G.Sail = val
 end)
-if _G.Sail then
-	game.Workspace.Gravity = 0
-	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
-	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false) 
-	repeat wait()
-	wait(2)
-	topos(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
-	until not _G.Sail
-	StopTween(_G.Sail)
-end
+
+spawn(function()
+	while wait() do
+		pcall(function()
+		if _G.Sail then
+			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+				if SelectMonster ~= nil then
+					CheckBeast()
+					AutoHaki()
+					
+					repeat wait(.2)
+						TelePBoss(CFrameBeast)
+						TP(CFrameBeast)
+						
+					until (CFrameBeast.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameBeast)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+					
+					SelectMonster = nil
+					_G.Farm_Mon = nil
+				else
+					CheckBeast()
+					AutoHaki()
+					
+					repeat wait(.2)
+						TelePBoss(CFrameBeast)
+						topos(CFrameBeast)
+					until (CFrameBeast.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameBeast)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+					
+				end
+			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+				if _G.Auto_BostyjrtjWs then
+					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
+						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+							if v.Name == _G.SelectBofss and v.Humanoid.Health > 0 then
+								if v.Humanoid:FindFirstChild("Animator") then
+									v.Humanoid.Animator:Destroy()
+								end
+								v.Humanoid:ChangeState(11)
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								v.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+								_G.FastAtteack2 = true
+								repeat task.wait()
+									TelePBoss(CFrameQBowss)
+									EquipWeapon(_G.Setting_table.Weapon)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									game:GetService'VirtualUser':CaptureController()
+									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
+									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+								end
+							end
+						end
+					else
+						topos(CFrameBSOSO * CFrame.new(0,10,0))
+						TelePBoss(CFramefeeBoss)
+					end
+				else
+					if game.Workspace.Enemies:FindFirstChild(MsB) then
+						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+							if v.Name == MsB and v.Humanoid.Health > 0 then
+								_G.PosMon = v.HumanoidRootPart.CFrame
+								
+								if v.Humanoid:FindFirstChild("Animator") then
+									v.Humanoid.Animator:Destroy()
+								end
+								v.Humanoid:ChangeState(11)
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								v.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+								repeat task.wait()
+									TelePBoss(CFrameBeast)
+									EquipWeapon(_G.Setting_table.Weapon)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									game:GetService'VirtualUser':CaptureController()
+									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+								end
+								Attack = nil
+							end
+						end
+						else
+						
+						if game.ReplicatedStorage:FindFirstChild(MsB) then
+							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+						else
+						topos(CFrameBeast)
+							end
+						end
+					end
+				end
+			end
+		end)
+	end
+end)

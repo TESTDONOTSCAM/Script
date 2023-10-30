@@ -3449,7 +3449,7 @@ end)
 
 function topos(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
+        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = true end
         pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/150, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
         tween:Play()
         if Distance <= 250 then
@@ -15736,7 +15736,7 @@ spawn(function()
 					
 					repeat wait(.2)
 						TelePBoss(CFrameBeast)
-						topos(CFrameBeast)
+						TP2(CFrameBeast)
 					until (CFrameBeast.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 					TelePBoss(CFrameBeast)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
@@ -15759,7 +15759,7 @@ spawn(function()
 								repeat task.wait()
 									TelePBoss(CFrameQBowss)
 									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									TP2(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
 									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
@@ -15789,7 +15789,7 @@ spawn(function()
 								repeat task.wait()
 									TelePBoss(CFrameBeast)
 									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									TP2(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
 									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
@@ -15802,9 +15802,9 @@ spawn(function()
 						else
 						
 						if game.ReplicatedStorage:FindFirstChild(MsB) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+							TP3(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 						else
-						topos(CFrameBeast)
+						TP(CFrameBeast)
 							end
 						end
 					end

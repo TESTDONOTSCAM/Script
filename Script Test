@@ -3451,10 +3451,15 @@ function topos(Pos)
         if _G.StopTween == true then
             tween:Cancel()
             _G.Clip = false
-			_G.FastAttack2 = false
+			_G.FastAttack = false
         end
     end
 
+--[[
+
+Farm Attack
+
+]]
 
 spawn(function()
 	while wait() do
@@ -3470,7 +3475,7 @@ spawn(function()
 						_G.Farm_Boss = nil
 						SelectMonster = nil
 						_G.Farm_Mon = nil
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						wait(.2)
 					end
 					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3482,33 +3487,33 @@ spawn(function()
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 						_G.Farm_Boss = true
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 					elseif SelectMonster ~= nil then
 						CheckLevel2()
 						AutoHaki()
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						repeat wait(.2)
 							TelePBoss(CFrameQ)
 							TP(CFrameQ)
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 					else
 						StatrMagnet = nil
 						CheckLevel2()
 						AutoHaki()
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						repeat wait(.2)
 							TelePBoss(CFrameQ)
 							topos(CFrameQ)
 						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 					end
 				elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 					if _G.Farm_Boss then
@@ -3544,7 +3549,7 @@ spawn(function()
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 								if v.Name == Ms and v.Humanoid.Health > 0 then
 									_G.PosMon = v.HumanoidRootPart.CFrame
-									_G.FastAttack2 = true
+									_G.FastAttack = true
 									StatrMagnet = true
 									if v.Humanoid:FindFirstChild("Animator") then
 										v.Humanoid.Animator:Destroy()
@@ -3571,13 +3576,13 @@ spawn(function()
 								end
 							end
 							else
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 							StatrMagnet = false
 							if game.ReplicatedStorage:FindFirstChild(Ms) then
 								topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 							else
 							topos(CFrameMon)
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 							end
 						end
 					end
@@ -3592,7 +3597,7 @@ spawn(function()
 						_G.Farm_Boss = nil
 						SelectMonster = nil
 						_G.Farm_Mon = nil
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						wait(.2)
 					end
 					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3604,33 +3609,33 @@ spawn(function()
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 						_G.Farm_Boss = true
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 					elseif SelectMonster ~= nil then
 						DoubleQ()
 						AutoHaki()
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						repeat wait(.2)
 							TelePBoss(CFrameQ)
 							TP(CFrameQ)
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 					else
 						StatrMagnet = nil
 						DoubleQ()
 						AutoHaki()
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						repeat wait(.2)
 							TelePBoss(CFrameQ)
 							topos(CFrameQ)
 						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 					end
 				elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 					if _G.Farm_Boss then
@@ -3665,7 +3670,7 @@ spawn(function()
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 								if v.Name == Ms and v.Humanoid.Health > 0 then
 									_G.PosMon = v.HumanoidRootPart.CFrame
-									_G.FastAttack2 = true
+									_G.FastAttack = true
 									StatrMagnet = true
 									if v.Humanoid:FindFirstChild("Animator") then
 										v.Humanoid.Animator:Destroy()
@@ -3690,13 +3695,13 @@ spawn(function()
 								end
 							end
 							else
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 							StatrMagnet = false
 							if game.ReplicatedStorage:FindFirstChild(Ms) then
 								topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 							else
 							topos(CFrameMon)
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 								end
 							end
 						end
@@ -3711,7 +3716,7 @@ spawn(function()
 							_G.Farm_Boss = nil
 							SelectMonster = nil
 							_G.Farm_Mon = nil
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 							wait(.2)
 						end
 						if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3723,33 +3728,33 @@ spawn(function()
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 							_G.Farm_Boss = true
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 						elseif SelectMonster ~= nil then
 							QuestBone()
 							AutoHaki()
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 							repeat wait(.2)
 								TelePBoss(CFrameQ)
 								TP(CFrameQ)
-								_G.FastAttack2 = false
+								_G.FastAttack = false
 							until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 							SelectMonster = nil
 							_G.Farm_Mon = nil
 						else
 							StatrMagnet = nil
 							QuestBone()
 							AutoHaki()
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 							repeat wait(.2)
 								TelePBoss(CFrameQ)
 								topos(CFrameQ)
 							until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 						end
 					elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						if _G.Farm_Boss then
@@ -3784,7 +3789,7 @@ spawn(function()
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 									if v.Name == Ms and v.Humanoid.Health > 0 then
 										_G.PosMon = v.HumanoidRootPart.CFrame
-										_G.FastAttack2 = true
+										_G.FastAttack = true
 										StatrMagnet = true
 										if v.Humanoid:FindFirstChild("Animator") then
 											v.Humanoid.Animator:Destroy()
@@ -3809,13 +3814,13 @@ spawn(function()
 									end
 								end
 								else
-								_G.FastAttack2 = false
+								_G.FastAttack = false
 								StatrMagnet = false
 								if game.ReplicatedStorage:FindFirstChild(Ms) then
 									topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 								else
 								topos(CFrameMon)
-								_G.FastAttack2 = false
+								_G.FastAttack = false
 									end
 								end
 							end
@@ -3825,6 +3830,120 @@ spawn(function()
 			end)
 		end
 	end)
+
+-------------------------------------------------------
+
+--[[
+
+Boss Attack
+
+]]
+
+spawn(function()
+	while wait() do
+		pcall(function()
+		if Auto_Boss then
+			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+				if SelectMonster ~= nil then
+					CheckQuestBoss()
+					AutoHaki()
+					_G.FastAttack = false
+					repeat wait(.2)
+						TelePBoss(CFrameQBoss)
+						TP(CFrameQBoss)
+						_G.FastAttack = false
+					until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+					_G.FastAttack = false
+					SelectMonster = nil
+					_G.Farm_Mon = nil
+				else
+					CheckQuestBoss()
+					AutoHaki()
+					_G.FastAttack = false
+					repeat wait(.2)
+						TelePBoss(CFrameQBoss)
+						topos(CFrameQBoss)
+					until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+					_G.FastAttack = false
+				end
+			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+				if _G.Auto_BostyjrtjWs then
+					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
+						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+							if v.Name == _G.SelectBofss and v.Humanoid.Health > 0 then
+								if v.Humanoid:FindFirstChild("Animator") then
+									v.Humanoid.Animator:Destroy()
+								end
+								v.Humanoid:ChangeState(11)
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								v.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+								_G.FastAtteack2 = true
+								repeat task.wait()
+									TelePBoss(CFrameQBowss)
+									EquipWeapon(_G.Setting_table.Weapon)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									game:GetService'VirtualUser':CaptureController()
+									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
+									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+								end
+							end
+						end
+					else
+						topos(CFrameBSOSO * CFrame.new(0,10,0))
+						TelePBoss(CFramefeeBoss)
+					end
+				else
+					if game.Workspace.Enemies:FindFirstChild(MsBoss) then
+						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+							if v.Name == MsBoss and v.Humanoid.Health > 0 then
+								_G.PosMon = v.HumanoidRootPart.CFrame
+								_G.FastAttack = true
+								if v.Humanoid:FindFirstChild("Animator") then
+									v.Humanoid.Animator:Destroy()
+								end
+								v.Humanoid:ChangeState(11)
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								v.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+								repeat task.wait()
+									TelePBoss(CFrameQBoss)
+									EquipWeapon(_G.Setting_table.Weapon)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									game:GetService'VirtualUser':CaptureController()
+									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+								end
+								Attack = nil
+							end
+						end
+						else
+						_G.FastAttack = false
+						if game.ReplicatedStorage:FindFirstChild(MsBoss) then
+							topos(game.ReplicatedStorage:FindFirstChild(MsBoss).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+						else
+						topos(CFrameBoss)
+						_G.FastAttack = false
+							end
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
+
+-----------------------------------------------
 
 
 function isnil(thing)
@@ -3957,7 +4076,7 @@ spawn(function()
 						_G.Farm_Boss = nil
 						SelectMonster = nil
 						_G.Farm_Mon = nil
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						wait(.2)
 					end
 					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
@@ -3969,33 +4088,33 @@ spawn(function()
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 						_G.Farm_Boss = true
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 					elseif SelectMonster ~= nil then
 						SelectMathe()
 						AutoHaki()
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						repeat wait(.2)
 							TelePBoss(CFrameQ)
 							TP(CFrameQ)
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 					else
 						StatrMagnet = nil
 						SelectMathe()
 						AutoHaki()
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 						repeat wait(.2)
 							TelePBoss(CFrameQ)
 							topos(CFrameQ)
 						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-						_G.FastAttack2 = false
+						_G.FastAttack = false
 					end
 				elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 					if _G.Farm_Boss then
@@ -4031,7 +4150,7 @@ spawn(function()
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 								if v.Name == Ms and v.Humanoid.Health > 0 then
 									_G.PosMon = v.HumanoidRootPart.CFrame
-									_G.FastAttack2 = true
+									_G.FastAttack = true
 									StatrMagnet = true
 									if v.Humanoid:FindFirstChild("Animator") then
 										v.Humanoid.Animator:Destroy()
@@ -4058,13 +4177,13 @@ spawn(function()
 								end
 							end
 							else
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 							StatrMagnet = false
 							if game.ReplicatedStorage:FindFirstChild(Ms) then
 								topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 							else
 							topos(CFrameMon)
-							_G.FastAttack2 = false
+							_G.FastAttack = false
 							end
 						end
 					end
@@ -6808,6 +6927,44 @@ Main:Button("Refresh Weapon",function(vu)
 	end
 end)
 
+Main:Seperator("Bosses")
+
+local Boss
+if World1 then
+
+Boss = {
+
+"The Gorilla King [Lv. 25]",
+"Bobby [Lv. 55]",
+"The Saw [Lv. 100]",
+"Yeti [Lv. 110]",
+"Mob Leader [Lv. 120]",
+"Vice Admiral [Lv. 130]",
+"Saber Expert [Lv. 200]",
+"Warden [Lv. 220]",
+"Chief Warden [Lv. 230]",
+"Swan [Lv. 240]",
+"Magma Admiral [Lv. 350]",
+"Fishman Lord [Lv. 425]",
+"Wysper [Lv. 500]",
+"Thunder God [Lv. 575]",
+"Cyborg [Lv. 675]",
+
+}
+
+end
+
+Main:Dropdown("Select Boss",_G.SelectBoss,Boss,function(vu)
+	_G.SelectBoss = vu
+end)
+
+Main:Toggle("Farm Boss",_G.Setting_table.Farm_Boss,function(vu)
+	Auto_Boss = vu
+	_G.Setting_table.Farm_Boss = vu
+	Update_Setting(getgenv()['MyName'])
+	StopTween(Auto_Boss)
+end)
+
 --[[
 
 Main:Seperator("Material Farm")
@@ -6901,7 +7058,7 @@ spawn(function()
 									if not string.find(v.Name,"Boss") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-CFrameMon.Position).Magnitude <= 1000 then
 										_G.PosMon = v.HumanoidRootPart.CFrame
 										StatrMagnet = true
-										_G.FastAttack2 = true
+										_G.FastAttack = true
 										repeat wait(.2)
 											local health = v.Humanoid.Health
 											local maxhealth = v.Humanoid.MaxHealth
@@ -7002,7 +7159,7 @@ spawn(function()
 											end
 										until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm_Fruit
 										StatrMagnet = false
-										_G.FastAttack2 = false
+										_G.FastAttack = false
 										topos(CFrameMon)
 									end
 								end
@@ -7013,7 +7170,7 @@ spawn(function()
 									if not string.find(v.Name,"Boss") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-CFrameMon.Position).Magnitude <= 1000 then
 										_G.PosMon = v.HumanoidRootPart.CFrame
 										StatrMagnet = true
-										_G.FastAttack2 = true
+										_G.FastAttack = true
 										repeat wait(.2)
 											local MinHealth = 17
 											local health = v.Humanoid.Health
@@ -7098,7 +7255,7 @@ spawn(function()
 											end
 										until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm_Fruit
 										StatrMagnet = false
-										_G.FastAttack2 = false
+										_G.FastAttack = false
 										topos(CFrameMon)
 									end
 								end
@@ -7164,7 +7321,7 @@ spawn(function()
 										_G.PosMon = v.HumanoidRootPart.CFrame
 										_G.Mon = v
 										StatrMagnet = true
-										_G.FastAttack2 = true
+										_G.FastAttack = true
 										repeat wait(.2)
 											local MinHealth = 17
 											local health = v.Humanoid.Health
@@ -7206,7 +7363,7 @@ spawn(function()
 											end
 										until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm_Gun
 										StatrMagnet = false
-										_G.FastAttack2 = false
+										_G.FastAttack = false
 									end
 								end
 							elseif game.ReplicatedStorage:FindFirstChild(Ms) then
@@ -7266,154 +7423,6 @@ spawn(function()
 										StatrMagnet = false
 									end
 								end
-							end
-						end
-					end
-				end
-			end
-		end)
-	end
-end)
-
-Main:Seperator("Boss Farm")
-
-Main:LabelWarn("Not Fixed")
-
-local Boss
-if World1 then
-
-Boss = {
-
-"The Gorilla King [Lv. 25]",
-"Bobby [Lv. 55]",
-"The Saw [Lv. 100]",
-"Yeti [Lv. 110]",
-"Mob Leader [Lv. 120]",
-"Vice Admiral [Lv. 130]",
-"Saber Expert [Lv. 200]",
-"Warden [Lv. 220]",
-"Chief Warden [Lv. 230]",
-"Swan [Lv. 240]",
-"Magma Admiral [Lv. 350]",
-"Fishman Lord [Lv. 425]",
-"Wysper [Lv. 500]",
-"Thunder God [Lv. 575]",
-"Cyborg [Lv. 675]",
-
-}
-
-end
-
-Main:Dropdown("Select Boss",_G.SelectBoss,Boss,function(vu)
-	_G.SelectBoss = vu
-end)
-
-Main:Toggle("Auto Boss",_G.Setting_table.Farm_Boss,function(vu)
-	Auto_Boss = vu
-	_G.Setting_table.Farm_Boss = vu
-	Update_Setting(getgenv()['MyName'])
-	StopTween(Auto_Boss)
-end)
-
-spawn(function()
-	while wait() do
-		pcall(function()
-		if Auto_Boss then
-			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if SelectMonster ~= nil then
-					CheckQuestBoss()
-					AutoHaki()
-					_G.FastAttack2 = false
-					repeat wait(.2)
-						TelePBoss(CFrameQBoss)
-						TP(CFrameQBoss)
-						_G.FastAttack2 = false
-					until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					_G.FastAttack2 = false
-					SelectMonster = nil
-					_G.Farm_Mon = nil
-				else
-					StatrMagnet = nil
-					CheckQuestBoss()
-					AutoHaki()
-					_G.FastAttack2 = false
-					repeat wait(.2)
-						TelePBoss(CFrameQBoss)
-						topos(CFrameQBoss)
-					until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					_G.FastAttack2 = false
-				end
-			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-				if _G.Auto_BostyjrtjWs then
-					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == _G.SelectBofss and v.Humanoid.Health > 0 then
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								StatrMagenet = nil
-								_G.FastAtteack2 = true
-								repeat task.wait()
-									TelePBoss(CFrameQBowss)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-							end
-						end
-					else
-						topos(CFrameBSOSO * CFrame.new(0,10,0))
-						TelePBoss(CFramefeeBoss)
-					end
-				else
-					if game.Workspace.Enemies:FindFirstChild(MsBoss) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == MsBoss and v.Humanoid.Health > 0 then
-								_G.PosMon = v.HumanoidRootPart.CFrame
-								_G.FastAttack2 = true
-								StatrMagnet = true
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								repeat task.wait()
-									TelePBoss(CFrameQBoss)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-								Attack = nil
-							end
-						end
-						else
-						_G.FastAttack2 = false
-						StatrMagnet = false
-						if game.ReplicatedStorage:FindFirstChild(MsBoss) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsBoss).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
-						else
-						topos(CFrameBoss)
-						_G.FastAttack2 = false
 							end
 						end
 					end
@@ -7570,7 +7579,7 @@ spawn(function()
 										end
 										_G.PosMon = v.HumanoidRootPart.CFrame
 										StatrMagnet = true
-										_G.FastAttack2 = true
+										_G.FastAttack = true
 										repeat wait(.2)
 											EquipWeapon(_G.Setting_table.Weapon)
 											TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 10, 1))
@@ -9103,7 +9112,7 @@ end)
 
 --[[
 Setting:Toggle("Fast Attack",true,function(value)
-	_G.FastAttack2 = value
+	_G.FastAttack = value
 	end)
 	
 	require(game.ReplicatedStorage.Util.CameraShaker):Stop()
@@ -9111,7 +9120,7 @@ Setting:Toggle("Fast Attack",true,function(value)
 	xShadowx = debug.getupvalues(xShadowFastAttackx)[2]
 	spawn(function()
 	   game:GetService("RunService").RenderStepped:Connect(function()
-		   if _G.FastAttack2 then
+		   if _G.FastAttack then
 			   if typeof(xShadowx) == "table" then
 				   pcall(function()
 					xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
@@ -9133,7 +9142,7 @@ end)
 
 spawn(function()
 	game:GetService("RunService").RenderStepped:Connect(function()
-		if _G.FastAttack2 then
+		if _G.FastAttack then
 			pcall(function()
 				game:GetService'VirtualUser':CaptureController()
 				game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
@@ -9144,7 +9153,7 @@ end)
 		
 spawn(function()
 	game:GetService("RunService").RenderStepped:Connect(function()
-		if _G.FastAttack2 then
+		if _G.FastAttack then
 			game.Players.LocalPlayer.Character.Stun.Value = 0
 			game.Players.LocalPlayer.Character.Humanoid.Sit = false
 			game.Players.LocalPlayer.Character.Busy.Value = false        

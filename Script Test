@@ -6954,7 +6954,23 @@ Boss = {
 
 end
 
-Main:Dropdown("Select Boss",_G.SelectBoss,Boss,function(vu)
+Main:Dropdown2("Select Boss",{
+	"The Gorilla King [Lv. 25]",
+	"Bobby [Lv. 55]",
+	"The Saw [Lv. 100]",
+	"Yeti [Lv. 110]",
+	"Mob Leader [Lv. 120]",
+	"Vice Admiral [Lv. 130]",
+	"Saber Expert [Lv. 200]",
+	"Warden [Lv. 220]",
+	"Chief Warden [Lv. 230]",
+	"Swan [Lv. 240]",
+	"Magma Admiral [Lv. 350]",
+	"Fishman Lord [Lv. 425]",
+	"Wysper [Lv. 500]",
+	"Thunder God [Lv. 575]",
+	"Cyborg [Lv. 675]"
+	},function(vu)
 	_G.SelectBoss = vu
 end)
 

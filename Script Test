@@ -3896,6 +3896,7 @@ spawn(function()
 								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
 									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 								end
+								Attack = nil
 							end
 						end
 					else

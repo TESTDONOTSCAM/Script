@@ -5370,524 +5370,508 @@ end
 
 function main:Dropdown(text,old,option,callback)
 
-local isdropping = false
-local Dropdown = Instance.new("Frame")
-local UICorner_13 = Instance.new("UICorner")
-local UICorner_14 = Instance.new("UICorner")
-local DropTitle = Instance.new("TextLabel")
-local DropTitlePadding = Instance.new("UIPadding")
-local UIPadding_11 = Instance.new("UIPadding")
-local UIPadding_12 = Instance.new("UIPadding")
-local DropScroll = Instance.new("ScrollingFrame")
-local UIListLayout_2 = Instance.new("UIListLayout")
-local UIPadding = Instance.new("UIPadding")
-local DropImage = Instance.new("ImageButton")
-local DropButton = Instance.new("TextButton")
-local Icon = Instance.new("ImageLabel")
-local posto1 = Instance.new("UIStroke")
-
-Dropdown.Name = "Dropdown"
-Dropdown.Parent = MainFramePage
-Dropdown.BackgroundColor3 = Color3.fromRGB(0,0,0)
-Dropdown.BackgroundTransparency = 0.800
-Dropdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Dropdown.BorderSizePixel = 1
-Dropdown.Position = UDim2.new(0, 0, 0.558593512, 0)
-Dropdown.Size = UDim2.new(0.976000011, 0, 0, 31)
-
-posto1.Name = "posto"
-posto1.Parent = Dropdown
-posto1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-posto1.Color = Color3.fromRGB(86,255,255)
-posto1.LineJoinMode = Enum.LineJoinMode.Round
-posto1.Thickness = 1.5
-posto1.Transparency = 0
-posto1.Enabled = true
-posto1.Archivable = true
-
-UICorner_13.CornerRadius = UDim.new(0, 4)
-UICorner_13.Parent = Dropdown
-
-if type(old) == "string" then
-DropTitle.Name = "DropTitle"
-DropTitle.Parent = Dropdown
-DropTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-DropTitle.BackgroundTransparency = 1.000
-DropTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-DropTitle.BorderSizePixel = 0
-DropTitle.Size = UDim2.new(0.976000011, 0, 0, 31)
-DropTitle.Font = Enum.Font.Ubuntu
-DropTitle.Text = text.. " : "..old
-DropTitle.TextColor3 = Color3.fromRGB(255,255,255)
-DropTitle.TextSize = 16.000
-DropTitle.TextXAlignment = Enum.TextXAlignment.Left
-else
-DropTitle.Name = "DropTitle"
-DropTitle.Parent = Dropdown
-DropTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-DropTitle.BackgroundTransparency = 1.000
-DropTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-DropTitle.BorderSizePixel = 0
-DropTitle.Size = UDim2.new(0.976000011, 0, 0, 31)
-DropTitle.Font = Enum.Font.Ubuntu
-DropTitle.Text = text.. " : "
-DropTitle.TextColor3 = Color3.fromRGB(255,255,255)
-DropTitle.TextSize = 12.000
-DropTitle.TextXAlignment = Enum.TextXAlignment.Left
-end
-
-DropImage.Name = "Icon"
-DropImage.Parent = Dropdown
-DropImage.AnchorPoint = Vector2.new(1, 0)
-DropImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-DropImage.BackgroundTransparency = 1.000
-DropImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
-DropImage.BorderSizePixel = 0
-DropImage.Position = UDim2.new(0.980000019, 0, 0, 5)
-DropImage.Size = UDim2.new(0, 20, 0, 20)
-DropImage.Image = "http://www.roblox.com/asset/?id=13871407485"
-
-DropScroll.Name = "DropScroll"
-DropScroll.Parent = Dropdown
-DropScroll.BackgroundColor3 = Color3.fromRGB(0,0,0)
-DropScroll.BackgroundTransparency = 1.000
-DropScroll.BorderColor3 = Color3.fromRGB(0, 0, 0)
-DropScroll.BorderSizePixel = 0
-DropScroll.Position = UDim2.new(0, 0, 0, 26)
-DropScroll.Selectable = false
-DropScroll.Size = UDim2.new(1.00538611, -8, 0.99999994, -30)
-DropScroll.CanvasSize = UDim2.new(0,0,0,0)
-DropScroll.ScrollBarThickness = 3
-
-UIListLayout_2.Parent = DropScroll
-UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_2.Padding = UDim.new(0, 5)
-
-UIPadding_12.Parent = DropScroll
-UIPadding_12.PaddingBottom = UDim.new(0, 5)
-UIPadding_12.PaddingLeft = UDim.new(0, 5)
-UIPadding_12.PaddingRight = UDim.new(0, 5)
-UIPadding_12.PaddingTop = UDim.new(0, 1)
-
---[[
-DropImage.Name = "DropImage"
-DropImage.Parent = Dropdown
-DropImage.BackgroundColor3 = Color3.fromRGB(224,224,224)
-DropImage.BackgroundTransparency = 1.000
-DropImage.Position = UDim2.new(0, 280, 0, 6)
-DropImage.Rotation = 180.000
-DropImage.Size = UDim2.new(0, 20, 0, 20)
-DropImage.Image = "rbxassetid://6031090990"
-]]--
-
-UICorner_14.CornerRadius = UDim.new(0, 6)
-UICorner_14.Parent = Item
-
-DropButton.Parent = Dropdown
-DropButton.BackgroundColor3 = Color3.fromRGB(0,0,0)
-DropButton.BackgroundTransparency = 1.000
-DropButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-DropButton.BorderSizePixel = 0
-DropButton.Position = UDim2.new(-0.032828521, 0, 0, 0)
-DropButton.Size = UDim2.new(1.02282846, 1, 0, 31)
-DropButton.Font = Enum.Font.Ubuntu
-DropButton.Text = ""
-DropButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-DropButton.TextSize = 14.000
-
-for i,v in next,option do
-local Item = Instance.new("TextButton")
-
-Item.Name = "Item"
-Item.Parent = DropScroll
-Item.BackgroundColor3 = Color3.fromRGB()
-Item.BackgroundTransparency = 0.600
-Item.BorderColor3 = Color3.fromRGB(86,255,255)
-Item.BorderSizePixel = 0
-Item.Size = UDim2.new(0.976000011, 0, 0, 31)
-Item.Font = Enum.Font.SourceSans
-Item.Text = tostring(v)
-Item.TextColor3 = Color3.fromRGB(255,255,255)
-Item.TextSize = 14.000
-
-Item.MouseEnter:Connect(function()
- TweenService:Create(
-  Item,
-  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-  {
-   TextTransparency = 0
-  }
- ):Play()
- end)
-
-Item.MouseLeave:Connect(function()
- TweenService:Create(
-  Item,
-  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-  {
-   TextTransparency = 0.2
-  }
- ):Play()
- end)
-
-Item.MouseButton1Click:Connect(function()
- isdropping = false
- Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
- TweenService:Create(
-  DropImage,
-  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-  {
-   Rotation = 180
-  }
- ):Play()
- callback(Item.Text)
- DropTitle.Text = text.." : "..Item.Text
- end)
-end
-
-DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 10)
-
-DropButton.MouseButton1Click:Connect(function()
- if isdropping == false then
- isdropping = true
- Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 131),"Out","Quad",0.3,true)
- TweenService:Create(
-  DropImage,
-  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-  {
-   Rotation = 0
-  }
- ):Play()
- else
-  isdropping = false
- Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
- TweenService:Create(
-  DropImage,
-  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-  {
-   Rotation = 180
-  }
- ):Play()
- end
- end)
-
-local dropfunc = {}
-
-function dropfunc:Add(t)
-
-local Item = Instance.new("TextButton")
-Item.Name = "Item"
-Item.Parent = DropScroll
-Item.BackgroundColor3 = Color3.fromRGB(86,255,255)
-Item.BackgroundTransparency = 1.000
-Item.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Item.BorderSizePixel = 0
-Item.Size = UDim2.new(0.976000011, 0, 0, 31)
-Item.Font = Enum.Font.SourceSans
-Item.Text = tostring(t)
-Item.TextColor3 = Color3.fromRGB(255,255,255)
-Item.TextSize = 14.000
-
-Item.MouseEnter:Connect(function()
- TweenService:Create(
-  Item,
-  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-  {
-   TextTransparency = 0
-  }
- ):Play()
- end)
-
-Item.MouseLeave:Connect(function()
- TweenService:Create(
-  Item,
-  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-  {
-   TextTransparency = 0.2
-  }
- ):Play()
- end)
-
-Item.MouseButton1Click:Connect(function()
- isdropping = false
- Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
- TweenService:Create(
-  DropImage,
-  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-  {
-   Rotation = 180
-  }
- ):Play()
- callback(Item.Text)
- DropTitle.Text = text.." : "..Item.Text
- end)
-end
-function dropfunc:Clear()
-DropTitle.Text = tostring(text).." : "
-isdropping = false
-Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
-TweenService:Create(
- DropImage,
- TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
- {
-  Rotation = 180
- }
-):Play()
-for i,v in next, DropScroll:GetChildren() do
-if v:IsA("TextButton") then
-v:Destroy()
-end
-end
-end
-return dropfunc
-end
+	local isdropping = false
+	local Dropdown = Instance.new("Frame")
+	local UICorner_13 = Instance.new("UICorner")
+	local UICorner_14 = Instance.new("UICorner")
+	local DropTitle = Instance.new("TextLabel")
+	local DropTitlePadding = Instance.new("UIPadding")
+	local UIPadding_11 = Instance.new("UIPadding")
+	local UIPadding_12 = Instance.new("UIPadding")
+	local DropScroll = Instance.new("ScrollingFrame")
+	local UIListLayout_2 = Instance.new("UIListLayout")
+	local UIPadding = Instance.new("UIPadding")
+	local DropImage = Instance.new("ImageButton")
+	local DropButton = Instance.new("TextButton")
+	local Icon = Instance.new("ImageLabel")
+	local posto1 = Instance.new("UIStroke")
+	
+	Dropdown.Name = "Dropdown"
+	Dropdown.Parent = MainFramePage
+	Dropdown.BackgroundColor3 = Color3.fromRGB(0,0,0)
+	Dropdown.BackgroundTransparency = 0.800
+	Dropdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Dropdown.BorderSizePixel = 1
+	Dropdown.Position = UDim2.new(0, 0, 0.558593512, 0)
+	Dropdown.Size = UDim2.new(0.976000011, 0, 0, 31)
+	
+	posto1.Name = "posto"
+	posto1.Parent = Dropdown
+	posto1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	posto1.Color = Color3.fromRGB(86,255,255)
+	posto1.LineJoinMode = Enum.LineJoinMode.Round
+	posto1.Thickness = 1.5
+	posto1.Transparency = 0
+	posto1.Enabled = true
+	posto1.Archivable = true
+	
+	UICorner_13.CornerRadius = UDim.new(0, 4)
+	UICorner_13.Parent = Dropdown
+	
+	if type(old) == "string" then
+	DropTitle.Name = "DropTitle"
+	DropTitle.Parent = Dropdown
+	DropTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	DropTitle.BackgroundTransparency = 1.000
+	DropTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	DropTitle.BorderSizePixel = 0
+	DropTitle.Size = UDim2.new(1, -30, 0, 26)
+	DropTitle.Font = Enum.Font.Ubuntu
+	DropTitle.Text = text.. " : "..old
+	DropTitle.TextColor3 = Color3.fromRGB(255,255,255)
+	DropTitle.TextSize = 16.000
+	DropTitle.TextXAlignment = Enum.TextXAlignment.Left
+	else
+	DropTitle.Name = "DropTitle"
+	DropTitle.Parent = Dropdown
+	DropTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	DropTitle.BackgroundTransparency = 1.000
+	DropTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	DropTitle.BorderSizePixel = 0
+	DropTitle.Size = UDim2.new(1, -30, 0, 26)
+	DropTitle.Font = Enum.Font.Ubuntu
+	DropTitle.Text = text.. " : "
+	DropTitle.TextColor3 = Color3.fromRGB(255,255,255)
+	DropTitle.TextSize = 16.000
+	DropTitle.TextXAlignment = Enum.TextXAlignment.Left
+	end
+	
+	DropTitlePadding.Name = "DropTitlePadding"
+	DropTitlePadding.Parent = DropTitle
+	DropTitlePadding.PaddingTop = UDim.new(0, 3)
+	
+	UIPadding_11.Parent = Dropdown
+	UIPadding_11.PaddingLeft = UDim.new(0, 10)
+	
+	DropImage.Name = "Icon"
+	DropImage.Parent = Dropdown
+	DropImage.AnchorPoint = Vector2.new(1, 0)
+	DropImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	DropImage.BackgroundTransparency = 1.000
+	DropImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	DropImage.BorderSizePixel = 0
+	DropImage.Position = UDim2.new(0.980000019, 0, 0, 5)
+	DropImage.Size = UDim2.new(0, 20, 0, 20)
+	DropImage.Image = "http://www.roblox.com/asset/?id=13871407485"
+	
+	DropScroll.Name = "DropScroll"
+	DropScroll.Parent = Dropdown
+	DropScroll.BackgroundColor3 = Color3.fromRGB(0,0,0)
+	DropScroll.BackgroundTransparency = 1.000
+	DropScroll.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	DropScroll.BorderSizePixel = 0
+	DropScroll.Position = UDim2.new(0, 0, 0, 26)
+	DropScroll.Selectable = false
+	DropScroll.Size = UDim2.new(1.00538611, -8, 0.99999994, -30)
+	DropScroll.ScrollBarThickness = 0
+	
+	UIListLayout_2.Parent = DropScroll
+	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout_2.Padding = UDim.new(0, 5)
+	
+	UIPadding_12.Parent = DropScroll
+	UIPadding_12.PaddingBottom = UDim.new(0, 5)
+	UIPadding_12.PaddingLeft = UDim.new(0, 5)
+	UIPadding_12.PaddingRight = UDim.new(0, 5)
+	UIPadding_12.PaddingTop = UDim.new(0, 1)
+	
+	--[[
+	DropImage.Name = "DropImage"
+	DropImage.Parent = Dropdown
+	DropImage.BackgroundColor3 = Color3.fromRGB(224,224,224)
+	DropImage.BackgroundTransparency = 1.000
+	DropImage.Position = UDim2.new(0, 280, 0, 6)
+	DropImage.Rotation = 180.000
+	DropImage.Size = UDim2.new(0, 20, 0, 20)
+	DropImage.Image = "rbxassetid://6031090990"
+	]]--
+	
+	UICorner_14.CornerRadius = UDim.new(0, 6)
+	UICorner_14.Parent = Item
+	
+	DropButton.Parent = Dropdown
+	DropButton.BackgroundColor3 = Color3.fromRGB(0,0,0)
+	DropButton.BackgroundTransparency = 1.000
+	DropButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	DropButton.BorderSizePixel = 0
+	DropButton.Position = UDim2.new(-0.032828521, 0, 0, 0)
+	DropButton.Size = UDim2.new(1.02282846, 1, 0, 31)
+	DropButton.Font = Enum.Font.Ubuntu
+	DropButton.Text = ""
+	DropButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+	DropButton.TextSize = 14.000
+	
+	for i,v in next,option do
+	local Item = Instance.new("TextButton")
+	
+	Item.Name = "Item"
+	Item.Parent = DropScroll
+	Item.BackgroundColor3 = Color3.fromRGB()
+	Item.BackgroundTransparency = 0.600
+	Item.BorderColor3 = Color3.fromRGB(86,255,255)
+	Item.BorderSizePixel = 0
+	Item.Size = UDim2.new(0.976000011, 0, 0, 31)
+	Item.Font = Enum.Font.SourceSans
+	Item.Text = tostring(v)
+	Item.TextColor3 = Color3.fromRGB(255,255,255)
+	Item.TextSize = 14.000
+	
+	Item.MouseEnter:Connect(function()
+	 TweenService:Create(
+	  Item,
+	  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+	  {
+	   TextTransparency = 0
+	  }
+	 ):Play()
+	 end)
+	
+	Item.MouseLeave:Connect(function()
+	 TweenService:Create(
+	  Item,
+	  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+	  {
+	   TextTransparency = 0.2
+	  }
+	 ):Play()
+	 end)
+	
+	Item.MouseButton1Click:Connect(function()
+	 isdropping = false
+	 Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
+	 TweenService:Create(
+	  DropImage,
+	  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+	  {
+	   Rotation = 180
+	  }
+	 ):Play()
+	 callback(Item.Text)
+	 DropTitle.Text = text.." : "..Item.Text
+	 end)
+	end
+	
+	DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 10)
+	
+	DropButton.MouseButton1Click:Connect(function()
+	 if isdropping == false then
+	 isdropping = true
+	 Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 200),"Out","Quad",0.3,true)
+	 TweenService:Create(
+	  DropImage,
+	  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+	  {
+	   Rotation = 0
+	  }
+	 ):Play()
+	 else
+	  isdropping = false
+	 Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
+	 TweenService:Create(
+	  DropImage,
+	  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+	  {
+	   Rotation = 180
+	  }
+	 ):Play()
+	 end
+	 end)
+	
+	local dropfunc = {}
+	
+	function dropfunc:Add(t)
+	
+	local Item = Instance.new("TextButton")
+	Item.Name = "Item"
+	Item.Parent = DropScroll
+	Item.BackgroundColor3 = Color3.fromRGB(86,255,255)
+	Item.BackgroundTransparency = 1.000
+	Item.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Item.BorderSizePixel = 0
+	Item.Size = UDim2.new(0.976000011, 0, 0, 31)
+	Item.Font = Enum.Font.SourceSans
+	Item.Text = tostring(t)
+	Item.TextColor3 = Color3.fromRGB(255,255,255)
+	Item.TextSize = 14.000
+	
+	Item.MouseEnter:Connect(function()
+	 TweenService:Create(
+	  Item,
+	  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+	  {
+	   TextTransparency = 0
+	  }
+	 ):Play()
+	 end)
+	
+	Item.MouseLeave:Connect(function()
+	 TweenService:Create(
+	  Item,
+	  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+	  {
+	   TextTransparency = 0.2
+	  }
+	 ):Play()
+	 end)
+	
+	Item.MouseButton1Click:Connect(function()
+	 isdropping = false
+	 Dropdown:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+	 TweenService:Create(
+	  DropImage,
+	  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+	  {
+	   Rotation = 180
+	  }
+	 ):Play()
+	 callback(Item.Text)
+	 DropTitle.Text = text.." : "..Item.Text
+	 end)
+	end
+	function dropfunc:Clear()
+	DropTitle.Text = tostring(text).." : "
+	isdropping = false
+	Dropdown:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+	TweenService:Create(
+	 DropImage,
+	 TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+	 {
+	  Rotation = 180
+	 }
+	):Play()
+	for i,v in next, DropScroll:GetChildren() do
+	if v:IsA("TextButton") then
+	v:Destroy()
+	end
+	end
+	end
+	return dropfunc
+	end
 
 function main:Dropdown2(text,option,callback)
 
-    local isdropping = false
-    local Dropdown2 = Instance.new("Frame")
-    local UICorner_132 = Instance.new("UICorner")
-    local UICorner_142 = Instance.new("UICorner")
-    local DropTitle2 = Instance.new("TextLabel")
-    local DropTitlePadding2 = Instance.new("UIPadding")
-    local UIPadding_112 = Instance.new("UIPadding")
-    local UIPadding_122 = Instance.new("UIPadding")
-    local DropScroll2 = Instance.new("ScrollingFrame")
-    local UIListLayout_22 = Instance.new("UIListLayout")
-    local UIPadding_122 = Instance.new("UIPadding")
-    local DropImage2 = Instance.new("ImageButton")
-    local DropButton2 = Instance.new("TextButton")
-    local Icon2 = Instance.new("ImageLabel")
-    local Posto12 = Instance.new("UIStroke")
- 
- Dropdown2.Name = "Dropdown"
- Dropdown2.Parent = MainFramePage
- Dropdown2.BackgroundColor3 = Color3.fromRGB(0,0,0)
- Dropdown2.BackgroundTransparency = 0.800
- Dropdown2.BorderColor3 = Color3.fromRGB(0, 0, 0)
- Dropdown2.BorderSizePixel = 1
- Dropdown2.Position = UDim2.new(0, 0, 0.558593512, 0)
- Dropdown2.Size = UDim2.new(0.976000011, 0, 0, 31)
- 
- Posto12.Name = "posto"
-  Posto12.Parent = Dropdown2
-  Posto12.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-  Posto12.Color = Color3.fromRGB(86,255,255)
-  Posto12.LineJoinMode = Enum.LineJoinMode.Round
-  Posto12.Thickness = 1.5
-  Posto12.Transparency = 0
-  Posto12.Enabled = true
- Posto12.Archivable = true
- 
- UICorner_132.CornerRadius = UDim.new(0, 4)
- UICorner_132.Parent = Dropdown
- 
- DropTitle2.Name = "DropTitle"
- DropTitle2.Parent = Dropdown2
- DropTitle2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
- DropTitle2.BackgroundTransparency = 1.000
- DropTitle2.BorderColor3 = Color3.fromRGB(0, 0, 0)
- DropTitle2.BorderSizePixel = 0
- DropTitle2.Size = UDim2.new(0.976000011, 0, 0, 31)
- DropTitle2.Font = Enum.Font.Ubuntu
- DropTitle2.Text = text.. " : "
- DropTitle2.TextColor3 = Color3.fromRGB(255,255,255)
- DropTitle2.TextSize = 16.000
- DropTitle2.TextXAlignment = Enum.TextXAlignment.Left
- 
- DropImage2.Name = "Icon"
- DropImage2.Parent = Dropdown2
- DropImage2.AnchorPoint = Vector2.new(1, 0)
- DropImage2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
- DropImage2.BackgroundTransparency = 1.000
- DropImage2.BorderColor3 = Color3.fromRGB(0, 0, 0)
- DropImage2.BorderSizePixel = 0
- DropImage2.Position = UDim2.new(0.980000019, 0, 0, 5)
- DropImage2.Size = UDim2.new(0, 20, 0, 20)
- DropImage2.Image = "http://www.roblox.com/asset/?id=13871407485"
- 
- DropScroll2.Name = "DropScroll"
- DropScroll2.Parent = Dropdown2
- DropScroll2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
- DropScroll2.BackgroundTransparency = 1.000
- DropScroll2.BorderColor3 = Color3.fromRGB(0, 0, 0)
- DropScroll2.BorderSizePixel = 0
- DropScroll2.Position = UDim2.new(0, 0, 0, 26)
- DropScroll2.Selectable = false
- DropScroll2.Size = UDim2.new(0.976000011, 0, 0, -31)
- DropScroll2.CanvasSize = UDim2.new(0,0,0,0)
- DropScroll2.ScrollBarThickness = 3
- 
- UIListLayout_22.Parent = DropScroll2
- UIListLayout_22.SortOrder = Enum.SortOrder.LayoutOrder
- UIListLayout_22.Padding = UDim.new(0, 5)
- 
- UIPadding_122.Parent = DropScroll2
- UIPadding_122.PaddingBottom = UDim.new(0, 5)
- UIPadding_122.PaddingLeft = UDim.new(0, 5)
- UIPadding_122.PaddingRight = UDim.new(0, 5)
- UIPadding_122.PaddingTop = UDim.new(0, 1)
- 
- UICorner_142.CornerRadius = UDim.new(0, 6)
- UICorner_142.Parent = Item2
- 
- DropButton2.Parent = Dropdown2
- DropButton2.BackgroundColor3 = Color3.fromRGB(0,0,0)
- DropButton2.BackgroundTransparency = 1.000
- DropButton2.BorderColor3 = Color3.fromRGB(0, 0, 0)
- DropButton2.BorderSizePixel = 0
- DropButton2.Position = UDim2.new(-0.032828521, 0, 0, 0)
- DropButton2.Size = UDim2.new(1.02282846, 1, 0, 31)
- DropButton2.Font = Enum.Font.Ubuntu
- DropButton2.Text = ""
- DropButton2.TextColor3 = Color3.fromRGB(0, 0, 0)
- DropButton2.TextSize = 14.000
- 
- for i,v in next,option do
-    local Item2 = Instance.new("TextButton")
-    
- Item2.Name = "Item2"
-    Item2.Parent = DropScroll2
-    Item2.BackgroundColor3 = Color3.fromRGB(0,0,0)
-    Item2.BackgroundTransparency = 0.600
-    Item2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Item2.BorderSizePixel = 0
-    Item2.Size = UDim2.new(0.976000011, 0, 0, 26)
-    Item2.Font = Enum.Font.SourceSans
-    Item2.Text = tostring(v)
-    Item2.TextColor3 = Color3.fromRGB(255,255,255)
- Item2.TextSize = 14.000
-    
-    Item2.MouseEnter:Connect(function()
-     TweenService:Create(
-      Item2,
-      TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-      {
-       TextTransparency = 0
-      }
-     ):Play()
-     end)
-    
-    Item2.MouseLeave:Connect(function()
-     TweenService:Create(
-      Item2,
-      TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-      {
-       TextTransparency = 0.3
-      }
-     ):Play()
-     end)
-    
-    Item2.MouseButton1Click:Connect(function()
-     isdropping = false
-     Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
-     TweenService:Create(
-      DropImage2,
-      TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-      {
-       Rotation = 180
-      }
-     ):Play()
-     callback(Item2.Text)
-     DropTitle2.Text = text.." : "..Item2.Text
-     end)
-    end
-    
-    DropScroll2.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 10)
-    
-    DropButton2.MouseButton1Click:Connect(function()
-     if isdropping == false then
-     isdropping = true
-     Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 131),"Out","Quad",0.3,true)
-     TweenService:Create(
-      DropImage2,
-      TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-      {
-       Rotation = 0
-      }
-     ):Play()
-     else
-      isdropping = false
-     Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
-     TweenService:Create(
-      DropImage2,
-      TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-      {
-       Rotation = 180
-      }
-     ):Play()
-     end
-     end)
-    
- local dropfunc = {}
-   
-    function dropfunc:Add(t)
-   
- local Item2 = Instance.new("TextButton")
-    Item2.Name = "Item2"
-    Item2.Parent = DropScroll
-    Item2.BackgroundColor3 = Color3.fromRGB(0,0,0)
-    Item2.BackgroundTransparency = 1.000
-    Item2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Item2.BorderSizePixel = 0
-    Item2.Size = UDim2.new(0.976000011, 0, 0, 26)
-    Item2.Font = Enum.Font.SourceSans
-    Item2.Text = tostring(t)
-    Item2.TextColor3 = Color3.fromRGB(255,255,255)
- Item2.TextSize = 14.000
-    
- Item2.MouseEnter:Connect(function()
-     TweenService:Create(
-      Item2,
-      TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-      {
-       TextTransparency = 0
-      }
-     ):Play()
-     end)
-    
-    Item2.MouseLeave:Connect(function()
-     TweenService:Create(
-      Item2,
-      TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-      {
-       TextTransparency = 0.3
-      }
-     ):Play()
-     end)
-    
-    Item2.MouseButton1Click:Connect(function()
-     isdropping = false
-     Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
-     TweenService:Create(
-      DropImage2,
-      TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-      {
-       Rotation = 180
-      }
-     ):Play()
-     callback(Item2.Text)
-     DropTitle2.Text = text.." : "..Item2.Text
-     end)
-    end
-    function dropfunc:Clear()
-    DropTitle2.Text = tostring(text).." : "
-    isdropping = false
-    Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
-    TweenService:Create(
-     DropImage2,
-     TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-     {
-      Rotation = 180
-     }
-    ):Play()
-    for i,v in next, DropScroll2:GetChildren() do
-    if v:IsA("TextButton") then
-    v:Destroy()
-    end
-    end
-    end
- return dropfunc
+	local isdropping = false
+		local Dropdown2 = Instance.new("Frame")
+		local UICorner212 = Instance.new("UICorner")
+		local DropTitle2 = Instance.new("TextLabel")
+		local DropScroll2 = Instance.new("ScrollingFrame")
+		local UIListLayout221 = Instance.new("UIListLayout")
+		local UIPadding221 = Instance.new("UIPadding")
+		local DropButton2 = Instance.new("TextButton")
+		local DropImage2 = Instance.new("ImageLabel")
+		local Posto12 = Instance.new("UIStroke")
+		
+		Dropdown2.Name = "Dropdown2"
+		Dropdown2.Parent = MainFramePage
+		Dropdown2.BackgroundColor3 = Color3.fromRGB(28,28,28)
+		Dropdown2.BackgroundTransparency = 1
+		Dropdown2.ClipsDescendants = true
+		Dropdown2.Size = UDim2.new(0, 310, 0, 31)
+		
+		Posto12.Name = "posto"
+		Posto12.Parent = Dropdown2
+		Posto12.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+		Posto12.Color = Color3.fromRGB(255,255,255)
+		Posto12.LineJoinMode = Enum.LineJoinMode.Round
+		Posto12.Thickness = 1
+		Posto12.Transparency = 0
+		Posto12.Enabled = true
+		Posto12.Archivable = true
+		
+		UICorner212.CornerRadius = UDim.new(0, 5)
+		UICorner212.Parent = Dropdown2
+		
+		DropTitle2.Name = "DropTitle2"
+		DropTitle2.Parent = Dropdown2
+		DropTitle2.BackgroundColor3 = Color3.fromRGB(224,224,224)
+		DropTitle2.BackgroundTransparency = 1.000
+		DropTitle2.Size = UDim2.new(0, 310, 0, 31)
+		DropTitle2.Font = Enum.Font.Gotham
+		DropTitle2.Text = text.. " : "
+		DropTitle2.TextColor3 = Color3.fromRGB(225, 225, 225)
+		DropTitle2.TextSize = 12.000
+		
+		DropScroll2.Name = "DropScroll2"
+		DropScroll2.Parent = DropTitle2
+		DropScroll2.Active = true
+		DropScroll2.BackgroundColor3 = Color3.fromRGB(224,224,224)
+		DropScroll2.BackgroundTransparency = 1.000
+		DropScroll2.BorderSizePixel = 0
+		DropScroll2.Position = UDim2.new(0, 0, 0, 31)
+		DropScroll2.Size = UDim2.new(0, 310, 0, 100)
+		DropScroll2.CanvasSize = UDim2.new(0, 0, 0, 0)
+		DropScroll2.ScrollBarThickness = 3
+		
+		UIListLayout221.Parent = DropScroll2
+		UIListLayout221.SortOrder = Enum.SortOrder.LayoutOrder
+		UIListLayout221.Padding = UDim.new(0, 5)
+		
+		UIPadding221.Parent = DropScroll2
+		UIPadding221.PaddingLeft = UDim.new(0, 5)
+		UIPadding221.PaddingTop = UDim.new(0, 5)
+		
+		DropImage2.Name = "DropImage2"
+		DropImage2.Parent = Dropdown2
+		DropImage2.BackgroundColor3 = Color3.fromRGB(224,224,224)
+		DropImage2.BackgroundTransparency = 1.000
+		DropImage2.Position = UDim2.new(0, 280, 0, 6)
+		DropImage2.Rotation = 180.000
+		DropImage2.Size = UDim2.new(0, 20, 0, 20)
+		DropImage2.Image = "rbxassetid://6031090990"
+		
+		DropButton2.Name = "DropButton2"
+		DropButton2.Parent = Dropdown2
+		DropButton2.BackgroundColor3 = Color3.fromRGB(224,224,224)
+		DropButton2.BackgroundTransparency = 1.000
+		DropButton2.Size = UDim2.new(0, 310, 0, 31)
+		DropButton2.Font = Enum.Font.SourceSans
+		DropButton2.Text = ""
+		DropButton2.TextColor3 = Color3.fromRGB(0, 0, 0)
+		DropButton2.TextSize = 14.000
+		
+	   for i,v in next,option do
+		local Item2 = Instance.new("TextButton")
+		
+		Item2.Name = "Item2"
+		Item2.Parent = DropScroll2
+		Item2.BackgroundColor3 = Color3.fromRGB(224,224,224)
+		Item2.BackgroundTransparency = 1.000
+		Item2.Size = UDim2.new(0, 310, 0, 26)
+		Item2.Font = Enum.Font.Gotham
+		Item2.Text = tostring(v)
+		Item2.TextColor3 = Color3.fromRGB(225, 225, 225)
+		Item2.TextSize = 13.000
+		Item2.TextTransparency = 0.500
+		
+		Item2.MouseEnter:Connect(function()
+		 TweenService:Create(
+		  Item2,
+		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+		  {
+		   TextTransparency = 0
+		  }
+		 ):Play()
+		 end)
+		
+		Item2.MouseLeave:Connect(function()
+		 TweenService:Create(
+		  Item2,
+		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+		  {
+		   TextTransparency = 0.5
+		  }
+		 ):Play()
+		 end)
+		
+		Item2.MouseButton1Click:Connect(function()
+		 isdropping = false
+		 Dropdown2:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+		 TweenService:Create(
+		  DropImage2,
+		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+		  {
+		   Rotation = 180
+		  }
+		 ):Play()
+		 callback(Item2.Text)
+		 DropTitle2.Text = text.." : "..Item2.Text
+		 end)
+		end
+		
+		DropScroll2.CanvasSize = UDim2.new(0,0,0,UIListLayout221.AbsoluteContentSize.Y + 10)
+		
+		DropButton2.MouseButton1Click:Connect(function()
+		 if isdropping == false then
+		 isdropping = true
+		 Dropdown2:TweenSize(UDim2.new(0,310,0,131),"Out","Quad",0.3,true)
+		 TweenService:Create(
+		  DropImage2,
+		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+		  {
+		   Rotation = 0
+		  }
+		 ):Play()
+		 else
+		  isdropping = false
+		 Dropdown2:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+		 TweenService:Create(
+		  DropImage2,
+		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+		  {
+		   Rotation = 180
+		  }
+		 ):Play()
+		 end
+		 end)
+		
+		local dropfunc = {}
+	   
+		function dropfunc:Add(t)
+	   
+		local Item2 = Instance.new("TextButton")
+		Item2.Name = "Item2"
+		Item2.Parent = DropScroll2
+		Item2.BackgroundColor3 = Color3.fromRGB(224,224,224)
+		Item2.BackgroundTransparency = 1.000
+		Item2.Size = UDim2.new(0, 310, 0, 26)
+		Item2.Font = Enum.Font.Gotham
+		Item2.Text = tostring(t)
+		Item2.TextColor3 = Color3.fromRGB(225, 225, 225)
+		Item2.TextSize = 13.000
+		Item2.TextTransparency = 0.500
+		
+		Item2.MouseEnter:Connect(function()
+		 TweenService:Create(
+		  Item2,
+		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+		  {
+		   TextTransparency = 0
+		  }
+		 ):Play()
+		 end)
+		
+		Item2.MouseLeave:Connect(function()
+		 TweenService:Create(
+		  Item2,
+		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+		  {
+		   TextTransparency = 0.5
+		  }
+		 ):Play()
+		 end)
+		
+		Item2.MouseButton1Click:Connect(function()
+		 isdropping = false
+		 Dropdown2:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+		 TweenService:Create(
+		  DropImage2,
+		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+		  {
+		   Rotation = 180
+		  }
+		 ):Play()
+		 callback(Item2.Text)
+		 DropTitle2.Text = text.." : "..Item2.Text
+		 end)
+		end
+		function dropfunc:Clear()
+		DropTitle2.Text = tostring(text).." : "
+		isdropping = false
+		Dropdown2:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+		TweenService:Create(
+		 DropImage2,
+		 TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+		 {
+		  Rotation = 180
+		 }
+		):Play()
+		for i,v in next, DropScroll2:GetChildren() do
+		if v:IsA("TextButton") then
+		v:Destroy()
+			end
+		end
+	end
+	return dropfunc
 end
 
 function main:Slider(text,min,max,set,callback)

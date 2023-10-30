@@ -5810,7 +5810,7 @@ function main:Dropdown2(text,option,callback)
     DropButton2.MouseButton1Click:Connect(function()
      if isdropping == false then
      isdropping = true
-     Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 200),"Out","Quad",0.3,true)
+     Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 400),"Out","Quad",0.3,true)
      TweenService:Create(
       DropImage2,
       TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),

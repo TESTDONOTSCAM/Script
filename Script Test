@@ -3956,7 +3956,7 @@ spawn(function()
 						TelePBoss(CFrameBBoss)
 						TP(CFrameBBoss)
 						_G.FastAttack = false
-					until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					until (CFrameBBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 					TelePBoss(CFrameBBoss)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					_G.FastAttack = false
@@ -3967,9 +3967,9 @@ spawn(function()
 					AutoHaki()
 					_G.FastAttack = false
 					repeat wait(.2)
-						TelePBoss(CFrameQBoss)
-						topos(CFrameQBoss)
-					until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+						TelePBoss(CFrameBBoss)
+						topos(CFrameBBoss)
+					until (CFrameBBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 					TelePBoss(CFrameBBoss)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					_G.FastAttack = false

@@ -6954,7 +6954,7 @@ Boss = {
 
 end
 
-Main:Dropdown2("Select Boss",{
+Main:Dropdown2("Seleect Boss",{
 	"The Gorilla King [Lv. 25]",
 	"Bobby [Lv. 55]",
 	"The Saw [Lv. 100]",

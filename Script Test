@@ -252,7 +252,7 @@ function CheckQuestBoss()
 			CFrameBoss = CFrame.new(1221.7356, 138.046906, -1488.84082, 0.349343032, -9.49245944e-08, 0.936994851, 6.29478194e-08, 1, 7.7838429e-08, -0.936994851, 3.17894653e-08, 0.349343032)
 			TelePBoss(CFrameBoss)
 		elseif _G.SelectBoss == "Mob Leader [Lv. 120]" then
-			MsBoss = "Mob Leader"
+			MsQBoss = "Mob Leader"
 			NameBoss = "Mob Leader"
 			CFrameBoss = CFrame.new(-2848.59399, 7.4272871, 5342.44043, -0.928248107, -8.7248246e-08, 0.371961564, -7.61816636e-08, 1, 4.44474857e-08, -0.371961564, 1.29216433e-08, -0.92824)
 			TelePBoss(CFrameBoss)
@@ -265,7 +265,7 @@ function CheckQuestBoss()
 			CFrameBoss = CFrame.new(-5078.45898, 99.6520691, 4402.1665, -0.555574954, -9.88630566e-11, 0.831466436, -6.35508286e-08, 1, -4.23449258e-08, -0.831466436, -7.63661632e-08, -0.555574954)
 			TelePBoss(CFrameBoss)
 		elseif _G.SelectBoss == "Saber Expert [Lv. 200]" then
-			MsBoss = "Saber Expert"
+			MsQBoss = "Saber Expert"
 			NameBoss = "Saber Expert"
 			CFrameBoss = CFrame.new(-1458.89502, 29.8870335, -50.633564, 0.858821094, 1.13848939e-08, 0.512275636, -4.85649254e-09, 1, -1.40823326e-08, -0.512275636, 9.6063415e-09, 0.858821094)
 			TelePBoss(CFrameBoss)

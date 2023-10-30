@@ -3943,6 +3943,8 @@ spawn(function()
 	end
 end)
 
+--[[
+
 spawn(function()
 	while wait() do
 		pcall(function()
@@ -4046,6 +4048,7 @@ spawn(function()
 		end)
 	end
 end)
+]]--
 
 -----------------------------------------------
 
@@ -4136,7 +4139,7 @@ end
 
 spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
-		if Auto_Farm or Auto_Boss or Auto_BossNQ then
+		if Auto_Farm or Auto_Boss or Auto_BossNQ or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Auto_Yama or Auto_Tushita then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
 				setfflag("HumanoidParallelRemoveNoPhysics", "False")
 				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -6993,6 +6996,7 @@ Main:Toggle("Farm Boss",Auto_Boss,function(vu)
 	StopTween(Auto_Boss)
 end)
 
+--[[
 Main:Seperator("Boss No Quest")
 
 local BossNQ
@@ -7016,6 +7020,7 @@ Main:Toggle("Farm Boss",Auto_BossNQ,function(vu)
 	Auto_BossNQ = vu
 	StopTween(Auto_BossNQ)
 end)
+]]--
 
 --[[
 
@@ -10953,7 +10958,9 @@ spawn(function()
 		end)
 	end
 end)
+
 AutoQuest:Label("Race")
+
 AutoQuest:Toggle("Auto Mink Evo V0 - V3",_G.Setting_table.Mink_Evo,function(vu)
 	_G.Setting_table.Mink_Evo = vu
 	Update_Setting(getgenv()['MyName'])
@@ -11589,6 +11596,7 @@ function Check_Race_Skypiea()
 end
 
 AutoQuest:Label("Gun")
+
 AutoQuest:Toggle("Auto Acidum Rifle",_G.Setting_table.Auto_Acidum_Rifle,function(vu)
 	Auto_Acidum_Rifle = vu
 	_G.Setting_table.Auto_Acidum_Rifle = vu

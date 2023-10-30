@@ -6985,6 +6985,14 @@ Boss = {
 
 }
 
+elseif World2 then
+
+Boss = {}
+
+elseif World3 then
+
+Boss = {}
+
 end
 
 Main:Dropdown("Select Quest",_G.SelectBoss,Boss,function(vu)

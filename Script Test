@@ -233,8 +233,8 @@ function CheckQuestBoss()
 		elseif _G.SelectBoss == "The Saw [Lv. 100]" then
 			MsQBoss = "The Saw"
 			NameBoss = "The Saw"
-			CFrameBoss = CFrame.new(-683.519897, 13.8534927, 1610.87854, -0.290192783, 6.88365773e-08, 0.956968188, 6.98413629e-08, 1, -5.07531119e-08, -0.956968188, 5.21077759e-08, -0.290192783)
-			TelePBoss(CFrameBoss)
+			CFrameQBoss = CFrame.new(-683.519897, 13.8534927, 1610.87854, -0.290192783, 6.88365773e-08, 0.956968188, 6.98413629e-08, 1, -5.07531119e-08, -0.956968188, 5.21077759e-08, -0.290192783)
+			TelePBoss(CFrameQBoss)
 
 			--[[
 		elseif _G.SelectBoss == "Greybeard" then
@@ -3887,7 +3887,7 @@ spawn(function()
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 								_G.FastAtteack2 = true
 								repeat task.wait()
-									TelePBoss(CFrameBoss)
+									TelePBoss(CFrameQBoss)
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
@@ -3899,8 +3899,8 @@ spawn(function()
 							end
 						end
 					else
-						topos(CFrameBoss * CFrame.new(0,10,0))
-						TelePBoss(CFrameBoss)
+						topos(CFrameQBoss * CFrame.new(0,10,0))
+						TelePBoss(CFrameQBoss)
 					end
 				else
 					if game.Workspace.Enemies:FindFirstChild(MsBoss) then

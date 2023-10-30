@@ -233,8 +233,8 @@ function CheckQuestBoss()
 		elseif _G.SelectBoss == "The Saw [Lv. 100]" then
 			MsQBoss = "The Saw"
 			NameBoss = "The Saw"
-			CFrameQBoss = CFrame.new(-683.519897, 13.8534927, 1610.87854, -0.290192783, 6.88365773e-08, 0.956968188, 6.98413629e-08, 1, -5.07531119e-08, -0.956968188, 5.21077759e-08, -0.290192783)
-			TelePBoss(CFrameQBoss)
+			CFrameYBoss = CFrame.new(-683.519897, 13.8534927, 1610.87854, -0.290192783, 6.88365773e-08, 0.956968188, 6.98413629e-08, 1, -5.07531119e-08, -0.956968188, 5.21077759e-08, -0.290192783)
+			TelePBoss(CFrameYBoss)
 
 			--[[
 		elseif _G.SelectBoss == "Greybeard" then
@@ -254,8 +254,8 @@ function CheckQuestBoss()
 		elseif _G.SelectBoss == "Mob Leader [Lv. 120]" then
 			MsQBoss = "Mob Leader"
 			NameBoss = "Mob Leader"
-			CFrameBoss = CFrame.new(-2848.59399, 7.4272871, 5342.44043, -0.928248107, -8.7248246e-08, 0.371961564, -7.61816636e-08, 1, 4.44474857e-08, -0.371961564, 1.29216433e-08, -0.92824)
-			TelePBoss(CFrameBoss)
+			CFrameYBoss = CFrame.new(-2848.59399, 7.4272871, 5342.44043, -0.928248107, -8.7248246e-08, 0.371961564, -7.61816636e-08, 1, 4.44474857e-08, -0.371961564, 1.29216433e-08, -0.92824)
+			TelePBoss(CFrameYBoss)
 		elseif _G.SelectBoss == "Vice Admiral [Lv. 130]" then
 			MsBoss = "Vice Admiral"
 			NameBoss = "Vice Admiral"
@@ -267,8 +267,8 @@ function CheckQuestBoss()
 		elseif _G.SelectBoss == "Saber Expert [Lv. 200]" then
 			MsQBoss = "Saber Expert"
 			NameBoss = "Saber Expert"
-			CFrameBoss = CFrame.new(-1458.89502, 29.8870335, -50.633564, 0.858821094, 1.13848939e-08, 0.512275636, -4.85649254e-09, 1, -1.40823326e-08, -0.512275636, 9.6063415e-09, 0.858821094)
-			TelePBoss(CFrameBoss)
+			CFrameYBoss = CFrame.new(-1458.89502, 29.8870335, -50.633564, 0.858821094, 1.13848939e-08, 0.512275636, -4.85649254e-09, 1, -1.40823326e-08, -0.512275636, 9.6063415e-09, 0.858821094)
+			TelePBoss(CFrameYBoss)
 		elseif _G.SelectBoss == "Warden [Lv. 220]" then
 			MsBoss = "Warden"
 			NameBoss = "Warden"
@@ -309,7 +309,7 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(61123.0859, 18.5066795, 1570.18018, 0.927145958, 1.0624845e-07, 0.374700129, -6.98219367e-08, 1, -1.10790765e-07, -0.374700129, 7.65569368e-08, 0.927145958)
 			CFrameBoss = CFrame.new(61351.7773, 31.0306778, 1113.31409, 0.999974668, 0, -0.00714713801, 0, 1.00000012, 0, 0.00714714266, 0, 0.999974549)
 			TelePBoss(CFrameBoss)
-			if (CFrameQBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+			if (CFrameBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
 			end
 		elseif _G.SelectBoss == "Wysper [Lv. 500]" then
@@ -320,7 +320,7 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(-7862.94629, 5545.52832, -379.833954, 0.462944925, 1.45838088e-08, -0.886386991, 1.0534996e-08, 1, 2.19553424e-08, 0.886386991, -1.95022007e-08, 0.462944925)
 			CFrameBoss = CFrame.new(-7925.48389, 5550.76074, -636.178345, 0.716468513, -1.22915289e-09, 0.697619379, 3.37381434e-09, 1, -1.70304748e-09, -0.697619379, 3.57381835e-09, 0.716468513)
 			TelePBoss(CFrameBoss)
-			if (CFrameQBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+			if (CFrameBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
 			end
 		elseif _G.SelectBoss == "Thunder God [Lv. 575]" then
@@ -3889,7 +3889,7 @@ spawn(function()
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 								_G.FastAtteack2 = true
 								repeat task.wait()
-									TelePBoss(CFrameQBoss)
+									TelePBoss(CFrameYBoss)
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
@@ -3902,8 +3902,8 @@ spawn(function()
 							end
 						end
 					else
-						topos(CFrameQBoss * CFrame.new(0,10,0))
-						TelePBoss(CFrameQBoss)
+						topos(CFrameYBoss * CFrame.new(0,10,0))
+						TelePBoss(CFrameYBoss)
 					end
 				else
 					if game.Workspace.Enemies:FindFirstChild(MsBoss) then

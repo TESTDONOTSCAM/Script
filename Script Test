@@ -6899,6 +6899,7 @@ Main:Toggle("Farm Boss",_G.Setting_table.Farm_Boss,function(vu)
 	_G.Setting_table.Farm_Boss = vu
 	Update_Setting(getgenv()['MyName'])
 	StopTween(Auto_Boss)
+	StopTween(_G.Setting_table.Farm_Boss)
 end)
 
 --[[

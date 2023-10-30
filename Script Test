@@ -5666,7 +5666,7 @@ function main:Dropdown2(text,option,callback)
 		Dropdown2.BackgroundColor3 = Color3.fromRGB(28,28,28)
 		Dropdown2.BackgroundTransparency = 1
 		Dropdown2.ClipsDescendants = true
-		Dropdown2.Size = UDim2.new(0, 310, 0, 31)
+		Dropdown2.Size = UDim2.new(0.976000011, 0, 0, 31)
 		
 		Posto12.Name = "posto"
 		Posto12.Parent = Dropdown2
@@ -5685,7 +5685,7 @@ function main:Dropdown2(text,option,callback)
 		DropTitle2.Parent = Dropdown2
 		DropTitle2.BackgroundColor3 = Color3.fromRGB(224,224,224)
 		DropTitle2.BackgroundTransparency = 1.000
-		DropTitle2.Size = UDim2.new(0, 310, 0, 31)
+		DropTitle2.Size = UDim2.new(0.976000011, 0, 0, 31)
 		DropTitle2.Font = Enum.Font.Gotham
 		DropTitle2.Text = text.. " : "
 		DropTitle2.TextColor3 = Color3.fromRGB(225, 225, 225)
@@ -5698,7 +5698,7 @@ function main:Dropdown2(text,option,callback)
 		DropScroll2.BackgroundTransparency = 1.000
 		DropScroll2.BorderSizePixel = 0
 		DropScroll2.Position = UDim2.new(0, 0, 0, 31)
-		DropScroll2.Size = UDim2.new(0, 310, 0, 100)
+		DropScroll2.Size = UDim2.new(0.976000011, 0, 0, 100)
 		DropScroll2.CanvasSize = UDim2.new(0, 0, 0, 0)
 		DropScroll2.ScrollBarThickness = 3
 		
@@ -5723,7 +5723,7 @@ function main:Dropdown2(text,option,callback)
 		DropButton2.Parent = Dropdown2
 		DropButton2.BackgroundColor3 = Color3.fromRGB(224,224,224)
 		DropButton2.BackgroundTransparency = 1.000
-		DropButton2.Size = UDim2.new(0, 310, 0, 31)
+		DropButton2.Size = UDim2.new(0.976000011, 0, 0, 31)
 		DropButton2.Font = Enum.Font.SourceSans
 		DropButton2.Text = ""
 		DropButton2.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -5736,7 +5736,7 @@ function main:Dropdown2(text,option,callback)
 		Item2.Parent = DropScroll2
 		Item2.BackgroundColor3 = Color3.fromRGB(224,224,224)
 		Item2.BackgroundTransparency = 1.000
-		Item2.Size = UDim2.new(0, 310, 0, 26)
+		Item2.Size = UDim2.new(0.976000011, 0, 0, 26)
 		Item2.Font = Enum.Font.Gotham
 		Item2.Text = tostring(v)
 		Item2.TextColor3 = Color3.fromRGB(225, 225, 225)
@@ -5765,7 +5765,7 @@ function main:Dropdown2(text,option,callback)
 		
 		Item2.MouseButton1Click:Connect(function()
 		 isdropping = false
-		 Dropdown2:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+		 Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
 		 TweenService:Create(
 		  DropImage2,
 		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -5793,7 +5793,7 @@ function main:Dropdown2(text,option,callback)
 		 ):Play()
 		 else
 		  isdropping = false
-		 Dropdown2:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+		 Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
 		 TweenService:Create(
 		  DropImage2,
 		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -5813,7 +5813,7 @@ function main:Dropdown2(text,option,callback)
 		Item2.Parent = DropScroll2
 		Item2.BackgroundColor3 = Color3.fromRGB(224,224,224)
 		Item2.BackgroundTransparency = 1.000
-		Item2.Size = UDim2.new(0, 310, 0, 26)
+		Item2.Size = UDim2.new(0.976000011, 0, 0, 26)
 		Item2.Font = Enum.Font.Gotham
 		Item2.Text = tostring(t)
 		Item2.TextColor3 = Color3.fromRGB(225, 225, 225)
@@ -5842,7 +5842,7 @@ function main:Dropdown2(text,option,callback)
 		
 		Item2.MouseButton1Click:Connect(function()
 		 isdropping = false
-		 Dropdown2:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+		 Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
 		 TweenService:Create(
 		  DropImage2,
 		  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -5857,7 +5857,7 @@ function main:Dropdown2(text,option,callback)
 		function dropfunc:Clear()
 		DropTitle2.Text = tostring(text).." : "
 		isdropping = false
-		Dropdown2:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+		Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
 		TweenService:Create(
 		 DropImage2,
 		 TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),

@@ -5456,14 +5456,16 @@ DropImage.Image = "http://www.roblox.com/asset/?id=13871407485"
 
 DropScroll.Name = "DropScroll"
 DropScroll.Parent = Dropdown
+DropScroll.Active = true
 DropScroll.BackgroundColor3 = Color3.fromRGB(0,0,0)
 DropScroll.BackgroundTransparency = 1.000
 DropScroll.BorderColor3 = Color3.fromRGB(0, 0, 0)
 DropScroll.BorderSizePixel = 0
 DropScroll.Position = UDim2.new(0, 0, 0, 26)
 DropScroll.Selectable = false
-DropScroll.Size = UDim2.new(1.00538611, -8, 0.99999994, -30)
-DropScroll.ScrollBarThickness = 0
+DropScroll.Size = UDim2.new(1.00538611, -8, 0.99999994, 100)
+DropScroll.CanvasSize = UDim2.new(0,0,0,0)
+DropScroll.ScrollBarThickness = 3
 
 UIListLayout_2.Parent = DropScroll
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
@@ -5551,12 +5553,12 @@ Item.MouseButton1Click:Connect(function()
  end)
 end
 
-DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 100)
+DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 10)
 
 DropButton.MouseButton1Click:Connect(function()
  if isdropping == false then
  isdropping = true
- Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 400),"Out","Quad",0.3,true)
+ Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 131),"Out","Quad",0.3,true)
  TweenService:Create(
   DropImage,
   TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -5616,7 +5618,7 @@ Item.MouseLeave:Connect(function()
 
 Item.MouseButton1Click:Connect(function()
  isdropping = false
- Dropdown:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+ Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
  TweenService:Create(
   DropImage,
   TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -5631,7 +5633,7 @@ end
 function dropfunc:Clear()
 DropTitle.Text = tostring(text).." : "
 isdropping = false
-Dropdown:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+Dropdown:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
 TweenService:Create(
  DropImage,
  TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -5721,14 +5723,16 @@ function main:Dropdown2(text,option,callback)
  
  DropScroll2.Name = "DropScroll"
  DropScroll2.Parent = Dropdown2
+ DropScroll2.Active = true
  DropScroll2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
  DropScroll2.BackgroundTransparency = 1.000
  DropScroll2.BorderColor3 = Color3.fromRGB(0, 0, 0)
  DropScroll2.BorderSizePixel = 0
  DropScroll2.Position = UDim2.new(0, 0, 0, 26)
  DropScroll2.Selectable = false
- DropScroll2.Size = UDim2.new(1.00538611, -8, 0.99999994, -30)
- DropScroll2.ScrollBarThickness = 0
+ DropScroll2.Size = UDim2.new(1.00538611, -8, 0.99999994, 100)
+ DropScroll2.CanvasSize = UDim2.new(0,0,0,0)
+ DropScroll2.ScrollBarThickness = 3
  
  UIListLayout_22.Parent = DropScroll2
  UIListLayout_22.SortOrder = Enum.SortOrder.LayoutOrder
@@ -5810,7 +5814,7 @@ function main:Dropdown2(text,option,callback)
     DropButton2.MouseButton1Click:Connect(function()
      if isdropping == false then
      isdropping = true
-     Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 400),"Out","Quad",0.3,true)
+     Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 131),"Out","Quad",0.3,true)
      TweenService:Create(
       DropImage2,
       TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -5870,7 +5874,7 @@ function main:Dropdown2(text,option,callback)
     
     Item2.MouseButton1Click:Connect(function()
      isdropping = false
-     Dropdown2:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+     Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
      TweenService:Create(
       DropImage2,
       TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -5885,7 +5889,7 @@ function main:Dropdown2(text,option,callback)
     function dropfunc:Clear()
     DropTitle2.Text = tostring(text).." : "
     isdropping = false
-    Dropdown2:TweenSize(UDim2.new(0,310,0,31),"Out","Quad",0.3,true)
+    Dropdown2:TweenSize(UDim2.new(0.976000011, 0, 0, 31),"Out","Quad",0.3,true)
     TweenService:Create(
      DropImage2,
      TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),

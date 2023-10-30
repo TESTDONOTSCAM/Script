@@ -15689,23 +15689,19 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
-TEST:Toggle("Sail",false,function(val)
-	_G.AutoSail = val
+TEST:Toggle("Auto Buy Boat",false,function(val)
+	_G.Boat = val
 end)
 
 local Sail = game.Players.LocalPlayer.Character.HumanoidRootPart
 
-if _G.AutoSail then
-	wait(1)
+if _G.Boat then
 	local args = {
 		[1] = "BuyBoat",
 		[2] = "Guardian"
 	}
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
-	wait(2)
-	_G.AutoSail = false
-	Auto_Sail = true
 end
 
 spawn(function()

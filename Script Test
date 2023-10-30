@@ -230,18 +230,18 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(-1139.59717, 4.75205183, 3825.16211, -0.959730506, -7.5857054e-09, 0.280922383, -4.06310328e-08, 1, -1.11807175e-07, -0.280922383, -1.18718916e-07, -0.959730506)
 			CFrameBoss = CFrame.new(-1147.65173, 32.5966301, 4156.02588, 0.956680477, -1.77109952e-10, -0.29113996, 5.16530874e-10, 1, 1.08897802e-09, 0.29113996, -1.19218679e-09, 0.956680477)
 			TelePBoss(CFrameBoss)
-		elseif _G.SelectBoss == "The Saw [Lv. 100]" then
-			MsQBoss = "The Saw"
-			NameBoss = "The Saw"
-			CFrameYBoss = CFrame.new(-683.519897, 13.8534927, 1610.87854, -0.290192783, 6.88365773e-08, 0.956968188, 6.98413629e-08, 1, -5.07531119e-08, -0.956968188, 5.21077759e-08, -0.290192783)
-			TelePBoss(CFrameYBoss)
 
-			--[[
-		elseif _G.SelectBoss == "Greybeard" then
+		elseif _G.BossNoQuest == "The Saw [Lv. 100]" then
+			MsBoss = "The Saw"
+			NameBoss = "The Saw"
+			CFrameBBoss = CFrame.new(-683.519897, 13.8534927, 1610.87854, -0.290192783, 6.88365773e-08, 0.956968188, 6.98413629e-08, 1, -5.07531119e-08, -0.956968188, 5.21077759e-08, -0.290192783)
+			TelePBoss(CFrameBBoss)
+
+		elseif _G.BossNoQuest == "Greybeard" then
 			MsBoss = "Greybeard"
 			NameBoss = "Greybeard"
-			CFrameBoss = CFrame.new(-4955.72949, 80.8163834, 4305.82666, -0.433646321, -1.03394289e-08, 0.901083171, -3.0443168e-08, 1, -3.17633075e-09, -0.901083171, -2.88092288e-08, -0.433646321)
-			]]--
+			CFrameBBoss = CFrame.new(-4955.72949, 80.8163834, 4305.82666, -0.433646321, -1.03394289e-08, 0.901083171, -3.0443168e-08, 1, -3.17633075e-09, -0.901083171, -2.88092288e-08, -0.433646321)
+			TelePBoss(CFrameBBoss)
 
 		elseif _G.SelectBoss == "Yeti [Lv. 110]" then
 			MsBoss = "Yeti"
@@ -251,11 +251,11 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(1384.90247, 87.3078308, -1296.6825, 0.280209213, 2.72035177e-08, -0.959938943, -6.75690828e-08, 1, 8.6151708e-09, 0.959938943, 6.24481444e-08, 0.280209213)
 			CFrameBoss = CFrame.new(1221.7356, 138.046906, -1488.84082, 0.349343032, -9.49245944e-08, 0.936994851, 6.29478194e-08, 1, 7.7838429e-08, -0.936994851, 3.17894653e-08, 0.349343032)
 			TelePBoss(CFrameBoss)
-		elseif _G.SelectBoss == "Mob Leader [Lv. 120]" then
-			MsQBoss = "Mob Leader"
+		elseif _G.BossNoQuest == "Mob Leader [Lv. 120]" then
+			MsBoss = "Mob Leader"
 			NameBoss = "Mob Leader"
-			CFrameYBoss = CFrame.new(-2848.59399, 7.4272871, 5342.44043, -0.928248107, -8.7248246e-08, 0.371961564, -7.61816636e-08, 1, 4.44474857e-08, -0.371961564, 1.29216433e-08, -0.92824)
-			TelePBoss(CFrameYBoss)
+			CFrameBBoss = CFrame.new(-2848.59399, 7.4272871, 5342.44043, -0.928248107, -8.7248246e-08, 0.371961564, -7.61816636e-08, 1, 4.44474857e-08, -0.371961564, 1.29216433e-08, -0.92824)
+			TelePBoss(CFrameBBoss)
 		elseif _G.SelectBoss == "Vice Admiral [Lv. 130]" then
 			MsBoss = "Vice Admiral"
 			NameBoss = "Vice Admiral"
@@ -264,11 +264,11 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(-5035.42285, 28.6520386, 4324.50293, -0.0611100644, -8.08395768e-08, 0.998130739, -1.57416586e-08, 1, 8.00271849e-08, -0.998130739, -1.08217701e-08, -0.0611100644)
 			CFrameBoss = CFrame.new(-5078.45898, 99.6520691, 4402.1665, -0.555574954, -9.88630566e-11, 0.831466436, -6.35508286e-08, 1, -4.23449258e-08, -0.831466436, -7.63661632e-08, -0.555574954)
 			TelePBoss(CFrameBoss)
-		elseif _G.SelectBoss == "Saber Expert [Lv. 200]" then
-			MsQBoss = "Saber Expert"
+		elseif _G.BossNoQuest == "Saber Expert [Lv. 200]" then
+			MsBoss = "Saber Expert"
 			NameBoss = "Saber Expert"
-			CFrameYBoss = CFrame.new(-1458.89502, 29.8870335, -50.633564, 0.858821094, 1.13848939e-08, 0.512275636, -4.85649254e-09, 1, -1.40823326e-08, -0.512275636, 9.6063415e-09, 0.858821094)
-			TelePBoss(CFrameYBoss)
+			CFrameBBoss = CFrame.new(-1458.89502, 29.8870335, -50.633564, 0.858821094, 1.13848939e-08, 0.512275636, -4.85649254e-09, 1, -1.40823326e-08, -0.512275636, 9.6063415e-09, 0.858821094)
+			TelePBoss(CFrameBBoss)
 		elseif _G.SelectBoss == "Warden [Lv. 220]" then
 			MsBoss = "Warden"
 			NameBoss = "Warden"
@@ -309,7 +309,7 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(61123.0859, 18.5066795, 1570.18018, 0.927145958, 1.0624845e-07, 0.374700129, -6.98219367e-08, 1, -1.10790765e-07, -0.374700129, 7.65569368e-08, 0.927145958)
 			CFrameBoss = CFrame.new(61351.7773, 31.0306778, 1113.31409, 0.999974668, 0, -0.00714713801, 0, 1.00000012, 0, 0.00714714266, 0, 0.999974549)
 			TelePBoss(CFrameBoss)
-			if (CFrameBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+			if (CFrameQBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
 			end
 		elseif _G.SelectBoss == "Wysper [Lv. 500]" then
@@ -320,7 +320,7 @@ function CheckQuestBoss()
 			CFrameQBoss = CFrame.new(-7862.94629, 5545.52832, -379.833954, 0.462944925, 1.45838088e-08, -0.886386991, 1.0534996e-08, 1, 2.19553424e-08, 0.886386991, -1.95022007e-08, 0.462944925)
 			CFrameBoss = CFrame.new(-7925.48389, 5550.76074, -636.178345, 0.716468513, -1.22915289e-09, 0.697619379, 3.37381434e-09, 1, -1.70304748e-09, -0.697619379, 3.57381835e-09, 0.716468513)
 			TelePBoss(CFrameBoss)
-			if (CFrameBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+			if (CFrameQBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
 			end
 		elseif _G.SelectBoss == "Thunder God [Lv. 575]" then
@@ -3470,9 +3470,9 @@ spawn(function()
 				StopTween(Farm_Material)
 				Auto_Farm = true
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-					if Auto_Boss then
+					if _G.Farm_Boss then
 						_G.SelectBoss = nil
-						Auto_Boss = nil
+						_G.Farm_Boss = nil
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 						_G.FastAttack = false
@@ -3486,7 +3486,7 @@ spawn(function()
 						until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-						Auto_Boss = true
+						_G.Farm_Boss = true
 						_G.FastAttack = false
 					elseif SelectMonster ~= nil then
 						CheckLevel2()
@@ -3843,8 +3843,6 @@ spawn(function()
 	while wait() do
 		pcall(function()
 		if Auto_Boss then
-			_G.Setting_table.AutoFarm = false
-			StopTween(Auto_Farm)
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if SelectMonster ~= nil then
 					CheckQuestBoss()
@@ -3873,12 +3871,10 @@ spawn(function()
 					_G.FastAttack = false
 				end
 			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-			if Auto_Boss then
-					if game.Workspace.Enemies:FindFirstChild(MsQBoss) then
+				if _G.Auto_BostyjrtjWs then
+					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == MsQBoss and v.Humanoid.Health > 0 then
-								_G.PosMon = v.HumanoidRootPart.CFrame
-								_G.FastAttack = true
+							if v.Name == _G.SelectBofss and v.Humanoid.Health > 0 then
 								if v.Humanoid:FindFirstChild("Animator") then
 									v.Humanoid.Animator:Destroy()
 								end
@@ -3889,22 +3885,20 @@ spawn(function()
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 								_G.FastAtteack2 = true
 								repeat task.wait()
-									TelePBoss(CFrameYBoss)
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+									TelePBoss(CFrameQBowss)
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
 									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
 									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 								end
-								Attack = nil
 							end
 						end
 					else
-						topos(CFrameYBoss * CFrame.new(0,10,0))
-						TelePBoss(CFrameYBoss)
+						topos(CFrameBSOSO * CFrame.new(0,10,0))
+						TelePBoss(CFramefeeBoss)
 					end
 				else
 					if game.Workspace.Enemies:FindFirstChild(MsBoss) then
@@ -3921,7 +3915,7 @@ spawn(function()
 								v.HumanoidRootPart.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 								repeat task.wait()
-									TelePBoss(CFrameBoss)
+									TelePBoss(CFrameQBoss)
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
@@ -3939,6 +3933,110 @@ spawn(function()
 							topos(game.ReplicatedStorage:FindFirstChild(MsBoss).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 						else
 						topos(CFrameBoss)
+						_G.FastAttack = false
+							end
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+		if Auto_BossNQ then
+			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+				if SelectMonster ~= nil then
+					CheckQuestBoss()
+					AutoHaki()
+					_G.FastAttack = false
+					repeat wait(.2)
+						TelePBoss(CFrameBBoss)
+						TP(CFrameBBoss)
+						_G.FastAttack = false
+					until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameBBoss)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+					_G.FastAttack = false
+					SelectMonster = nil
+					_G.Farm_Mon = nil
+				else
+					CheckQuestBoss()
+					AutoHaki()
+					_G.FastAttack = false
+					repeat wait(.2)
+						TelePBoss(CFrameQBoss)
+						topos(CFrameQBoss)
+					until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameBBoss)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+					_G.FastAttack = false
+				end
+			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+				if _G.Auto_BostyjrtjWs then
+					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
+						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+							if v.Name == _G.SelectBofss and v.Humanoid.Health > 0 then
+								if v.Humanoid:FindFirstChild("Animator") then
+									v.Humanoid.Animator:Destroy()
+								end
+								v.Humanoid:ChangeState(11)
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								v.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+								_G.FastAtteack2 = true
+								repeat task.wait()
+									TelePBoss(CFrameQBowss)
+									EquipWeapon(_G.Setting_table.Weapon)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									game:GetService'VirtualUser':CaptureController()
+									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
+									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+								end
+							end
+						end
+					else
+						topos(CFrameBSOSO * CFrame.new(0,10,0))
+						TelePBoss(CFramefeeBoss)
+					end
+				else
+					if game.Workspace.Enemies:FindFirstChild(MsBoss) then
+						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+							if v.Name == MsBoss and v.Humanoid.Health > 0 then
+								_G.PosMon = v.HumanoidRootPart.CFrame
+								_G.FastAttack = true
+								if v.Humanoid:FindFirstChild("Animator") then
+									v.Humanoid.Animator:Destroy()
+								end
+								v.Humanoid:ChangeState(11)
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								v.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+								repeat task.wait()
+									TelePBoss(CFrameBBoss)
+									EquipWeapon(_G.Setting_table.Weapon)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									game:GetService'VirtualUser':CaptureController()
+									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+								end
+								Attack = nil
+							end
+						end
+						else
+						_G.FastAttack = false
+						if game.ReplicatedStorage:FindFirstChild(MsBoss) then
+							topos(game.ReplicatedStorage:FindFirstChild(MsBoss).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+						else
+						topos(CFrameBBoss)
 						_G.FastAttack = false
 							end
 						end
@@ -6871,11 +6969,8 @@ Boss = {
 
 "The Gorilla King [Lv. 25]",
 "Bobby [Lv. 55]",
-"The Saw [Lv. 100]",
 "Yeti [Lv. 110]",
-"Mob Leader [Lv. 120]",
 "Vice Admiral [Lv. 130]",
-"Saber Expert [Lv. 200]",
 "Warden [Lv. 220]",
 "Chief Warden [Lv. 230]",
 "Swan [Lv. 240]",
@@ -6889,16 +6984,37 @@ Boss = {
 
 end
 
-Main:Dropdown("Select Boss",_G.SelectBoss,Boss,function(vu)
+Main:Dropdown("Select Quest",_G.SelectBoss,Boss,function(vu)
 	_G.SelectBoss = vu
 end)
 
-Main:Toggle("Farm Boss",_G.Setting_table.Farm_Boss,function(vu)
+Main:Toggle("Farm Boss",Auto_Boss,function(vu)
 	Auto_Boss = vu
-	_G.Setting_table.Farm_Boss = vu
-	Update_Setting(getgenv()['MyName'])
 	StopTween(Auto_Boss)
-	StopTween(_G.Setting_table.Farm_Boss)
+end)
+
+Main:Seperator("Boss No Quest")
+
+local BossNQ
+if World1 then
+
+BossNQ = {
+
+"The Saw [Lv. 100]",
+"Mob Leader [Lv. 120]",
+"Saber Expert [Lv. 200]",
+
+}
+
+end
+
+Main:Dropdown("Select Boss",_G.BossNoQuest,BossNQ,function(vu)
+	_G.BossNoQuest = vu
+end)
+
+Main:Toggle("Farm Boss",Auto_BossNQ,function(vu)
+	Auto_BossNQ = vu
+	StopTween(Auto_BossNQ)
 end)
 
 --[[

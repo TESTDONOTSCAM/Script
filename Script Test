@@ -3843,6 +3843,8 @@ spawn(function()
 	while wait() do
 		pcall(function()
 		if Auto_Boss then
+			_G.Setting_table.AutoFarm = false
+			StopTween(Auto_Farm)
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if SelectMonster ~= nil then
 					CheckQuestBoss()

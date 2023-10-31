@@ -15773,13 +15773,13 @@ end)
 spawn(function()
 	while wait() do
 		pcall(function()
-			if _G.AutoShip == true then
+			if _G.AutoShip then
 
 			game.Workspace.Gravity = 0
 			game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
 			game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
 
-				if game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
+			elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
 					if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
 						TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
 					elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
@@ -15790,7 +15790,6 @@ spawn(function()
 							print("Tween True")
 						end
 					until game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or _G.Auto_Seabest == false
-					end
 				end
 			end
 		end)

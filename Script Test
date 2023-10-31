@@ -2780,7 +2780,7 @@ function Sail()
 	if World3 then
 		MsB = "PirateBridage" or "PirateGrandeBridage"
 		NameMonB = "PirateBridage" or "PirateGrandeBridage"
-		CFrameMonB = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
+		CFrameMonster = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
 		TelePBoss(CFrameMonB)
 	end
 end
@@ -15710,14 +15710,25 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
-TEST:Toggle("Sail ssawfwf",false,function(val)
+TEST:Toggle("Auto Sail",false,function(val)
 _G.AutoSail = val
 if _G.AutoSail == true then
-repeat wait()
+	
+	local args = {
+		[1] = "BuyBoat",
+		[2] = "Guardian"
+	}
+	
+	game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+
+repeat task.wait()
+
 game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = ScriptBott
 print("work1")
 game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
 print("work2")
+
+topos(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
 
 toposBeast()
 print("Topos")
@@ -15726,10 +15737,13 @@ StopTween(_G.AutoSail)
 	end
 end)
 
+TEST:Toggle("Boats Attack",false,function(val)
+end)
+
 spawn(function()
 	while wait() do
 		pcall(function()
-		if _G.Sail_Auto then
+		if Bridage then
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if SelectMonster ~= nil then
 					Sail()
@@ -15819,7 +15833,7 @@ spawn(function()
 						if game.ReplicatedStorage:FindFirstChild(MsB) then
 							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 						else
-						topos(CFrameMonB)	
+						topos(CFrameMonster)	
 							end
 						end
 					end

@@ -15723,7 +15723,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 
 local Human = game.Players.LocalPlayer
 
-TEST:Toggle("Auto Sail",false,function(val)
+TEST:Toggle("Auto Saifwfl",false,function(val)
 _G.AutoSail = val
 if _G.AutoSail == true then
 
@@ -15743,9 +15743,10 @@ print("work1")
 game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
 print("work2")
 toposBeast()
-print("Topos")
 wait(5)
+print("work3")
 toposBHuman()
+wait(1)
 until not _G.AutoSail
 StopTween(_G.AutoSail)
 	end

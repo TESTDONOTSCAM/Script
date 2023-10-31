@@ -15794,7 +15794,7 @@ spawn(function()
 			   pcall(function()
 				 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 					 if v:FindFirstChild("HumanoidRootPart") then
-					if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+					 elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
 						game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
 						AutoHaki()
 						EquipWeapon(_G.Setting_table.Weapon)
@@ -15808,7 +15808,6 @@ spawn(function()
 						topos(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
 						if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
 							game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = true
-								end
 							end
 						end
 					end
@@ -15829,7 +15828,7 @@ spawn(function()
 			   pcall(function()
 				 for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
 					 if v:FindFirstChild("HumanoidRootPart") then
-					if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+					 elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
 						game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
 						AutoHaki()
 						EquipWeapon(_G.Setting_table.Weapon)
@@ -15843,7 +15842,6 @@ spawn(function()
 						topos(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
 						if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
 							game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = true
-								end
 							end
 						end
 					end

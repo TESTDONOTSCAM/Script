@@ -15737,7 +15737,7 @@ if _G.AutoSail == true then
 wait(4)
 
 repeat task.wait()
-
+wait(2)
 game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = Human
 print("work1")
 game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true

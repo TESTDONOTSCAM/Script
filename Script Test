@@ -15759,7 +15759,6 @@ end)
 
 TEST:Toggle("Auto Sail",false,function(val)
 _G.AutoSail = val
-StopTween(_G.AutoSail)
 if _G.AutoSail == true then
 
 	local args = {
@@ -15803,7 +15802,6 @@ end)
 
 TEST:Toggle("Ghost fweShip",false,function(val)
 	Bridage = val
-	StopTween(Bridage)
 end)
 
 if Bridage then
@@ -15842,7 +15840,6 @@ if Bridage then
 
 TEST:Toggle("Piranha",false,function(pira)
 	Piranhaww = pira
-	StopTween(Piranhaww)
 end)
 
 if Piranhaww then
@@ -15881,7 +15878,6 @@ if Piranhaww then
 
 TEST:Toggle("SeaBeast",false,function(sea)
 	SeaBeast = sea
-	StopTween(SeaBeast)
 end)
 
 if SeaBeast then
@@ -15920,7 +15916,6 @@ if SeaBeast then
 
 TEST:Toggle("Shark",false,function(sharky)
 	Sharkwww = sharky
-	StopTween(Sharkwww)
 end)
 
 if Sharkwww then

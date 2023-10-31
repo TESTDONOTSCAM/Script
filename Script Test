@@ -15742,10 +15742,10 @@ game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Ow
 print("work1")
 game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
 print("work2")
-toposBHuman()
 toposBeast()
-
 print("Topos")
+wait(5)
+toposBHuman()
 until not _G.AutoSail
 StopTween(_G.AutoSail)
 	end

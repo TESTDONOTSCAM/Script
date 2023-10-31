@@ -2781,7 +2781,7 @@ function Sail()
 		MsB = "PirateBridage" or "PirateGrandeBridage"
 		NameMonB = "PirateBridage" or "PirateGrandeBridage"
 		CFrameMonster = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
-		TelePBoss(CFrameMonB)
+		TelePBoss(CFrameMonster)
 	end
 end
 
@@ -4173,7 +4173,7 @@ end
 
 spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
-		if Auto_Farm or Auto_Boss or _G.AutoSail or Auto_BossNQ or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Auto_Yama or Auto_Tushita then
+		if Auto_Farm or Auto_Boss or Auto_BossNQ or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Auto_Yama or Auto_Tushita then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
 				setfflag("HumanoidParallelRemoveNoPhysics", "False")
 				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -15769,7 +15769,7 @@ StopTween(_G.AutoSail)
 	end
 end)
 
-TEST:Toggle("Boats Attack",false,function(val)
+TEST:Toggle("Ghost Ship",false,function(val)
 end)
 
 spawn(function()
@@ -15782,11 +15782,11 @@ spawn(function()
 					AutoHaki()
 					
 					repeat wait(.2)
-						TelePBoss(CFrameMonB)
-						TP(CFrameMonB)
+						TelePBoss(CFramweMonster)
+						TP(CFrameMwonster)
 						
-					until (CFrameMonB.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMonB)
+					until (CFrameMonswter.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameMwonster)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					
 					SelectMonster = nil
@@ -15796,10 +15796,10 @@ spawn(function()
 					AutoHaki()
 					
 					repeat wait(.2)
-						TelePBoss(CFrameMonB)
-						topos(CFrameMonB)
-					until (CFrameBBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMonB)
+						TelePBoss(CFramewMonster)
+						topos(CFrameMownster)
+					until (CFrameMonwster.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFramewMonster)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					
 				end
@@ -15848,7 +15848,7 @@ spawn(function()
 								v.HumanoidRootPart.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 								repeat task.wait()
-									TelePBoss(CFrameMonB)
+									TelePBoss(CFrameMonster)
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()

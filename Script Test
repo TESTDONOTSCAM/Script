@@ -15744,8 +15744,6 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
-local Human = game.Players.LocalPlayer
-
 TEST:Toggle("Auto Saiwfwfl",false,function(val)
 _G.AutoSail = val
 if _G.AutoSail == true then
@@ -15760,8 +15758,9 @@ if _G.AutoSail == true then
 wait(4)
 
 repeat task.wait()
+local Plr = game:GetService("Players").LocalPlayer
 wait(2)
-game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = Human
+game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = Plr
 print("work1")
 wait(2)
 game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true

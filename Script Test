@@ -15744,7 +15744,7 @@ spawn(function()
 	end
 end)
 
-TEST:Toggle("Auto Sail",false,function(val)
+TEST:Toggle("Auto Saiwwl",false,function(val)
 _G.AutoSail = val
 end)
 

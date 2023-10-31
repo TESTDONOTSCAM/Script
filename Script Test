@@ -8707,7 +8707,7 @@ if World1 then
 end
 
 if World2 or World3 then
-	Setting:Toggle("[ Beta ] Fix Lag",true,function(val)
+	Setting:Toggle("[ Beta ] Fix Lag",false,function(val)
 		_G.BetaLag = val
 		end)
 	end
@@ -15719,15 +15719,8 @@ _G.AutoSail = val
 if _G.AutoSail == true then
 repeat wait()
 game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = ScriptBott
-wait(1)
 game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
-wait(1)
 print("work")
-
-game.Workspace.Gravity = 0
-game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
-game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
-
 toposB()
 print("ToposB")
 until not _G.AutoSail

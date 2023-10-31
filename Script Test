@@ -15786,14 +15786,26 @@ end)
 ------------
 
 TEST:Toggle("Auto Sail",_G.AutoSail,function(val)
-_G.AutoSail = val
-	StopTween(_G.AutoSail)
+_G.AutoRemover = val
+StopTween(_G.AutoSail)
+if _G.AutoRemover == true then
+repeat task.wait()
+local Remover = game.Workspace.Boats:FindFirstChild("Guardian") if Remover then Remover:Destroy() end
+	until not _G.AutoRemover
+	print("Work")
+wait(3)
+_G.AutoRemover = false
+wait(1)
+_G.AutoSail = true
+	end
 end)
 
+
 task.spawn(function()
-    while wait() do
+    while wait(3) do
         pcall(function()
             if _G.AutoSail then
+				print("Work2")
                 if not game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
                     if not game:GetService("Workspace").Boats:FindFirstChild("Guardian") then 
                         buyb = TPP(CFrame.new(-16206.9014, 7.75759554, 404.552338, -0.0348494053, 0, 0.999392569, 0, 1, 0, -0.999392569, 0, -0.0348494053))

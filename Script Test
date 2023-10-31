@@ -15785,7 +15785,7 @@ end)
 
 ------------
 
-TEST:Toggle("Auto Swgwail",_G.AutoSail,function(val)
+TEST:Toggle("Auto Saissl",_G.AutoSail,function(val)
 _G.AutoRemover = val
 StopTween(_G.AutoSail)
 if _G.AutoRemover == true then
@@ -15834,6 +15834,9 @@ task.spawn(function()
                                         [2] = "Guardian"
                                     }
                                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+									wait(1)
+									game.Workspace.Boats.Guardian:FindFirstChild("VehicleSeat").Anchored = true
+									print("Anchored")
                                 end
                             elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then

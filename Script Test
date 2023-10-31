@@ -15748,22 +15748,27 @@ TEST:Toggle("Auto Saiwwl",false,function(val)
 _G.AutoSail = val
 end)
 
-if _G.AutoSail == true then
+spawn(function()
+	while wait() do
+		pcall(function()
+			if _G.AutoSail then
+			BuyBoat = TPP(CFrame.new(-16206.9014, 7.75759554, 404.552338, -0.0348494053, 0, 0.999392569, 0, 1, 0, -0.999392569, 0, -0.0348494053))
+			if (CFrame.new(-16206.9014, 7.75759554, 404.552338, -0.0348494053, 0, 0.999392569, 0, 1, 0, -0.999392569, 0, -0.0348494053).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+			if BuyBoat then BuyBoat:Stop() end
+				local args = {
+				[1] = "BuyBoat",
+				[2] = "Guardian"
+				}	
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))	
 
-BuyBoat = TPP(CFrame.new(-16206.9014, 7.75759554, 404.552338, -0.0348494053, 0, 0.999392569, 0, 1, 0, -0.999392569, 0, -0.0348494053))
-if (CFrame.new(-16206.9014, 7.75759554, 404.552338, -0.0348494053, 0, 0.999392569, 0, 1, 0, -0.999392569, 0, -0.0348494053).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-if BuyBoat then BuyBoat:Stop() end
-	local args = {
-	[1] = "BuyBoat",
-	[2] = "Guardian"
-	}	
-	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-
-	wait(1)
-	_G.AutoSail = false
-	_G.AutoShip = true
+				_G.AutoSail = false
+				wait(1)
+				_G.AutoShip = true
+				end
+			end
+		end)
 	end
-end
+end)
 
 spawn(function()
 	while wait() do

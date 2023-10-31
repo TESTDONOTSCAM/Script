@@ -9486,7 +9486,7 @@ end
 
 if World3 then
 Setting:Seperator("World 3 Fps Boost")
-Setting:Toggle("Fps Boost",true,function(value)
+Setting:Toggle("Fps Boost",false,function(value)
         _G.FpsBoost3 = value
     end)
     spawn(function()

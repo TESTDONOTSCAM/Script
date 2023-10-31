@@ -15740,6 +15740,7 @@ repeat task.wait()
 wait(2)
 game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = Human
 print("work1")
+wait(1)
 game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
 print("work2")
 

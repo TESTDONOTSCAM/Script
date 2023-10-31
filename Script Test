@@ -15723,7 +15723,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 
 local Human = game.Players.LocalPlayer
 
-TEST:Toggle("Auto Saifwfl",false,function(val)
+TEST:Toggle("Auto Sail",false,function(val)
 _G.AutoSail = val
 if _G.AutoSail == true then
 
@@ -15744,24 +15744,20 @@ game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):Find
 print("work2")
 
 wait(2)
+
+toposBeast()
+print("work3")
+wait(2)
 _G.toposBfw = true
 until not _G.AutoSail
 StopTween(_G.AutoSail)
 	end
 end)
 
-if _G.toposBfw == true then
-	repeat task.wait()
-	toposBeast()
-	wait(4)
-	_G.toposBHfs = true
-	until not _G.toposBfw
-end
-
-if _G.toposBHfs == true then
+if _G.toposBfw then
 	repeat task.wait()
 	toposBHuman()
-	until not _G.toposBHfs
+	until not _G.toposBfw
 end
 
 TEST:Toggle("Boats Attack",false,function(val)

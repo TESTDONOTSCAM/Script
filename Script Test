@@ -16152,7 +16152,7 @@ spawn(function()
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					
 				end
-			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if _G.Auto_BostyjrtjWs then
 					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do

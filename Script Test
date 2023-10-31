@@ -15746,7 +15746,7 @@ spawn(function()
 	end
 end)
 
-TEST:Toggle("Auto Swfwfwail",false,function(val)
+TEST:Toggle("Auto Sail",false,function(val)
 _G.AutoSail = val
 end)
 
@@ -15783,84 +15783,60 @@ spawn(function()
 	end
 end)
 
-TEST:Toggle("Ghost fweShip",false,function(val)
+TEST:Toggle("Ghost Ship",false,function(val)
 	Bridage = val
 	StopTween(Bridage)
 end)
 
-if Bridage then
-	pcall(function()
-		Sail()
-		if game.Workspace.Enemies:FindFirstChild(MsP) then
-			for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-				if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-					if v.Name == MsP then
-						if v.Humanoid.Health > 0 then
-							_G.PosMon = v.HumanoidRootPart.CFrame
-								v.Humanoid:ChangeState(11)
-								v.HumanoidRootPart.CanCollide = false
-								v.Humanoid.WalkSpeed = 0
-								v.Head.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-							repeat wait()
-								TelePBoss(CFrameMon)
-								EquipWeapon(_G.Setting_table.Weapon)
-								AutoHaki()
-								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-								game:GetService'VirtualUser':CaptureController()
-								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-							until not Bridage or v.Humanoid.Health <= 0 or not v.Parent
+spawn(function()
+	while wait() do
+		if Bridage then
+			   pcall(function()
+				 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					 if v:FindFirstChild("HumanoidRootPart") then
+						AutoHaki()
+						EquipWeapon(_G.SelectWeapon)
+						TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
+						game:GetService("VirtualUser"):CaptureController()
+						game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+					else
+						if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") then
+						topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
+						else	
+						topos(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
 						end
 					end
 				end
-			end
-		else
-			if game:GetService("ReplicatedStorage"):FindFirstChild(MsP) then
-				topos(game:GetService("ReplicatedStorage"):FindFirstChild(MsP).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
-			else	
-				topos(CFrameMon)
-				end
-			end
-		end)
+			end)
+		end
 	end
+end)
 
 TEST:Toggle("SeaBeast",false,function(sea)
 	SeaBeast34 = sea
 	StopTween(SeaBeast34)
 end)
 
-if SeaBeast34 then
-	pcall(function()
-		SeaB()
-		if game.Workspace.SeaBeasts:FindFirstChild(MsSE) then
-			for i,v in pairs(game.Workspace.SeaBeasts:GetChildren()) do
-				if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-					if v.Name == MsSE then
-						if v.Humanoid.Health > 0 then
-							_G.PosMon = v.HumanoidRootPart.CFrame
-								v.Humanoid:ChangeState(11)
-								v.HumanoidRootPart.CanCollide = false
-								v.Humanoid.WalkSpeed = 0
-								v.Head.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-							repeat wait()
-								TelePBoss(CFrameMon)
-								EquipWeapon(_G.Setting_table.Weapon)
-								AutoHaki()
-								TP2(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-								game:GetService'VirtualUser':CaptureController()
-								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-							until not SeaBeast or v.Humanoid.Health <= 0 or not v.Parent
+spawn(function()
+	while wait() do
+		if SeaBeast34 then
+			   pcall(function()
+				 for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+					 if v:FindFirstChild("HumanoidRootPart") then
+						AutoHaki()
+						EquipWeapon(_G.SelectWeapon)
+						TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
+						game:GetService("VirtualUser"):CaptureController()
+						game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+					else
+						if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
+						topos(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
+						else	
+						topos(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
 						end
 					end
 				end
-			end
-		else
-			if game:GetService("ReplicatedStorage"):FindFirstChild(MsSE) then
-				TP2(game:GetService("ReplicatedStorage"):FindFirstChild(MsSE).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
-			else	
-				TP2(CFrameMon)
-				end
-			end
-		end)
+			end)
+		end
 	end
+end)

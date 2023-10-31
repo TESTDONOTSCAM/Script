@@ -2778,30 +2778,30 @@ end
 
 function Sail()
 	if World3 then
-		MsB = "PirateBridage" or "PirateGrandeBridage"
-		NameMonB = "PirateBridage" or "PirateGrandeBridage"
+		MsP = "PirateBridage" or "PirateGrandeBridage"
+		NameMonP = "PirateBridage" or "PirateGrandeBridage"
 		CFrameMon = CFrame.new(-42522.7852, 23.3357868, 13814.6396, -0.483462691, 0, -0.875364959, 0, 1, 0, 0.875364959, 0, -0.483462691)
-		CFrameMonster = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
+		CFrameMonsterP = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
 		TelePBoss(CFrameMon)
 	end
 end
 
 function Piranha()
 	if World3 then
-		MsB = "Piranha"
+		MsPI = "Piranha"
 		NameMonB = "Piranha"
 		CFrameMon = CFrame.new(-42522.7852, 23.3357868, 13814.6396, -0.483462691, 0, -0.875364959, 0, 1, 0, 0.875364959, 0, -0.483462691)
-		CFrameMonster = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
+		CFrameMonsterPI = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
 		TelePBoss(CFrameMon)
 	end
 end
 
 function SeaB()
 	if World3 then
-		MsB = "SeaBeast1"
+		MsSE = "SeaBeast1"
 		NameMonB = "SeaBeast1"
 		CFrameMon = CFrame.new(-42522.7852, 23.3357868, 13814.6396, -0.483462691, 0, -0.875364959, 0, 1, 0, 0.875364959, 0, -0.483462691)
-		CFrameMonster = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
+		CFrameMonsterSE = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
 		TelePBoss(CFrameMon)
 	end
 end
@@ -15807,11 +15807,11 @@ spawn(function()
 					AutoHaki()
 					
 					repeat wait(.2)
-						TelePBoss(CFramweMonster)
-						TP(CFrameMwonster)
+						TelePBoss(CFrameMon)
+						TP(CFrameMon)
 						
-					until (CFrameMonswter.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMwonster)
+					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameMon)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					
 					SelectMonster = nil
@@ -15821,14 +15821,14 @@ spawn(function()
 					AutoHaki()
 					
 					repeat wait(.2)
-						TelePBoss(CFramewMonster)
-						topos(CFrameMownster)
-					until (CFrameMonwster.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFramewMonster)
+						TelePBoss(CFrameMon)
+						topos(CFrameMon)
+					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameMon)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					
 				end
-			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if _G.Auto_BostyjrtjWs then
 					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
@@ -15859,9 +15859,9 @@ spawn(function()
 						TelePBoss(CFramefeeBoss)
 					end
 				else
-					if game.Workspace.Enemies:FindFirstChild(MsB) then
+					if game.Workspace.Enemies:FindFirstChild(MsP) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == MsB and v.Humanoid.Health > 0 then
+							if v.Name == MsP and v.Humanoid.Health > 0 then
 								_G.PosMon = v.HumanoidRootPart.CFrame
 								
 								if v.Humanoid:FindFirstChild("Animator") then
@@ -15873,13 +15873,13 @@ spawn(function()
 								v.HumanoidRootPart.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 								repeat task.wait()
-									TelePBoss(CFrameMonster)
+									TelePBoss(CFrameMon)
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
 									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonB) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonB) then
+								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonP) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonP) then
 									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 								end
 								Attack = nil
@@ -15887,10 +15887,10 @@ spawn(function()
 						end
 						else
 						
-						if game.ReplicatedStorage:FindFirstChild(MsB) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+						if game.ReplicatedStorage:FindFirstChild(MsP) then
+							topos(game.ReplicatedStorage:FindFirstChild(MsP).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 						else
-						topos(CFrameMonster)	
+						topos(CFrameMonsterP)	
 							end
 						end
 					end
@@ -15915,11 +15915,11 @@ spawn(function()
 					AutoHaki()
 					
 					repeat wait(.2)
-						TelePBoss(CFramweMonster)
-						TP(CFrameMwonster)
+						TelePBoss(CFrameMon)
+						TP(CFrameMon)
 						
-					until (CFrameMonswter.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMwonster)
+					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameMon)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					
 					SelectMonster = nil
@@ -15929,14 +15929,14 @@ spawn(function()
 					AutoHaki()
 					
 					repeat wait(.2)
-						TelePBoss(CFramewMonster)
-						topos(CFrameMownster)
-					until (CFrameMonwster.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFramewMonster)
+						TelePBoss(CFrameMon)
+						topos(CFrameMon)
+					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameMon)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					
 				end
-			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if _G.Auto_BostyjrtjWs then
 					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
@@ -15967,9 +15967,9 @@ spawn(function()
 						TelePBoss(CFramefeeBoss)
 					end
 				else
-					if game.Workspace.Enemies:FindFirstChild(MsB) then
+					if game.Workspace.Enemies:FindFirstChild(MsPI) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == MsB and v.Humanoid.Health > 0 then
+							if v.Name == MsPI and v.Humanoid.Health > 0 then
 								_G.PosMon = v.HumanoidRootPart.CFrame
 								
 								if v.Humanoid:FindFirstChild("Animator") then
@@ -15981,7 +15981,7 @@ spawn(function()
 								v.HumanoidRootPart.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 								repeat task.wait()
-									TelePBoss(CFrameMonster)
+									TelePBoss(CFrameMon)
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
@@ -15995,10 +15995,10 @@ spawn(function()
 						end
 						else
 						
-						if game.ReplicatedStorage:FindFirstChild(MsB) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+						if game.ReplicatedStorage:FindFirstChild(MsPI) then
+							topos(game.ReplicatedStorage:FindFirstChild(MsPI).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 						else
-						topos(CFrameMonster)	
+						topos(CFrameMonsterPI)	
 							end
 						end
 					end
@@ -16023,11 +16023,11 @@ spawn(function()
 					AutoHaki()
 					
 					repeat wait(.2)
-						TelePBoss(CFramweMonster)
-						TP(CFrameMwonster)
+						TelePBoss(CFrameMon)
+						TP(CFrameMon)
 						
-					until (CFrameMonswter.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMwonster)
+					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameMon)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					
 					SelectMonster = nil
@@ -16037,14 +16037,14 @@ spawn(function()
 					AutoHaki()
 					
 					repeat wait(.2)
-						TelePBoss(CFramewMonster)
-						topos(CFrameMownster)
-					until (CFrameMonwster.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFramewMonster)
+						TelePBoss(CFrameMon)
+						topos(CFrameMon)
+					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+					TelePBoss(CFrameMon)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 					
 				end
-			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if _G.Auto_BostyjrtjWs then
 					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
@@ -16075,9 +16075,9 @@ spawn(function()
 						TelePBoss(CFramefeeBoss)
 					end
 				else
-					if game.Workspace.SeaBeasts:FindFirstChild(MsB) then
+					if game.Workspace.SeaBeasts:FindFirstChild(MsSE) then
 						for i,v in pairs(game.Workspace.SeaBeasts:GetChildren()) do
-							if v.Name == MsB and v.Humanoid.Health > 0 then
+							if v.Name == MsSE and v.Humanoid.Health > 0 then
 								_G.PosMon = v.HumanoidRootPart.CFrame
 								
 								if v.Humanoid:FindFirstChild("Animator") then
@@ -16089,7 +16089,7 @@ spawn(function()
 								v.HumanoidRootPart.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 								repeat task.wait()
-									TelePBoss(CFrameMonster)
+									TelePBoss(CFrameMon)
 									EquipWeapon(_G.Setting_table.Weapon)
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
@@ -16103,8 +16103,8 @@ spawn(function()
 						end
 						else
 						
-						if game.ReplicatedStorage:FindFirstChild(MsB) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+						if game.ReplicatedStorage:FindFirstChild(MsSE) then
+							topos(game.ReplicatedStorage:FindFirstChild(MsSE).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 						else
 						topos(CFrameMonster)	
 							end

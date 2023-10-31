@@ -15714,12 +15714,15 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
-TEST:Toggle("Sail",false,function(val)
+TEST:Toggle("Sail Test",false,function(val)
 	_G.AutoSail = val
 	StopTween(_G.AutoSail)
 end)
 
+_G.AutoSail = true
+
 if _G.AutoSail then
+repeat wait()
 game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = ScriptBott
 
 wait(1)
@@ -15741,13 +15744,14 @@ tween.Completed:Wait(E)
 wait(1)
 
 _G.AutoSail = false
-Sail_Auto = true
+_G.Sail_Auto = true
+until not _G.AutoSail
 end
 
 spawn(function()
 	while wait() do
 		pcall(function()
-		if Sail_Auto then
+		if _G.Sail_Auto then
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if SelectMonster ~= nil then
 					Sail()

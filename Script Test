@@ -2778,8 +2778,8 @@ end
 
 function Sail()
 	if World3 then
-		MsP = "PirateBridage" or "PirateGrandeBridage"
-		NameMonP = "PirateBridage" or "PirateGrandeBridage"
+		MsP = "PirateBridage" or "PirateGrandeBridage" or "Piranha" or "Shark"
+		NameMonP = "PirateBridage" or "PirateGrandeBridage" or "Piranha" or "Shark"
 		CFrameMon = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
 		CFrameMonsterP = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
 		TelePBoss(CFrameMon)
@@ -15792,434 +15792,158 @@ tween.Completed:Wait(E)
 	end
 end)
 
-TEST:Toggle("Ghost Ship",false,function(val)
+TEST:Toggle("Ghost fweShip",false,function(val)
 	Bridage = val
 	StopTween(Bridage)
 end)
 
-spawn(function()
-	while wait() do
-		pcall(function()
-		if Bridage then
-			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if SelectMonster ~= nil then
-					Sail()
-					AutoHaki()
-					
-					repeat wait(.2)
-						TelePBoss(CFrameMon)
-						TP(CFrameMon)
-						
-					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMon)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					
-					SelectMonster = nil
-					_G.Farm_Mon = nil
-				else
-					Sail()
-					AutoHaki()
-					
-					repeat wait(.2)
-						TelePBoss(CFrameMon)
-						topos(CFrameMon)
-					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMon)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					
-				end
-			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if _G.Auto_BostyjrtjWs then
-					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == _G.SelectBofss and v.Humanoid.Health > 0 then
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								_G.FastAtteack2 = true
-								repeat task.wait()
-									TelePBoss(CFrameQBowss)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-							end
-						end
-					else
-						topos(CFrameBSOSO * CFrame.new(0,10,0))
-						TelePBoss(CFramefeeBoss)
-					end
-				else
-					if game.Workspace.Enemies:FindFirstChild(MsP) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == MsP and v.Humanoid.Health > 0 then
+if Bridage then
+	pcall(function()
+		Sail()
+		if game:GetService("Workspace").Enemies:FindFirstChild(MsP) then
+			for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+				if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+					if v.Name == MsP then
+						if v.Humanoid.Health > 0 then
+							repeat wait()
+								EquipWeapon(_G.Setting_table.Weapon)
+								AutoHaki()
 								_G.PosMon = v.HumanoidRootPart.CFrame
-								
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
 								v.HumanoidRootPart.CanCollide = false
+								v.Humanoid.WalkSpeed = 0
+								v.Head.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								repeat task.wait()
-									TelePBoss(CFrameMon)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonP) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonP) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-								Attack = nil
-							end
-						end
-						else
-						
-						if game.ReplicatedStorage:FindFirstChild(MsP) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsP).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-						else
-						topos(CFrameMonsterP)	
-							end
+								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+								game:GetService'VirtualUser':CaptureController()
+								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+							until not Bridage or v.Humanoid.Health <= 0 or not v.Parent
 						end
 					end
 				end
 			end
+		else
+			if game:GetService("ReplicatedStorage"):FindFirstChild(MsP) then
+				topos(game:GetService("ReplicatedStorage"):FindFirstChild(MsP).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+			else	
+				topos(CFrameMon)
+				end
+			end
 		end)
 	end
-end)
 
 TEST:Toggle("Piranha",false,function(pira)
 	Piranhaww = pira
 	StopTween(Piranhaww)
 end)
 
-spawn(function()
-	while wait() do
-		pcall(function()
-		if Piranhaww then
-			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if SelectMonster ~= nil then
-					Piranha()
-					AutoHaki()
-					
-					repeat wait(.2)
-						TelePBoss(CFrameMon)
-						TP(CFrameMon)
-						
-					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMon)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					
-					SelectMonster = nil
-					_G.Farm_Mon = nil
-				else
-					Piranha()
-					AutoHaki()
-					
-					repeat wait(.2)
-						TelePBoss(CFrameMon)
-						topos(CFrameMon)
-					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMon)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					
-				end
-			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if _G.Auto_BostyjrtjWs then
-					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == _G.SelectBofss and v.Humanoid.Health > 0 then
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								_G.FastAtteack2 = true
-								repeat task.wait()
-									TelePBoss(CFrameQBowss)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-							end
-						end
-					else
-						topos(CFrameBSOSO * CFrame.new(0,10,0))
-						TelePBoss(CFramefeeBoss)
-					end
-				else
-					if game.Workspace.Enemies:FindFirstChild(MsPI) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == MsPI and v.Humanoid.Health > 0 then
+if Piranhaww then
+	pcall(function()
+		Piranha()
+		if game:GetService("Workspace").Enemies:FindFirstChild(MsPI) then
+			for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+				if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+					if v.Name == MsPI then
+						if v.Humanoid.Health > 0 then
+							repeat wait()
+								EquipWeapon(_G.Setting_table.Weapon)
+								AutoHaki()
 								_G.PosMon = v.HumanoidRootPart.CFrame
-								
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
 								v.HumanoidRootPart.CanCollide = false
+								v.Humanoid.WalkSpeed = 0
+								v.Head.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								repeat task.wait()
-									TelePBoss(CFrameMon)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonB) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonB) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-								Attack = nil
-							end
-						end
-						else
-						
-						if game.ReplicatedStorage:FindFirstChild(MsPI) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsPI).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-						else
-						topos(CFrameMonsterPI)	
-							end
+								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+								game:GetService'VirtualUser':CaptureController()
+								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+							until not Piranhaww or v.Humanoid.Health <= 0 or not v.Parent
 						end
 					end
 				end
 			end
+		else
+			if game:GetService("ReplicatedStorage"):FindFirstChild(MsPI) then
+				topos(game:GetService("ReplicatedStorage"):FindFirstChild(MsPI).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+			else	
+				topos(CFrameMon)
+				end
+			end
 		end)
 	end
-end)
 
 TEST:Toggle("SeaBeast",false,function(sea)
 	SeaBeast = sea
 	StopTween(SeaBeast)
 end)
 
-spawn(function()
-	while wait() do
-		pcall(function()
-		if SeaBeast then
-			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if SelectMonster ~= nil then
-					SeaB()
-					AutoHaki()
-					
-					repeat wait(.2)
-						TelePBoss(CFrameMon)
-						TP(CFrameMon)
-						
-					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMon)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					
-					SelectMonster = nil
-					_G.Farm_Mon = nil
-				else
-					SeaB()
-					AutoHaki()
-					
-					repeat wait(.2)
-						TelePBoss(CFrameMon)
-						topos(CFrameMon)
-					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMon)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					
-				end
-			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if _G.Auto_BostyjrtjWs then
-					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == _G.SelectBofss and v.Humanoid.Health > 0 then
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								_G.FastAtteack2 = true
-								repeat task.wait()
-									TelePBoss(CFrameQBowss)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-							end
-						end
-					else
-						topos(CFrameBSOSO * CFrame.new(0,10,0))
-						TelePBoss(CFramefeeBoss)
-					end
-				else
-					if game.Workspace.SeaBeasts:FindFirstChild(MsSE) then
-						for i,v in pairs(game.Workspace.SeaBeasts:GetChildren()) do
-							if v.Name == MsSE and v.Humanoid.Health > 0 then
+if SeaBeast then
+	pcall(function()
+		SeaB()
+		if game:GetService("Workspace").SeaBeasts:FindFirstChild(MsSE) then
+			for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+				if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+					if v.Name == MsSE then
+						if v.Humanoid.Health > 0 then
+							repeat wait()
+								EquipWeapon(_G.Setting_table.Weapon)
+								AutoHaki()
 								_G.PosMon = v.HumanoidRootPart.CFrame
-								
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
 								v.HumanoidRootPart.CanCollide = false
+								v.Humanoid.WalkSpeed = 0
+								v.Head.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								repeat task.wait()
-									TelePBoss(CFrameMon)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonB) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonB) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-								Attack = nil
-							end
-						end
-						else
-						
-						if game.ReplicatedStorage:FindFirstChild(MsSE) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsSE).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-						else
-						topos(CFrameMonster)	
-							end
+								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+								game:GetService'VirtualUser':CaptureController()
+								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+							until not SeaBeast or v.Humanoid.Health <= 0 or not v.Parent
 						end
 					end
 				end
 			end
+		else
+			if game:GetService("ReplicatedStorage"):FindFirstChild(MsSE) then
+				topos(game:GetService("ReplicatedStorage"):FindFirstChild(MsSE).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+			else	
+				topos(CFrameMon)
+				end
+			end
 		end)
 	end
-end)
 
 TEST:Toggle("Shark",false,function(sharky)
 	Sharkwww = sharky
 	StopTween(Sharkwww)
 end)
 
-spawn(function()
-	while wait() do
-		pcall(function()
-		if Sharkwww then
-			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if SelectMonster ~= nil then
-					SharkB()
-					AutoHaki()
-					
-					repeat wait(.2)
-						TelePBoss(CFrameMonS)
-						TP(CFrameMonS)
-						
-					until (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMonS)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					
-					SelectMonster = nil
-					_G.Farm_Mon = nil
-				else
-					SharkB()
-					AutoHaki()
-					
-					repeat wait(.2)
-						TelePBoss(CFrameMonS)
-						topos(CFrameMonS)
-					until (CFrameMonS.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameMonS)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					
-				end
-			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if _G.Auto_BostyjrtjWs then
-					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == _G.SelectBofss and v.Humanoid.Health > 0 then
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								_G.FastAtteack2 = true
-								repeat task.wait()
-									TelePBoss(CFrameQBowss)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-							end
-						end
-					else
-						topos(CFrameBSOSO * CFrame.new(0,10,0))
-						TelePBoss(CFramefeeBoss)
-					end
-				else
-					if game.Workspace.Enemies:FindFirstChild(MsS) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == MsS and v.Humanoid.Health > 0 then
-								_G.PosMon = v.HumanoidRootPart.CFrame
-								
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								repeat task.wait()
-									TelePBoss(CFrameMonS)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonS) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonS) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-								Attack = nil
-							end
-						end
-						else
-						
-						if game.ReplicatedStorage:FindFirstChild(MsS) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsS).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-						else
-						topos(CFrameMonster)	
-							end
-						end
+if Sharkwww then
+pcall(function()
+	SharkB()
+	if game:GetService("Workspace").Enemies:FindFirstChild(MsS) then
+		for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+			if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+				if v.Name == MsS then
+					if v.Humanoid.Health > 0 then
+						repeat wait()
+							EquipWeapon(_G.Setting_table.Weapon)
+							AutoHaki()
+							_G.PosMon = v.HumanoidRootPart.CFrame
+							v.HumanoidRootPart.CanCollide = false
+							v.Humanoid.WalkSpeed = 0
+							v.Head.CanCollide = false
+							v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+							topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+							game:GetService'VirtualUser':CaptureController()
+							game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+						until not Sharkwww or v.Humanoid.Health <= 0 or not v.Parent
 					end
 				end
 			end
-		end)
-	end
-end)
+		end
+	else
+		if game:GetService("ReplicatedStorage"):FindFirstChild(MsS) then
+			topos(game:GetService("ReplicatedStorage"):FindFirstChild(MsS).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+		else	
+			topos(CFrameMonS)
+			end
+		end
+	end)
+end

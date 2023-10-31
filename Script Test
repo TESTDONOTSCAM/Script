@@ -15744,7 +15744,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
-TEST:Toggle("Auto Saiwfwfl",false,function(val)
+TEST:Toggle("Auto Sail",false,function(val)
 _G.AutoSail = val
 if _G.AutoSail == true then
 
@@ -15755,19 +15755,17 @@ if _G.AutoSail == true then
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
 
-wait(4)
+wait(2)
 
+if game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = Plr then
 repeat task.wait()
-local Plr = game:GetService("Players").LocalPlayer
+	local Plr = game:GetService("Players").LocalPlayer
 wait(2)
-game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = Plr
-print("work1")
-wait(2)
-game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
-print("work2")
-
-wait(2)
-
+	print("work1")
+	wait(2)
+	game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
+	print("work2")
+	wait(2)
 game.Workspace.Gravity = 0
 	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
 	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
@@ -15785,9 +15783,9 @@ local time = 200
 tween:Play()
 
 tween.Completed:Wait(E)
-
-until not _G.AutoSail
-StopTween(_G.AutoSail)
+		until not _G.AutoSail or tween.Completed
+		StopTween(_G.AutoSail)
+		end
 	end
 end)
 

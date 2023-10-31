@@ -15742,15 +15742,27 @@ game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Ow
 print("work1")
 game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
 print("work2")
-toposBeast()
-wait(5)
-print("work3")
-toposBHuman()
-wait(1)
+
+wait(2)
+_G.toposBfw = true
 until not _G.AutoSail
 StopTween(_G.AutoSail)
 	end
 end)
+
+if _G.toposBfw == true then
+	repeat task.wait()
+	toposBeast()
+	wait(4)
+	_G.toposBHfs = true
+	until not _G.toposBfw
+end
+
+if _G.toposBHfs == true then
+	repeat task.wait()
+	toposBHuman()
+	until not _G.toposBHfs
+end
 
 TEST:Toggle("Boats Attack",false,function(val)
 end)

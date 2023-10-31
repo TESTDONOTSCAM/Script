@@ -2777,36 +2777,15 @@ elseif Lv >= 2050 or SelectMonster == "Posessed Mummy" then
 end
 
 function Sail()
-		MsP = "PirateBridage"
-		NameMonP = "PirateBridage"
+		MsP = "PirateBridage" or "Piranha" or "PirateGrandeBridage" or "Shark"
 		CFrameMon = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
-		CFrameMonsterP = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
-		TelePBoss(CFrameMon)
-end
-
-function Piranha()
-		MsPI = "Piranha"
-		NameMonB = "Piranha"
-		CFrameMon = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
-		CFrameMonsterPI = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
-		TelePBoss(CFrameMon)
+	TelePBoss(CFrameMon)
 end
 
 function SeaB()
-		MsSE = "SeaBeast1"
-		NameMonB = "SeaBeast1"
-		CFrameMon = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
-		CFrameMonsterSE = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
-		TelePBoss(CFrameMon)
-end
-
-function SharkB()
-		MsS = "Shark"
-		NameMonS = "Shark"
-		CFrameMonS = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
-		CFrameMonster = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
-		TelePBoss(CFrameMon)
-	
+	MsSE = "SeaBeast1"
+	CFrameMon = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
+TelePBoss(CFrameMon)
 end
 
 ---------------------------------------------------------------
@@ -2952,6 +2931,9 @@ spawn(function()
     while wait(.1) do
         pcall(function()
             if _G.Clip or Auto_BossNQ or Sharkwww or Bridage or _G.AutoSail or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or _G.Setting_table.Death_Step or _G.Setting_table.Sharkman_Karate or _G.Setting_table.Electric_Claw or _G.Setting_table.Dragon_Talon or _G.Setting_table.Superhuman or Auto_World3 or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Boss_Hop or _G.Setting_table.Auto_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or Auto_Farm_Sword or Auto_Farm or Auto_Farm_Gun or Auto_Boss_All or Auto_Boss or Auto_Farm_Fruit then
+				if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+					game.Players.LocalPlayer.Character.Humanoid.Sit = false
+				end
 				PIO = false
                 if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity") then 
 					local L_1 = Instance.new("BodyVelocity")
@@ -15802,24 +15784,27 @@ end)
 
 TEST:Toggle("Ghost fweShip",false,function(val)
 	Bridage = val
+	StopTween(Bridage)
 end)
 
 if Bridage then
 	pcall(function()
 		Sail()
-		if game:GetService("Workspace").Enemies:FindFirstChild(MsP) then
-			for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+		if game.Workspace.Enemies:FindFirstChild(MsP) then
+			for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 				if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
 					if v.Name == MsP then
 						if v.Humanoid.Health > 0 then
-							repeat wait()
-								EquipWeapon(_G.Setting_table.Weapon)
-								AutoHaki()
-								_G.PosMon = v.HumanoidRootPart.CFrame
+							_G.PosMon = v.HumanoidRootPart.CFrame
+								v.Humanoid:ChangeState(11)
 								v.HumanoidRootPart.CanCollide = false
 								v.Humanoid.WalkSpeed = 0
 								v.Head.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+							repeat wait()
+								TelePBoss(CFrameMon)
+								EquipWeapon(_G.Setting_table.Weapon)
+								AutoHaki()
 								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 								game:GetService'VirtualUser':CaptureController()
 								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -15838,65 +15823,30 @@ if Bridage then
 		end)
 	end
 
-TEST:Toggle("Piranha",false,function(pira)
-	Piranhaww = pira
-end)
-
-if Piranhaww then
-	pcall(function()
-		Piranha()
-		if game:GetService("Workspace").Enemies:FindFirstChild(MsPI) then
-			for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-				if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-					if v.Name == MsPI then
-						if v.Humanoid.Health > 0 then
-							repeat wait()
-								EquipWeapon(_G.Setting_table.Weapon)
-								AutoHaki()
-								_G.PosMon = v.HumanoidRootPart.CFrame
-								v.HumanoidRootPart.CanCollide = false
-								v.Humanoid.WalkSpeed = 0
-								v.Head.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-								game:GetService'VirtualUser':CaptureController()
-								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-							until not Piranhaww or v.Humanoid.Health <= 0 or not v.Parent
-						end
-					end
-				end
-			end
-		else
-			if game:GetService("ReplicatedStorage"):FindFirstChild(MsPI) then
-				topos(game:GetService("ReplicatedStorage"):FindFirstChild(MsPI).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
-			else	
-				topos(CFrameMon)
-				end
-			end
-		end)
-	end
-
 TEST:Toggle("SeaBeast",false,function(sea)
-	SeaBeast = sea
+	SeaBeast34 = sea
+	StopTween(SeaBeast34)
 end)
 
-if SeaBeast then
+if SeaBeast34 then
 	pcall(function()
 		SeaB()
-		if game:GetService("Workspace").SeaBeasts:FindFirstChild(MsSE) then
-			for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+		if game.Workspace.SeaBeasts:FindFirstChild(MsSE) then
+			for i,v in pairs(game.Workspace.SeaBeasts:GetChildren()) do
 				if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
 					if v.Name == MsSE then
 						if v.Humanoid.Health > 0 then
-							repeat wait()
-								EquipWeapon(_G.Setting_table.Weapon)
-								AutoHaki()
-								_G.PosMon = v.HumanoidRootPart.CFrame
+							_G.PosMon = v.HumanoidRootPart.CFrame
+								v.Humanoid:ChangeState(11)
 								v.HumanoidRootPart.CanCollide = false
 								v.Humanoid.WalkSpeed = 0
 								v.Head.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+							repeat wait()
+								TelePBoss(CFrameMon)
+								EquipWeapon(_G.Setting_table.Weapon)
+								AutoHaki()
+								TP2(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 								game:GetService'VirtualUser':CaptureController()
 								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 							until not SeaBeast or v.Humanoid.Health <= 0 or not v.Parent
@@ -15906,48 +15856,10 @@ if SeaBeast then
 			end
 		else
 			if game:GetService("ReplicatedStorage"):FindFirstChild(MsSE) then
-				topos(game:GetService("ReplicatedStorage"):FindFirstChild(MsSE).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+				TP2(game:GetService("ReplicatedStorage"):FindFirstChild(MsSE).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
 			else	
-				topos(CFrameMon)
+				TP2(CFrameMon)
 				end
 			end
 		end)
 	end
-
-TEST:Toggle("Shark",false,function(sharky)
-	Sharkwww = sharky
-end)
-
-if Sharkwww then
-pcall(function()
-	SharkB()
-	if game:GetService("Workspace").Enemies:FindFirstChild(MsS) then
-		for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-			if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-				if v.Name == MsS then
-					if v.Humanoid.Health > 0 then
-						repeat wait()
-							EquipWeapon(_G.Setting_table.Weapon)
-							AutoHaki()
-							_G.PosMon = v.HumanoidRootPart.CFrame
-							v.HumanoidRootPart.CanCollide = false
-							v.Humanoid.WalkSpeed = 0
-							v.Head.CanCollide = false
-							v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-							topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-							game:GetService'VirtualUser':CaptureController()
-							game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-						until not Sharkwww or v.Humanoid.Health <= 0 or not v.Parent
-					end
-				end
-			end
-		end
-	else
-		if game:GetService("ReplicatedStorage"):FindFirstChild(MsS) then
-			topos(game:GetService("ReplicatedStorage"):FindFirstChild(MsS).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
-		else	
-			topos(CFrameMonS)
-			end
-		end
-	end)
-end

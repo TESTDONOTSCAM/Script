@@ -15719,9 +15719,7 @@ TEST:Toggle("Sail Test",false,function(val)
 	StopTween(_G.AutoSail)
 end)
 
-_G.AutoSail = true
-
-if _G.AutoSail then
+if _G.AutoSail == true then
 repeat wait()
 game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = ScriptBott
 

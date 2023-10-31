@@ -15722,7 +15722,7 @@ end)
 if _G.AutoSail then
 game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
 
-wait(2)
+wait(1)
 
 game.Workspace.Gravity = 0
 game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
@@ -15736,13 +15736,14 @@ tween.Completed:Wait(E)
 
 wait(1)
 
-game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = false
+_G.AutoSail = false
+Sail_Auto = true
 end
 
 spawn(function()
 	while wait() do
 		pcall(function()
-		if _G.AutoSail then
+		if Sail_Auto then
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if SelectMonster ~= nil then
 					Sail()
@@ -15832,8 +15833,7 @@ spawn(function()
 						if game.ReplicatedStorage:FindFirstChild(MsB) then
 							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 						else
-						topos(CFrameMonB)
-						
+						topos(CFrameMonB)	
 							end
 						end
 					end

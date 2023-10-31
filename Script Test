@@ -2803,6 +2803,15 @@ function SeaB()
 	end
 end
 
+function Shark()
+	if World3 then
+		MsB = "SeaBeast1"
+		NameMonB = "SeaBeast1"
+		CFrameMonster = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
+		TelePBoss(CFrameMonster)
+	end
+end
+
 ---------------------------------------------------------------
 
 function AutoHaki()
@@ -15891,13 +15900,13 @@ spawn(function()
 end)
 
 TEST:Toggle("Piranha",false,function(pira)
-	Piranha = pira
+	Piranhaww = pira
 end)
 
 spawn(function()
 	while wait() do
 		pcall(function()
-		if Piranha then
+		if Piranhaww then
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				if SelectMonster ~= nil then
 					Piranha()

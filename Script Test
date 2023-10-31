@@ -2835,7 +2835,7 @@ end
 		spawn(function()
 			pcall(function()
 			while wait() do
-			if Auto_Farm or Bridage or Piranhaww or SeaBeast or Sharkwww == true then
+			if Auto_Farm or Bridage or Piranhaww or SeaBeast or Sharkwww or _G.AutoSail == true then
 			if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
 			local Noclip = Instance.new("BodyVelocity")
 			Noclip.Name = "BodyClip"
@@ -15785,21 +15785,39 @@ end)
 
 ------------
 
-TEST:Toggle("Auto Sail",_G.AutoSail,function(val)
+TEST:Toggle("Auto Swgwail",_G.AutoSail,function(val)
 _G.AutoRemover = val
 StopTween(_G.AutoSail)
 if _G.AutoRemover == true then
 repeat task.wait()
 local Remover = game.Workspace.Boats:FindFirstChild("Guardian") if Remover then Remover:Destroy() end
-	until not _G.AutoRemover
-	print("Work")
-wait(3)
+print("Work")
+local Remover2 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover2 then Remover2:Destroy() end
+print("Work")
+local Remover3 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover3 then Remover3:Destroy() end
+print("Work")
+local Remover4 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover4 then Remover4:Destroy() end
+print("Work")
+local Remover5 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover5 then Remover5:Destroy() end
+print("Work")
+local Remover6 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover6 then Remover6:Destroy() end
+print("Work")
+local Remover7 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover7 then Remover7:Destroy() end
+print("Work")
+local Remover8 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover8 then Remover8:Destroy() end
+print("Work")
+local Remover9 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover9 then Remover9:Destroy() end
+print("Work")
+local Remover0 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover0 then Remover0:Destroy() end
+print("Work")
+wait(1)
 _G.AutoRemover = false
 wait(1)
 _G.AutoSail = true
+print("Work")
+until not _G.AutoRemover
 	end
 end)
-
 
 task.spawn(function()
     while wait(3) do

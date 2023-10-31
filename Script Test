@@ -15843,10 +15843,10 @@ task.spawn(function()
                                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                 elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
                                     repeat wait()
-                                    if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-                                        TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
-										print("TP")
-                                    end
+										local CFrameEnd = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
+										local Time = 200
+										local tween =  game:GetService("TweenService"):Create(game.Workspace.Boats.VehicleSeat, TweenInfo.new(Time), {CFrame = CFrameEnd})
+										tween:Play()
                             until game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or _G.AutoSail == false
                         end
                     end

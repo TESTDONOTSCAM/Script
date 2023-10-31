@@ -3449,7 +3449,7 @@ while wait(.1) do
 end)
 
 function toposBeast()
-	ame.Workspace.Gravity = 0
+	game.Workspace.Gravity = 0
 	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
 	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
 
@@ -15710,7 +15710,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
-TEST:Toggle("Sail ssafwe",false,function(val)
+TEST:Toggle("Sail ssawfwf",false,function(val)
 _G.AutoSail = val
 if _G.AutoSail == true then
 repeat wait()

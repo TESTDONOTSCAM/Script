@@ -15714,7 +15714,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Button1 = "Okay"
 })
 
-TEST:Toggle("Sail TesADt",false,function(val)
+TEST:Toggle("Sail Test",false,function(val)
 _G.AutoSail = val
 if _G.AutoSail == true then
 repeat wait()
@@ -15722,11 +15722,19 @@ game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Ow
 wait(1)
 game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
 wait(1)
-toposB(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
+print("work")
+
+game.Workspace.Gravity = 0
+game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
+game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
+
+toposB()
+print("ToposB")
 until not _G.AutoSail
 StopTween(_G.AutoSail)
 	end
 end)
+
 spawn(function()
 	while wait() do
 		pcall(function()

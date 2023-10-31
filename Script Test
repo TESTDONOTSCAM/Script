@@ -15757,15 +15757,15 @@ if _G.AutoSail == true then
 
 wait(2)
 
-if game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = Plr then
-repeat task.wait()
-	local Plr = game:GetService("Players").LocalPlayer
+local Plr = game:GetService("Players").LocalPlayer
+game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = Plr
 wait(2)
 	print("work1")
 	wait(2)
-	game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
-	print("work2")
-	wait(2)
+game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
+print("work2")
+repeat task.wait()
+wait(2)
 game.Workspace.Gravity = 0
 	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
 	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
@@ -15785,7 +15785,6 @@ tween:Play()
 tween.Completed:Wait(E)
 		until not _G.AutoSail or tween.Completed
 		StopTween(_G.AutoSail)
-		end
 	end
 end)
 

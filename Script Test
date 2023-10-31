@@ -2780,7 +2780,7 @@ function Sail()
 	if World3 then
 		MsP = "PirateBridage" or "PirateGrandeBridage"
 		NameMonP = "PirateBridage" or "PirateGrandeBridage"
-		CFrameMon = CFrame.new(-42522.7852, 23.3357868, 13814.6396, -0.483462691, 0, -0.875364959, 0, 1, 0, 0.875364959, 0, -0.483462691)
+		CFrameMon = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
 		CFrameMonsterP = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
 		TelePBoss(CFrameMon)
 	end
@@ -2790,7 +2790,7 @@ function Piranha()
 	if World3 then
 		MsPI = "Piranha"
 		NameMonB = "Piranha"
-		CFrameMon = CFrame.new(-42522.7852, 23.3357868, 13814.6396, -0.483462691, 0, -0.875364959, 0, 1, 0, 0.875364959, 0, -0.483462691)
+		CFrameMon = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
 		CFrameMonsterPI = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
 		TelePBoss(CFrameMon)
 	end
@@ -2800,7 +2800,7 @@ function SeaB()
 	if World3 then
 		MsSE = "SeaBeast1"
 		NameMonB = "SeaBeast1"
-		CFrameMon = CFrame.new(-42522.7852, 23.3357868, 13814.6396, -0.483462691, 0, -0.875364959, 0, 1, 0, 0.875364959, 0, -0.483462691)
+		CFrameMon = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
 		CFrameMonsterSE = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
 		TelePBoss(CFrameMon)
 	end
@@ -2810,7 +2810,7 @@ function SharkB()
 	if World3 then
 		MsS = "Shark"
 		NameMonS = "Shark"
-		CFrameMonS = CFrame.new(-42522.7852, 23.3357868, 13814.6396, -0.483462691, 0, -0.875364959, 0, 1, 0, 0.875364959, 0, -0.483462691)
+		CFrameMonS = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
 		CFrameMonster = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)    
 		TelePBoss(CFrameMon)
 	end
@@ -2863,7 +2863,7 @@ end
 		spawn(function()
 			pcall(function()
 			while wait() do
-			if Auto_Farm == true then
+			if Auto_Farm or Bridage or Piranhaww or SeaBeast or Sharkwww == true then
 			if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
 			local Noclip = Instance.new("BodyVelocity")
 			Noclip.Name = "BodyClip"
@@ -2879,7 +2879,7 @@ end
 spawn(function()
     pcall(function()
     game:GetService("RunService").Stepped:Connect(function()
-    if Auto_Farm == true then
+    if Auto_Farm or Bridage or Piranhaww or SeaBeast or Sharkwww == true then
     for _, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
     if v:IsA("BasePart") then
     v.CanCollide = false

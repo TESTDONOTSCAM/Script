@@ -15870,7 +15870,7 @@ spawn(function()
 								repeat task.wait()
 									TelePBoss(CFrameMonster)
 									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
 									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonB) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
@@ -15883,7 +15883,7 @@ spawn(function()
 						else
 						
 						if game.ReplicatedStorage:FindFirstChild(MsB) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 						else
 						topos(CFrameMonster)	
 							end
@@ -15977,7 +15977,7 @@ spawn(function()
 								repeat task.wait()
 									TelePBoss(CFrameMonster)
 									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
 									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonB) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
@@ -15990,7 +15990,7 @@ spawn(function()
 						else
 						
 						if game.ReplicatedStorage:FindFirstChild(MsB) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 						else
 						topos(CFrameMonster)	
 							end
@@ -16068,8 +16068,8 @@ spawn(function()
 						TelePBoss(CFramefeeBoss)
 					end
 				else
-					if game.Workspace.Enemies:FindFirstChild(MsB) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if game.Workspace.SeaBeasts:FindFirstChild(MsB) then
+						for i,v in pairs(game.Workspace.SeaBeasts:GetChildren()) do
 							if v.Name == MsB and v.Humanoid.Health > 0 then
 								_G.PosMon = v.HumanoidRootPart.CFrame
 								
@@ -16084,7 +16084,7 @@ spawn(function()
 								repeat task.wait()
 									TelePBoss(CFrameMonster)
 									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * Pos)
 									game:GetService'VirtualUser':CaptureController()
 									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMonB) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
@@ -16097,7 +16097,7 @@ spawn(function()
 						else
 						
 						if game.ReplicatedStorage:FindFirstChild(MsB) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+							topos(game.ReplicatedStorage:FindFirstChild(MsB).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 						else
 						topos(CFrameMonster)	
 							end

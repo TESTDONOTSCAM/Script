@@ -15720,18 +15720,22 @@ TEST:Toggle("Sail",false,function(val)
 end)
 
 if _G.AutoSail then
-game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
+game:GetService("Workspace"):WaitForChild("Boats"):FindFirstChild("Guardian").Owner.Value = ScriptBott
 
 wait(1)
 
-game.Workspace.Gravity = 0
-game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
-game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
+	game:GetService("Workspace"):WaitForChild("Boats"):WaitForChild("Guardian"):FindFirstChild("VehicleSeat").Anchored = true
 
-local time = 150
-local CFrameEnd = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
-local tween = game:GetService("TweenService"):Create(workspace.Boats.Guardian.VehicleSeat, TweenInfo.new(time),{CFrame = CFrameEnd})
-tween:Play()
+	wait(1)
+
+	game.Workspace.Gravity = 0
+	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
+	game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
+
+	local time = 150
+	local CFrameEnd = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
+	local tween = game:GetService("TweenService"):Create(workspace.Boats.Guardian.VehicleSeat, TweenInfo.new(time),{CFrame = CFrameEnd})
+	tween:Play()
 tween.Completed:Wait(E)
 
 wait(1)

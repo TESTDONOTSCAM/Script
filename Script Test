@@ -15785,7 +15785,7 @@ end)
 
 ------------
 
-TEST:Toggle("Auto Sail",_G.AutfwfwoSail,function(val)
+TEST:Toggle("Auto Sail",_G.AutoSail,function(val)
 _G.AutoRemover = val
 StopTween(_G.AutoSail)
 if _G.AutoRemover == true then
@@ -15793,7 +15793,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Boat Remover"; 
 	Text = "Removing Boat [5 Sec]"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 5;
+	Duration = 3;
 	Button1 = "Okay"
 })
 wait(0.8)
@@ -15801,7 +15801,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Boat Remover"; 
 	Text = "Removing Boat [4 Sec]"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 5;
+	Duration = 3;
 	Button1 = "Okay"
 })
 wait(0.8)	
@@ -15809,7 +15809,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Boat Remover"; 
 	Text = "Removing Boat [3 Sec]"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 5;
+	Duration = 3;
 	Button1 = "Okay"
 })
 wait(0.8)
@@ -15817,7 +15817,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Boat Remover"; 
 	Text = "Removing Boat [2 Sec]"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 10;
+	Duration = 3;
 	Button1 = "Okay"
 })
 wait(0.8)
@@ -15825,7 +15825,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Boat Remover"; 
 	Text = "Removing Boat [1 Sec]"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 5;
+	Duration = 3;
 	Button1 = "Okay"
 })
 repeat task.wait()
@@ -15854,7 +15854,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Boat Remover"; 
 	Text = "Removing Boat Completed"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 2;
+	Duration = 1;
 	Button1 = "Okay"
 })	
 _G.AutoRemover = false
@@ -15886,7 +15886,7 @@ task.spawn(function()
 										Title = "Boat Seller"; 
 										Text = "Guardian Detected"; 
 										Icon = "http://www.roblox.com/asset/?id=14355269935";
-										Duration = 2;
+										Duration = 1;
 										Button1 = "Okay"
 									})
                                 end

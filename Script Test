@@ -6329,7 +6329,7 @@ Line.Size = UDim2.new(1.028, -9, 0, 4)
 	end
 end
 
-local win = library:Window("FROST",[[ScriptBlox Premium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
+local win = library:Window("FROST",[[ScriptBlox Premwewium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
 
 local User = win:Tab("        Status","rbxassetid://14355269935")
     local Main = win:Tab("        Main","rbxassetid://14764164264")
@@ -6847,7 +6847,7 @@ if type(_G.Setting_table.Weapon) == 'string' then
 else
 	_G.Setting_table.Weapon = ""
 end
-local Select_W = Main:Dropdown("Select Weapon",_G.Setting_table.Weapon,Waspon,function(vu)
+local Select_W = Main:Dropdown2("Select Weapon",_G.Setting_table.Weapon,Waspon,function(vu)
 	_G.Setting_table.Weapon = vu
 	Update_Setting(getgenv()['MyName'])
 end)

@@ -15782,7 +15782,7 @@ end)
 
 ------------
 
-TEST:Toggle("Auto wfwSail",_G.AutoSail,function(val)
+TEST:Toggle("Auto Sail",_G.AutoSail,function(val)
 _G.AutoRemover = val
 StopTween(_G.AutoSail)
 if _G.AutoRemover == true then
@@ -15866,6 +15866,11 @@ task.spawn(function()
     while wait() do
         pcall(function()
             if _G.AutoSail then
+				
+				game.Workspace.Gravity = 0
+				game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
+				game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
+
                 if not game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
                     if not game:GetService("Workspace").Boats:FindFirstChild("Guardian") then 
                             buyb = TPP(CFrame.new(-16206.9014, 7.75759554, 404.552338, -0.0348494053, 0, 0.999392569, 0, 1, 0, -0.999392569, 0, -0.0348494053))
@@ -15895,6 +15900,11 @@ task.spawn(function()
 								repeat task.wait()
 										if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
                                             TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
+											--[[local CFrameEnd = CFrame.new(5135.92676, 4.50128937, 4049.10864, 1, -5.86619819e-08, -3.40959249e-13, 5.86619819e-08, 1, 1.73757293e-08, 3.39939963e-13, -1.73757293e-08, 1)
+											local Time = 150
+											local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+											tween:Play()
+											]]--
 											print("TWEEN")
                                         end
                         until game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or _G.AutoSail == false

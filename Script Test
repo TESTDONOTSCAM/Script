@@ -6481,7 +6481,7 @@ Line.Size = UDim2.new(1.028, -9, 0, 4)
 	end
 end
 
-local win = library:Window("FROST",[[ScriptBlox Premium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
+local win = library:Window("FROST",[[ScriptBlox Premwfwium]],[[Version : Premium ]],Enum.KeyCode.RightControl)
 
 local User = win:Tab("        Status","rbxassetid://14355269935")
     local Main = win:Tab("        Main","rbxassetid://14764164264")
@@ -6785,7 +6785,7 @@ end)
 
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 Camera:Stop()
-
+--[[
 WeaponList = {}
     
 for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
@@ -6805,6 +6805,7 @@ Main:Button("Refresh Weapon",function()
     SelectWeapona:Add(v.Name)
     end
 end)
+]]--
 
 Main:Seperator("Bosses")
 

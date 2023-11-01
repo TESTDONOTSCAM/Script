@@ -15785,10 +15785,49 @@ end)
 
 ------------
 
-TEST:Toggle("Auto Sail",_G.AutoSail,function(val)
+TEST:Toggle("Auto Swfwail",_G.AutoSail,function(val)
 _G.AutoRemover = val
 StopTween(_G.AutoSail)
 if _G.AutoRemover == true then
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "Boat Remover"; 
+	Text = "Removing Boat [5 Sec]"; 
+	Icon = "http://www.roblox.com/asset/?id=14355269935";
+	Duration = 10;
+	Button1 = "Okay"
+})
+wait(0.8)
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "Boat Remover"; 
+	Text = "Removing Boat [4 Sec]"; 
+	Icon = "http://www.roblox.com/asset/?id=14355269935";
+	Duration = 10;
+	Button1 = "Okay"
+})
+wait(0.8)	
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "Boat Remover"; 
+	Text = "Removing Boat [3 Sec]"; 
+	Icon = "http://www.roblox.com/asset/?id=14355269935";
+	Duration = 10;
+	Button1 = "Okay"
+})
+wait(0.8)
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "Boat Remover"; 
+	Text = "Removing Boat [2 Sec]"; 
+	Icon = "http://www.roblox.com/asset/?id=14355269935";
+	Duration = 10;
+	Button1 = "Okay"
+})
+wait(0.8)
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "Boat Remover"; 
+	Text = "Removing Boat [1 Sec]"; 
+	Icon = "http://www.roblox.com/asset/?id=14355269935";
+	Duration = 10;
+	Button1 = "Okay"
+})		
 repeat task.wait()
 local Remover = game.Workspace.Boats:FindFirstChild("Guardian") if Remover then Remover:Destroy() end
 print("Work")
@@ -15810,7 +15849,13 @@ local Remover9 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover9 the
 print("Work")
 local Remover0 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover0 then Remover0:Destroy() end
 print("Work")
-wait(1)
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "Boat Remover"; 
+	Text = "Removing Boat Completed"; 
+	Icon = "http://www.roblox.com/asset/?id=14355269935";
+	Duration = 10;
+	Button1 = "Okay"
+})	
 _G.AutoRemover = false
 wait(1)
 _G.AutoSail = true

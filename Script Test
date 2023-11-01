@@ -3449,7 +3449,7 @@ end)
 
 function TPB(CFgo)
 	local tween_s = game:service"TweenService"
-	local info = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/200, Enum.EasingStyle.Linear)
+	local info = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/240, Enum.EasingStyle.Linear)
 	tween = tween_s:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, info, {CFrame = CFgo})
 tween:Play()
 tween.Completed:Wait(E)
@@ -3480,7 +3480,7 @@ end
 
 function topos2(Pos)
 	Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-	pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/150, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+	pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/190, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
 	tween:Play()
 	tween.Completed:Wait(E)
 	if Distance <= 250 then

@@ -6532,7 +6532,7 @@ User:Line()
 ----------------------------------------------------------------------------------------
 
 User:Line()
-User:Seperator("\\\\\ User Status //")
+User:Seperator("User Status")
 
 if World1 then
 User:Label("[ World ] 1")
@@ -6629,204 +6629,6 @@ local locallv = User:Label("Level")
     end
     end)
     end
-    end)
-
-User:Seperator("\\\\\  Sword  //")
-
-local Saber = User:Label("❌: Saber")
-local Rengoku = User:Label("❌: Rengoku")
-local Midnight_Blade = User:Label("❌: Midnight Blade")
-local Dragon_Trident = User:Label("❌: Dragon Trident")
-local Yama = User:Label("❌: Yama")
-local Buddy_Sword = User:Label("❌: Buddy Sword")
-local Canvander = User:Label("❌: Canvander")
-local Twin_Hooks = User:Label("❌: Twin Hooks")
-local Spikey_Trident = User:Label("❌: Spikey Trident")
-local Hallow_Scythe = User:Label("❌: Hallow Scythe")
-local Dark_Dagger = User:Label("❌: Dark Dagger")
-local Tushita = User:Label("❌: Tushita")
-
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-                if v.Name == "Saber" then
-                    Saber:Set("✅: Saber")
-                end
-                if v.Name == "Rengoku" then
-                    Rengoku:Set("✅: Rengoku")
-                end
-                if v.Name == "Midnight Blade" then
-                    Midnight_Blade:Set("✅: Midnight Blade")
-                end
-                if v.Name == "Dragon Trident" then
-                    Dragon_Trident:Set("✅: Dragon Trident")
-                end
-                if v.Name == "Yama" then
-                    Yama:Set("✅: Yama")
-                end
-                if v.Name == "Buddy Sword" then
-                    Buddy_Sword:Set("✅: Buddy Sword")
-                end
-                if v.Name == "Canvander" then
-                    Canvander:Set("✅: Canvander")
-                end
-                if v.Name == "Twin Hooks" then
-                    Twin_Hooks:Set("✅: Twin Hooks")
-                end
-                if v.Name == "Spikey Trident" then
-                    Spikey_Trident:Set("✅: Spikey Trident")
-                end
-                if v.Name == "Hallow Scythe" then
-                    Hallow_Scythe:Set("✅: Hallow Scythe")
-                end
-                if v.Name == "Dark Dagger" then
-                    Dark_Dagger:Set("✅: Dark Dagger")
-                end
-                if v.Name == "Tushita" then
-                    Tushita:Set("✅: Tushita")
-                 end
-            end
-        end)
-    end
-end)
-
-User:Seperator("\\\\\  Quest  //")
-
-local Bartilo_Quest = User:Label("❌: Bartilo Quest")
-local Don_Swan_Quest = User:Label("❌: Don Swan Quest")
-local Kill_Don_Swan = User:Label("❌: Kill Don Swan")
-
-spawn(function()
-    while task.wait() do
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo") == 3 then
-            Bartilo_Quest:Set("✅: Bartilo Quest")
-        end
-
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetUnlockables").FlamingoAccess == nil then
-            --Nothing
-        else
-            Don_Swan_Quest:Set("✅: Don Swan Quest")
-        end
-
-        if game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("ZQuestProgress", "Check") == 1 then
-            Kill_Don_Swan:Set("✅: Kill Don Swan")
-        end
-    end
-end)
-
-User:Seperator("\\\\\  Sword Legendary  //")
-
-local Shisui = User:Label("❌: Shisui")
-local Saddi = User:Label("❌: Saddi")
-local Wando = User:Label("❌: Wando")
-local True_Triple_Katana = User:Label("❌: True Triple Katana")
-
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-                if v.Name == "Shisui" then
-                    Shisui:Set("✅: Shisui")
-                end
-                if v.Name == "Saddi" then
-                    Saddi:Set("✅: Saddi")
-                end
-                if v.Name == "Wando" then
-                    Wando:Set("✅: Wando")
-                end
-                if v.Name == "True Triple Katana" then
-                    True_Triple_Katana:Set("✅: True Triple Katana")
-                end
-            end
-        end)
-    end
-end)
-
-User:Seperator("\\\\\  Melee  //")
-
-local Superhuman = User:Label("❌: Superhuman")
-local Death_Step = User:Label("❌: Death Step")
-local Sharkman_Karate = User:Label("❌: Sharkman Karate")
-local Electric_Claw = User:Label("❌: Electric Claw")
-local Dragon_Talon = User:Label("❌: Dragon Talon")
-local God_Human = User:Label("❌: God Human")
-
-spawn(function()
-    while task.wait() do
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true) == 1 then
-            Superhuman:Set("✅: Superhuman")
-        end
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
-            Death_Step:Set("✅: Death Step")
-        end
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == 1 then
-            Sharkman_Karate:Set("✅: Sharkman Karate")
-        end
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true) == 1 then
-            Electric_Claw:Set("✅: Electric Claw")
-        end
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true) == 1 then
-            Dragon_Talon:Set("✅: Dragon Talon")
-        end
-    end
-end)
-
-User:Seperator("\\\\\  Gun  //")
-
-local Kabu_cha = User:Label("❌: Kabucha")
-local Acidum_Rifle = User:Label("❌: Acidum Rifle")
-local Bizarre_Rifle = User:Label("❌: Bizarre Rifle")
-
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-                if v.Name == "Kabucha" then
-                    Kabu_cha:Set("✅: Kabucha")
-                end
-                if v.Name == "Acidum Rifle" then
-                    Acidum_Rifle:Set("✅: Acidum Rifle")
-                end
-                if v.Name == "Bizarre Rifle" then
-                    Bizarre_Rifle:Set("✅: Bizarre Rifle")
-                end
-            end
-        end)
-    end
-end)
-
-User:Seperator("\\\\\  Accessory  //")
-
-local Dark_Coat = User:Label("❌: Dark Coat")
-local Ghoul_Mask = User:Label("❌: Ghoul Mask")
-local Swan_Glass = User:Label("❌: Swan Glass")
-local Pale_Scarf = User:Label("❌: Pale Scarf")
-local Valkyrie_Helm = User:Label("❌: Valkyrie Helm")
-
-
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-                if v.Name == "Saber" then
-                    Dark_Coat:Set("✅: Dark Coat")
-                end
-                if v.Name == "Ghoul Mask" then
-                    Ghoul_Mask:Set("✅: Ghoul Mask")
-                end
-                if v.Name == "Swan Glasses" then
-                    Swan_Glass:Set("✅: Swan Glass")
-                end
-                if v.Name == "Pale Scarf" then
-                    Pale_Scarf:Set("✅: Pale Scarf")
-                end
-                if v.Name == "Valkyrie Helmet" then
-                    Valkyrie_Helm:Set("✅: Valkyrie Helmet")
-                end
-            end
-        end)
-    end
 end)
 
 --[[
@@ -6836,7 +6638,7 @@ Main Farm Table
 ]]
 
 Main:Line()
-Main:Seperator("\\\\\ Auto Farm //")
+Main:Seperator("Auto Farm")
 
 if World1 or World2 then
 	Main:Dropdown2("Select Mode Farm", {
@@ -6984,38 +6786,24 @@ end)
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 Camera:Stop()
 
-Waspon = {}
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+WeaponList = {}
+    
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
     if v:IsA("Tool") then
-        table.insert(Waspon ,v.Name)
+    table.insert(WeaponList ,v.Name)
     end
 end
-for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
-    if v:IsA("Tool") then
-        table.insert(Waspon ,v.Name)
-    end
-end
-if type(_G.Setting_table.Weapon) == 'string' then
-else
-	_G.Setting_table.Weapon = ""
-end
-local Select_W = Main:Dropdown("Select Weapon",_G.Setting_table.Weapon,Waspon,function(vu)
-	_G.Setting_table.Weapon = vu
+    
+local SelectWeapona = Main:Dropdown("Select Weapon",WeaponList,function(value)
+    _G.Setting_table.Weapon = value
 	Update_Setting(getgenv()['MyName'])
 end)
-
-Main:Button("Refresh Weapon",function(vu)
-	Select_W:Clear()
-	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
-		if v:IsA("Tool") then
-			Select_W:Add(v.Name)
-		end
-	end
-	for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
-		if v:IsA("Tool") then
-			Select_W:Add(v.Name)
-		end
-	end
+    
+Main:Button("Refresh Weapon",function()
+    SelectWeapona:Clear()
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    SelectWeapona:Add(v.Name)
+    end
 end)
 
 Main:Seperator("Bosses")
@@ -7505,7 +7293,7 @@ mouse.Button1Down:Connect(function()
     end
 end)
 
-Main:Seperator("\\\\\ Melee //")
+Main:Seperator("Melee")
 
 Main:Toggle("Auto Farm Melee",_G.Setting_table.Farm_Melee,function(vu)
 	Auto_Farm_Melee = vu
@@ -7690,7 +7478,7 @@ spawn(function()
 	end
 end)
 
-Main:Seperator("\\\\\ Legendary Sword //")
+Main:Seperator("Legendary Sword")
 
 Main:Toggle("Auto Legendary Sword",_G.AutoBuyLegendarySword,function(value)
 _G.AutoBuyLegendarySword = value
@@ -7731,7 +7519,7 @@ Setting Table
 ]]
 
 Setting:Line()
-Setting:Seperator("\\\\\ Farm Setting //")
+Setting:Seperator("Farm Setting")
 
 if _G.FastAttack_Mode == nil then
 	_G.FastAttack_Mode = "0.2"
@@ -7911,7 +7699,7 @@ local Client = game.Players.LocalPlayer
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-Setting:Seperator("\\\\\ Other Setting //")
+Setting:Seperator("Other Setting")
 
 function CheckAntiCheatBypass()
     for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
@@ -8005,9 +7793,9 @@ end)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-if World1 then
-Setting:Seperator("World 1 Fps Boost")
-Setting:Toggle("Fps Boost",false,function(value)
+if World1 or World2 then
+Setting:Seperator("Fps Boost")
+Setting:Toggle("Plastic Boost",false,function(value)
         _G.FpsBoost1 = value
     end)
     spawn(function()
@@ -8064,69 +7852,9 @@ Setting:Toggle("Fps Boost",false,function(value)
     end)
 end
 
-if World2 then
-Setting:Seperator("World 2 Fps Boost")
-Setting:Toggle("Fps Boost",false,function(value)
-        _G.FpsBoost2 = value
-    end)
-
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.FpsBoost2 then
-                    game:GetService("Lighting").FantasySky:Destroy()
-                    local g = game
-                    local w = g.Workspace
-                    local l = g.Lighting
-                    local t = w.Terrain
-                    t.WaterWaveSize = 0
-                    t.WaterWaveSpeed = 0
-                    t.WaterReflectance = 0
-                    t.WaterTransparency = 0
-                    l.GlobalShadows = false
-                    l.FogEnd = 9e9
-                    l.Brightness = 0
-                    settings().Rendering.QualityLevel = "Level01"
-                    for i, v in pairs(g:GetDescendants()) do
-                    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-                    v.Material = "Plastic"
-                    v.Reflectance = 0
-                    elseif v:IsA("Decal") or v:IsA("Texture") then
-                    v.Transparency = 1
-                    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-                    v.Lifetime = NumberRange.new(0)
-                    elseif v:IsA("Explosion") then
-                    v.Transparency = 1
-                    v.BlastPressure = 1
-                    v.BlastRadius = 1
-                    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-                    v.Enabled = false
-                    elseif v:IsA("MeshPart") then
-                    v.Material = "Plastic"
-                    v.Reflectance = 0
-                    v.TextureID = 10385902758728957
-                    end
-                    end
-                    for i, e in pairs(l:GetChildren()) do
-                    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-                    e.Enabled = false
-                    end
-                    end
-                    for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
-                    if v.Name == ("Water;") then
-                    v.Transparency = 1
-                    v.Material = "Plastic"
-                        end
-                    end
-                end
-            end
-        end)
-    end)
-end
-
 if World3 then
 Setting:Seperator("World 3 Fps Boost")
-Setting:Toggle("Fps Boost",false,function(value)
+Setting:Toggle("Plastic Boost",false,function(value)
         _G.FpsBoost3 = value
     end)
     spawn(function()
@@ -8189,10 +7917,6 @@ Setting:Toggle("Fps Boost",false,function(value)
     end)
 end
 
---------------------------------------------------------------------------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------------------------------------------------------------------------
-
 --[[
 
 AutoQuest Table
@@ -8202,7 +7926,7 @@ AutoQuest Table
 if World1 then
 
 AutoQuest:Line()
-AutoQuest:Seperator("\\\\\ First World //")
+AutoQuest:Seperator("First World")
 
 AutoQuest:Toggle("Auto Second World",_G.Setting_table.Second_Farm,function(vu)
 	Auto_New_A = vu
@@ -8242,13 +7966,13 @@ spawn(function()
                             wait(2)
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
                             wait(25)
-                        end
-                    end
-                end
-            end
-        end
-    end
-end)
+                        	end
+                    	end
+                	end
+            	end
+        	end
+  	  	end
+	end)
 end
 
 if World2 then
@@ -8259,6 +7983,7 @@ AutoQuest:Seperator("Second World")
 AutoQuest:Toggle("Auto Third World",false,function(vu)
 	Auto_World3 = vu
 end)
+
 spawn(function()
 	while wait(.5) do
 		pcall(function()
@@ -8305,7 +8030,6 @@ spawn(function()
 		end)
 	end
 end)
-end
 
 AutoQuest:Toggle("Auto Bartlio",_G.Setting_table.Bartlio_Farm,function(vu)
 	Bartlio_Farm = vu
@@ -8381,14 +8105,15 @@ spawn(function()
 						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1819.26343, 14.795166, 1717.90625)
 						wait(1)
 						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1813.51843, 14.8604736, 1724.79541)
+						end
 					end
 				end
-			end
-		end)
-    end
-end)
+			end)
+    	end
+	end)
+end
 
-AutoQuest:Seperator("\\\\\ Auto Other //")
+AutoQuest:Seperator("Evo Race")
 
 AutoQuest:Toggle("Auto Evo Race",_G.Auto_EvoRace,function(value)
 	_G.Auto_EvoRace = value
@@ -8444,6 +8169,46 @@ AutoQuest:Toggle("Auto Evo Race",_G.Auto_EvoRace,function(value)
 	end
 	end)
 end)
+
+AutoQuest:Line()
+
+AutoQuest:Toggle("Auto Mink Evo V0 - V3",_G.Setting_table.Mink_Evo,function(vu)
+	_G.Setting_table.Mink_Evo = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+AutoQuest:Toggle("Auto Human Evo V0 - V3",_G.Setting_table.Human_Evo,function(vu)
+	_G.Setting_table.Human_Evo = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+AutoQuest:Toggle("Auto Skypiea Evo V0 - V3",_G.Setting_table.Skypiea_Evo,function(vu)
+	_G.Setting_table.Skypiea_Evo = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+AutoQuest:Toggle("Auto Fish Evo V0 - V3",_G.Setting_table.Fishman_Evo,function(vu)
+	_G.Setting_table.Fishman_Evo = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+AutoQuest:Toggle("Next Race",_G.Setting_table.Next_Race,function(vu)
+	_G.Setting_table.Next_Race = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+AutoQuest:Toggle("Hop",_G.Setting_table.Race_Hop,function(vu)
+	_G.Setting_table.Race_Hop = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Wenlocktoad","1") == -2 then
+	if game.Players.LocalPlayer.Data.Race.Value == 'Mink' then
+		_G.Setting_table.Mink_Evo_H = true
+	elseif game.Players.LocalPlayer.Data.Race.Value == 'Human' then
+		_G.Setting_table.Human_Evo_H = true
+	elseif game.Players.LocalPlayer.Data.Race.Value == 'Skypiea' then
+		_G.Setting_table.Skypiea_Evo_H = true
+	elseif game.Players.LocalPlayer.Data.Race.Value == 'Fishman' then
+		_G.Setting_table.Fishman_Evo_H = true
+	end
+end
+
+AutoQuest:Seperator("Other")
 
 AutoQuest:Toggle("Auto Open Swan Glass",_G.Setting_table.Open_Don_Swan,function(vu)
 	Inventory_Fruit = vu
@@ -8957,32 +8722,6 @@ AutoQuest:Toggle("Auto Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
 	end)
 end)
 
-AutoQuest:Seperator("\\\\\ Enchancement Colour //")
-
-AutoQuest:Toggle("Auto Enchancement Colour",_G.AutoBuyEnchancementColour,function(value)
-_G.AutoBuyEnchancementColour = value
-end)
-
-Main:Toggle("Auto Enchancement Hop",_G.AutoBuyEnchancementColour_Hop,function(value)
-_G.AutoBuyEnchancementColour_Hop = value
-end)
-
-spawn(function()
-while wait() do
-if _G.AutoBuyEnchancementColour then
-local args = {
-[1] = "ColorsDealer",
-[2] = "2"
-}
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-if _G.AutoBuyEnchancementColour_Hop and _G.AutoBuyEnchancementColour and not World1 then
-wait(10)
-Hop()
-			end
-		end
-	end
-end)
-
 AutoQuest:Toggle("Auto Musketeer Hat",_G.AutoMusketeerHat,function(value)
 		_G.AutoMusketeerHat = value
 		StopTween(_G.AutoMusketeerHat)
@@ -9111,43 +8850,6 @@ AutoQuest:Toggle("Hop",_G.Setting_table.Melee_Hop,function(vu)
 	-- Auto Exc
 end)
 
-AutoQuest:Label("Race")
-
-AutoQuest:Toggle("Auto Mink Evo V0 - V3",_G.Setting_table.Mink_Evo,function(vu)
-	_G.Setting_table.Mink_Evo = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-AutoQuest:Toggle("Auto Human Evo V0 - V3",_G.Setting_table.Human_Evo,function(vu)
-	_G.Setting_table.Human_Evo = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-AutoQuest:Toggle("Auto Skypiea Evo V0 - V3",_G.Setting_table.Skypiea_Evo,function(vu)
-	_G.Setting_table.Skypiea_Evo = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-AutoQuest:Toggle("Auto Fish Evo V0 - V3",_G.Setting_table.Fishman_Evo,function(vu)
-	_G.Setting_table.Fishman_Evo = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-AutoQuest:Toggle("Next Race",_G.Setting_table.Next_Race,function(vu)
-	_G.Setting_table.Next_Race = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-AutoQuest:Toggle("Hop",_G.Setting_table.Race_Hop,function(vu)
-	_G.Setting_table.Race_Hop = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Wenlocktoad","1") == -2 then
-	if game.Players.LocalPlayer.Data.Race.Value == 'Mink' then
-		_G.Setting_table.Mink_Evo_H = true
-	elseif game.Players.LocalPlayer.Data.Race.Value == 'Human' then
-		_G.Setting_table.Human_Evo_H = true
-	elseif game.Players.LocalPlayer.Data.Race.Value == 'Skypiea' then
-		_G.Setting_table.Skypiea_Evo_H = true
-	elseif game.Players.LocalPlayer.Data.Race.Value == 'Fishman' then
-		_G.Setting_table.Fishman_Evo_H = true
-	end
-end
 spawn(function()
 	while wait(.5) do
 		pcall(function()
@@ -11548,7 +11250,7 @@ Stats Table
 ]]
 
 Stats:Line()
-Stats:Seperator("\\\\\ Auto Stats //")
+Stats:Seperator("Auto Stats")
 Stats:Toggle("Melee",_G.Setting_table.Melee_A,function(vu)
 	Melee_A = vu
 	_G.Setting_table.Melee_A = vu
@@ -11746,7 +11448,7 @@ end
 end
 end)
 
-Combat:Seperator("\\\\\ Aimbot //")
+Combat:Seperator("Aimbot")
 
 spawn(function()
 while wait() do
@@ -11804,7 +11506,7 @@ end
 end)
 end)
 
-Combat:Seperator("\\\\\ PvP //")
+Combat:Seperator("PvP")
 
 Combat:Toggle("Enabled PvP",false,function(value)
 _G.EnabledPvP = value
@@ -11842,7 +11544,7 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pira
 wait()
 end)
 
-Combat:Seperator("\\\\\ Bounty //")
+Combat:Seperator("Bounty")
 
 local Current = Combat:Label("Current Bounties :")
 
@@ -12081,7 +11783,7 @@ end
 end
 end)
 
-Combat:Seperator("\\\\\ Misc Bounty //")
+Combat:Seperator("Misc Bounty")
 
 Combat:Button("Next Player",function()
 NextplySelect = true
@@ -12260,7 +11962,7 @@ end
 end
 end)
 
-Teleport:Seperator("\\\\\ Teleport - Island //")
+Teleport:Seperator("Teleport - Island")
 
 if World1 then
 Teleport:Dropdown2("Select Island",{
@@ -12860,7 +12562,7 @@ end
 ]]
     
     DevilFruit:Line()
-    DevilFruit:Seperator("\\\\\ Fruits Sniper //")
+    DevilFruit:Seperator("Fruits Sniper")
     
     FruitList = {
     "Bomb-Bomb",
@@ -12907,7 +12609,7 @@ end
     _G.AutoBuyFruitSniper = value
     end)
     
-    DevilFruit:Seperator("\\\\\ Devil Fruits //")
+    DevilFruit:Seperator("Devil Fruits")
     
     DevilFruit:Dropdown2("Select Fruits Eat",FruitList,function(value)
     _G.SelectFruitEat = value
@@ -13157,7 +12859,7 @@ DevilFruit:Toggle("Grab Fruit",_G.BringFruit,function(value)
 end)
 
 Shop:Line()
-    Shop:Seperator("\\\\\ Abilities //")
+    Shop:Seperator("Abilities")
     
     Shop:Button("Buy Geppo",function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
@@ -13175,7 +12877,7 @@ Shop:Line()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
     end)
     
-    Shop:Seperator("\\\\\ Fighting Style //")
+    Shop:Seperator("Fighting Style")
     
     Shop:Button("Buy Black Leg",function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
@@ -13220,7 +12922,7 @@ Shop:Line()
     end)
     
     -----Shop----------------
-    Shop:Seperator("\\\\\ Accessory //")
+    Shop:Seperator("Accessory")
     
     Shop:Button("Tomoe Ring",function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
@@ -13234,7 +12936,7 @@ Shop:Line()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Swordsman Hat")
     end)
     
-    Shop:Seperator("\\\\\ Sword //")
+    Shop:Seperator("Sword")
     
     Shop:Button("Cutlass",function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
@@ -13272,7 +12974,7 @@ Shop:Line()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
     end)
     
-    Shop:Seperator("\\\\\ Gun //")
+    Shop:Seperator("Gun")
     
     Shop:Button("Slingshot",function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Slingshot")
@@ -13300,7 +13002,7 @@ Shop:Line()
     end)
     ------------Bone------------------
     
-    Shop:Seperator("\\\\\ Bones //")
+    Shop:Seperator("Bones")
     
     Shop:Button("Buy Surprise",function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
@@ -13336,7 +13038,7 @@ spawn(function()
 end)
 
 Misc:Line()
-    Misc:Seperator("\\\\\ Server //")
+    Misc:Seperator("Server")
     
     Misc:Button("Rejoin Server",function()
     game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
@@ -13393,7 +13095,7 @@ Misc:Line()
     end
     end)
     
-    Misc:Seperator("\\\\\ Open UI //")
+    Misc:Seperator("Open UI")
     
     Misc:Button("Open Devil Shop",function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
@@ -13441,7 +13143,7 @@ Misc:Line()
     end
     end)
     
-    Misc:Seperator("\\\\\ Change Teams //")
+    Misc:Seperator("Change Teams")
     
     Misc:Button("Join Pirates Team",function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates")
@@ -13451,7 +13153,7 @@ Misc:Line()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines")
     end)
     
-    Misc:Seperator("\\\\\ Boost //")
+    Misc:Seperator("Boost")
     
     Misc:Button("Unlock Portal",function()
     _G.UnlockPortal = true
@@ -13522,7 +13224,7 @@ Misc:Line()
     _G.Clip = false
     end)
     
-    Misc:Seperator("\\\\\ Codes //")
+    Misc:Seperator("Codes")
     
     local x2Code = {
     "3BVISITS",
@@ -13557,7 +13259,7 @@ Misc:Line()
     game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(_G.CodeSelect)
     end)
     
-    Misc:Seperator("\\\\\ State //")
+    Misc:Seperator("State")
     
     Misc:Dropdown2("Select Haki State",{"State 0","State 1","State 2","State 3","State 4","State 5"},function(value)
     _G.SelectStateHaki = value
@@ -13579,7 +13281,7 @@ Misc:Line()
     end
     end)
     
-    Misc:Seperator("\\\\\ Graphic //")
+    Misc:Seperator("Graphic")
     
     local a = game.Lighting
     local c = Instance.new("ColorCorrectionEffect", a)
@@ -13621,7 +13323,7 @@ Misc:Line()
     end
     end)
     
-    Misc:Seperator("\\\\\ ESP //")
+    Misc:Seperator("ESP")
     
     Misc:Toggle("ESP Player",false,function(value)
     ESPPlayer = value
@@ -13658,7 +13360,7 @@ Misc:Line()
     end
     end)
     
-    Misc:Seperator("\\\\\ Abilities //")
+    Misc:Seperator("Abilities")
     
     Misc:Toggle("Dodge No Cooldown",false,function(value)
     nododgecool = value

@@ -15782,7 +15782,7 @@ end)
 
 ------------
 
-TEST:Toggle("Auto Sail",_G.AutoSail,function(val)
+TEST:Toggle("Auto Saiwwwl",_G.AutoSail,function(val)
 _G.AutoRemover = val
 StopTween(_G.AutoSail)
 if _G.AutoRemover == true then
@@ -15917,7 +15917,7 @@ task.spawn(function()
     end
 end)
 
-if _G.Anchored then
+if _G.Anchored == true then
 repeat task.wait()
 game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = true
 print("Anchored")

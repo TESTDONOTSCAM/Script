@@ -15904,8 +15904,8 @@ task.spawn(function()
                                     repeat wait()
 										if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
 											TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+										end
                             until game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or _G.Auto_Seabest == false
-						end
 					end
                 end
             end

@@ -15782,7 +15782,7 @@ end)
 
 ------------
 
-TEST:Toggle("Auto Sail",_G.AutowfwSail,function(val)
+TEST:Toggle("Auto Sawfil",_G.AutoSail,function(val)
 _G.AutoRemover = val
 StopTween(_G.AutoSail)
 if _G.AutoRemover == true then
@@ -15866,9 +15866,14 @@ spawn(function()
 	while wait() do
 	pcall(function()
 		if _G.Anchored then
+
+			game.Workspace.Gravity = 0
+			game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
+			game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
+
 			if not game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
-				buyb = TPP(CFrame.new(-16206.9014, 7.75759554, 404.552338, -0.0348494053, 0, 0.999392569, 0, 1, 0, -0.999392569, 0, -0.0348494053))
-                                if (CFrame.new(-16206.9014, 7.75759554, 404.552338, -0.0348494053, 0, 0.999392569, 0, 1, 0, -0.999392569, 0, -0.0348494053).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+				buyb = TPP(CFrame.new(-16917.1543, 7.75759602, 511.820312, 0.999391913, 0, 0.0348687991, 0, 1, 0, -0.0348687991, 0, 0.999391913))
+                                if (CFrame.new(-16917.1543, 7.75759602, 511.820312, 0.999391913, 0, 0.0348687991, 0, 1, 0, -0.0348687991, 0, 0.999391913).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
                                     if buyb then buyb:Stop() end
                                     local args = {
                                         [1] = "BuyBoat",
@@ -15888,11 +15893,8 @@ spawn(function()
 									})
                                 end
 						elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
-							if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then	
-							TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-							elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-								local CFrameEnd = CFrame.new(-17702.4766, -0.00471854256, 622.063171, -0.0909722149, 2.4111424e-08, 0.995853424, -4.74826223e-08, 1, -2.85494046e-08, -0.995853424, -4.98829351e-08, -0.0909722149)
-								local Time = 120
+							local CFrameEnd = CFrame.new(-17702.4766, -0.00471854256, 622.063171, -0.0909722149, 2.4111424e-08, 0.995853424, -4.74826223e-08, 1, -2.85494046e-08, -0.995853424, -4.98829351e-08, -0.0909722149)
+								local Time = 40
 								local tween =  game:GetService("TweenService"):Create(game.workspace.Boats:FindFirstChild("Guardian").VehicleSeat, TweenInfo.new(Time), {CFrame = CFrameEnd})
 							tween:Play()
 							tween.Completed:Wait(E)
@@ -15901,8 +15903,7 @@ spawn(function()
 						wait(2)
 						_G.Anchored = false
 						_G.AutoSail = true
-						StopTween(_G.Anchored)
-					end
+					StopTween(_G.Anchored)
 				end
 			end
 		end)

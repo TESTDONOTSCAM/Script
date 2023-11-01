@@ -2742,18 +2742,6 @@ elseif Lv >= 2050 or SelectMonster == "Posessed Mummy" then
 	end
 end
 
-function Sail()
-		MsP = "PirateBridage" or "Piranha" or "PirateGrandeBridage" or "Shark"
-		CFrameMon = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
-	TelePBoss(CFrameMon)
-end
-
-function SeaB()
-	MsSE = "SeaBeast1"
-	CFrameMon = CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988)
-TelePBoss(CFrameMon)
-end
-
 ---------------------------------------------------------------
 
 function AutoHaki()
@@ -2817,7 +2805,7 @@ end
 spawn(function()
     pcall(function()
     game:GetService("RunService").Stepped:Connect(function()
-    if Auto_Farm or Bridage or Piranhaww or SeaBeast or Sharkwww == true then
+    if Auto_Farm or _G.Bridage or _G.Beast or _G.AutoSail or _G.SendShip == true then
     for _, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
     if v:IsA("BasePart") then
     v.CanCollide = false
@@ -3963,115 +3951,6 @@ spawn(function()
 	end
 end)
 
-
-
---[[
-
-spawn(function()
-	while wait() do
-		pcall(function()
-		if Auto_BossNQ then
-			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				if SelectMonster ~= nil then
-					CheckQuestBoss()
-					AutoHaki()
-					
-					repeat wait(.2)
-						TelePBoss(CFrameBBoss)
-						TP(CFrameBBoss)
-						
-					until (CFrameBBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameBBoss)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					
-					SelectMonster = nil
-					_G.Farm_Mon = nil
-				else
-					CheckQuestBoss()
-					AutoHaki()
-					
-					repeat wait(.2)
-						TelePBoss(CFrameBBoss)
-						topos(CFrameBBoss)
-					until (CFrameBBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-					TelePBoss(CFrameBBoss)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-					
-				end
-			elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-				if _G.Auto_BostyjrtjWs then
-					if game.Workspace.Enemies:FindFirstChild(_G.SelectfBoss) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == _G.SelectBofss and v.Humanoid.Health > 0 then
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								_G.FastAtteack2 = true
-								repeat task.wait()
-									TelePBoss(CFrameQBowss)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBwoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NamewBoss) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-							end
-						end
-					else
-						topos(CFrameBSOSO * CFrame.new(0,10,0))
-						TelePBoss(CFramefeeBoss)
-					end
-				else
-					if game.Workspace.Enemies:FindFirstChild(MsBoss) then
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if v.Name == MsBoss and v.Humanoid.Health > 0 then
-								_G.PosMon = v.HumanoidRootPart.CFrame
-								
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(11)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-								repeat task.wait()
-									TelePBoss(CFrameBBoss)
-									EquipWeapon(_G.Setting_table.Weapon)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-								if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-								end
-								Attack = nil
-							end
-						end
-						else
-						
-						if game.ReplicatedStorage:FindFirstChild(MsBoss) then
-							topos(game.ReplicatedStorage:FindFirstChild(MsBoss).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
-						else
-						topos(CFrameBBoss)
-						
-							end
-						end
-					end
-				end
-			end
-		end)
-	end
-end)
-]]--
-
 -----------------------------------------------
 
 
@@ -4161,7 +4040,7 @@ end
 
 spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
-		if Auto_Farm or Auto_Boss or _G.AutoSail or Piranhaww or SeaBeast1 or Bridage or Auto_BossNQ or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Auto_Yama or Auto_Tushita then
+		if Auto_Farm or Auto_Boss or _G.AutoRemover or _G.AutoSail or _G.SendShip or _G.Bridage or _G.Beast or _G.AutoSail or Piranhaww or SeaBeast1 or Bridage or Auto_BossNQ or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Auto_Yama or Auto_Tushita then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
 				setfflag("HumanoidParallelRemoveNoPhysics", "False")
 				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -4170,6 +4049,12 @@ spawn(function()
 				setfflag("CrashUploadToBacktraceBlackholeToken", "")
 				setfflag("CrashUploadToBacktraceWindowsPlayerToken", "")
 				game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+			end
+		end
+	end)
+end)
+
+--[[
 			else
 				if not game:GetService("Workspace"):FindFirstChild("LOL1") then
 					local LOL1 = Instance.new("Part")
@@ -4185,11 +4070,8 @@ spawn(function()
 			for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
 				if v:IsA("BasePart") then
 					v.CanCollide = false
-				end
-			end
-		end
-	end)
-end)
+
+]]--
 
 --[[
 spawn(function()
@@ -15774,42 +15656,12 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Boat Remover"; 
 	Text = "Removing Boat [5 Sec]"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 3;
+	Duration = 5;
 	Button1 = "Okay"
 })
-wait(0.8)
-game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "Boat Remover"; 
-	Text = "Removing Boat [4 Sec]"; 
-	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 3;
-	Button1 = "Okay"
-})
-wait(0.8)	
-game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "Boat Remover"; 
-	Text = "Removing Boat [3 Sec]"; 
-	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 3;
-	Button1 = "Okay"
-})
-wait(0.8)
-game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "Boat Remover"; 
-	Text = "Removing Boat [2 Sec]"; 
-	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 3;
-	Button1 = "Okay"
-})
-wait(0.8)
-game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "Boat Remover"; 
-	Text = "Removing Boat [1 Sec]"; 
-	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 3;
-	Button1 = "Okay"
-})
+wait(1)
 repeat task.wait()
+	--[[
 local Remover = game.Workspace.Boats:FindFirstChild("Guardian") if Remover then Remover:Destroy() end
 print("Work")
 local Remover2 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover2 then Remover2:Destroy() end
@@ -15832,11 +15684,12 @@ local Remover0 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover0 the
 print("Work")
 local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
 wait(2)
+]]--
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Boat Remover"; 
 	Text = "Removing Boat Completed"; 
 	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 1;
+	Duration = 4;
 	Button1 = "Okay"
 })	
 _G.AutoRemover = false
@@ -15871,13 +15724,6 @@ task.spawn(function()
 									wait(0.8)
 									print("Anchored True")
 									game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = true
-									game:GetService("StarterGui"):SetCore("SendNotification", {
-										Title = "Boat Seller"; 
-										Text = "Guardian Detected"; 
-										Icon = "http://www.roblox.com/asset/?id=14355269935";
-										Duration = 3;
-										Button1 = "Okay"
-									})
                                 end
 							elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
 
@@ -15921,16 +15767,6 @@ spawn(function()
 		end
 	end
 end)
-
-if _G.SendShip then
-game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "Tweening Boat",
-	Text = "This May Take A While",
-	Icon = "http://www.roblox.com/asset/?id=14355269935",
-	Duration = 9000,
-	Button1 = "Okay",
-})
-end
 
 TEST:Toggle("Ghost Ship",false,function(val)
 	_G.Bridage = val

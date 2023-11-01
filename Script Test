@@ -57,40 +57,6 @@ elseif placeId == 7449423635 then
     World3 = true
 end
 
-game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "ScriptBlox"; 
-	Text = "Please Wait"; 
-	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 20
-})
-
-wait(2)
-
-game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "ScriptBlox"; 
-	Text = "Script Still On Loading"; 
-	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 20
-})
-
-wait(2)
-
-game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "ScriptBlox"; 
-	Text = "This Take A While"; 
-	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 20
-})
-
-wait(1)
-
-game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "ScriptBlox"; 
-	Text = "Script on Load 60 Second"; 
-	Icon = "http://www.roblox.com/asset/?id=14355269935";
-	Duration = 60
-})
-
 _G.BGColor_1 = Color3.fromRGB(30,30,30)
  _G.BGColor_2 = Color3.fromRGB(20, 20, 20)
  _G.Color = Color3.fromRGB(255,255,255)
@@ -6984,7 +6950,7 @@ end)
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 Camera:Stop()
 
-Main:Seperator("Weapon")
+Main:Seperator("\\\\\ Weapon //")
 
 Waspon = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
@@ -7020,7 +6986,7 @@ Main:Button("Refresh Weapon",function(vu)
 	end
 end)
 
-Main:Seperator("Bosses")
+Main:Seperator("\\\\\ Boss //")
 
 local Boss
 if World1 then

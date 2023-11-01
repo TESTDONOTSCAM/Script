@@ -15903,7 +15903,7 @@ task.spawn(function()
 							if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
 								wait(4)
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                               --elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+                               elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
 							print("SITDOWN")
 						end
 					end

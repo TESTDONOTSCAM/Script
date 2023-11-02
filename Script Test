@@ -3396,7 +3396,7 @@ function TPB(CFgo)
 	local info = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/180, Enum.EasingStyle.Linear)
 	tween = tween_s:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, info, {CFrame = CFgo})
 tween:Play()
-tween.Completed:Wait(E)
+tween.Completed:Wait(A)
 	
 local tweenfunc = {}
 	
@@ -3412,7 +3412,7 @@ function TPP(CFgo)
 	local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
 	tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = CFgo})
 tween:Play()
-tween.Completed:Wait(E)
+tween.Completed:Wait(B)
 	
 local tweenfunc = {}
 	
@@ -3426,7 +3426,7 @@ function topos2(Pos)
 	Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
 	pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/180, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
 	tween:Play()
-	tween.Completed:Wait(E)
+	tween.Completed:Wait(C)
 end
     
 -- Topos Script
@@ -7981,7 +7981,7 @@ if _G.AutoRemover == true then
                                     Button1 = "Okay"
                                 })
 
-                                wait(20)
+                                wait(5)
     
                                 game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
     
@@ -8015,7 +8015,6 @@ if _G.AutoRemover == true then
                         Duration = 10;
                         Button1 = "Okay"
                     })
-                    if game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                     if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                     StopTween(_G.SendShip)

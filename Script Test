@@ -3761,10 +3761,10 @@ spawn(function()
                     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
                     BTP(CFrameQuest)
                     elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude < 1500 then
-                    TP1(CFrameQuest)
+                    topos(CFrameQuest)
                     end
                 else
-                    TP1(CFrameQuest)
+                    topos(CFrameQuest)
                 end
                 if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 20 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
@@ -3780,7 +3780,7 @@ spawn(function()
                                             EquipWeapon(_G.SelectWeapon)
                                             AutoHaki()
                                             PosMon = v.HumanoidRootPart.CFrame
-                                            TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+                                            topos(v.HumanoidRootPart.CFrame * Pos)
                                             v.HumanoidRootPart.CanCollide = false
                                             v.Humanoid.WalkSpeed = 0
                                             v.Head.CanCollide = false
@@ -3797,10 +3797,10 @@ spawn(function()
                             end
                         end
                     else
-                        TP1(CFrameMon)
+                        topos(CFrameMon)
                         StartMagnet = false
                         if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
-                         TP1(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+                         topos(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
                         end
                     end
                 end
@@ -8008,7 +8008,7 @@ end)
         while wait() do
             if _G.Bridage then
                    pcall(function()
-                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                     for i,v in pairs(game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark")) do
                          if v:FindFirstChild("HumanoidRootPart") then
                             AutoHaki()
                             EquipWeapon(_G.SelectWeapon)

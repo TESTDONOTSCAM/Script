@@ -2862,6 +2862,14 @@ function CheckLevel2()
         end
     end
 end
+
+function CheckBridage()
+    if World3 then
+        Mon = "Isle Champion"
+        CFrameMon = CFrame.new(-16606.0918, 130.704803, 1087.90845, -0.933031023, 7.60136913e-08, 0.359795898, 4.91600538e-08, 1, -8.37859417e-08, -0.359795898, -6.04872952e-08, -0.933031023)
+        TelePBoss(CFrameMon)
+    end
+end
     
 function Hop()
     local PlaceID = game.PlaceId
@@ -3572,11 +3580,11 @@ end)
 spawn(function()
 	while task.wait() do
 		pcall(function()
-			if StatrMagnet then
+			if StartMagnet then
 				if _G.AutoFarm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-							if v.Name == Ms and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 375 then
+							if v.Name == Ms and (v.HumanoidRootPart.Position-PosMon.Position).Magnitude <= 375 then
 								if v.Humanoid:FindFirstChild("Animator") then
 									v.Humanoid.Animator:Destroy()
 								end
@@ -3585,14 +3593,14 @@ spawn(function()
 								v.Humanoid.WalkSpeed = 0
 								v.HumanoidRootPart.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-								v.HumanoidRootPart.CFrame = _G.PosMon
+								v.HumanoidRootPart.CFrame = PosMon
 								sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
 							end
 						end
 					end
 				else
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-						if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
+						if (v.HumanoidRootPart.Position-PosMon.Position).Magnitude <= 350 then
 							if v.Humanoid:FindFirstChild("Animator") then
 								v.Humanoid.Animator:Destroy()
 							end
@@ -3601,7 +3609,7 @@ spawn(function()
 							v.Humanoid.WalkSpeed = 0
 							v.HumanoidRootPart.CanCollide = false
 							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-							v.HumanoidRootPart.CFrame = _G.PosMon
+							v.HumanoidRootPart.CFrame = PosMon
 							sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
 						end
 					end
@@ -3963,7 +3971,7 @@ spawn(function()
         end
     end)
 end)
-
+--[[
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
         if _G.FastAttack then
@@ -3974,6 +3982,7 @@ spawn(function()
         end
     end)
 end)
+]]--
 
 Setting:Dropdown2("Fast Attack Delay ","0.2",MIo,function(vu)
 	_G.FastAttack_Mode = vu
@@ -8120,13 +8129,19 @@ if _G.AutoRemover == true then
         while wait() do
             if _G.Bridage then
                    pcall(function()
+                    CheckBridage()
+                    if game.Workspace.Enemies:FindFirstChild(Mon) then
                      for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                         if v:FindFirstChild("HumanoidRootPart") then
+                         if v.Name == Mon and v.Humanoid.Health > 0 then
                             AutoHaki()
+                            PosMon = v.HumanoidRootPart.CFrame
+                        repeat task.wait()
+                            TelePBoss(CFrameMon)
                             EquipWeapon(_G.SelectWeapon)
                             topos(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0) * Pos)
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                        until not v.Parent or not _G.Bridage
                         else
                             if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,60,0))
@@ -8134,6 +8149,7 @@ if _G.AutoRemover == true then
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                 end
+                            end
                             end
                         end
                     end

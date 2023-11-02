@@ -7883,6 +7883,7 @@ spawn(function()
                 local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
                 local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
                 local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
+                local Remover01234 = game.Workspace.SeaBeasts:FindFirstChild("SeaBeast1") if Remover01234 then Remover01234:Destroy() end
             end)
         end
     end

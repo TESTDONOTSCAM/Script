@@ -140,7 +140,7 @@ mainopens.Parent = mainopen
  _G.SectionImageColor = Color3.fromRGB(150, 150, 150)
  _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
  _G.SectionOn = Color3.fromRGB(0, 250, 0)
- _G.HubName = "ScriptBlox Prewfwfmium"
+ _G.HubName = "ScriptBlox Premium"
 	
 	local RippleFPS = Instance.new("ScreenGui")
 	local Rippletime = Instance.new("ScreenGui")
@@ -3043,9 +3043,9 @@ function Hop()
     end
     end
     Teleport()
-    end
+end
     
-    function isnil(thing)
+function isnil(thing)
     return (thing == nil)
     end
     local function round(n)
@@ -3110,9 +3110,9 @@ function Hop()
     end
     end
     end
-    end
+end
     
-    function UpdateIslandESP()
+function UpdateIslandESP()
     for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
     pcall(function()
     if IslandESP then
@@ -3144,9 +3144,9 @@ function Hop()
     end
     end)
     end
-    end
+end
     
-    function UpdateChestEsp()
+function UpdateChestEsp()
     for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
     pcall(function()
     if string.find(v.Name,"Chest") then
@@ -3189,9 +3189,9 @@ function Hop()
     end
     end)
     end
-    end
+end
     
-    function UpdateBfEsp()
+function UpdateBfEsp()
     for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
     pcall(function()
     if DevilFruitESP then
@@ -3224,10 +3224,10 @@ function Hop()
     end
     end)
     end
-    end
+end
     
 -- Update Flower ESP
-    function UpdateFlowerEsp()
+function UpdateFlowerEsp()
     for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
     pcall(function()
     if v.Name == "Flower2" or v.Name == "Flower1" then
@@ -3267,10 +3267,10 @@ function Hop()
     end
     end)
     end
-    end
+end
     
 -- Infinite Abilities
-    function InfAb()
+function InfAb()
     if InfAbility then
     if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
     local inf = Instance.new("ParticleEmitter")
@@ -3305,9 +3305,9 @@ function Hop()
     game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
     end
     end
-    end
+end
     
-    local LocalPlayer = game:GetService'Players'.LocalPlayer
+local LocalPlayer = game:GetService'Players'.LocalPlayer
     local originalstam = LocalPlayer.Character.Energy.Value
     function infinitestam()
     LocalPlayer.Character.Energy.Changed:connect(function()
@@ -3315,9 +3315,9 @@ function Hop()
     LocalPlayer.Character.Energy.Value = originalstam
     end
     end)
-    end
+end
     
-    spawn(function()
+spawn(function()
     pcall(function()
     while wait(.1) do
     if InfiniteEnergy then
@@ -3327,10 +3327,10 @@ function Hop()
     end
     end
     end)
-    end)
+end)
     
 -- NoDodgeCool
-    function NoDodgeCool()
+function NoDodgeCool()
     if nododgecool then
     for i,v in next, getgc() do
     if game:GetService("Players").LocalPlayer.Character.Dodge then
@@ -3346,7 +3346,7 @@ function Hop()
     end
     end
     end
-    end
+end
     
 
 
@@ -3453,139 +3453,6 @@ end)
     start()
 end
 
-
-
--- Instant Kill Script
-    local plr = game.Players.LocalPlayer
-    local CbFw = debug.getupvalues(require(plr.PlayerScripts.CombatFramework))
-    local CbFw2 = CbFw[2]
-    
-            function GetCurrentBlade() 
-                local p13 = CbFw2.activeController
-                local ret = p13.blades[1]
-                if not ret then return end
-                while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
-                return ret
-            end
-            function AttackNoCD() 
-                local AC = CbFw2.activeController
-                for i = 1, 1 do 
-                    local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
-                        plr.Character,
-                        {plr.Character.HumanoidRootPart},
-                        60
-                    )
-                    local cac = {}
-                    local hash = {}
-                    for k, v in pairs(bladehit) do
-                        if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
-                            table.insert(cac, v.Parent.HumanoidRootPart)
-                            hash[v.Parent] = true
-                        end
-                    end
-                    bladehit = cac
-                    if #bladehit > 0 then
-                        local u8 = debug.getupvalue(AC.attack, 5)
-                        local u9 = debug.getupvalue(AC.attack, 6)
-                        local u7 = debug.getupvalue(AC.attack, 4)
-                        local u10 = debug.getupvalue(AC.attack, 7)
-                        local u12 = (u8 * 798405 + u7 * 727595) % u9
-                        local u13 = u7 * 798405
-                        (function()
-                            u12 = (u12 * u9 + u13) % 1099511627776
-                            u8 = math.floor(u12 / u9)
-                            u7 = u12 - u8 * u9
-                        end)()
-                        u10 = u10 + 0
-                        debug.setupvalue(AC.attack, 5, u8)
-                        debug.setupvalue(AC.attack, 6, u9)
-                        debug.setupvalue(AC.attack, 4, u7)
-                        debug.setupvalue(AC.attack, 7, u10)
-                        pcall(function()
-                            for k, v in pairs(AC.animator.anims.basic) do
-                                v:Play()
-                            end                  
-                        end)
-                        if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then 
-                            game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
-                            game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
-                            game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "") 
-                        end
-                    end
-                end
-            end
-
--- Instant Kill Script
-function InstaAttackTRUE()
-    require(game.ReplicatedStorage.Util.CameraShaker):Stop()
-    local SuperFastMode = true -- Change to true if you want Super Super Super Fast attack (Like instant kill) but it will make the game kick you more than normal mode
-    local plr = game.Players.LocalPlayer
-    local CbFw = debug.getupvalues(require(plr.PlayerScripts.CombatFramework))
-    local CbFw2 = CbFw[2]
-    
-            function GetCurrentBlade() 
-                local p13 = CbFw2.activeController
-                local ret = p13.blades[1]
-                if not ret then return end
-                while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
-                return ret
-            end
-            function AttackNoCDS() 
-                local AC = CbFw2.activeController
-                for i = 1, 1 do 
-                    local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
-                        plr.Character,
-                        {plr.Character.HumanoidRootPart},
-                        60
-                    )
-                    local cac = {}
-                    local hash = {}
-                    for k, v in pairs(bladehit) do
-                        if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
-                            table.insert(cac, v.Parent.HumanoidRootPart)
-                            hash[v.Parent] = true
-                        end
-                    end
-                    bladehit = cac
-                    if #bladehit > 0 then
-                        local u8 = debug.getupvalue(AC.attack, 5)
-                        local u9 = debug.getupvalue(AC.attack, 6)
-                        local u7 = debug.getupvalue(AC.attack, 4)
-                        local u10 = debug.getupvalue(AC.attack, 7)
-                        local u12 = (u8 * 798405 + u7 * 727595) % u9
-                        local u13 = u7 * 798405
-                        (function()
-                            u12 = (u12 * u9 + u13) % 1099511627776
-                            u8 = math.floor(u12 / u9)
-                            u7 = u12 - u8 * u9
-                        end)()
-                        u10 = u10 + 0
-                        debug.setupvalue(AC.attack, 5, u8)
-                        debug.setupvalue(AC.attack, 6, u9)
-                        debug.setupvalue(AC.attack, 4, u7)
-                        debug.setupvalue(AC.attack, 7, u10)
-                        pcall(function()
-                            for k, v in pairs(AC.animator.anims.basic) do
-                                v:Play()
-                            end                  
-                        end)
-                        if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then 
-                            game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
-                            game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
-                            game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "") 
-                        end
-                    end
-                end
-            end
-            local cac
-            if SuperFastMode then 
-                cac=task.wait
-            else
-                cac=wait
-            end
-        AttackNoCDS()
-    end
-    
 -- Click
 function Click()
     game:GetService'VirtualUser':CaptureController()
@@ -3637,9 +3504,42 @@ function topos(Pos)
         end
     end
     
-    function GetDistance(target)
-        return math.floor((target.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
+function GetDistance(target)
+    return math.floor((target.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
+end
+
+function BTP(P)
+repeat wait(1)
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+    task.wait()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+until (P.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500
+end
+
+function TP1(Pos)
+    Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if Distance < 25 then
+        Speed = 5000
+    elseif Distance < 50 then
+        Speed = 2000
+    elseif Distance < 150 then
+        Speed = 800
+    elseif Distance < 250 then
+        Speed = 600
+    elseif Distance < 500 then
+        Speed = 300
+    elseif Distance < 750 then
+        Speed = 250
+    elseif Distance >= 1000 then
+        Speed = 200
     end
+    game:GetService("TweenService"):Create(
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = Pos}
+    ):Play()
+end
     
 -- TP Script
 function TP(Pos)
@@ -3782,323 +3682,6 @@ local Library = Update:Window("Blox Fruits", "")
     Setting:Seperator("\\\\\ Farm Setting //")
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
-
-    if World1 then
-        Setting:LabelWarn("NOT AVAILABLE FOR WORLD 1")
-    end
-    
-    if World2 or World3 then
-        Setting:Toggle("[ Beta ] Fix Lag",true,function(val)
-            _G.BetaLag = val
-            end)
-        end
-        
-        spawn(function()
-            pcall(function()
-                while wait() do
-                    if _G.BetaLag then
-                        
-                        -- World [ 2 ] Not Yet
-                        if World2 then
-                            -- CircleIsland
-                            local cM = game.Workspace.Map.CircleIsland
-                        
-                            local Circle = cM:FindFirstChild("Model") if Circle then Circle:Destroy() end
-                        
-                            -- ForgottenIsland
-                            local Fgt = game.Workspace.Map.ForgottenIsland
-                        
-                            local Forgotten = Fgt:FindFirstChild("Tree") if Forgotten then Forgotten:Destroy() end
-                        
-                            -- Dressrosa 
-                            local Dress = game.Workspace.Map.Dressrosa
-                        
-                            local DressHotel = Dress:FindFirstChild("Hotel") if DressHotel then DressHotel:Destroy() end
-                            local DressHotels = Dress:FindFirstChild("SmallHouse") if DressHotels then DressHotels:Destroy() end
-                            local DressHotelss = Dress:FindFirstChild("BigHouse") if DressHotelss then DressHotelss:Destroy() end
-                            local DressModel = Dress:FindFirstChild("Model") if DressModel then DressModel:Destroy() end
-                            local DressModels = Dress:FindFirstChild("BigWall") if DressModels then DressModels:Destroy() end
-                            local DressCOL = Dress:FindFirstChild("Colosseum") if DressCOL then DressCOL:Destroy() end
-                            local DressCOLs = Dress:FindFirstChild("Details") if DressCOLs then DressCOLs:Destroy() end
-                            local DressCOLss = Dress:FindFirstChild("Detail") if DressCOLss then DressCOLss:Destroy() end
-                            local DressCOLsa = Dress:FindFirstChild("WallPiece") if DressCOLsa then DressCOLsa:Destroy() end
-                            local DressCOLsad = Dress:FindFirstChild("Walls") if DressCOLsad then DressCOLsad:Destroy() end
-                        
-                            -- GraveIsland
-                            local Grave = game.Workspace.Map.GraveIsland
-                        
-                            local GraveTree = Grave:FindFirstChild("Tree") if GraveTree then GraveTree:Destroy() end
-                        
-                        
-                            -- GreenBit
-                            local Green = game.Workspace.Map.GreenBit
-                        
-                            local GreenHotel = Green:FindFirstChild("Hotel") if GreenHotel then GreenHotel:Destroy() end
-                            local GreenVine1 = Green.Island:FindFirstChild("Vine1") if GreenVine1 then GreenVine1:Destroy() end
-                            local GreenVine2 = Green.Island:FindFirstChild("Vine2") if GreenVine2 then GreenVine2:Destroy() end
-                            local GreenHotels = Green:FindFirstChild("Details") if GreenHotels then GreenHotels:Destroy() end
-                        
-                            -- IndraIsland
-                            local Indra = game.Workspace.Map.IndraIsland
-                        
-                            local IndraTree = Indra:FindFirstChild("Tree") if IndraTree then IndraTree:Destroy() end
-                        end
-                        
-                        -- World [ 3 ] Done
-                        if World3 then
-                        
-                            -- Boat Castle
-                            local Boat = game.Workspace.Map:WaitForChild("Boat Castle").IslandModel
-                        
-                            local BCD = Boat:FindFirstChild("Details") if BCD then BCD:Destroy() end
-                            local BCH = Boat:FindFirstChild("Hotel") if BCH then BCH:Destroy() end
-                            local BCM = Boat:FindFirstChild("Model") if BCM then BCM:Destroy() end
-                        
-                            -- CakeLoaf [ Done ]
-                            local Cake = game.Workspace.Map.CakeLoaf.IslandModel
-                        
-                            local CLD = Cake:FindFirstChild("Details") if CLD then CLD:Destroy() end
-                            local CLH = Cake:FindFirstChild("Hotel") if CLH then CLH:Destroy() end
-                            local CLM = Cake:FindFirstChild("Model") if CLM then CLM:Destroy() end
-                        
-                                local CLC1 = Cake:FindFirstChild("CakeMountain1") if CLC1 then CLC1:Destroy() end
-                                local CLC2 = Cake:FindFirstChild("CakeMountain2") if CLC2 then CLC2:Destroy() end
-                                local CLC3 = Cake:FindFirstChild("CakeMountain3") if CLC3 then CLC3:Destroy() end
-                                local CLC4 = Cake:FindFirstChild("CakeMountain4") if CLC4 then CLC4:Destroy() end
-                                local CLC5 = Cake:FindFirstChild("CakeMountain5") if CLC5 then CLC5:Destroy() end
-                        
-                                    local CLT1 = Cake:FindFirstChild("CandryTree2") if CLT1 then CLT1:Destroy() end
-                                    local CLT2 = Cake:FindFirstChild("CandyTree1") if CLT2 then CLT2:Destroy() end
-                        
-                                        local CLCAN = Cake:FindFirstChild("Cannon2") if CLCAN then CLCAN:Destroy() end
-                        
-                                        local CLH1 = Cake:FindFirstChild("House1") if CLH1 then CLH1:Destroy() end
-                                        local CLH2 = Cake:FindFirstChild("House2") if CLH2 then CLH2:Destroy() end
-                                        local CLH3 = Cake:FindFirstChild("House3") if CLH3 then CLH3:Destroy() end
-                                        local CLHT = Cake:FindFirstChild("Tower1") if CLHT then CLHT:Destroy() end
-                                        local CLHB = Cake:FindFirstChild("Trees") if CLHB then CLHB:Destroy() end
-                                        local CLSI = Cake:FindFirstChild("snowisland_Cylinder.081") if CLSI then CLSI:Destroy() end
-                                        local CLPT = Cake:FindFirstChild("Part") if CLPT then CLPT:Destroy() end
-                                        local CLPG = Cake:FindFirstChild("PluginGrass") if CLPG then CLPG:Destroy() end
-                                        local CLBM = game.Workspace.Map:WaitForChild("CakeLoaf"):FindFirstChild("BigMirror") if CLBM then CLBM:Destroy() end
-                                        local CLWC50 = Cake:FindFirstChild("wcmansion_Cylinder.050") if CLWC50 then CLWC50:Destroy() end
-                                        local CLWC51 = Cake:FindFirstChild("wcmansion_Cylinder.051") if CLWC51 then CLWC51:Destroy() end
-                                        local CLWC52 = Cake:FindFirstChild("wcmansion_Cylinder.052") if CLWC52 then CLWC52:Destroy() end
-                                        local CLWC55 = Cake:FindFirstChild("wcmansion_Cylinder.055") if CLWC55 then CLWC55:Destroy() end
-                                        local CLWC56 = Cake:FindFirstChild("wcmansion_Cylinder.056") if CLWC56 then CLWC56:Destroy() end
-                                        local CLWC57 = Cake:FindFirstChild("wcmansion_Cylinder.057") if CLWC57 then CLWC57:Destroy() end
-                                        local CLWC60 = Cake:FindFirstChild("wcmansion_Cylinder.060") if CLWC60 then CLWC60:Destroy() end
-                                        local CLWC61 = Cake:FindFirstChild("wcmansion_Cylinder.061") if CLWC61 then CLWC61:Destroy() end
-                                        local CLWH35 = Cake:FindFirstChild("wc_house_Cylinder.035") if CLWH35 then CLWH35:Destroy() end
-                                        local CLWH35s = Cake:FindFirstChild("wc_houses_Cylinder.035") if CLWH35s then CLWH35s:Destroy() end
-                                        local CLWP = Cake:FindFirstChild("wc_plane") if CLWP then CLWP:Destroy() end
-                                        local CLWP1 = Cake:FindFirstChild("wc_Plane.001") if CLWP1 then CLWP1:Destroy() end
-                                        local CLWP2 = Cake:FindFirstChild("wc_Plane.002") if CLWP2 then CLWP2:Destroy() end
-                                        local CLWP3 = Cake:FindFirstChild("wc_Plane.003") if CLWP3 then CLWP3:Destroy() end
-                                        local CLTHIRLL = Cake:FindFirstChild("thrill_Cube.004") if CLTHIRLL then CLTHIRLL:Destroy() end
-                                        local CLWCP7 = Cake:FindFirstChild("wcmansion_Plane.007") if CLWCP7 then CLWCP7:Destroy() end
-                                        local CLWCP8 = Cake:FindFirstChild("wcmansion_Plane.008") if CLWCP8 then CLWCP8:Destroy() end
-                                        local CLWCP9 = Cake:FindFirstChild("wcmansion_Plane.009") if CLWCP9 then CLWCP9:Destroy() end
-                                        local CLWCP13 = Cake:FindFirstChild("wcmansion_Plane.013") if CLWCP13 then CLWCP13:Destroy() end
-                                        local CLWCR2 = Cake:FindFirstChild("wcroad2") if CLWCR2 then CLWCR2:Destroy() end
-                                        local CLWCR3 = Cake:FindFirstChild("wcroad3") if CLWCR3 then CLWCR3:Destroy() end
-                                        local CLBC109 = Cake:FindFirstChild("bloxfruits_bossarea_Cylinder.109") if CLBC109 then CLBC109:Destroy() end
-                                        local CLBI97 = Cake:FindFirstChild("bloxfruits_island2_Cylinder.097") if CLBI97 then CLBI97:Destroy() end
-                                        local CLBI103 = Cake:FindFirstChild("bloxfruits_island2_Cylinder.103") if CLBI103 then CLBI103:Destroy() end
-                                        local CLBI104 = Cake:FindFirstChild("bloxfruits_island2_Cylinder.104") if CLBI104 then CLBI104:Destroy() end
-                                        local CLSI80 = Cake:FindFirstChild("snowisland_Cylinder.080") if CLSI80 then CLSI80:Destroy() end
-                                        local CLSI84 = Cake:FindFirstChild("snowisland_Cylinder.084") if CLSI84 then CLSI84:Destroy() end
-                                        local CLWR001 = Cake:FindFirstChild("wcroad_Cube.001") if CLWR001 then CLWR001:Destroy() end
-                                        local CLWROCK1 = Cake:FindFirstChild("Rock1") if CLWROCK1 then CLWROCK1:Destroy() end
-                                        local CLWROCK2 = Cake:FindFirstChild("Rock2") if CLWROCK2 then CLWROCK2:Destroy() end
-                                        local CLWROCK3 = Cake:FindFirstChild("Rock3") if CLWROCK3 then CLWROCK3:Destroy() end
-                                        local CLWROCK4 = Cake:FindFirstChild("Rock4") if CLWROCK4 then CLWROCK4:Destroy() end
-                                        local CLWCoach = Cake:FindFirstChild("Couch") if CLWCoach then CLWCoach:Destroy() end
-                                        local CLWUNI = Cake:FindFirstChild("Union") if CLWUNI then CLWUNI:Destroy() end
-                                        local CLWcone = Cake:FindFirstChild("cone") if CLWcone then CLWcone:Destroy() end
-                                        local CLWedge = Cake:FindFirstChild("Wedge") if CLWedge then CLWedge:Destroy() end
-                        
-                            -- CandyCane [ Done ]
-                            local Candy = game.Workspace.Map.CandyCane
-                        
-                            local CCH = Candy:FindFirstChild("Tree") if CCH then CCH:Destroy() end
-                            local CCM = Candy:FindFirstChild("Model") if CCM then CCM:Destroy() end
-                            local CCB1 = Candy:FindFirstChild("Bush1") if CCB1 then CCB1:Destroy() end
-                            local CCB2 = Candy:FindFirstChild("Bush2") if CCB2 then CCB2:Destroy() end
-                            local CCB3 = Candy:FindFirstChild("Bush3") if CCB3 then CCB3:Destroy() end
-                            local CCPT1 = Candy:FindFirstChild("PineTree1") if CCPT1 then CCPT1:Destroy() end
-                            local CCPT2 = Candy:FindFirstChild("PineTree2") if CCPT2 then CCPT2:Destroy() end
-                            local CCR1 = Candy:FindFirstChild("Rocks1") if CCR1 then CCR1:Destroy() end
-                            local CCR2 = Candy:FindFirstChild("Rocks2") if CCR2 then CCR2:Destroy() end
-                            local CCR3 = Candy:FindFirstChild("Rocks3") if CCR3 then CCR3:Destroy() end
-                            local CCTR1 = Candy:FindFirstChild("Tree1") if CCTR1 then CCTR1:Destroy() end
-                            local CCTR2 = Candy:FindFirstChild("Tree2") if CCTR2 then CCTR2:Destroy() end
-                            local CCPART = Candy:FindFirstChild("Part") if CCPART then CCPART:Destroy() end
-                            local CCPG = Candy:FindFirstChild("PluginGrass") if CCPG then CCPG:Destroy() end
-                            local CCrock1 = Candy:FindFirstChild("rock1") if CCrock1 then CCrock1:Destroy() end
-                            local CCrock3 = Candy:FindFirstChild("rock3") if CCrock3 then CCrock3:Destroy() end
-                            local CCCPS = Candy:FindFirstChild("Meshes/candyprops_Sphere") if CCCPS then CCCPS:Destroy() end
-                            local CCCylin = Candy:FindFirstChild("Meshes/candyprops_Cylinder.003") if CCCylin then CCCylin:Destroy() end
-                            local CCrossa = Candy:FindFirstChild("Meshes/snowisland_Cylinder.081") if CCrossa then CCrossa:Destroy() end
-                            local CCHallow = Candy:FindFirstChild("HollowTrunk") if CCHallow then CCHallow:Destroy() end
-                            local CCFish = Candy:FindFirstChild("Meshes/fishman_islands_Plane.003") if CCFish then CCFish:Destroy() end
-                            local CCroad = Candy:FindFirstChild("Meshes/road") if CCroad then CCroad:Destroy() end
-                            local CCdoks = Candy:FindFirstChild("Meshes/docks_Cube.051") if CCdoks then CCdoks:Destroy() end
-                            local CCdoksa = Candy:FindFirstChild("Meshes/bloxfruits_bossarea_Cylinder.110") if CCdoksa then CCdoksa:Destroy() end
-                            local CCdoksf = Candy:FindFirstChild("Meshes/bloxfruits_island2_Cylinder.103") if CCdoksf then CCdoksf:Destroy() end
-                        
-                        --[[
-                            -- ChocolateIsland [ Belum Bisa ]
-                        
-                            local Chocolate = game.Workspace.Map.ChocolateIsland.Model
-                        
-                            local ChocolateH = Chocolate:FindFirstChild("Hotel") if ChocolateH then ChocolateH:Destroy() end
-                            local ChocolateBT = Chocolate:FindFirstChild("BigTree") if ChocolateBT then ChocolateBT:Destroy() end
-                            local ChocolateMT = Chocolate:FindFirstChild("Mountain") if ChocolateMT then ChocolateMT:Destroy() end
-                            local ChocolateT = Chocolate:FindFirstChild("Tree") if ChocolateT then ChocolateT:Destroy() end
-                            local ChocolateTS = Chocolate:FindFirstChild("Trees") if ChocolateTS then ChocolateTS:Destroy() end
-                            local ChocolateR = Chocolate:FindFirstChild("Rock1") if ChocolateR then ChocolateR:Destroy() end
-                            local ChocolateSI = Chocolate:FindFirstChild("snowisland_Cylinder.081") if ChocolateSI then ChocolateSI:Destroy() end
-                            local ChocolatePART = Chocolate:FindFirstChild("Part") if ChocolatePART then ChocolatePART:Destroy() end
-                            local ChocolatePG = Chocolate:FindFirstChild("PluginGrass") if ChocolatePG then ChocolatePG:Destroy() end
-                            local ChocolateCC = Chocolate:FindFirstChild("coco_Cube.006") if ChocolateCC then ChocolateCC:Destroy() end
-                            local ChocolateCCs = Chocolate:FindFirstChild("coco_Cube.003") if ChocolateCCs then ChocolateCCs:Destroy() end
-                            local ChocolateCC2 = Chocolate:FindFirstChild("coco_Cube.002") if ChocolateCC2 then ChocolateCC2:Destroy() end
-                            local ChocolateCC1 = Chocolate:FindFirstChild("coco_Cube.001") if ChocolateCC1 then ChocolateCC1:Destroy() end
-                        ]]--
-                        
-                        
-                            -- Great Tree [ Done ]
-                            local Great = game.Workspace.Map:WaitForChild("Great Tree").IslandModel
-                        
-                            local GTD = Great:FindFirstChild("Details") if GTD then GTD:Destroy() end
-                            local GTM = Great:FindFirstChild("Part") if GTM then GTM:Destroy() end
-                            local GTPG = Great:FindFirstChild("PluginGrass") if GTPG then GTPG:Destroy() end
-                            local GTCUBE2 = Great:FindFirstChild("small_island1_Cube.002") if GTCUBE2 then GTCUBE2:Destroy() end
-                            local GTCUBE3 = Great:FindFirstChild("small_island1_Cube.003") if GTCUBE3 then GTCUBE3:Destroy() end
-                            local GTCUBE7 = Great:FindFirstChild("small_island1_Cube.007") if GTCUBE7 then GTCUBE7:Destroy() end
-                            local GTCUBE8 = Great:FindFirstChild("small_island1_Cube.008") if GTCUBE8 then GTCUBE8:Destroy() end
-                            local GTCUBE9 = Great:FindFirstChild("small_island1_Cube.009") if GTCUBE9 then GTCUBE9:Destroy() end
-                            local GTCUBE11 = Great:FindFirstChild("small_island1_Cube.011") if GTCUBE11 then GTCUBE11:Destroy() end
-                            local GTCUBE18 = Great:FindFirstChild("small_island1_Cube.018") if GTCUBE18 then GTCUBE18:Destroy() end
-                            local GTCy = Great:FindFirstChild("small_island1_Cylinder") if GTCy then GTCy:Destroy() end
-                            local GTCUBEFIX = Great:FindFirstChild("smallisland1_fixes_Cube.010") if GTCUBEFIX then GTCUBEFIX:Destroy() end
-                            local GTSI74 = Great:FindFirstChild("snowisland_Cylinder.074") if GTSI74 then GTSI74:Destroy() end
-                            local GTSI80 = Great:FindFirstChild("snowisland_Cylinder.080") if GTSI80 then GTSI80:Destroy() end
-                            local GTSI81 = Great:FindFirstChild("snowisland_Cylinder.081") if GTSI81 then GTSI81:Destroy() end
-                            local GTSI84 = Great:FindFirstChild("snowisland_Cylinder.084") if GTSI84 then GTSI84:Destroy() end
-                            local GTbf94 = Great:FindFirstChild("bloxfruits_island2_Cylinder.094") if GTbf94 then GTbf94:Destroy() end
-                            local GTbf97 = Great:FindFirstChild("bloxfruits_island2_Cylinder.097") if GTbf97 then GTbf97:Destroy() end
-                            local GTbf103 = Great:FindFirstChild("bloxfruits_island2_Cylinder.103") if GTbf103 then GTbf103:Destroy() end
-                            local GTbf104 = Great:FindFirstChild("bloxfruits_island2_Cylinder.104") if GTbf104 then GTbf104:Destroy() end
-                            local GTboss108 = Great:FindFirstChild("bloxfruits_bossarea_Cylinder.108") if GTboss108 then GTboss108:Destroy() end
-                            local GTboss109 = Great:FindFirstChild("bloxfruits_bossarea_Cylinder.109") if GTboss109 then GTboss109:Destroy() end
-                            local GTboss110 = Great:FindFirstChild("bloxfruits_bossarea_Cylinder.110") if GTboss110 then GTboss110:Destroy() end
-                            local GTTP = Great:FindFirstChild("TreeTop") if GTTP then GTTP:Destroy() end
-                            local GTRT = Great:FindFirstChild("Rocks") if GTRT then GTRT:Destroy() end
-                            local GTdbz = Great:FindFirstChild("dbz_map1_Cube.012") if GTdbz then GTdbz:Destroy() end
-                        
-                            -- Haunted Castle
-                            local Haunted = game.Workspace.Map:WaitForChild("Haunted Castle").IslandModel
-                        
-                            local HCD = Haunted:FindFirstChild("Details") if HCD then HCD:Destroy() end
-                            local HCM = Haunted:FindFirstChild("Tree") if HCM then HCM:Destroy() end
-                            local HCTree = Haunted:FindFirstChild("Trees") if HCTree then HCTree:Destroy() end
-                            local HCPart = Haunted:FindFirstChild("Part") if HCPart then HCPart:Destroy() end
-                            local HCPG = Haunted:FindFirstChild("PluginGrass") if HCPG then HCPG:Destroy() end
-                            local HCGate = Haunted:FindFirstChild("gatedetail1") if HCGate then HCGate:Destroy() end
-                            local HCthrill = Haunted:FindFirstChild("thrill_Cylinder.034") if HCthrill then HCthrill:Destroy() end
-                            local HCWedge = Haunted:FindFirstChild("Wedge") if HCWedge then HCWedge:Destroy() end
-                            local HCTow = Haunted:FindFirstChild("Tower") if HCTow then HCTow:Destroy() end
-                            local HCPin = Haunted:FindFirstChild("PineTree") if HCPin then HCPin:Destroy() end
-                        
-                            -- Ice Cream Island [ Done ]
-                            local Cream = game.Workspace.Map:WaitForChild("Ice Cream Island").IslandModel
-                        
-                            local ICID = Cream:FindFirstChild("Details") if ICID then ICID:Destroy() end
-                            local ICIH = Cream:FindFirstChild("Hotel") if ICIH then ICIH:Destroy() end
-                            local ICIM = Cream:FindFirstChild("Model") if ICIM then ICIM:Destroy() end
-                            local ICIMs = Cream:FindFirstChild("ic_Plane") if ICIMs then ICIMs:Destroy() end
-                            local ICIR = Cream:FindFirstChild("Rock1") if ICIR then ICIR:Destroy() end
-                            local ICISI = Cream:FindFirstChild("snowisland_Cylinder.081") if ICISI then ICISI:Destroy() end
-                            local ICIB108 = Cream:FindFirstChild("bloxfruits_bossarea_Cylinder.108") if ICIB108 then ICIB108:Destroy() end
-                            local ICIB110 = Cream:FindFirstChild("bloxfruits_bossarea_Cylinder.110") if ICIB110 then ICIB110:Destroy() end
-                            local ICIB111 = Cream:FindFirstChild("bloxfruits_bossarea_Cylinder.111") if ICIB111 then ICIB111:Destroy() end
-                            local ICIB112 = Cream:FindFirstChild("bloxfruits_bossarea_Cylinder.112") if ICIB112 then ICIB112:Destroy() end
-                            local ICIB098 = Cream:FindFirstChild("bloxfruits_island2_Cylinder.098") if ICIB098 then ICIB098:Destroy() end
-                            local ICIR1 = Cream:FindFirstChild("rock1") if ICIR1 then ICIR1:Destroy() end
-                            local ICIP = Cream:FindFirstChild("Part") if ICIP then ICIP:Destroy() end
-                            local ICIL = Cream:FindFirstChild("Ladder") if ICIL then ICIL:Destroy() end
-                            local ICIPG = Cream:FindFirstChild("PluginGrass") if ICIPG then ICIPG:Destroy() end
-                        
-                        
-                            -- Peanut Island [ Done ]
-                            local Peanut = game.Workspace.Map:WaitForChild("Peanut Island").IslandModel
-                        
-                            local PID = Peanut:FindFirstChild("Details") if PID then PID:Destroy() end
-                            local PIM = Peanut:FindFirstChild("Model") if PIM then PIM:Destroy() end
-                            local PIT = Peanut:FindFirstChild("Tree") if PIT then PIT:Destroy() end
-                            local PISI = Peanut:FindFirstChild("snowisland_Cylinder.081") if PISI then PISI:Destroy() end
-                            local PIB108 = Peanut:FindFirstChild("bloxfruits_bossarea_Cylinder.108") if PIB108 then PIB108:Destroy() end
-                            local PIB110 = Peanut:FindFirstChild("bloxfruits_bossarea_Cylinder.110") if PIB110 then PIB110:Destroy() end
-                            local PIB098 = Peanut:FindFirstChild("bloxfruits_island2_Cylinder.098") if PIB098 then PIB098:Destroy() end
-                            local PIB086 = Peanut:FindFirstChild("bloxfruits_island2_Cylinder.086") if PIB086 then PIB086:Destroy() end
-                            local PIP = Peanut:FindFirstChild("Part") if PIP then PIP:Destroy() end
-                            local PICUBE = Peanut:FindFirstChild("nuts_fixed_Cube.005") if PICUBE then PICUBE:Destroy() end
-                            local PICUBE8 = Peanut:FindFirstChild("nuts_fixed_Cube.008") if PICUBE8 then PICUBE8:Destroy() end
-                            local PICUBE6 = Peanut:FindFirstChild("nuts_fixed_Cube.006") if PICUBE6 then PICUBE6:Destroy() end
-                            local PICUBE1 = Peanut:FindFirstChild("nuts_fixed_Cube") if PICUBE1 then PICUBE1:Destroy() end
-                        
-                            -- Port
-                            local Port = game.Workspace.Map.Port.IslandModel
-                        
-                            local PD = Port:FindFirstChild("PluginGrass") if PD then PD:Destroy() end
-                            local PH = Port:FindFirstChild("Hotels") if PH then PH:Destroy() end
-                            local PT = Port:FindFirstChild("Tree") if PT then PT:Destroy() end
-                            local PHs = Port:FindFirstChild("Wedge") if PHs then PHs:Destroy() end
-                            local PHa = Port:FindFirstChild("Part") if PHa then PHa:Destroy() end
-                            local PHe = Port:FindFirstChild("snowisland_Cylinder.081") if PHe then PHe:Destroy() end
-                            local PH3 = Port:FindFirstChild("bloxfruits_island2_Cylinder.098") if PH3 then PH3:Destroy() end
-                        
-                            -- Waterfall
-                            local WaterFall = game.Workspace.Map.Waterfall.IslandModel
-                        
-                            local ICIDs = WaterFall:FindFirstChild("BiggTree") if ICIDs then ICIDs:Destroy() end
-                            local ICIHs = WaterFall:FindFirstChild("Tree") if ICIHs then ICIHs:Destroy() end
-                            --local ICIMSS = WaterFall:FindFirstChild("Model") if ICIMSS then ICIMSS:Destroy() end
-                            local ICIMssS = WaterFall:FindFirstChild("Details") if ICIMssS then ICIMssS:Destroy() end
-                            local WaHouse = WaterFall:FindFirstChild("BigHouse") if WaHouse then WaHouse:Destroy() end
-                            local WaBam = WaterFall:FindFirstChild("BambooTree") if WaBam then WaBam:Destroy() end
-                            local WaCir = WaterFall:FindFirstChild("Circle") if WaCir then WaCir:Destroy() end
-                            local WaPart = WaterFall:FindFirstChild("Part") if WaPart then WaPart:Destroy() end
-                            local WaGrass = WaterFall:FindFirstChild("PluginGrass") if WaGrass then WaGrass:Destroy() end
-                            local WaGrasss = WaterFall:FindFirstChild("snowisland_Cylinder.081") if WaGrasss then WaGrasss:Destroy() end
-                            local WaGrassa = WaterFall:FindFirstChild("Wedge") if WaGrassa then WaGrassa:Destroy() end
-                        
-                            -- Turtle
-                            local Turtle = game.Workspace.Map.Turtle.IslandModel
-                        
-                            local ICIMd = Turtle:FindFirstChild("Rocks") if ICIMd then ICIMd:Destroy() end
-                            local ICIMda = Turtle:FindFirstChild("Tree") if ICIMda then ICIMda:Destroy() end
-                            local TurShroom = Turtle:FindFirstChild("Shroom1") if TurShroom then TurShroom:Destroy() end
-                            local TurShroom2 = Turtle:FindFirstChild("Shroom2") if TurShroom2 then TurShroom2:Destroy() end
-                            local TurVine1 = Turtle:FindFirstChild("Vines1") if TurVine1 then TurVine1:Destroy() end
-                            local TurVine2 = Turtle:FindFirstChild("Vines2") if TurVine2 then TurVine2:Destroy() end
-                            local TurVine3 = Turtle:FindFirstChild("Vines3") if TurVine3 then TurVine3:Destroy() end
-                            local TurDetails = Turtle:FindFirstChild("Town2Details") if TurDetails then TurDetails:Destroy() end
-                            local TurTown = Turtle:FindFirstChild("TownDetails") if TurTown then TurTown:Destroy() end   
-                            local TurTrees = Turtle:FindFirstChild("Trees") if TurTrees then TurTrees:Destroy() end
-                            local TurRock1 = Turtle:FindFirstChild("Rock1") if TurRock1 then TurRock1:Destroy() end
-                            local TurPart = Turtle:FindFirstChild("Part") if TurPart then TurPart:Destroy() end
-                            local TurRock = Turtle:FindFirstChild("Rock") if TurRock then TurRock:Destroy() end
-                            local TurWood = Turtle:FindFirstChild("Wood") if TurWood then TurWood:Destroy() end
-                            local TurWoods = Turtle:FindFirstChild("PluginGrass") if TurWoods then TurWoods:Destroy() end
-                            print("Cleaning Map")
-                        end
-                    end
-                end
-            end)
-        end)
     
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -4156,74 +3739,9 @@ spawn(function()
     end)
 end)
 
-Setting:LabelWarn("!! WARNING !!")
-Setting:LabelIMG("       NOT RECOMMENDED ACTIVE INSTANT KILL","rbxassetid://14782648917",Color3.fromRGB(255,0,0))
-Setting:LabelIMG("       INSTANT KILL IS KICKABLE","rbxassetid://14782648917",Color3.fromRGB(0,128,255))
-Setting:LabelIMG("       YOU CAN GET KICK BY USING IT","rbxassetid://14782648917",Color3.fromRGB(0,255,191))
-
-Setting:Toggle("Instant Kill",false,function(value)
-InstaTRUE = value
-end)
-
-spawn(function()
-while wait() do
-    pcall(function()
-        if InstaTRUE or StartMagnet then
-        repeat wait(0.1)
-        InstaAttackTRUE()
-        until not StartMagnet or InstaTRUE
-            end
-        end)
-    end
-end)
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if InstaTRUE then
-            game.Players.LocalPlayer.Character.Stun.Value = 0
-            game.Players.LocalPlayer.Character.Humanoid.Sit = false
-            game.Players.LocalPlayer.Character.Busy.Value = false        
-        end
-    end)
-end)
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if InstaTRUE then
-             pcall(function()
-                game:GetService'VirtualUser':CaptureController()
-                game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
-                end)
-            end
-        end)
-    end)
-
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 Setting:Seperator("\\\\\ Other Setting //")
-
-Setting:Toggle("Remove Attack Animation",false,function(value)
-    getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync 
-getgenv().B = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.Particle).play
-spawn(function()
-
-    while wait() do
-            pcall(function()
-                require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync =function(a1,a2,a3,a4,a5)
-                    local GetBladeHits = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).getBladeHits(a2,a3,a4)
-                    if GetBladeHits then
-                         require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).play = function() end
-                        a1:Play(0.2, 0.2, 0.2)
-                        a5(GetBladeHits)
-                         require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).play = getgenv().B 
-                        wait(.5)
-                        a1:Stop()
-                    end
-                end
-            end)
-        end
-    end)
-end)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -4248,10 +3766,6 @@ Setting:Button("Remove Sound",function()
     v:Destroy()
         end
     end
-end)
-    
-Setting:Toggle("Delete Effect hit",false,function(value)
-    getgenv().D = value
 end)
     
 Setting:Button("Delete Effect Damage", function()
@@ -4295,8 +3809,9 @@ end)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-if World1 then
-Setting:Seperator("World 1 Fps Boost")
+if World1 or World2 then
+
+Setting:Seperator("World 1/2 Fps Boost")
 Setting:Toggle("Fps Boost",true,function(value)
         _G.FpsBoost1 = value
     end)
@@ -4304,66 +3819,6 @@ Setting:Toggle("Fps Boost",true,function(value)
         pcall(function()
             while wait() do
                 if _G.FpsBoost1 then
-                    game:GetService("Lighting").FantasySky:Destroy()
-                    local g = game
-                    local w = g.Workspace
-                    local l = g.Lighting
-                    local t = w.Terrain
-                    t.WaterWaveSize = 0
-                    t.WaterWaveSpeed = 0
-                    t.WaterReflectance = 0
-                    t.WaterTransparency = 0
-                    l.GlobalShadows = false
-                    l.FogEnd = 9e9
-                    l.Brightness = 0
-                    settings().Rendering.QualityLevel = "Level01"
-                    for i, v in pairs(g:GetDescendants()) do
-                    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-                    v.Material = "Plastic"
-                    v.Reflectance = 0
-                    elseif v:IsA("Decal") or v:IsA("Texture") then
-                    v.Transparency = 1
-                    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-                    v.Lifetime = NumberRange.new(0)
-                    elseif v:IsA("Explosion") then
-                    v.Transparency = 1
-                    v.BlastPressure = 1
-                    v.BlastRadius = 1
-                    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-                    v.Enabled = false
-                    elseif v:IsA("MeshPart") then
-                    v.Material = "Plastic"
-                    v.Reflectance = 0
-                    v.TextureID = 10385902758728957
-                    end
-                    end
-                    for i, e in pairs(l:GetChildren()) do
-                    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-                    e.Enabled = false
-                    end
-                    end
-                    for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
-                    if v.Name == ("Water;") then
-                    v.Transparency = 1
-                    v.Material = "Plastic"
-                        end
-                    end
-                end
-            end
-        end)
-    end)
-end
-
-if World2 then
-Setting:Seperator("World 2 Fps Boost")
-Setting:Toggle("Fps Boost",true,function(value)
-        _G.FpsBoost2 = value
-    end)
-
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.FpsBoost2 then
                     game:GetService("Lighting").FantasySky:Destroy()
                     local g = game
                     local w = g.Workspace
@@ -4478,10 +3933,6 @@ Setting:Toggle("Fps Boost",false,function(value)
         end)
     end)
 end
-
---------------------------------------------------------------------------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -4714,211 +4165,14 @@ local locallv = User:Label("Level")
     end
     end)
     end
-    end)
-
-User:Seperator("\\\\\  Sword  //")
-
-local Saber = User:Label("❌: Saber")
-local Rengoku = User:Label("❌: Rengoku")
-local Midnight_Blade = User:Label("❌: Midnight Blade")
-local Dragon_Trident = User:Label("❌: Dragon Trident")
-local Yama = User:Label("❌: Yama")
-local Buddy_Sword = User:Label("❌: Buddy Sword")
-local Canvander = User:Label("❌: Canvander")
-local Twin_Hooks = User:Label("❌: Twin Hooks")
-local Spikey_Trident = User:Label("❌: Spikey Trident")
-local Hallow_Scythe = User:Label("❌: Hallow Scythe")
-local Dark_Dagger = User:Label("❌: Dark Dagger")
-local Tushita = User:Label("❌: Tushita")
-
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-                if v.Name == "Saber" then
-                    Saber:Set("✅: Saber")
-                end
-                if v.Name == "Rengoku" then
-                    Rengoku:Set("✅: Rengoku")
-                end
-                if v.Name == "Midnight Blade" then
-                    Midnight_Blade:Set("✅: Midnight Blade")
-                end
-                if v.Name == "Dragon Trident" then
-                    Dragon_Trident:Set("✅: Dragon Trident")
-                end
-                if v.Name == "Yama" then
-                    Yama:Set("✅: Yama")
-                end
-                if v.Name == "Buddy Sword" then
-                    Buddy_Sword:Set("✅: Buddy Sword")
-                end
-                if v.Name == "Canvander" then
-                    Canvander:Set("✅: Canvander")
-                end
-                if v.Name == "Twin Hooks" then
-                    Twin_Hooks:Set("✅: Twin Hooks")
-                end
-                if v.Name == "Spikey Trident" then
-                    Spikey_Trident:Set("✅: Spikey Trident")
-                end
-                if v.Name == "Hallow Scythe" then
-                    Hallow_Scythe:Set("✅: Hallow Scythe")
-                end
-                if v.Name == "Dark Dagger" then
-                    Dark_Dagger:Set("✅: Dark Dagger")
-                end
-                if v.Name == "Tushita" then
-                    Tushita:Set("✅: Tushita")
-                 end
-            end
-        end)
-    end
-end)
-
-User:Seperator("\\\\\  Quest  //")
-
-local Bartilo_Quest = User:Label("❌: Bartilo Quest")
-local Don_Swan_Quest = User:Label("❌: Don Swan Quest")
-local Kill_Don_Swan = User:Label("❌: Kill Don Swan")
-
-spawn(function()
-    while task.wait() do
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo") == 3 then
-            Bartilo_Quest:Set("✅: Bartilo Quest")
-        end
-
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetUnlockables").FlamingoAccess == nil then
-            --Nothing
-        else
-            Don_Swan_Quest:Set("✅: Don Swan Quest")
-        end
-
-        if game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("ZQuestProgress", "Check") == 1 then
-            Kill_Don_Swan:Set("✅: Kill Don Swan")
-        end
-    end
-end)
-
-User:Seperator("\\\\\  Sword Legendary  //")
-
-local Shisui = User:Label("❌: Shisui")
-local Saddi = User:Label("❌: Saddi")
-local Wando = User:Label("❌: Wando")
-local True_Triple_Katana = User:Label("❌: True Triple Katana")
-
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-                if v.Name == "Shisui" then
-                    Shisui:Set("✅: Shisui")
-                end
-                if v.Name == "Saddi" then
-                    Saddi:Set("✅: Saddi")
-                end
-                if v.Name == "Wando" then
-                    Wando:Set("✅: Wando")
-                end
-                if v.Name == "True Triple Katana" then
-                    True_Triple_Katana:Set("✅: True Triple Katana")
-                end
-            end
-        end)
-    end
-end)
-
-User:Seperator("\\\\\  Melee  //")
-
-local Superhuman = User:Label("❌: Superhuman")
-local Death_Step = User:Label("❌: Death Step")
-local Sharkman_Karate = User:Label("❌: Sharkman Karate")
-local Electric_Claw = User:Label("❌: Electric Claw")
-local Dragon_Talon = User:Label("❌: Dragon Talon")
-local God_Human = User:Label("❌: God Human")
-
-spawn(function()
-    while task.wait() do
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true) == 1 then
-            Superhuman:Set("✅: Superhuman")
-        end
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
-            Death_Step:Set("✅: Death Step")
-        end
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == 1 then
-            Sharkman_Karate:Set("✅: Sharkman Karate")
-        end
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true) == 1 then
-            Electric_Claw:Set("✅: Electric Claw")
-        end
-        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true) == 1 then
-            Dragon_Talon:Set("✅: Dragon Talon")
-        end
-    end
-end)
-
-User:Seperator("\\\\\  Gun  //")
-
-local Kabu_cha = User:Label("❌: Kabucha")
-local Acidum_Rifle = User:Label("❌: Acidum Rifle")
-local Bizarre_Rifle = User:Label("❌: Bizarre Rifle")
-
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-                if v.Name == "Kabucha" then
-                    Kabu_cha:Set("✅: Kabucha")
-                end
-                if v.Name == "Acidum Rifle" then
-                    Acidum_Rifle:Set("✅: Acidum Rifle")
-                end
-                if v.Name == "Bizarre Rifle" then
-                    Bizarre_Rifle:Set("✅: Bizarre Rifle")
-                end
-            end
-        end)
-    end
-end)
-
-User:Seperator("\\\\\  Accessory  //")
-
-local Dark_Coat = User:Label("❌: Dark Coat")
-local Ghoul_Mask = User:Label("❌: Ghoul Mask")
-local Swan_Glass = User:Label("❌: Swan Glass")
-local Pale_Scarf = User:Label("❌: Pale Scarf")
-local Valkyrie_Helm = User:Label("❌: Valkyrie Helm")
-
-
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-                if v.Name == "Saber" then
-                    Dark_Coat:Set("✅: Dark Coat")
-                end
-                if v.Name == "Ghoul Mask" then
-                    Ghoul_Mask:Set("✅: Ghoul Mask")
-                end
-                if v.Name == "Swan Glasses" then
-                    Swan_Glass:Set("✅: Swan Glass")
-                end
-                if v.Name == "Pale Scarf" then
-                    Pale_Scarf:Set("✅: Pale Scarf")
-                end
-                if v.Name == "Valkyrie Helmet" then
-                    Valkyrie_Helm:Set("✅: Valkyrie Helmet")
-                end
-            end
-        end)
-    end
 end)
 
 --[[
 
     Seperator Window
 
-    ]]
+]]
+
 Main:Line()
 Main:Seperator("\\\\\ Auto Farm //")
 
@@ -4944,66 +4198,64 @@ WeaponList = {}
 local AutoFarm = Main:Toggle("Auto Farm",_G.AutoFarm,function(value)
     _G.AutoFarm = value
     StopTween(_G.AutoFarm)
-    end)
+end)
 
-    spawn(function()
-        while wait() do
+spawn(function()
+    while wait() do
         if _G.AutoFarm then
-        pcall(function()
-    
-        game.Workspace.Gravity = 0
-        game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
-        game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
-    
-        local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-        if not string.find(QuestTitle, NameMon) then
-        StartMagnet = false
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-    end
-
-        if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-        StartMagnet = false
-        CheckQuest()
-        repeat wait() topos(CFrameQuest) until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not _G.AutoFarm
-        if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
-    end
-
-        elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-        CheckQuest()
-            if game:GetService("Workspace").Enemies:FindFirstChild(Mon) then
-                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                    if v.Name == Mon then
-
-                    repeat wait()
-                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
-                        EquipWeapon(_G.SelectWeapon)
-                        AutoHaki()
-                        PosMon = v.HumanoidRootPart.CFrame
-                        topos(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
-                        v.HumanoidRootPart.CanCollide = false
-                        v.Humanoid.WalkSpeed = 0
-                        v.Head.CanCollide = false
-                        v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-                        StartMagnet = true -- true
-                        --topos(v.HumanoidRootPart.CFrame * MethodFarm)
-                        game:GetService'VirtualUser':CaptureController()
-                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                            else
-                            StartMagnet = false
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                        end
-                    until not _G.AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+            pcall(function()
+                local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
+                if not string.find(QuestTitle, NameMon) then
+                    StartMagnet = false
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                end
+                if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                    StartMagnet = false
+                    CheckQuest()
+                    if BypassTP then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
+                    BTP(CFrameQuest)
+                    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude < 1500 then
+                    TP1(CFrameQuest)
+                    end
+                else
+                    TP1(CFrameQuest)
+                end
+                if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 20 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
+                    end
+                elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                    CheckQuest()
+                    if game:GetService("Workspace").Enemies:FindFirstChild(Mon) then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                                if v.Name == Mon then
+                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+                                        repeat task.wait()
+                                            EquipWeapon(_G.SelectWeapon)
+                                            AutoHaki()                                            
+                                            PosMon = v.HumanoidRootPart.CFrame
+                                            TP1(v.HumanoidRootPart.CFrame * Pos)
+                                            v.HumanoidRootPart.CanCollide = false
+                                            v.Humanoid.WalkSpeed = 0
+                                            v.Head.CanCollide = false
+                                            v.HumanoidRootPart.Size = Vector3.new(70,70,70)
+                                            StartMagnet = true
+                                            game:GetService'VirtualUser':CaptureController()
+                                            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                                        until not _G.AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                    else
+                                        StartMagnet = false
+                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                     end
                                 end
                             end
-                        else
-                            StartMagnet = false
+                        end
+                    else
+                        TP1(CFrameMon)
+                        StartMagnet = false
                         if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(0,20,0))
-                        else
-                        topos(CFrameMon)
+                         TP1(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(15,10,2))
                         end
                     end
                 end

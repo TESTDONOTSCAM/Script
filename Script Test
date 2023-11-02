@@ -5,7 +5,7 @@ do local ui =  game:GetService("CoreGui"):FindFirstChild("RippleFPS")  if ui the
 do local uix =  game:GetService("CoreGui"):FindFirstChild("Rippletime")  if uix then uix:Destroy() end end
 
 if _G.Fast_Delay == nil then
-	_G.Fast_Delay = 0.3
+	_G.Fast_Delay = 0.2
 end
 
 local openshit = Instance.new("ScreenGui")
@@ -140,7 +140,7 @@ mainopens.Parent = mainopen
  _G.SectionImageColor = Color3.fromRGB(150, 150, 150)
  _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
  _G.SectionOn = Color3.fromRGB(0, 250, 0)
- _G.HubName = "ScriptBlox Premium"
+ _G.HubName = "ScriptBlox Premiwfwum"
 	
 	local RippleFPS = Instance.new("ScreenGui")
 	local Rippletime = Instance.new("ScreenGui")
@@ -3859,6 +3859,8 @@ spawn(function()
         end
     end)
 end)
+
+
 
 Setting:Dropdown2("Fast Attack Delay ","0.2",MIo,function(vu)
 	_G.FastAttack_Mode = vu
@@ -7597,13 +7599,11 @@ end)
                    pcall(function()
                      for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                          if v:FindFirstChild("HumanoidRootPart") then
-                            repeat task.wait()
                             AutoHaki()
                             EquipWeapon(_G.SelectWeapon)
                             topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                            until not _G.Bridage
                         else
                             if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,10,0))
@@ -7631,13 +7631,11 @@ end)
                    pcall(function()
                      for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
                          if v:FindFirstChild("HumanoidRootPart") then
-                            repeat task.wait()
                             AutoHaki()
                             EquipWeapon(_G.SelectWeapon)
                             topos(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                            until not _G.Beast
                         else
                             if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,300,0))

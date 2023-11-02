@@ -8121,7 +8121,7 @@ if _G.AutoRemover == true then
         end
     end)
 
-    Sea:Toggle("Ghost Ship",false,function(val)
+    Sea:Toggle("Ghowfwwfst Ship",false,function(val)
         _G.Bridage = val
     end)
     
@@ -8133,24 +8133,30 @@ if _G.AutoRemover == true then
                     if game.Workspace.Enemies:FindFirstChild(Mon) then
                      for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                          if v.Name == Mon and v.Humanoid.Health > 0 then
+                        repeat task.wait()
                             AutoHaki()
                             PosMon = v.HumanoidRootPart.CFrame
-                        repeat task.wait()
+                            v.HumanoidRootPart.CanCollide = false
+							v.Humanoid.WalkSpeed = 0
+							v.Head.CanCollide = false
+							v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                             TelePBoss(CFrameMon)
                             EquipWeapon(_G.SelectWeapon)
+                            StartMagnet = true
                             topos(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0) * Pos)
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                        until not v.Parent or not _G.Bridage
+                        until not v.Parent or v.Humanoid.Health <= 0 or not _G.Bridage
                         else
                             if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,60,0))
                             else 
                                 topos(CFrameMon)
+                                StartMagnet = false
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                                    end
                                 end
-                            end
                             end
                         end
                     end

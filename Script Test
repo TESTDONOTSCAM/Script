@@ -7861,45 +7861,6 @@ Sea:Toggle("Buy & Send Ship",_G.AutoSail,function(val)
     _G.AutoRemover = val
     StopTween(_G.AutoSail)
 if _G.AutoRemover == true then
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Boat Remover"; 
-        Text = "Removing Boat [5 Sec]"; 
-        Icon = "http://www.roblox.com/asset/?id=14355269935";
-        Duration = 3;
-        Button1 = "Okay"
-    })
-    wait(0.8)
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Boat Remover"; 
-        Text = "Removing Boat [4 Sec]"; 
-        Icon = "http://www.roblox.com/asset/?id=14355269935";
-        Duration = 3;
-        Button1 = "Okay"
-    })
-    wait(0.8)	
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Boat Remover"; 
-        Text = "Removing Boat [3 Sec]"; 
-        Icon = "http://www.roblox.com/asset/?id=14355269935";
-        Duration = 3;
-        Button1 = "Okay"
-    })
-    wait(0.8)
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Boat Remover"; 
-        Text = "Removing Boat [2 Sec]"; 
-        Icon = "http://www.roblox.com/asset/?id=14355269935";
-        Duration = 3;
-        Button1 = "Okay"
-    })
-    wait(0.8)
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Boat Remover"; 
-        Text = "Removing Boat [1 Sec]"; 
-        Icon = "http://www.roblox.com/asset/?id=14355269935";
-        Duration = 3;
-        Button1 = "Okay"
-    })
     repeat task.wait()
     local Remover = game.Workspace.Boats:FindFirstChild("Guardian") if Remover then Remover:Destroy() end
     print("Work")
@@ -7921,7 +7882,7 @@ if _G.AutoRemover == true then
     print("Work")
     local Remover0 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover0 then Remover0:Destroy() end
     print("Work")
-    wait(2)
+    wait(1)
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Boat Remover"; 
         Text = "Removing Boat Completed"; 
@@ -7970,7 +7931,7 @@ if _G.AutoRemover == true then
                                     end
                                 elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
     
-                                    if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
+                                    if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                                 TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
 
                                 game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -8016,6 +7977,7 @@ if _G.AutoRemover == true then
                         Button1 = "Okay"
                     })
                     if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                    wait(30)
                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                     StopTween(_G.SendShip)
                     _G.SendShip = false

@@ -3781,7 +3781,7 @@ spawn(function()
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 					else
-						StatrMagnet = nil
+						StartMagnet = nil
 						CheckLevel2()
 						AutoHaki()
 						_G.FastAttack = false
@@ -3806,7 +3806,7 @@ spawn(function()
 									v.Humanoid.WalkSpeed = 0
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(5,5,5)
-									StatrMagnet = nil
+									StartMagnet = nil
 									repeat wait(0.3)
 										TelePBoss(CFrameQBoss)
 										EquipWeapon(_G.Setting_table.Weapon)
@@ -3828,7 +3828,7 @@ spawn(function()
 								if v.Name == Ms and v.Humanoid.Health > 0 then
 									_G.PosMon = v.HumanoidRootPart.CFrame
 									_G.FastAttack = true
-									StatrMagnet = true
+									StartMagnet = true
 									if v.Humanoid:FindFirstChild("Animator") then
 										v.Humanoid.Animator:Destroy()
 									end
@@ -3855,7 +3855,7 @@ spawn(function()
 							end
 							else
 							_G.FastAttack = false
-							StatrMagnet = false
+							StartMagnet = false
 							if game.ReplicatedStorage:FindFirstChild(Ms) then
 								topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 							else
@@ -8085,7 +8085,7 @@ if _G.AutoRemover == true then
                         else
                             if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,10,0))
-                            else 
+                            elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                 end
@@ -8115,7 +8115,7 @@ if _G.AutoRemover == true then
                         else
                             if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
-                            else 
+                            elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                 end

@@ -3765,7 +3765,7 @@ spawn(function()
                     _G.FastAttack = false
                     repeat wait(.2)
                         topos(CFrameQuest)
-                        BTP(CFrameQuest)
+                        TP1(CFrameQuest)
                         _G.FastAttack2 = false
                     until (CFrameQuest.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, LevelQuest)
@@ -3779,7 +3779,7 @@ spawn(function()
                     AutoHaki()
                     _G.FastAttack = false
                     repeat wait(.2)
-                        BTP(CFrameQuest)
+                        TP1(CFrameQuest)
                         topos(CFrameQuest)
                     until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, LevelQuest)

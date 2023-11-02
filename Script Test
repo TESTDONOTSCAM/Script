@@ -7948,10 +7948,11 @@ end)
     
     Sea:Toggle("Teleport To Ship",_G.SendShip,function(vu)
         _G.SendShip = vu
+        _G.SendNof = vu
     end)
     
     spawn(function()
-        while wait(15) do
+        while wait(120) do
             if _G.SendShip then
                 pcall(function()
                     topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
@@ -7972,17 +7973,33 @@ end)
             end
         end
     end)
-    
-    if _G.SendShip then
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Tweening Boat",
-        Text = "This May Take A While",
-        Icon = "http://www.roblox.com/asset/?id=14355269935",
-        Duration = 9000,
-        Button1 = "Okay",
-    })
-    end
-    
+
+    spawn(function()
+        while wait() do
+            if _G.SendNof then
+                pcall(function()
+                    game:GetService("StarterGui"):SetCore("SendNotification", {
+                        Title = "Teleporting..."; 
+                        Text = "Waiting [ 150 Second ]"; 
+                        Icon = "http://www.roblox.com/asset/?id=14355269935";
+                        Duration = 150;
+                        Button1 = "Okay"
+                    })
+                    wait(1)
+                    game:GetService("StarterGui"):SetCore("SendNotification", {
+                        Title = "Teleporting..."; 
+                        Text = "Waiting Boats Success Tween"; 
+                        Icon = "http://www.roblox.com/asset/?id=14355269935";
+                        Duration = 150;
+                        Button1 = "Okay"
+                    })
+                    wait(2)
+                    _G.SendNof = false
+                end)
+            end
+        end
+    end)
+
     Sea:Toggle("Ghost Ship",false,function(val)
         _G.Bridage = val
     end)
@@ -7999,8 +8016,8 @@ end)
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                         else
-                            if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+                            if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,10,0))
                             else 
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))

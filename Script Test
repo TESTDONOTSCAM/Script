@@ -7964,11 +7964,8 @@ end)
                         Duration = 10;
                         Button1 = "Okay"
                     })
-                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                        TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                     StopTween(_G.SendShip)
                     _G.SendShip = false
-                    end
                 end)
             end
         end

@@ -7882,7 +7882,6 @@ if _G.AutoRemover == true then
     print("Work")
     local Remover0 = game.Workspace.Boats:FindFirstChild("Guardian") if Remover0 then Remover0:Destroy() end
     print("Work")
-    wait(1)
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Boat Remover"; 
         Text = "Removing Boat Completed"; 
@@ -7891,7 +7890,6 @@ if _G.AutoRemover == true then
         Button1 = "Okay"
     })	
     _G.AutoRemover = false
-    wait(1)
     _G.AutoSail = true
     print("Work")
     until not _G.AutoRemover
@@ -7977,7 +7975,7 @@ if _G.AutoRemover == true then
                         Button1 = "Okay"
                     })
                     if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                    wait(30)
+                    wait(5)
                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                     StopTween(_G.SendShip)
                     _G.SendShip = false
@@ -8040,8 +8038,9 @@ if _G.AutoRemover == true then
         while wait() do
             if _G.Bridage then
                 pcall(function()
+                    if game.Workspace.Enemies:FindFirstChild("PirateBrigade") then
                      for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                         if v:FindFirstChild("HumanoidRootPart") then
+                         if v.Name == "PirateBrigade" and v.Humanoid.Health > 0 then
                         AutoHaki()
                         PosMon = v.HumanoidRootPart.CFrame
                         v.HumanoidRootPart.CanCollide = false
@@ -8064,6 +8063,7 @@ if _G.AutoRemover == true then
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                 end
+                            end
                             end
                         end
                     end

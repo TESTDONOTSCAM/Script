@@ -3387,7 +3387,7 @@ end)
 
 function TPB(CFgo)
 	local tween_s = game:service"TweenService"
-	local info = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/270, Enum.EasingStyle.Linear)
+	local info = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/180, Enum.EasingStyle.Linear)
 	tween = tween_s:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, info, {CFrame = CFgo})
 tween:Play()
 tween.Completed:Wait(E)
@@ -3746,66 +3746,129 @@ local AutoFarm = Main:Toggle("Auto Farm",_G.AutoFarm,function(value)
 end)
 
 spawn(function()
-    while wait() do
-        if _G.AutoFarm then
-            pcall(function()
-                local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-                if not string.find(QuestTitle, NameMon) then
-                    StartMagnet = false
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+	while wait() do
+		pcall(function()
+		if _G.AutoFarm then
+            if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                if _G.Farm_Boss then
+                    _G.SelectBoss = nil
+                    _G.Farm_Boss = nil
+                    SelectMonster = nil
+                    _G.Farm_Mon = nil
+                    _G.FastAttack = false
+                    wait(.2)
                 end
-                if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                    StartMagnet = false
+                if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
+                    CheckQuestBoss()
+                    repeat wait(.2)
+                        TelePBoss(CFrameQBoss)
+                        TP(CFrameQBoss)
+                    until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                    _G.Farm_Boss = true
+                    _G.FastAttack = false
+                elseif SelectMonster ~= nil then
                     CheckQuest()
-                    if BypassTP then
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
-                    BTP(CFrameQuest)
-                    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude < 1500 then
-                    topos(CFrameQuest)
-                    end
+                    AutoHaki()
+                    _G.FastAttack = false
+                    repeat wait(.2)
+                        topos(CFrameQuest)
+                        BTP(CFrameQuest)
+                        _G.FastAttack2 = false
+                    until (CFrameQuest.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, LevelQuest)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                    _G.FastAttack = false
+                    SelectMonster = nil
+                    _G.Farm_Mon = nil
                 else
-                    topos(CFrameQuest)
-                end
-                if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 20 then
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
-                    end
-                elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                    StartMagnet = nil
                     CheckQuest()
-                    if game:GetService("Workspace").Enemies:FindFirstChild(Mon) then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                                if v.Name == Mon then
-                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
-                                        repeat task.wait()
-                                            EquipWeapon(_G.SelectWeapon)
-                                            AutoHaki()
-                                            PosMon = v.HumanoidRootPart.CFrame
-                                            topos(v.HumanoidRootPart.CFrame * Pos)
-                                            v.HumanoidRootPart.CanCollide = false
-                                            v.Humanoid.WalkSpeed = 0
-                                            v.Head.CanCollide = false
-                                            v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-                                            StartMagnet = true
-                                            game:GetService'VirtualUser':CaptureController()
-                                            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                                        until not _G.AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                    else
-                                        StartMagnet = false
-                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                                    end
+                    AutoHaki()
+                    _G.FastAttack = false
+                    repeat wait(.2)
+                        BTP(CFrameQuest)
+                        topos(CFrameQuest)
+                    until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, LevelQuest)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                    _G.FastAttack2 = false
+                end
+            elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                if _G.Farm_Boss then
+                    if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
+                        for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                            if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                v.Humanoid:ChangeState(11)
+                                v.Humanoid.JumpPower = 0
+                                v.Humanoid.WalkSpeed = 0
+                                v.HumanoidRootPart.CanCollide = false
+                                v.HumanoidRootPart.Size = Vector3.new(5,5,5)
+                                StatrMagnet = nil
+                                repeat wait(0.3)
+                                    TelePBoss(CFrameQBoss)
+                                    EquipWeapon(_G.Setting_table.Weapon)
+                                    topos(v.HumanoidRootPart.CFrame*CFrame.new(0,30,50))
+                                    AttackNoCD()
+                                until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+                                if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
+                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                 end
                             end
                         end
                     else
-                        topos(CFrameMon)
+                        topos(CFrameBoss*CFrame.new(0,30,0))
+                        TelePBoss(CFrameBoss)
+                    end
+                else
+                    if game.Workspace.Enemies:FindFirstChild(Mon) then
+                        for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                            if v.Name == Mon and v.Humanoid.Health > 0 then
+                                _G.PosMon = v.HumanoidRootPart.CFrame
+                                _G.FastAttack = true
+                                StartMagnet = true
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                v.Humanoid:ChangeState(11)
+                                v.Humanoid.JumpPower = 0
+                                v.Humanoid.WalkSpeed = 0
+                                v.HumanoidRootPart.CanCollide = false
+                                v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+                                repeat task.wait()
+                                    TelePBoss(CFrameQuest)
+                                    EquipWeapon(_G.Setting_table.Weapon)
+                                    topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+                                    game:GetService'VirtualUser':CaptureController()
+                                    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                                until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
+                                if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+                                elseif Lv >= 1 and Lv <= 2499 then
+                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                elseif Lv >= 2525 then
+                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                end
+                                Attack = nil
+                            end
+                        end
+                        else
+                        _G.FastAttack = false
                         StartMagnet = false
-                        if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
-                         topos(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+                        if game.ReplicatedStorage:FindFirstChild(Mon) then
+                            topos(game.ReplicatedStorage:FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+                        else
+                        topos(CFrameMon)
+                        _G.FastAttack = false
                         end
                     end
+                    end
                 end
-            end)
-        end
+            end
+        end)
     end
 end)
 

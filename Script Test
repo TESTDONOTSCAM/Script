@@ -8305,30 +8305,38 @@ if _G.AutoRemover == true then
         end
     end)
 
-    Sea:Toggle("Beta Button2",false,function(val)
+    Sea:Toggle("Beta Button",false,function(val)
         _G.Bridagew = val
+        StopTween(_G.Bridagew)
     end)
     
     spawn(function()
         while wait() do
             if _G.Bridagew then
-                   pcall(function()
-                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                pcall(function()
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                          if v:FindFirstChild("HumanoidRootPart") then
+                            v.Humanoid:ChangeState(11)
+							v.Humanoid.JumpPower = 0
+							v.Humanoid.WalkSpeed = 0
+							v.HumanoidRootPart.CanCollide = false
+							v.HumanoidRootPart.Size = Vector3.new(5,5,5)
+                            StatrMagnet = true
+                        repeat task.wait()
                             AutoHaki()
                             EquipWeapon(_G.Setting_table.Weapon)
-                            topos(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0) * Pos)
+                            topos(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0) * Pos)
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                        until not v.Parent or not v.Humanoid.Health < 0 or not _G.Bridagew
                         else
-                            if game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion") or game:GetService("ReplicatedStorage"):FindFirstChild("Sun-kissed Warrior")  then
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion") or game:GetService("ReplicatedStorage"):FindFirstChild("Sun-kissed Warrior")  then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion") or game:GetService("ReplicatedStorage"):FindFirstChild("Sun-kissed Warrior").HumanoidRootPart.CFrame * CFrame.new(0,60,0))
-                        --[[
                             elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                                    end]]--
+                                    end
                                 end
                             end
                         end

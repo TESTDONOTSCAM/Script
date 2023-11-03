@@ -8513,7 +8513,6 @@ spawn(function()
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,10))
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame
                         v.Humanoid:ChangeState(11)
@@ -8557,7 +8556,6 @@ spawn(function()
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,10))
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame
                         v.Humanoid:ChangeState(11)

@@ -3654,7 +3654,7 @@ spawn(function()
 				if _G.AutoFarm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-							if v.Name == Ms and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 375 then
+							if v.Name == Ms and (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 375 then
 								if v.Humanoid:FindFirstChild("Animator") then
 									v.Humanoid.Animator:Destroy()
 								end
@@ -3663,14 +3663,14 @@ spawn(function()
 								v.Humanoid.WalkSpeed = 0
 								v.HumanoidRootPart.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-								v.HumanoidRootPart.CFrame = _G.PosMon
+								v.HumanoidRootPart.CFrame = PosMon
 								sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
 							end
 						end
 					end
 				else
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-						if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
+						if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 350 then
 							if v.Humanoid:FindFirstChild("Animator") then
 								v.Humanoid.Animator:Destroy()
 							end
@@ -3679,7 +3679,7 @@ spawn(function()
 							v.Humanoid.WalkSpeed = 0
 							v.HumanoidRootPart.CanCollide = false
 							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-							v.HumanoidRootPart.CFrame = _G.PosMon
+							v.HumanoidRootPart.CFrame = PosMon
 							sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
 						end
 					end
@@ -8317,16 +8317,14 @@ if _G.AutoRemover == true then
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                          if v:FindFirstChild("HumanoidRootPart") then
-                                PosMon = v.HumanoidRootPart.CFrame
-                                StatrMagnet = true
-                            if v.Humanoid:FindFirstChild("Animator") then
-                                v.Humanoid.Animator:Destroy()
-                            end
+                            PosMon = v.HumanoidRootPart.CFrame
+                            StatrMagnet = true
                             v.Humanoid:ChangeState(11)
 							v.Humanoid.JumpPower = 0
 							v.Humanoid.WalkSpeed = 0
 							v.HumanoidRootPart.CanCollide = false
 							v.HumanoidRootPart.Size = Vector3.new(5,5,5)
+                            print("StartMagnet")
                         repeat wait()
                             AutoHaki()
                             EquipWeapon(_G.Setting_table.Weapon)

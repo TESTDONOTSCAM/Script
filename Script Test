@@ -8037,7 +8037,6 @@ if _G.AutoRemover == true then
         while wait() do
             if _G.Bridage then
                    pcall(function()
-                    if (game:GetService("Workspace").Enemies.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
                      for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                          if v:FindFirstChild("HumanoidRootPart") then
                             AutoHaki()

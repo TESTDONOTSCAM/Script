@@ -8300,6 +8300,7 @@ if _G.AutoRemover == true then
                                     AutoSkill = true
                                     AimBotSkillPosition = vs.VehicleSeat
                                     Skillaimbot = true
+                                    print("work1")
                                 until not game:GetService("Workspace").Boats:FindFirstChild("Guardian") or _G.SendShip == false
                                 AutoSkill = false
                                 Skillaimbot = false
@@ -8317,6 +8318,7 @@ if _G.AutoRemover == true then
                                 AutoSkill = true
                                 AimBotSkillPosition = vss.VehicleSeat
                                 Skillaimbot = true
+                                print("work2")
                             until not game:GetService("Workspace").Boats:FindFirstChild("Guardian") or _G.SendShip == false
                             AutoSkill = false
                             Skillaimbot = false
@@ -8333,6 +8335,7 @@ if _G.AutoRemover == true then
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
+                        print("work3")
                     until not v:FindFirstChild("HumanoidRootPart") or _G.SendShip == false
                     AutoSkill = false
                     Skillaimbot = false
@@ -8352,11 +8355,6 @@ end)
                     local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
                     local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
                     local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
-                    local Remover01234 = game.Workspace.SeaBeasts:FindFirstChild("SeaBeast1") if Remover01234 then Remover01234:Destroy() end
-                    local Remover01235 = game.Workspace.Enemies:FindFirstChild("Sun-kissed Warrior") if Remover01235 then Remover01235:Destroy() end
-                    local Remover01236 = game.Workspace.Enemies:FindFirstChild("Isle Champion") if Remover01236 then Remover01236:Destroy() end
-                    local Remover01237 = game.Workspace.Enemies:FindFirstChild("Island Boy") if Remover01237 then Remover01237:Destroy() end
-                    local Remover01238 = game.Workspace.Enemies:FindFirstChild("Isle Outlaw") if Remover01238 then Remover01238:Destroy() end
                     until not _G.Removing
                 end)
             end

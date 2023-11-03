@@ -8305,7 +8305,7 @@ if _G.AutoRemover == true then
         end
     end)
 
-    Sea:Toggle("Beta Butwton",false,function(val)
+    Sea:Toggle("Beta Button",false,function(val)
         _G.Bridagew = val
         StopTween(_G.Bridagew)
     end)
@@ -8317,6 +8317,9 @@ if _G.AutoRemover == true then
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                          if v:FindFirstChild("HumanoidRootPart") then
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
                             v.Humanoid:ChangeState(11)
 							v.Humanoid.JumpPower = 0
 							v.Humanoid.WalkSpeed = 0
@@ -8330,7 +8333,7 @@ if _G.AutoRemover == true then
                             topos(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0) * Pos)
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                        until not v.Parent or not v.Humanoid.Health < 0 or not _G.Bridagew
+                        until not _G.Bridagew
                         else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion") or game:GetService("ReplicatedStorage"):FindFirstChild("Sun-kissed Warrior")  then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion") or game:GetService("ReplicatedStorage"):FindFirstChild("Sun-kissed Warrior").HumanoidRootPart.CFrame * CFrame.new(0,60,0))

@@ -8031,6 +8031,7 @@ if _G.AutoRemover == true then
 
     Sea:Toggle("Ghost Ship",false,function(val)
         _G.Bridage = val
+	StopTween(_G.Bridage)
     end)
     
     spawn(function()
@@ -8060,8 +8061,9 @@ if _G.AutoRemover == true then
         end
     end)
 
-    Sea:Toggle("Ghoswt Ship",false,function(val)
+    Sea:Toggle("Tester",false,function(val)
         _G.Bridagew = val
+	StopTween(_G.Bridagew)
     end)
     
     spawn(function()

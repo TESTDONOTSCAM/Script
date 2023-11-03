@@ -8305,7 +8305,7 @@ if _G.AutoRemover == true then
         end
     end)
 
-    Sea:Toggle("Beta Button",false,function(val)
+    Sea:Toggle("Beta Butwton",false,function(val)
         _G.Bridagew = val
         StopTween(_G.Bridagew)
     end)
@@ -8325,6 +8325,7 @@ if _G.AutoRemover == true then
                             StatrMagnet = true
                         repeat task.wait()
                             AutoHaki()
+                            topos(CFrame.new(-16336.0986, 105.910934, 1127.36401, 0.884881318, 0, 0.465816498, 0, 1, 0, -0.465816498, 0, 0.884881318))
                             EquipWeapon(_G.Setting_table.Weapon)
                             topos(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0) * Pos)
                             game:GetService("VirtualUser"):CaptureController()

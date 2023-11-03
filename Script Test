@@ -1,3 +1,81 @@
+_G.Setting_table = {
+    Auto_Farm = false,
+    FastAttack = true,
+	Auto_Buso = true,
+	Auto_Ken = true,
+	Show_Damage = true,
+	NoClip = true,
+	Save_Member = true,
+	Melee_A = true,
+	Defense_A = true,
+	SkillZ = true,
+	Rejoin = true,
+	Anti_AFK = true,
+	K_MAX = 50,
+	Chest_Lock = 50,
+	Delay_C = 15
+}
+
+_G.Check_Save_Setting = "CheckSaveSetting"
+
+getgenv()['JsonEncode'] = function(msg)
+    return game:GetService("HttpService"):JSONEncode(msg)
+end
+getgenv()['JsonDecode'] = function(msg)
+    return game:GetService("HttpService"):JSONDecode(msg)
+end
+getgenv()['Check_Setting'] = function(Name)
+    if not _G.Dis and not isfolder('Switch Hub BF Premiums') then
+        makefolder('Switch Hub BF Premiums')
+    end
+    if not _G.Dis and not isfile('Switch Hub BF Premiums/'..Name..'.json') then
+        writefile('Switch Hub BF Premiums/'..Name..'.json',JsonEncode(_G.Setting_table))
+    end
+end
+getgenv()['Get_Setting'] = function(Name)
+    if not _G.Dis and isfolder('Switch Hub BF Premiums') and isfile('Switch Hub BF Premiums/'..Name..'.json') then
+        _G.Setting_table = JsonDecode(readfile('Switch Hub BF Premiums/'..Name..'.json'))
+        return _G.Setting_table
+	elseif not _G.Dis then
+        Check_Setting(Name)
+    end
+end
+getgenv()['Update_Setting'] = function(Name)
+    if not _G.Dis and isfolder('Switch Hub BF Premiums') and isfile('Switch Hub BF Premiums/'..Name..'.json') then
+        writefile('Switch Hub BF Premiums/'..Name..'.json',JsonEncode(_G.Setting_table))
+	elseif not _G.Dis then
+        Check_Setting(Name)
+    end
+end
+
+Check_Setting(_G.Check_Save_Setting)
+Get_Setting(_G.Check_Save_Setting)
+
+if _G.Setting_table.Save_Member then
+	getgenv()['MyName'] = game.Players.LocalPlayer.Name
+	print("Save Member")
+elseif _G.Setting_table.Save_All_Member then
+	getgenv()['MyName'] = "AllMember"
+	print("Save All Member")
+else
+	getgenv()['MyName'] = "None"
+	_G.Dis = true
+end
+
+Check_Setting(getgenv()['MyName'])
+Get_Setting(getgenv()['MyName'])
+
+_G.Setting_table.Key = _G.wl_key
+Update_Setting(getgenv()['MyName'])
+
+if type(_G.Setting_table.Weapon) ~= 'string' then
+	for i2,v2 in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+		if tostring(v2.ToolTip) == "Melee" then
+			_G.Setting_table.Weapon = v2.Name
+		end
+	end
+end
+
 do local GUI = game.CoreGui:FindFirstChild("MyLibrary") if GUI then GUI:Destroy() end end
 do local Op = game.CoreGui:FindFirstChild("openshit") if Op then Op:Destroy() end end
 do local Ba = game.CoreGui:FindFirstChild("Balaraja") if Ba then Ba:Destroy() end end
@@ -3762,15 +3840,16 @@ Main:Seperator("Auto Farm")
 
 WeaponList = {}
     
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
     if v:IsA("Tool") then
     table.insert(WeaponList ,v.Name)
     end
-    end
+end
     
-    local SelectWeapona = Main:Dropdown("Select Weapon",WeaponList,function(value)
-    _G.SelectWeapon = value
-    end)
+    local SelectWeapona = Main:Dropdown2("Select Weapon",_G.Setting_table.Weapon,WeaponList,function(value)
+    _G.Setting_table.Weapon = value
+    Update_Setting(getgenv()['MyName'])
+end)
     
     Main:Button("Refresh Weapon",function()
     SelectWeapona:Clear()
@@ -3881,7 +3960,7 @@ spawn(function()
 									v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 									repeat task.wait()
 										TelePBoss(CFrameQ)
-										EquipWeapon(_G.SelectWeapon)
+										EquipWeapon(_G.Setting_table.Weapon)
 										topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
 										game:GetService'VirtualUser':CaptureController()
 										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -4489,7 +4568,7 @@ AutoQuest:Toggle("Auto Rengoku",_G.AutoRengoku,function(value)
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
     if (v.Name == "Snow Lurker" or v.Name == "Arctic Warrior") and v.Humanoid.Health > 0 then
     repeat task.wait()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     AutoHaki()
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -4526,7 +4605,7 @@ end)
     repeat task.wait()
     pcall(function()
     AutoHaki()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -4563,16 +4642,16 @@ end)
 
 AutoQuest:Seperator("World 3")
 
-local EliteProgress = AutoQuest:Label("")
+local EliteProgress = AutoQuest:Label1("")
     
 spawn(function()
     pcall(function()
     while wait() do
-    EliteProgress:Set("Elite Progress : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
+    EliteProgress:Refresh("Elite Progress : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
     end
     end)
 end)
-    
+
 AutoQuest:Toggle("Auto Elite Hunter",_G.AutoElitehunter,function(value)
     _G.AutoElitehunter = value
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
@@ -4601,7 +4680,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     v.HumanoidRootPart.CanCollide = false
     v.Humanoid.WalkSpeed = 0
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -4651,7 +4730,7 @@ AutoQuest:Toggle("Auto Musketeer Hat",_G.AutoMusketeerHat,function(value)
     if v.Name == "Forest Pirate" then
     repeat task.wait()
     pcall(function()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     AutoHaki()
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -4684,7 +4763,7 @@ AutoQuest:Toggle("Auto Musketeer Hat",_G.AutoMusketeerHat,function(value)
     OldCFrameElephant = v.HumanoidRootPart.CFrame
     repeat task.wait()
     pcall(function()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     AutoHaki()
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -4731,7 +4810,7 @@ spawn(function()
     repeat task.wait()
     pcall(function()
     AutoHaki()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -4772,7 +4851,7 @@ spawn(function()
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
     if string.find(v.Name , "Soul Reaper") then
     repeat task.wait()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     AutoHaki()
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame*CFrame.new(5,10,7))
@@ -4815,20 +4894,20 @@ end)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
     end
     if game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") or game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") then
-    _G.SelectWeapon = "Superhuman"
+    _G.Setting_table.Weapon = "Superhuman"
     end
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") or game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") or game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") or game.Players.LocalPlayer.Character:FindFirstChild("Electro") or game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") or game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") or game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") or game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") then
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value <= 299 then
-    _G.SelectWeapon = "Black Leg"
+    _G.Setting_table.Weapon = "Black Leg"
     end
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value <= 299 then
-    _G.SelectWeapon = "Electro"
+    _G.Setting_table.Weapon = "Electro"
     end
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value <= 299 then
-    _G.SelectWeapon = "Fishman Karate"
+    _G.Setting_table.Weapon = "Fishman Karate"
     end
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value <= 299 then
-    _G.SelectWeapon = "Dragon Claw"
+    _G.Setting_table.Weapon = "Dragon Claw"
     end
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 300 and game:GetService("Players")["LocalPlayer"].Data.Beli.Value >= 300000 then
     UnEquipWeapon("Black Leg")
@@ -4888,14 +4967,14 @@ AutoQuest:Toggle("Auto DeathStep",_G.AutoDeathStep,function(value)
     if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Black Leg") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Black Leg") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Death Step") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Death Step") then
     if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Black Leg") and game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 450 then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
-    _G.SelectWeapon = "Death Step"
+    _G.Setting_table.Weapon = "Death Step"
     end
     if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Black Leg") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 450 then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
-    _G.SelectWeapon = "Death Step"
+    _G.Setting_table.Weapon = "Death Step"
     end
     if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Black Leg") and game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value <= 449 then
-    _G.SelectWeapon = "Black Leg"
+    _G.Setting_table.Weapon = "Black Leg"
     end
     else
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
@@ -4926,7 +5005,7 @@ AutoQuest:Toggle("Auto Sharkman Karate",_G.AutoSharkman,function(value)
     OldCFrameShark = v.HumanoidRootPart.CFrame
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     v.Head.CanCollide = false
     v.Humanoid.WalkSpeed = 0
     v.HumanoidRootPart.CanCollide = false
@@ -4964,14 +5043,14 @@ AutoQuest:Toggle("Auto Electric Claw",_G.AutoElectricClaw,function(value)
     if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electro") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Electro") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electric Claw") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Electric Claw") then
     if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electro") and game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 400 then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-    _G.SelectWeapon = "Electric Claw"
+    _G.Setting_table.Weapon = "Electric Claw"
     end
     if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Electro") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Electro").Level.Value >= 400 then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-    _G.SelectWeapon = "Electric Claw"
+    _G.Setting_table.Weapon = "Electric Claw"
     end
     if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electro") and game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value <= 399 then
-    _G.SelectWeapon = "Electro"
+    _G.Setting_table.Weapon = "Electro"
     end
     else
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
@@ -5012,7 +5091,7 @@ AutoQuest:Toggle("Auto Electric Claw",_G.AutoElectricClaw,function(value)
     until not _G.AutoElectricClaw or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - CFrame.new(-10371.4717, 330.764496, -10131.4199).Position).Magnitude <= 10
     wait(1)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-    _G.SelectWeapon = "Electric Claw"
+    _G.Setting_table.Weapon = "Electric Claw"
     wait(.1)
     _G.AutoFarm = true
     end
@@ -5033,14 +5112,14 @@ AutoQuest:Toggle("Auto Dragon Talon",_G.AutoDragonTalon,function(value)
     if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dragon Claw") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon Claw") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dragon Talon") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon Talon") then
     if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value >= 400 then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-    _G.SelectWeapon = "Dragon Talon"
+    _G.Setting_table.Weapon = "Dragon Talon"
     end
     if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon Claw") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value >= 400 then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-    _G.SelectWeapon = "Dragon Talon"
+    _G.Setting_table.Weapon = "Dragon Talon"
     end
     if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value <= 399 then
-    _G.SelectWeapon = "Dragon Claw"
+    _G.Setting_table.Weapon = "Dragon Claw"
     end
     else
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
@@ -5098,7 +5177,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     v.HumanoidRootPart.CanCollide = false
     v.Humanoid.WalkSpeed = 0
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5124,7 +5203,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     v.HumanoidRootPart.CanCollide = false
     v.Humanoid.WalkSpeed = 0
     v.Head.CanCollide = false
@@ -5407,7 +5486,7 @@ end)
     if v.Name == "Stone [Lv. 1550] [Boss]" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.CFrame = OldCFrameRainbow
@@ -5427,7 +5506,7 @@ end)
     if v.Name == "Island Empress [Lv. 1675] [Boss]" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.CFrame = OldCFrameRainbow
@@ -5447,7 +5526,7 @@ end)
     if v.Name == "Kilo Admiral [Boss]" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5467,7 +5546,7 @@ end)
     if v.Name == "Captain Elephant [Lv. 1875] [Boss]" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5487,7 +5566,7 @@ end)
     if v.Name == "Beautiful Pirate [Lv. 1950] [Boss]" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5571,7 +5650,7 @@ end)
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
     if string.find(v.Name, "Ship") then
     repeat task.wait()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     AutoHaki()
     if string.find(v.Name,"Ship") then
     v.HumanoidRootPart.CanCollide = false
@@ -5647,7 +5726,7 @@ end)
     if v.Name == "Zombie [Lv. 950]" then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5691,7 +5770,7 @@ end)
     pcall(function()
     repeat task.wait()
     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     AutoHaki()
     v.HumanoidRootPart.Transparency = 1
     v.HumanoidRootPart.CanCollide = false
@@ -5722,7 +5801,7 @@ end)
     OldCFrameBartlio = v.HumanoidRootPart.CFrame
     repeat task.wait()
     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     AutoHaki()
     v.HumanoidRootPart.Transparency = 1
     v.HumanoidRootPart.CanCollide = false
@@ -6193,13 +6272,13 @@ end)
     if game.Players:FindFirstChild(_G.SelectPly) then
     if game.Players:FindFirstChild(_G.SelectPly).Character.Humanoid.Health > 0 then
     repeat task.wait()
-    EquipWeapon(_G.SelectWeapon)
+    EquipWeapon(_G.Setting_table.Weapon)
     AutoHaki()
     game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CanCollide = false
     topos(game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CFrame * CFrame.new(0,35,0))
     spawn(function()
     pcall(function()
-    if _G.SelectWeapon == SelectWeaponSword then
+    if _G.Setting_table.Weapon == SelectWeaponSword then
     local args = {
     [1] = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.Position,
     [2] = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart
@@ -8207,7 +8286,7 @@ if _G.AutoRemover == true then
                      for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                          if v:FindFirstChild("HumanoidRootPart") then
                             AutoHaki()
-                            EquipWeapon(_G.SelectWeapon)
+                            EquipWeapon(_G.Setting_table.Weapon)
                             topos(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0) * Pos)
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
@@ -8238,7 +8317,7 @@ if _G.AutoRemover == true then
                         if (game:GetService("Workspace").Enemies.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                          if v:FindFirstChild("HumanoidRootPart") then
                             AutoHaki()
-                            EquipWeapon(_G.SelectWeapon)
+                            EquipWeapon(_G.Setting_table.Weapon)
                             topos(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0) * Pos)
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
@@ -8269,7 +8348,7 @@ if _G.AutoRemover == true then
                      for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
                          if v:FindFirstChild("HumanoidRootPart") then
                             AutoHaki()
-                            EquipWeapon(_G.SelectWeapon)
+                            EquipWeapon(_G.Setting_table.Weapon)
                             topos(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))

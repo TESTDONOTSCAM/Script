@@ -8333,7 +8333,7 @@ if _G.AutoRemover == true then
                             topos(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0) * Pos)
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                        until not _G.Bridagew
+                        until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagew
                         else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion") or game:GetService("ReplicatedStorage"):FindFirstChild("Sun-kissed Warrior")  then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion") or game:GetService("ReplicatedStorage"):FindFirstChild("Sun-kissed Warrior").HumanoidRootPart.CFrame * CFrame.new(0,60,0))

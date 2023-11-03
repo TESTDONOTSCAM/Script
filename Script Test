@@ -3569,6 +3569,48 @@ function StopTween(target)
     end)
 end)
 
+spawn(function()
+	while task.wait() do
+		pcall(function()
+			if StatrMagnet then
+				if _G.AutoFarm then
+					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v.Name == Ms and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 375 then
+								if v.Humanoid:FindFirstChild("Animator") then
+									v.Humanoid.Animator:Destroy()
+								end
+								v.Humanoid:ChangeState(14)
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								v.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+								v.HumanoidRootPart.CFrame = _G.PosMon
+								sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+							end
+						end
+					end
+				else
+					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+						if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
+							if v.Humanoid:FindFirstChild("Animator") then
+								v.Humanoid.Animator:Destroy()
+							end
+							v.Humanoid:ChangeState(14)
+							v.Humanoid.JumpPower = 0
+							v.Humanoid.WalkSpeed = 0
+							v.HumanoidRootPart.CanCollide = false
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							v.HumanoidRootPart.CFrame = _G.PosMon
+							sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
+
 -- [[ Windows Table ]]
 
 local Library = Update:Window("Blox Fruits", "")
@@ -3781,7 +3823,7 @@ spawn(function()
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 					else
-						StartMagnet = nil
+						StatrMagnet = nil
 						CheckLevel2()
 						AutoHaki()
 						_G.FastAttack = false
@@ -3806,7 +3848,7 @@ spawn(function()
 									v.Humanoid.WalkSpeed = 0
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(5,5,5)
-									StartMagnet = nil
+									StatrMagnet = nil
 									repeat wait(0.3)
 										TelePBoss(CFrameQBoss)
 										EquipWeapon(_G.Setting_table.Weapon)
@@ -3828,7 +3870,7 @@ spawn(function()
 								if v.Name == Ms and v.Humanoid.Health > 0 then
 									_G.PosMon = v.HumanoidRootPart.CFrame
 									_G.FastAttack = true
-									StartMagnet = true
+									StatrMagnet = true
 									if v.Humanoid:FindFirstChild("Animator") then
 										v.Humanoid.Animator:Destroy()
 									end
@@ -3855,7 +3897,7 @@ spawn(function()
 							end
 							else
 							_G.FastAttack = false
-							StartMagnet = false
+							StatrMagnet = false
 							if game.ReplicatedStorage:FindFirstChild(Ms) then
 								topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 							else
@@ -7857,6 +7899,8 @@ Misc:Line()
     end
 end)
 
+--[[ Sea Beast ]]
+
 Sea:Toggle("Buy & Send Ship",_G.AutoSail,function(val)
     _G.AutoRemover = val
     StopTween(_G.AutoSail)
@@ -8031,7 +8075,6 @@ if _G.AutoRemover == true then
 
     Sea:Toggle("Ghost Ship",false,function(val)
         _G.Bridage = val
-	StopTween(_G.Bridage)
     end)
     
     spawn(function()
@@ -8061,17 +8104,16 @@ if _G.AutoRemover == true then
         end
     end)
 
-    Sea:Toggle("Tester",false,function(val)
+    Sea:Toggle("Beta Button",false,function(val)
         _G.Bridagew = val
-	StopTween(_G.Bridagew)
     end)
     
     spawn(function()
         while wait() do
             if _G.Bridagew then
                    pcall(function()
-                    if (game:GetService("Workspace").Enemies.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
                      for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if (game:GetService("Workspace").Enemies.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                          if v:FindFirstChild("HumanoidRootPart") then
                             AutoHaki()
                             EquipWeapon(_G.SelectWeapon)

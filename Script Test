@@ -8512,10 +8512,7 @@ spawn(function()
                         TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,10))
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame
-                        StatrMagnet = true
                         v.Humanoid:ChangeState(11)
-                        v.Humanoid.JumpPower = 0
-                        v.Humanoid.WalkSpeed = 0
                         v.HumanoidRootPart.CanCollide = false
                         v.HumanoidRootPart.Size = Vector3.new(5,5,5)
                         print("StartMagnet")
@@ -8557,10 +8554,7 @@ spawn(function()
                         TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,10))
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame
-                        StatrMagnet = true
                         v.Humanoid:ChangeState(11)
-                        v.Humanoid.JumpPower = 0
-                        v.Humanoid.WalkSpeed = 0
                         v.HumanoidRootPart.CanCollide = false
                         v.HumanoidRootPart.Size = Vector3.new(5,5,5)
                         print("StartMagnet")

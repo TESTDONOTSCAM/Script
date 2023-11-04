@@ -3931,7 +3931,7 @@ spawn(function()
 	while wait(.1) do
 		pcall(function()
 			if _G.AutoFarm then
-				if not Mix_Farm then
+			    if not Mix_Farm then
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -4064,11 +4064,8 @@ Main:Slider("Health",1,100,25,function(vu)
 end)
 
 Main:Toggle("Auto Mastery",false,function(vu)
-    _G.AutoFarmFruitMastery = Value
-        StopTween(_G.AutoFarmFruitMastery)
-    if _G.AutoFarmFruitMastery == false then
-        UseSkill = false 
-    end
+    _G.AutoFarmFruitMastery = vu
+    StopTween(_G.AutoFarmFruitMastery)
 end)
 
 spawn(function()

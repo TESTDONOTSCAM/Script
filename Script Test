@@ -3693,6 +3693,60 @@ spawn(function()
 	end
 end)
 
+local gg = getrawmetatable(game)
+local old = gg.__namecall
+setreadonly(gg,false)
+gg.__namecall = newcclosure(function(...)
+	local method = getnamecallmethod()
+	local args = {...}
+	if tostring(method) == "FireServer" then
+		if tostring(args[1]) == "RemoteEvent" then
+			if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
+				if Skillaimbot then
+					args[2] = AimBotSkillPosition
+					return old(unpack(args))
+				end
+			end
+		end
+	end
+	return old(...)
+end)
+
+
+Skillz = true
+Skillx = true
+Skillc = true
+Skillv = true
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if AutoSkill then
+                if Skillz then
+                    game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                    wait(.1)
+                    game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                end
+                if Skillx then
+                    game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                    wait(.1)
+                    game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                end
+                if Skillc then
+                    game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+                    wait(.1)
+                    game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+                end
+                if Skillv then
+                    game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+                    wait(.1)
+                    game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+                end
+            end
+        end)
+    end
+end)
+
 -- [[ Windows Table ]]
 
 local Library = Update:Window("Blox Fruits", "")
@@ -4018,12 +4072,12 @@ spawn(function()
                 local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                 if not string.find(QuestTitle, NameMon) then
                     StatrMagnet = false
-                    UseSkill = false
+                    AutoSkill = false
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                 end
                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                     StatrMagnet = false
-                    UseSkill = false
+                    AutoSkill = false
                     CheckLevel2()
                     repeat wait()
                         TP1(CFrameQ)
@@ -4047,10 +4101,10 @@ spawn(function()
                                                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                                                 TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
                                                 v.HumanoidRootPart.CanCollide = false
-                                                PosMonMasteryFruit = v.HumanoidRootPart.CFrame
+                                                PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
-                                                UseSkill = true
+                                                AutoSkill = true
                                             else           
                                                 UseSkill = false 
                                                 AutoHaki()
@@ -4058,7 +4112,7 @@ spawn(function()
                                                 TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0) * Pos)
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                                PosMonMasteryFruit = v.HumanoidRootPart.CFrame
+                                                PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
                                                 game:GetService'VirtualUser':CaptureController()
@@ -4069,7 +4123,7 @@ spawn(function()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                         until not _G.AutoFarmFruitMastery or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                     else
-                                        UseSkill = false
+                                        AutoSkill = false
                                         StatrMagnet = false
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                     end
@@ -4079,7 +4133,7 @@ spawn(function()
                     else
                         TP1(CFrameMon)
                         StatrMagnet = false   
-                        UseSkill = false 
+                        AutoSkill = false 
                         local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Mon) 
                         if Mob then
                             TP1(Mob.HumanoidRootPart.CFrame * CFrame.new(0,0,10))
@@ -8402,60 +8456,6 @@ function EquipAllWeapon()
         end
     end)
 end
-
-local gg = getrawmetatable(game)
-local old = gg.__namecall
-setreadonly(gg,false)
-gg.__namecall = newcclosure(function(...)
-	local method = getnamecallmethod()
-	local args = {...}
-	if tostring(method) == "FireServer" then
-		if tostring(args[1]) == "RemoteEvent" then
-			if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
-				if Skillaimbot then
-					args[2] = AimBotSkillPosition
-					return old(unpack(args))
-				end
-			end
-		end
-	end
-	return old(...)
-end)
-
-
-Skillz = true
-Skillx = true
-Skillc = true
-Skillv = true
-
-spawn(function()
-    while wait() do
-        pcall(function()
-            if AutoSkill then
-                if Skillz then
-                    game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-                    wait(.1)
-                    game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-                end
-                if Skillx then
-                    game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-                    wait(.1)
-                    game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-                end
-                if Skillc then
-                    game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
-                    wait(.1)
-                    game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
-                end
-                if Skillv then
-                    game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
-                    wait(.1)
-                    game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
-                end
-            end
-        end)
-    end
-end)
 
 Sea:Toggle("Buy & Send Ship",_G.AutoSail,function(val)
     _G.AutoRemover = val

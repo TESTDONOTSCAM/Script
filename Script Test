@@ -3998,7 +3998,7 @@ end)
 
 Main:Seperator("Mastery")
 
-Main:Slider("Health",1,100,_G.Kill_At,function(vu)
+Main:Slider("Health",1,100,25,function(vu)
     HealthMs = vu
     _G.Kill_At = vu
 end)

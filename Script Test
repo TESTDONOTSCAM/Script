@@ -8521,8 +8521,8 @@ spawn(function()
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
+                        EquipWeapon(_G.Setting_table.Weapon)
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0))
-                        EquipAllWeapon()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true

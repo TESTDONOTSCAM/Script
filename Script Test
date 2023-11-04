@@ -4022,7 +4022,7 @@ spawn(function()
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                 end
                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                    StartMasteryFruitMagnet = false
+                    StatrMagnet = false
                     UseSkill = false
                     CheckLevel2()
                     repeat wait()
@@ -4045,7 +4045,7 @@ spawn(function()
                                             if v.Humanoid.Health <= HealthMs then
                                                 AutoHaki()
                                                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 PosMonMasteryFruit = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
@@ -4055,20 +4055,22 @@ spawn(function()
                                                 UseSkill = false 
                                                 AutoHaki()
                                                 EquipWeapon(_G.Setting_table.Weapon)
-                                                TP1(v.HumanoidRootPart.CFrame * Pos)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0) * Pos)
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                                 PosMonMasteryFruit = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
+                                                game:GetService'VirtualUser':CaptureController()
+                                                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                             end
-                                            StartMasteryFruitMagnet = true
+                                            StatrMagnet = true
                                             game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                         until not _G.AutoFarmFruitMastery or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                     else
                                         UseSkill = false
-                                        StartMasteryFruitMagnet = false
+                                        StatrMagnet = false
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                     end
                                 end
@@ -4076,7 +4078,7 @@ spawn(function()
                         end
                     else
                         TP1(CFrameMon)
-                        StartMasteryFruitMagnet = false   
+                        StatrMagnet = false   
                         UseSkill = false 
                         local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Mon) 
                         if Mob then

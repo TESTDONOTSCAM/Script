@@ -4081,8 +4081,8 @@ spawn(function()
                     CheckLevel2()
                     repeat wait()
                         TP1(CFrameQ)
-                    until (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not _G.AutoFarmFruitMastery
-                    if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+                    until (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 or not _G.AutoFarmFruitMastery
+                    if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 then
                         wait(0.1)
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
                         wait(0.1)
@@ -4106,6 +4106,8 @@ spawn(function()
                                                 v.Head.CanCollide = false
                                                 StatrMagnet = true
                                                 AutoSkill = true
+                                                game:GetService'VirtualUser':CaptureController()
+                                                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                             else           
                                                 UseSkill = false 
                                                 AutoHaki()

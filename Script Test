@@ -8113,7 +8113,7 @@ function EquipAllWeapon()
             if v:IsA('Tool') and not (v.Name == "Summon Sea Beast" or v.Name == "Water Body" or v.Name == "Awakening") then
                 local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(v.Name) 
                 game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
-                wait(1)
+                wait(2)
             end
         end
     end)
@@ -8298,140 +8298,6 @@ if _G.AutoRemover == true then
                     elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
                     _G.SendShip = false
                     StopTween(_G.SendShip)
-                    --[[
-            elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
-                    for is,vs in pairs(game:GetService("Workspace").Boats:GetChildren()) do
-                        if vs.Name == "Guardian" then
-                            if v:FindFirstChild("VehicleSeat") then
-                                repeat wait()
-                                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                                    TPP(vs.VehicleSeat.CFrame * CFrame.new(0,30,0))
-                                    EquipAllWeapon()  
-                                    AutoSkill = true
-                                    AimBotSkillPosition = vs.VehicleSeat
-                                    Skillaimbot = true
-                                    print("work1")
-                                until not game:GetService("Workspace").Boats:FindFirstChild("Guardian") or _G.SendShip == false
-                                AutoSkill = false
-                                Skillaimbot = false
-                            end
-                        end
-                    end
-            elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
-                for iss,vss in pairs(game:GetService("Workspace").Boats:GetChildren()) do
-                    if vss.Name == "Guardian" then
-                        if v:FindFirstChild("VehicleSeat") then
-                            repeat wait()
-                                game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                                TPP(vss.VehicleSeat.CFrame * CFrame.new(0,30,0))
-                                EquipAllWeapon()  
-                                AutoSkill = true
-                                AimBotSkillPosition = vss.VehicleSeat
-                                Skillaimbot = true
-                                print("work2")
-                            until not game:GetService("Workspace").Boats:FindFirstChild("Guardian") or _G.SendShip == false
-                            AutoSkill = false
-                            Skillaimbot = false
-                        end
-                    end
-                end
-        elseif game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then  
-            for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-                if v:FindFirstChild("HumanoidRootPart") then
-                    repeat wait()
-                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        TPP(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0))
-                        EquipAllWeapon()  
-                        AutoSkill = true
-                        AimBotSkillPosition = v.HumanoidRootPart
-                        Skillaimbot = true
-                        print("work3")
-                    until not v:FindFirstChild("HumanoidRootPart") or _G.SendShip == false
-                        AutoSkill = false
-                        Skillaimbot = false
-                        end
-                    end
-        elseif game:GetService("Workspace").Enemies:FindFirstChild("Shark") then  
-            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                if v:FindFirstChild("HumanoidRootPart") then
-                    repeat wait()
-                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        TPP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
-                        EquipAllWeapon()  
-                        AutoSkill = true
-                        AimBotSkillPosition = v.HumanoidRootPart
-                        Skillaimbot = true
-                        print("work4")
-                    until not v:FindFirstChild("HumanoidRootPart") or _G.SendShip == false
-                        AutoSkill = false
-                        Skillaimbot = false
-                        end
-                    end
-        elseif game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then  
-            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                if v:FindFirstChild("HumanoidRootPart") then
-                    repeat wait()
-                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        TPP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
-                        EquipAllWeapon()  
-                        AutoSkill = true
-                        AimBotSkillPosition = v.HumanoidRootPart
-                        Skillaimbot = true
-                        print("work5")
-                    until not v:FindFirstChild("HumanoidRootPart") or _G.SendShip == false
-                        AutoSkill = false
-                        Skillaimbot = false
-                        end
-                    end
-        elseif game:GetService("Workspace").Enemies:FindFirstChild("Piranha") then  
-            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                if v:FindFirstChild("HumanoidRootPart") then
-                    repeat wait()
-                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        TPP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
-                        EquipAllWeapon()  
-                        AutoSkill = true
-                        AimBotSkillPosition = v.HumanoidRootPart
-                        Skillaimbot = true
-                        print("work6")
-                    until not v:FindFirstChild("HumanoidRootPart") or _G.SendShip == false
-                        AutoSkill = false
-                        Skillaimbot = false
-                        end
-                    end
-        elseif game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") then  
-            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                if v:FindFirstChild("HumanoidRootPart") then
-                    repeat wait()
-                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        TPP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
-                        EquipAllWeapon()  
-                        AutoSkill = true
-                        AimBotSkillPosition = v.HumanoidRootPart
-                        Skillaimbot = true
-                        print("work7")
-                    until not v:FindFirstChild("HumanoidRootPart") or _G.SendShip == false
-                        AutoSkill = false
-                        Skillaimbot = false
-                        end
-                    end
-        elseif game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandeBrigade") then  
-            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                if v:FindFirstChild("HumanoidRootPart") then
-                    repeat wait()
-                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        TPP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
-                        EquipAllWeapon()  
-                        AutoSkill = true
-                        AimBotSkillPosition = v.HumanoidRootPart
-                        Skillaimbot = true
-                        print("work8")
-                    until not v:FindFirstChild("HumanoidRootPart") or _G.SendShip == false
-                        AutoSkill = false
-                        Skillaimbot = false
-                        end
-                    end
-                    ]]--
                 end
             end)
         end
@@ -8592,7 +8458,7 @@ spawn(function()
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0) * Pos)
                         EquipAllWeapon()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
@@ -8603,7 +8469,7 @@ spawn(function()
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Beast
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,500,0))
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))

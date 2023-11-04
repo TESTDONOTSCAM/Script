@@ -8478,7 +8478,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Beta Button [1]",false,function(val)
+Sea:Toggle("Terror Shark [Need Spawn]",false,function(val)
     _G.Bridagew = val
     StopTween(_G.Bridagew)
 end)
@@ -8497,8 +8497,8 @@ spawn(function()
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,100,0) * Pos)
-                        EquipAllWeapon()
+                        EquipWeapon(_G.Setting_table.Weapon)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0) * Pos)
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
@@ -8508,7 +8508,7 @@ spawn(function()
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagew
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,100,0))
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,60,0))
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))

@@ -8491,6 +8491,7 @@ spawn(function()
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame * CFrame.new(0,40,0)
+                        StatrMagnet = true
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
@@ -8510,6 +8511,7 @@ spawn(function()
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            StatrMagnet = false
                             AutoSkill = false
                             Skillaimbot = false
                                 end
@@ -8537,6 +8539,7 @@ spawn(function()
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame * CFrame.new(0,40,0)
+                        StatrMagnet = true
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
@@ -8556,6 +8559,7 @@ spawn(function()
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            StatrMagnet = false
                             AutoSkill = false
                             Skillaimbot = false
                                     end

@@ -3473,7 +3473,7 @@ function TPB(CFgo)
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = true
     print("repeat true anchored")
 	local tween_sB = game:service"TweenService"
-	local infoB = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/160, Enum.EasingStyle.Linear)
+	local infoB = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/200, Enum.EasingStyle.Linear)
 	tweenB = tween_sB:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoB, {CFrame = CFgo})
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
     print("repeat false anchored")
@@ -8358,14 +8358,14 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0))
                         game:GetService("VirtualUser"):CaptureController()
                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.TerShark
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,60,0))
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,80,0))
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
@@ -8473,7 +8473,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("SeaBeast",false,function(sea)
+Sea:Toggle("SeaBeast [Need Spawn] [BETA]",false,function(sea)
     _G.Beast = sea
 end)
 
@@ -8483,7 +8483,7 @@ spawn(function()
             pcall(function()
                 for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
-                    if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
+                    if v:FindFirstChild("HumanoidRootPart") then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
                         print("StartMagnet")
@@ -8500,9 +8500,9 @@ spawn(function()
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Beast
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,500,0))
+                            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,500,0))
                         else
-                           if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             AutoSkill = false

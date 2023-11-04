@@ -8234,7 +8234,6 @@ if _G.AutoRemover == true then
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
                                         wait(0.8)
                                         print("Anchored True")
-                                        game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = true
                                         game:GetService("StarterGui"):SetCore("SendNotification", {
                                             Title = "Boat Seller"; 
                                             Text = "Guardian Detected"; 
@@ -8242,7 +8241,6 @@ if _G.AutoRemover == true then
                                             Duration = 3;
                                             Button1 = "Okay"
                                         })
-                                        game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
                                     end
                                 elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
     
@@ -8256,10 +8254,6 @@ if _G.AutoRemover == true then
                                     Duration = 10;
                                     Button1 = "Okay"
                                 })
-
-                                wait(2)
-    
-                                game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
                                 print("anchored false 2")
     
                                 wait(1)

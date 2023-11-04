@@ -8537,6 +8537,8 @@ spawn(function()
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            AutoSkill = false
+                            Skillaimbot = false
                                 end
                             end
                         end
@@ -8581,6 +8583,8 @@ spawn(function()
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            AutoSkill = false
+                            Skillaimbot = false
                                     end
                                 end
                             end
@@ -8623,6 +8627,8 @@ spawn(function()
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            AutoSkill = false
+                            Skillaimbot = false
                                 end
                             end
                         end

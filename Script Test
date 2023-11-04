@@ -8524,6 +8524,8 @@ spawn(function()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
+                        game:GetService("VirtualUser"):CaptureController()
+                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                         print("fast")
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagew
                     else
@@ -8567,6 +8569,8 @@ spawn(function()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
+                        game:GetService("VirtualUser"):CaptureController()
+                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                         print("fast")
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagewe
                     else
@@ -8609,6 +8613,8 @@ spawn(function()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
+                        game:GetService("VirtualUser"):CaptureController()
+                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                         print("fast")
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Beast
                     else

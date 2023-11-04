@@ -8357,6 +8357,7 @@ spawn(function()
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
+                        if v.Humanoid.Health > 0 then
                         PosMon = v.HumanoidRootPart.CFrame
                         StatrMagnet = true
                         StatrMagnet = false
@@ -8371,7 +8372,10 @@ spawn(function()
                         game:GetService("VirtualUser"):CaptureController()
                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                         print("fast")
-                    until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagew
+                        until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagew
+                                end
+                            end
+                        end
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,60,0))
@@ -8382,8 +8386,6 @@ spawn(function()
                             StatrMagnet = false
                             AutoSkill = false
                             Skillaimbot = false
-                                end
-                            end
                         end
                     end
                 end
@@ -8406,6 +8408,7 @@ spawn(function()
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
+                        if v.Humanoid.Health > 0 then
                         PosMon = v.HumanoidRootPart.CFrame
                         StatrMagnet = true
                         StatrMagnet = false
@@ -8420,9 +8423,12 @@ spawn(function()
                         game:GetService("VirtualUser"):CaptureController()
                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                         print("fast")
-                    until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagewe
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
+                        until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagewe
+                            end
+                        end
+                    end
+                else
+                    if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,120,0))
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
@@ -8431,8 +8437,6 @@ spawn(function()
                             StatrMagnet = false
                             AutoSkill = false
                             Skillaimbot = false
-                                    end
-                                end
                             end
                         end
                     end

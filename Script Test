@@ -8490,8 +8490,11 @@ spawn(function()
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
-                        PosMon = v.HumanoidRootPart.CFrame * CFrame.new(0,40,0)
+                        PosMon = v.HumanoidRootPart.CFrame
                         StatrMagnet = true
+                        v.Humanoid:ChangeState(11)
+                        v.Humanoid.JumpPower = 0
+                        v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
@@ -8538,8 +8541,11 @@ spawn(function()
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
-                        PosMon = v.HumanoidRootPart.CFrame * CFrame.new(0,40,0)
+                        PosMon = v.HumanoidRootPart.CFrame
                         StatrMagnet = true
+                        v.Humanoid:ChangeState(11)
+                        v.Humanoid.JumpPower = 0
+                        v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
@@ -8582,10 +8588,10 @@ spawn(function()
         if _G.Beast then
             pcall(function()
                 for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
-                        PosMon = v.HumanoidRootPart.CFrame * CFrame.new(0,300,0)
+                        PosMon = v.HumanoidRootPart.CFrame
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()

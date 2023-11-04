@@ -8405,7 +8405,7 @@ spawn(function()
             pcall(function()
             if game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
                         if v.Humanoid.Health > 0 then
@@ -8425,8 +8425,8 @@ spawn(function()
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagewe
                     else
-                    if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,120,0))
+                    if game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").HumanoidRootPart.CFrame * CFrame.new(0,120,0))
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
@@ -8458,6 +8458,7 @@ spawn(function()
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
+                        if v.Humanoid.Health > 0 then
                         PosMon = v.HumanoidRootPart.CFrame
                         print("StartMagnet")
                     repeat wait()
@@ -8480,6 +8481,7 @@ spawn(function()
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             AutoSkill = false
                             Skillaimbot = false
+                                    end
                                 end
                             end
                         end

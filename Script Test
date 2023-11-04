@@ -3717,6 +3717,7 @@ Skillz = true
 Skillx = true
 Skillc = true
 Skillv = true
+Skillf = true
 
 spawn(function()
     while wait() do
@@ -3741,6 +3742,11 @@ spawn(function()
                     game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
                     wait(.1)
                     game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+                end
+                if Skillv then
+                    game:service('VirtualInputManager'):SendKeyEvent(true, "F", false, game)
+                    wait(.1)
+                    game:service('VirtualInputManager'):SendKeyEvent(false, "F", false, game)
                 end
             end
         end)

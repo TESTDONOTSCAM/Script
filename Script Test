@@ -8355,12 +8355,9 @@ spawn(function()
             pcall(function()
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
-                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                     if v:FindFirstChild("HumanoidRootPart") then
-                        if v.Humanoid.Health > 0 then
+                     if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
+                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
-                        StatrMagnet = true
-                        StatrMagnet = false
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
@@ -8380,10 +8377,8 @@ spawn(function()
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                            StatrMagnet = false
                             AutoSkill = false
                             Skillaimbot = false
-                                    end
                                 end
                             end
                         end
@@ -8406,12 +8401,9 @@ spawn(function()
             if game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
-                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                     if v:FindFirstChild("HumanoidRootPart") then
-                        if v.Humanoid.Health > 0 then
+                    if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
+                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
-                        StatrMagnet = true
-                        StatrMagnet = false
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
@@ -8431,10 +8423,8 @@ spawn(function()
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                            StatrMagnet = false
                             AutoSkill = false
                             Skillaimbot = false
-                                        end
                                     end
                                 end
                             end
@@ -8456,9 +8446,8 @@ spawn(function()
             pcall(function()
                 for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
-                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                     if v:FindFirstChild("HumanoidRootPart") then
-                        if v.Humanoid.Health > 0 then
+                    if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
+                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
                         print("StartMagnet")
                     repeat wait()
@@ -8481,7 +8470,6 @@ spawn(function()
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             AutoSkill = false
                             Skillaimbot = false
-                                    end
                                 end
                             end
                         end

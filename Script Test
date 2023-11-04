@@ -3469,38 +3469,6 @@ while wait(.1) do
 	end
 end)
 
-spawn(function()
-	game:GetService("RunService").Stepped:Connect(function()
-		if _G.AutoFarm or _G.Beast or _G.Bridagewe or _G.Bridagew or _G.Bridage or _G.SenShip or _G.AutoSail then
-			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
-				setfflag("HumanoidParallelRemoveNoPhysics", "False")
-				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
-				setfflag("CrashPadUploadToBacktraceToBacktraceBaseUrl", "")
-				setfflag("CrashUploadToBacktracePercentage", "0")
-				setfflag("CrashUploadToBacktraceBlackholeToken", "")
-				setfflag("CrashUploadToBacktraceWindowsPlayerToken", "")
-				game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-			else
-				if not game:GetService("Workspace"):FindFirstChild("LOL1") then
-					local LOL1 = Instance.new("Part")
-					LOL1.Name = "LOL1"
-					LOL1.Parent = game.Workspace
-					LOL1.Anchored = true
-					LOL1.Transparency = 0.8
-					LOL1.Size = Vector3.new(50,0.5,50)
-				elseif game:GetService("Workspace"):FindFirstChild("LOL1") then
-					game.Workspace["LOL1"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3.8,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
-				end
-			end
-			for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-				if v:IsA("BasePart") then
-					v.CanCollide = false
-				end
-			end
-		end
-	end)
-end)
-
 function TPB(CFgo)
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = true
     print("repeat true anchored")
@@ -8291,6 +8259,7 @@ if _G.AutoRemover == true then
                                 wait(2)
     
                                 game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
+                                print("anchored false 2")
     
                                 wait(1)
                                 _G.AutoSail = false
@@ -8476,6 +8445,10 @@ spawn(function()
                     local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
                     local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
                     local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
+                    local Remover0124 = game.Workspace.Enemies:FindFirstChild("Isle Outlaw") if Remover012 then Remover0124:Destroy() end
+                    local Remover01234 = game.Workspace.Enemies:FindFirstChild("Island Boy") if Remover0123 then Remover01234:Destroy() end
+                    local Remover01245 = game.Workspace.Enemies:FindFirstChild("Sun-kissed Warrior") if Remover012 then Remover01245:Destroy() end
+                    local Remover012345 = game.Workspace.Enemies:FindFirstChild("Isle Champion") if Remover0123 then Remover012345:Destroy() end
                 until not _G.Removing
             end)
         end

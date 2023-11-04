@@ -8537,7 +8537,7 @@ spawn(function()
             pcall(function()
                 for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
-                    if v:FindFirstChild("HumanoidRootPart") then
+                    if v.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
                         print("StartMagnet")

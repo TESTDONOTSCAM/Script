@@ -3471,10 +3471,12 @@ end)
 
 function TPB(CFgo)
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = true
+    print("repeat true anchored")
 	local tween_sB = game:service"TweenService"
 	local infoB = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/160, Enum.EasingStyle.Linear)
 	tweenB = tween_sB:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoB, {CFrame = CFgo})
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
+    print("repeat false anchored")
 tweenB:Play()
 tweenB.Completed:Wait(E)
 	

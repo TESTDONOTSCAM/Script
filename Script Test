@@ -4104,6 +4104,7 @@ spawn(function()
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
+                                                StatrMagnet = true
                                                 AutoSkill = true
                                             else           
                                                 UseSkill = false 
@@ -4115,6 +4116,7 @@ spawn(function()
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
+                                                StatrMagnet = true
                                                 game:GetService'VirtualUser':CaptureController()
                                                 game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                             end
@@ -4134,7 +4136,7 @@ spawn(function()
                         TP1(CFrameMon)
                         StatrMagnet = false   
                         AutoSkill = false 
-                        local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Mon) 
+                        local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Ms) 
                         if Mob then
                             TP1(Mob.HumanoidRootPart.CFrame * CFrame.new(0,0,10))
                         else

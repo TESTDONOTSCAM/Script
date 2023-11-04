@@ -8516,19 +8516,14 @@ spawn(function()
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame
-                        v.Humanoid:ChangeState(11)
-                        v.HumanoidRootPart.CanCollide = false
-                        v.HumanoidRootPart.Size = Vector3.new(5,5,5)
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        EquipWeapon(_G.Setting_table.Weapon)
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0))
+                        EquipAllWeapon()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
-                        game:GetService("VirtualUser"):CaptureController()
-                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                         print("fast")
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagew
                     else
@@ -8564,13 +8559,10 @@ spawn(function()
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame
-                        v.Humanoid:ChangeState(11)
-                        v.HumanoidRootPart.CanCollide = false
-                        v.HumanoidRootPart.Size = Vector3.new(5,5,5)
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0))
                         EquipAllWeapon()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
@@ -8609,8 +8601,6 @@ spawn(function()
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame
-                        v.Humanoid:ChangeState(11)
-                        v.HumanoidRootPart.CanCollide = false
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()

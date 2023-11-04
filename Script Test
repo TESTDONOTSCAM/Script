@@ -8493,14 +8493,12 @@ spawn(function()
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame
                         StatrMagnet = true
-                        v.Humanoid:ChangeState(11)
-                        v.Humanoid.JumpPower = 0
-                        v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                        StatrMagnet = false
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        EquipWeapon(_G.Setting_table.Weapon)
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,100,0) * Pos)
+                        EquipAllWeapon()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
@@ -8510,7 +8508,7 @@ spawn(function()
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagew
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,100,0))
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
@@ -8544,13 +8542,11 @@ spawn(function()
                      if v:FindFirstChild("HumanoidRootPart") then
                         PosMon = v.HumanoidRootPart.CFrame
                         StatrMagnet = true
-                        v.Humanoid:ChangeState(11)
-                        v.Humanoid.JumpPower = 0
-                        v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                        StatrMagnet = false
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,120,0) * Pos)
                         EquipAllWeapon()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
@@ -8561,7 +8557,7 @@ spawn(function()
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagewe
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,120,0))
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))

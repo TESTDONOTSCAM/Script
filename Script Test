@@ -218,7 +218,7 @@ mainopens.Parent = mainopen
  _G.SectionImageColor = Color3.fromRGB(150, 150, 150)
  _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
  _G.SectionOn = Color3.fromRGB(0, 250, 0)
- _G.HubName = "ScriptBlox Premiwfwum"
+ _G.HubName = "ScriptBlox Premium"
 	
 	local RippleFPS = Instance.new("ScreenGui")
 	local Rippletime = Instance.new("ScreenGui")
@@ -8445,10 +8445,6 @@ spawn(function()
                     local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
                     local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
                     local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
-                    local Remover0124 = game.Workspace.Enemies:FindFirstChild("Isle Outlaw") if Remover012 then Remover0124:Destroy() end
-                    local Remover01234 = game.Workspace.Enemies:FindFirstChild("Island Boy") if Remover0123 then Remover01234:Destroy() end
-                    local Remover01245 = game.Workspace.Enemies:FindFirstChild("Sun-kissed Warrior") if Remover012 then Remover01245:Destroy() end
-                    local Remover012345 = game.Workspace.Enemies:FindFirstChild("Isle Champion") if Remover0123 then Remover012345:Destroy() end
                 until not _G.Removing
             end)
         end
@@ -8494,7 +8490,7 @@ spawn(function()
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
-                        PosMon = v.HumanoidRootPart.CFrame
+                        PosMon = v.HumanoidRootPart.CFrame * CFrame.new(0,40,0)
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
@@ -8540,7 +8536,7 @@ spawn(function()
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
-                        PosMon = v.HumanoidRootPart.CFrame
+                        PosMon = v.HumanoidRootPart.CFrame * CFrame.new(0,40,0)
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
@@ -8585,7 +8581,7 @@ spawn(function()
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                      if v:FindFirstChild("HumanoidRootPart") then
-                        PosMon = v.HumanoidRootPart.CFrame
+                        PosMon = v.HumanoidRootPart.CFrame * CFrame.new(0,300,0)
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()

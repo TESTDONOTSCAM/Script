@@ -8242,6 +8242,7 @@ if _G.AutoRemover == true then
                                             Duration = 3;
                                             Button1 = "Okay"
                                         })
+                                        game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
                                     end
                                 elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
     

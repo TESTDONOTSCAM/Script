@@ -218,7 +218,7 @@ mainopens.Parent = mainopen
  _G.SectionImageColor = Color3.fromRGB(150, 150, 150)
  _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
  _G.SectionOn = Color3.fromRGB(0, 250, 0)
- _G.HubName = "ScriptBlox Premium"
+ _G.HubName = "ScriptBlox Premiwfwum"
 	
 	local RippleFPS = Instance.new("ScreenGui")
 	local Rippletime = Instance.new("ScreenGui")
@@ -8481,36 +8481,6 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Ghost Ship",false,function(val)
-    _G.Bridage = val
-end)
-
-spawn(function()
-    while wait() do
-        if _G.Bridage then
-               pcall(function()
-                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                     if v:FindFirstChild("HumanoidRootPart") then
-                        AutoHaki()
-                        EquipWeapon(_G.Setting_table.Weapon)
-                        topos(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0) * Pos)
-                        game:GetService("VirtualUser"):CaptureController()
-                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                        topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,60,0))
-                        elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
-                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                            TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-
 Sea:Toggle("Beta Button [1]",false,function(val)
     _G.Bridagew = val
     StopTween(_G.Bridagew)
@@ -8529,7 +8499,7 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * Pos)
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
@@ -8542,6 +8512,7 @@ spawn(function()
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                            topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             AutoSkill = false
                             Skillaimbot = false
@@ -8573,7 +8544,7 @@ spawn(function()
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0) * Pos)
                         EquipAllWeapon()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
@@ -8583,10 +8554,11 @@ spawn(function()
                         print("fast")
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Bridagewe
                     else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                            topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             AutoSkill = false
                             Skillaimbot = false
@@ -8617,7 +8589,7 @@ spawn(function()
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0) * Pos)
                         EquipAllWeapon()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
@@ -8631,6 +8603,7 @@ spawn(function()
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
                         else
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                            topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             AutoSkill = false
                             Skillaimbot = false

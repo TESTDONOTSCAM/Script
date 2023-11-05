@@ -8627,9 +8627,6 @@ if _G.AutoRemover == true then
                                     Button1 = "Okay"
                                 })
                                 print("anchored false 2")
-    
-                                wait(1)
-                                _G.AutoSail = false
                                 StopTween(_G.AutoSail)
                             end
                         end

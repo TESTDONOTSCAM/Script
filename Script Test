@@ -3474,33 +3474,32 @@ function TPB2(CFgo)
 	local infoBa = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
 	tweenBa = tween_sBa:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoBa, {CFrame = CFgo})
 tweenBa:Play()
-tweenBa.Completed:Wait(E)
+TweenBa.Completed:Wait(E)
 
-local tweenfunc = {}
+local tweenAfunc = {}
 	
-function tweenfunc:Stop()
+function tweenAfunc:Stop()
 	tweenBa:Cancel()
 end
-	return tweenfunc
+	return tweenAfunc
 end
 
 function TPB(CFgo)
+    print("REPEAT DIA BWANG")
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = true
-    print("repeat true anchored")
 	local tween_sB = game:service"TweenService"
-	local infoB = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/2000, Enum.EasingStyle.Linear)
+	local infoB = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/120, Enum.EasingStyle.Linear)
 	tweenB = tween_sB:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoB, {CFrame = CFgo})
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
-    print("repeat false anchored")
 tweenB:Play()
 tweenB.Completed:Wait(E)
 	
-local tweenfunc = {}
+local tweenBfunc = {}
 	
-function tweenfunc:Stop()
+function tweenBfunc:Stop()
 	tweenB:Cancel()
 end
-	return tweenfunc
+	return tweenBfunc
 end
 	
 function TPP(CFgo)
@@ -3509,14 +3508,14 @@ function TPP(CFgo)
 	local infoP = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
 	tweenP = tween_sP:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], infoP, {CFrame = CFgo})
 tweenP:Play()
-tweenP.Completed:Wait(E)
+TweenP.Completed:Wait(E)
 	
-local tweenfunc = {}
+local tweenCfunc = {}
 	
-function tweenfunc:Stop()
+function tweenCfunc:Stop()
 	tweenP:Cancel()
 end
-	return tweenfunc
+	return tweenCfunc
 end
 
 function topos2(Pos)
@@ -8649,7 +8648,7 @@ task.spawn(function()
                                     wait(0.8)
                                     print("Anchored True")
                                 end
-                                
+
                             elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                                 if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                             TPB(CFrame.new(-17674.8555, 20.7589149, 683.226501, -0.247295782, 0.00329861674, 0.968934417, 0.0133375563, 0.99991107, -1.90202898e-09, -0.968848228, 0.0129232174, -0.247317776))

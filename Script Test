@@ -4116,7 +4116,8 @@ spawn(function()
                                                 v.Head.CanCollide = false
                                                 StatrMagnet = true
                                                 AutoSkill = true
-                                            else           
+                                                _G.AutoFarm = false
+                                            else
                                                 AutoSkill = false 
                                                 AutoHaki()
                                                 EquipWeapon(_G.Setting_table.Weapon)
@@ -4127,6 +4128,7 @@ spawn(function()
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
                                                 StatrMagnet = true
+                                                _G.AutoFarm = true
                                             end
                                             StatrMagnet = true
                                         until not _G.AutoFarmFruitMastery or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false

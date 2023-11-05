@@ -8467,9 +8467,10 @@ function EquipAllWeapon()
     end)
 end
 
-Sea:Toggle("Buy & Send Ship",_G.AutoSail,function(val)
+Sea:Toggle("Auto Sail",_G.AutoSail,function(val)
     _G.AutoRemover = val
     StopTween(_G.AutoSail)
+    StopTween(_G.SendShip)
 if _G.AutoRemover == true then
     repeat task.wait()
     local Remover = game.Workspace.Boats:FindFirstChild("Guardian") if Remover then Remover:Destroy() end
@@ -8501,6 +8502,10 @@ if _G.AutoRemover == true then
     })	
     _G.AutoRemover = false
     _G.AutoSail = true
+    wait(30)
+    _G.SendShip = true
+    _G.SendNof = true
+    _G.Removing = true
     print("Work")
     until not _G.AutoRemover
         end
@@ -8561,19 +8566,12 @@ if _G.AutoRemover == true then
         end
     end)
     
-    Sea:Toggle("Teleport To Ship",_G.SendShip,function(vu)
-        _G.SendShip = vu
-        _G.SendNof = vu
-        _G.Removing = vu
-        StopTween(_G.SendShip)
-    end)
-    
     spawn(function()
-        while wait(30) do
+        while wait() do
             if _G.SendShip then
                 pcall(function()
                     topos2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
-                    wait(1)
+                    wait()
                     game:GetService("StarterGui"):SetCore("SendNotification", {
                         Title = "Teleport To Ship"; 
                         Text = "Tweening Success"; 

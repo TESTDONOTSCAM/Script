@@ -3476,7 +3476,8 @@ function TPB2(CFgo)
     if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Seabeasts:FindFirstChild("SeaBeast1") or game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") then
     _G.AutoSail = false
     StopTween(_G.AutoSail)
-    elseif game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("Workspace").Seabeasts:FindFirstChild("SeaBeast1") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
+    else
+    if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("Workspace").Seabeasts:FindFirstChild("SeaBeast1") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
     _G.AutoSail = true
 tweenBa:Play()
 tweenBa.Completed:Wait(E)
@@ -3487,6 +3488,7 @@ function tweenfunc:Stop()
 	tweenBa:Cancel()
 end
 	return tweenfunc
+        end
     end
 end
 
@@ -8593,7 +8595,7 @@ function EquipAllWeapon()
     end)
 end
 
-Sea:Toggle("Auto Sasil",_G.AutoSail,function(val)
+Sea:Toggle("Auto Sail",_G.AutoSail,function(val)
     _G.AutoRemover = val
     StopTween(_G.AutoSail)
     StopTween(_G.SendShip)
@@ -8658,7 +8660,7 @@ if _G.AutoRemover == true then
                                 elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
     
                                     if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                                TPB(CFrame.new(-17599.1055, -0.00471854256, 742.331787, -0.535979033, -1.30780577e-08, 0.844231308, -1.04326979e-07, 1, -5.07432212e-08, -0.844231308, -1.15273401e-07, -0.535979033))
+                                TPB(CFrame.new(-17674.8555, 20.7589149, 683.226501, -0.247295782, 0.00329861674, 0.968934417, 0.0133375563, 0.99991107, -1.90202898e-09, -0.968848228, 0.0129232174, -0.247317776))
 
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))

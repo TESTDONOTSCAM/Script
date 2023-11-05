@@ -3469,6 +3469,21 @@ while wait(.1) do
 	end
 end)
 
+function TPB2(CFgo)
+	local tween_sBa = game:service"TweenService"
+	local infoBa = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/170, Enum.EasingStyle.Linear)
+	tweenBa = tween_sBa:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoBa, {CFrame = CFgo})
+tweenBa:Play()
+tweenBa.Completed:Wait(E)
+	
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tweenBa:Cancel()
+end
+	return tweenfunc
+end
+
 function TPB(CFgo)
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = true
     print("repeat true anchored")
@@ -8649,18 +8664,16 @@ if _G.AutoRemover == true then
                                 elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
     
                                     if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
-                                TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
+                                TPB(CFrame.new(-17599.1055, -0.00471854256, 742.331787, -0.535979033, -1.30780577e-08, 0.844231308, -1.04326979e-07, 1, -5.07432212e-08, -0.844231308, -1.15273401e-07, -0.535979033))
 
-                                game:GetService("StarterGui"):SetCore("SendNotification", {
-                                    Title = "Boat Detected"; 
-                                    Text = "Tweening Success"; 
-                                    Icon = "http://www.roblox.com/asset/?id=14355269935";
-                                    Duration = 10;
-                                    Button1 = "Okay"
-                                })
-                                print("anchored false 2")
+                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                                    TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+
+                                TPB2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                                 _G.AutoSail = false
                                 StopTween(_G.AutoSail)
+                                end
                             end
                         end
                     end
@@ -8668,6 +8681,8 @@ if _G.AutoRemover == true then
             end)
         end
     end)
+
+    --[[
     
     spawn(function()
         while wait() do
@@ -8734,6 +8749,7 @@ spawn(function()
         end
     end
 end)
+]]--
 
 Sea:Toggle("Terror Shark [Need Spawn]",false,function(val)
     _G.TerShark = val

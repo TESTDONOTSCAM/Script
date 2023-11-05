@@ -3621,6 +3621,38 @@ end)
         end
     end
 end)
+
+spawn(function()
+	game:GetService("RunService").Stepped:Connect(function()
+		if _G.Platform then
+			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+				setfflag("HumanoidParallelRemoveNoPhysics", "False")
+				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+				setfflag("CrashPadUploadToBacktraceToBacktraceBaseUrl", "")
+				setfflag("CrashUploadToBacktracePercentage", "0")
+				setfflag("CrashUploadToBacktraceBlackholeToken", "")
+				setfflag("CrashUploadToBacktraceWindowsPlayerToken", "")
+				game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+			else
+				if not game:GetService("Workspace"):FindFirstChild("LOL1") then
+					local LOL1 = Instance.new("Part")
+					LOL1.Name = "LOL1"
+					LOL1.Parent = game.Workspace
+					LOL1.Anchored = true
+					LOL1.Transparency = 0.2
+					LOL1.Size = Vector3.new(50,0.5,50)
+				elseif game:GetService("Workspace"):FindFirstChild("LOL1") then
+					game.Workspace["LOL1"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3.8,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+				end
+			end
+			for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = false
+				end
+			end
+		end
+	end)
+end)
     
 -- StopTween Script
 function StopTween(target)
@@ -8627,6 +8659,8 @@ if _G.AutoRemover == true then
                                     Button1 = "Okay"
                                 })
                                 print("anchored false 2")
+                                _G.AutoSail = false
+                                StopTween(_G.AutoSail)
                             end
                         end
                     end
@@ -8996,6 +9030,7 @@ spawn(function()
                         Skillaimbot = true
                         InstaAttack()
                         print("fast")
+                        _G.Platform = true
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Beast
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
@@ -9006,6 +9041,7 @@ spawn(function()
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             AutoSkill = false
                             Skillaimbot = false
+                            _G.Platform = false
                                     end
                                 end
                             end

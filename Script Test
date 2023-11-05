@@ -8758,6 +8758,7 @@ spawn(function()
                         _G.FastAttack = true
                         print("StartMagnet")
                     repeat wait()
+                        _G.Platform = true
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0))
@@ -8770,6 +8771,7 @@ spawn(function()
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,80,0))
                         else
                         if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                            _G.Platform = false
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             _G.FastAttack = false
@@ -8812,6 +8814,7 @@ spawn(function()
                         _G.FastAttack = true
                         print("StartMagnet")
                     repeat wait()
+                        _G.Platform = true
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
@@ -8824,6 +8827,7 @@ spawn(function()
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                         else
                         if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                            _G.Platform = false
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             _G.FastAttack = false
@@ -8865,6 +8869,7 @@ spawn(function()
                         print("StartMagnet")
                         _G.FastAttack = true
                     repeat wait()
+                        _G.Platform = true
                         AutoHaki()
                         EquipAllWeapon()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
@@ -8880,6 +8885,7 @@ spawn(function()
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                         else
                         if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                            _G.Platform = false
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             _G.FastAttack = false
@@ -8921,6 +8927,7 @@ spawn(function()
                         print("StartMagnet")
                         _G.FastAttack = true
                     repeat wait()
+                        _G.Platform = true
                         AutoHaki()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0))
                         EquipAllWeapon()
@@ -8936,6 +8943,7 @@ spawn(function()
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").HumanoidRootPart.CFrame * CFrame.new(0,120,0))
                         else
                         if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                            _G.Platform = false
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             _G.FastAttack = false
@@ -8989,11 +8997,11 @@ spawn(function()
                             TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,2500,0))
                         else
                         if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                            _G.Platform = false
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             AutoSkill = false
                             Skillaimbot = false
-                            _G.Platform = false
                                     end
                                 end
                             end

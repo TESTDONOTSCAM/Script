@@ -4109,7 +4109,7 @@ spawn(function()
                                             if v.Humanoid.Health <= HealthMs then
                                                 AutoHaki()
                                                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0) * Pos)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
@@ -4121,7 +4121,7 @@ spawn(function()
                                                 AutoSkill = false 
                                                 AutoHaki()
                                                 EquipWeapon(_G.Setting_table.Weapon)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0) * Pos)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                                 PosMon = v.HumanoidRootPart.CFrame

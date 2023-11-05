@@ -3470,25 +3470,22 @@ while wait(.1) do
 end)
 
 function TPB2(CFgo)
+if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("Workspace").Seabeasts:FindFirstChild("SeaBeast1") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
 	local tween_sBa = game:service"TweenService"
 	local infoBa = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
 	tweenBa = tween_sBa:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoBa, {CFrame = CFgo})
 tweenBa:Play()
-if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Seabeasts:FindFirstChild("SeaBeast1") or game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") then
+elseif game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Seabeasts:FindFirstChild("SeaBeast1") or game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") then
     _G.AutoSail = false
-    StopTween(_G.AutoSail)
-    else
-if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("Workspace").Seabeasts:FindFirstChild("SeaBeast1") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
-    _G.AutoSail = true
+StopTween(_G.AutoSail)
 tweenBa.Completed:Wait(E)
-	
+
 local tweenfunc = {}
 	
 function tweenfunc:Stop()
 	tweenBa:Cancel()
 end
 	return tweenfunc
-        end
     end
 end
 
@@ -8595,7 +8592,7 @@ function EquipAllWeapon()
     end)
 end
 
-Sea:Toggle("Auto wdSail",_G.AutoSail,function(val)
+Sea:Toggle("Auto Sail",_G.AutoSail,function(val)
     _G.AutoRemover = val
     StopTween(_G.AutoSail)
     StopTween(_G.SendShip)

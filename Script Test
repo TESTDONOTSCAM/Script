@@ -3474,7 +3474,7 @@ function TPB2(CFgo)
 	local infoBa = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
 	tweenBa = tween_sBa:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoBa, {CFrame = CFgo})
 tweenBa:Play()
-TweenBa.Completed:Wait(E)
+tweenBa.Completed:Wait(E)
 
 local tweenfunc = {}
 	
@@ -3508,7 +3508,7 @@ function TPP(CFgo)
 	local infoP = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
 	tweenP = tween_sP:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], infoP, {CFrame = CFgo})
 tweenP:Play()
-TweenP.Completed:Wait(E)
+tweenP.Completed:Wait(E)
 	
 local tweenfunc = {}
 	
@@ -8586,7 +8586,7 @@ function EquipAllWeapon()
     end)
 end
 
-Sea:Toggle("Auto Sail",_G.AutoSail,function(val)
+Sea:Toggle("Auto Sawfil",_G.AutoSail,function(val)
     _G.AutoRemover = val
     StopTween(_G.AutoSail)
     StopTween(_G.SendShip)

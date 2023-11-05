@@ -3476,12 +3476,12 @@ function TPB2(CFgo)
 tweenBa:Play()
 TweenBa.Completed:Wait(E)
 
-local tweenAfunc = {}
+local tweenfunc = {}
 	
-function tweenAfunc:Stop()
+function tweenfunc:Stop()
 	tweenBa:Cancel()
 end
-	return tweenAfunc
+	return tweenfunc
 end
 
 function TPB(CFgo)
@@ -3494,12 +3494,12 @@ function TPB(CFgo)
 tweenB:Play()
 tweenB.Completed:Wait(E)
 	
-local tweenBfunc = {}
+local tweenfunc = {}
 	
-function tweenBfunc:Stop()
+function tweenfunc:Stop()
 	tweenB:Cancel()
 end
-	return tweenBfunc
+	return tweenfunc
 end
 	
 function TPP(CFgo)
@@ -3510,12 +3510,12 @@ function TPP(CFgo)
 tweenP:Play()
 TweenP.Completed:Wait(E)
 	
-local tweenCfunc = {}
+local tweenfunc = {}
 	
-function tweenCfunc:Stop()
+function tweenfunc:Stop()
 	tweenP:Cancel()
 end
-	return tweenCfunc
+	return tweenfunc
 end
 
 function topos2(Pos)

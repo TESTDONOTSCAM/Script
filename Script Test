@@ -8762,6 +8762,8 @@ spawn(function()
                         EquipWeapon(_G.Setting_table.Weapon)
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0))
                         InstaAttack()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.TerShark
                     else
@@ -8815,6 +8817,8 @@ spawn(function()
                         EquipWeapon(_G.Setting_table.Weapon)
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                         InstaAttack()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Piranas
                     else
@@ -8866,7 +8870,11 @@ spawn(function()
                         AutoHaki()
                         EquipAllWeapon()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
-                        InstaAttack()
+                        AutoSkill = true
+                        AimBotSkillPosition = v.HumanoidRootPart
+                        Skillaimbot = true
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.TerShark
                     else
@@ -8921,7 +8929,8 @@ spawn(function()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
-                        InstaAttack()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.BrigadeShip
                     else
@@ -8972,7 +8981,8 @@ spawn(function()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
-                        InstaAttack()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         _G.Platform = true
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Beast

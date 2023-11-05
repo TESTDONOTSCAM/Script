@@ -3753,6 +3753,9 @@ spawn(function()
     end
 end)
 
+function InstaAttack()
+    require(game.ReplicatedStorage.Util.CameraShaker):Stop()
+    local SuperFastMode = true -- Change to true if you want Super Super Super Fast attack (Like instant kill) but it will make the game kick you more than normal mode
     local plr = game.Players.LocalPlayer
     local CbFw = debug.getupvalues(require(plr.PlayerScripts.CombatFramework))
     local CbFw2 = CbFw[2]
@@ -3811,6 +3814,17 @@ end)
                     end
                 end
             end
+            local cac
+            if SuperFastMode then 
+                cac=task.wait
+            else
+                cac=wait
+            end
+            while cac() do 
+        AttackNoCD()
+        -- Add Wait(0.1 or 0.4) to make Slower
+    end
+end
 
 -- [[ Windows Table ]]
 
@@ -8717,7 +8731,7 @@ spawn(function()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0))
-                        AttackNoCD()
+                        InstaAttack()
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.TerShark
                     else
@@ -8771,7 +8785,7 @@ spawn(function()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
-                        AttackNoCD()
+                        InstaAttack()
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Piranas
                     else
@@ -8825,7 +8839,7 @@ spawn(function()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
-                        AttackNoCD()
+                        InstaAttack()
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.SharkPir
                     else
@@ -8878,7 +8892,7 @@ spawn(function()
                         AutoHaki()
                         EquipAllWeapon()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
-                        AttackNoCD()
+                        InstaAttack()
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.TerShark
                     else
@@ -8933,7 +8947,7 @@ spawn(function()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
-                        AttackNoCD()
+                        InstaAttack()
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.BrigadeShip
                     else
@@ -8984,7 +8998,7 @@ spawn(function()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
-                        AttackNoCD()
+                        InstaAttack()
                         print("fast")
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Beast
                     else

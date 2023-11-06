@@ -3474,14 +3474,6 @@ function TPB2(CFgo)
 	local infoBa = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
 	tweenBa = tween_sBa:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoBa, {CFrame = CFgo})
 tweenBa:Play()
-if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
-for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
-    if v:FindFirstChild("HumanoidRootpart") then
-_G.AutoSail = false
-StopTween(_G.AutoSail)
-if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
-    tweenBa:Play()
 tweenBa.Completed:Wait(E)
 
 local tweenfunc = {}
@@ -3490,11 +3482,6 @@ function tweenfunc:Stop()
 	tweenBa:Cancel()
 end
 	return tweenfunc
-end
-                end
-            end
-        end
-    end
 end
 
 function TPB(Pos)

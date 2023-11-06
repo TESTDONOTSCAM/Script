@@ -3474,6 +3474,11 @@ function TPB2(CFgo)
 	local infoBa = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
 	tweenBa = tween_sBa:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoBa, {CFrame = CFgo})
 tweenBa:Play()
+if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
+for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+    if v:FindFirstChild("HumanoidRootpart") then
+    tweenBa:Cancel()
+else
 tweenBa.Completed:Wait(E)
 
 local tweenfunc = {}
@@ -3482,6 +3487,10 @@ function tweenfunc:Stop()
 	tweenBa:Cancel()
 end
 	return tweenfunc
+                end
+            end
+        end
+    end
 end
 
 function TPB(CFgo)
@@ -8588,7 +8597,6 @@ end
 
 Sea:Toggle("Auto Sail",_G.AutoSail,function(val)
     _G.AutoRemover = val
-    _G.Removing = val
     StopTween(_G.AutoSail)
     StopTween(_G.SendShip)
 if _G.AutoRemover == true then
@@ -8658,130 +8666,9 @@ task.spawn(function()
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                         elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
 
-                            TPB2(CFrame.new(-22371.043, 20.7576332, 4136.70557, -0.549149692, -0.0248080064, 0.835355699, -0.0451292805, 0.998981178, -6.64713673e-10, -0.834504604, -0.0376990028, -0.549709797))
-
-                            _G.TerShark = true
-                            _G.Piranas = true
-                            _G.FishBoat = true
-                            _G.BrigadeShip = true
-                            _G.Beast = true
-                            
-                            -- Danger [1]
-                                wait(300)
-
-                                                            
-                                _G.TerShark = false
-                                _G.Piranas = false
-                                _G.FishBoat = false
-                                _G.BrigadeShip = false
-                                _G.Beast = false
-                            
-
-                                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                    TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                                    elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-
-                                    TPB2(CFrame.new(-25421.8516, 20.759613, 6388.67236, -0.674843311, 0.00952449907, 0.737899601, 0.0141122378, 0.999900401, -1.64563907e-09, -0.737826109, 0.0104134139, -0.674910486))
-                                                                     
-                                    _G.TerShark = true
-                                    _G.Piranas = true
-                                    _G.FishBoat = true
-                                    _G.BrigadeShip = true
-                                    _G.Beast = true
-                            
-                                    -- Danger [2]
-
-                                    wait(300)
-                     
-                                        _G.TerShark = false
-                                        _G.Piranas = false
-                                        _G.FishBoat = false
-                                        _G.BrigadeShip = false
-                                        _G.Beast = false
-                        
-                                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                        TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                                        elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-    
-                                        TPB2(CFrame.new(-28169.9277, 20.7554245, 8901.05469, -0.673396826, -0.045176547, 0.737899601, -0.066937089, 0.997757196, 9.63655156e-10, -0.736244619, -0.0493928529, -0.674910486))
-                                            
-                                            _G.TerShark = true
-                                            _G.Piranas = true
-                                            _G.FishBoat = true
-                                            _G.BrigadeShip = true
-                                            _G.Beast = true
-                                        
-                                        -- Danger [3]
-
-                                        wait(300)
-
-                                        _G.TerShark = false
-                                        _G.Piranas = false
-                                        _G.FishBoat = false
-                                        _G.BrigadeShip = false
-                                        _G.Beast = false
-
-                                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                        TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                                        elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-    
-                                        TPB2(CFrame.new(-31048.3027, 20.7594261, 11860.0488, -0.870802879, -0.00469998922, 0.491609871, -0.00539722713, 0.999985456, 1.14511789e-10, -0.491602719, -0.00265332987, -0.870815575))
-                                                
-                                        _G.TerShark = true
-                                        _G.Piranas = true
-                                        _G.FishBoat = true
-                                        _G.BrigadeShip = true
-                                        _G.Beast = true
-                                        
-                                        -- Danger [4]     
-                                                
-                                                wait(300)
-
-                                                _G.TerShark = false
-                                                _G.Piranas = false
-                                                _G.FishBoat = false
-                                                _G.BrigadeShip = false
-                                                _G.Beast = false
-                                                
-                                                if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                                    TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                                                    elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-                
-                                                    TPB2(CFrame.new(-33130.4062, 20.759264, 17515.9453, -0.974288285, 0.0119510852, 0.224987879, 0.0122655546, 0.999924779, -8.87827728e-11, -0.224970952, 0.00275960099, -0.974361539))
-                                                    
-                                                    _G.TerShark = true
-                                                    _G.Piranas = true
-                                                    _G.FishBoat = true
-                                                    _G.BrigadeShip = true
-                                                    _G.Beast = true
-                                                    
-                                                    -- Danger [5]
-        
-                                                    wait(300)
-
-                                                    _G.TerShark = false
-                                                    _G.Piranas = false
-                                                    _G.FishBoat = false
-                                                    _G.BrigadeShip = false
-                                                    _G.Beast = false
-
-                                                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                                        TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                                                        elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-                    
-                                                        TPB2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
-                                                        
-                                                        _G.TerShark = true
-                                                        _G.Piranas = true
-                                                        _G.FishBoat = true
-                                                        _G.BrigadeShip = true
-                                                        _G.Beast = true
-                                                        
-                                                        -- Danger [6]
-                                                end
-                                            end
-                                        end
-                                    end
+                                TPB2(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
+                                    if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
+                                    StopTween(_G.AutoSail)
                                 end
                             end
                         end
@@ -8792,22 +8679,11 @@ task.spawn(function()
     end
 end)
 
-spawn(function()
-    while wait() do
-        if _G.Removing then
-            pcall(function()
-                    repeat wait()
-                    local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
-                    local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
-                    local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
-                until not _G.Removing
-            end)
-        end
-    end
-end)
+--if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
 
 Sea:Toggle("Terror Shark [Need Spawn]",false,function(val)
     _G.TerShark = val
+    StopTween(_G.TerShark)
     if _G.TerShark == true then
         _G.AutoFarm = false
         _G.AutoFarmFruitMastery = false
@@ -8842,7 +8718,7 @@ spawn(function()
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,80,0))
                         else
-                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 7500 then
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                             
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
@@ -8864,6 +8740,7 @@ end)
 
 Sea:Toggle("Shark / Piranha [Need Spawn]",false,function(val)
     _G.Piranas = val
+    StopTween(_G.Piranas)
     if _G.Piranas == true then
         _G.AutoFarm = false
         _G.AutoFarmFruitMastery = false
@@ -8897,7 +8774,7 @@ spawn(function()
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                         else
-                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 7500 then
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                             
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
@@ -8918,6 +8795,7 @@ end)
 
 Sea:Toggle("Fish Boat [Need Spawn]",false,function(val)
     _G.FishBoat = val
+    StopTween(_G.FishBoat)
     if _G.FishBoat == true then
         _G.AutoFarm = false
         _G.AutoFarmFruitMastery = false
@@ -8954,7 +8832,7 @@ spawn(function()
                         if game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                         else
-                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 7500 then
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                             
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
@@ -8975,6 +8853,7 @@ end)
 
 Sea:Toggle("Pirate [Need Spawn]",false,function(val)
     _G.BrigadeShip = val
+    StopTween(_G.BrigadeShip)
     if _G.BrigadeShip == true then
         _G.AutoFarm = false
         _G.AutoFarmFruitMastery = false
@@ -9011,7 +8890,7 @@ spawn(function()
                     if game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").HumanoidRootPart.CFrame * CFrame.new(0,120,0))
                         else
-                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 7500 then
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                             
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
@@ -9032,6 +8911,7 @@ end)
 
 Sea:Toggle("SeaBeast [Need Spawn] [BETA]",false,function(sea)
     _G.Beast = sea
+    StopTween(_G.Beast)
     if _G.Beast == true then
         _G.AutoFarm = false
         _G.AutoFarmFruitMastery = false
@@ -9064,7 +8944,7 @@ spawn(function()
                         if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
                             TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,2500,0))
                         else
-                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 7500 then
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                             
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))

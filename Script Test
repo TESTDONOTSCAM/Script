@@ -8778,7 +8778,6 @@ task.spawn(function()
                                                         _G.Beast = true
                                                         
                                                         -- Danger [6]
-                                                    end
                                                 end
                                             end
                                         end

@@ -8871,7 +8871,8 @@ spawn(function()
                 if game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                     if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
+                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                        if v.Name == "FishBoat" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
                         v.Humanoid.JumpPower = 0
@@ -8900,6 +8901,7 @@ spawn(function()
                             _G.FastAttack = false
                             AutoSkill = false
                             Skillaimbot = false
+                                            end
                                         end
                                     end
                                 end
@@ -8913,6 +8915,65 @@ spawn(function()
 end)
 
 Sea:Toggle("Pirate [Need Spawn]",false,function(val)
+    _G.BrigadeShips = val
+    StopTween(_G.BrigadeShips)
+    if _G.BrigadeShips == true then
+        _G.AutoFarm = false
+        _G.AutoFarmFruitMastery = false
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.BrigadeShips then
+            pcall(function()
+                if game.workspace.Enemies:FindFirstChild("PirateBrigade") then
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                        if v.Name == "PirateBrigade" then
+                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+                        PosMon = v.HumanoidRootPart.CFrame
+                        v.Humanoid.JumpPower = 0
+                        v.Humanoid:ChangeState(11)
+                        print("StartMagnet")
+                        _G.FastAttack = true
+                    repeat wait()
+                        AutoHaki()
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0))
+                        EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                        AutoSkill = true
+                        AimBotSkillPosition = v.HumanoidRootPart
+                        Skillaimbot = true
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                        print("fast")
+                        until not v.Parent or not v.Humanoid.Health <= 0 or not _G.BrigadeShips
+                    else
+                    if game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").HumanoidRootPart.CFrame * CFrame.new(0,120,0))
+                        else
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                            
+                           if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                            TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            _G.FastAttack = false
+                            AutoSkill = false
+                            Skillaimbot = false
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end)
+
+Sea:Toggle("Grand Pirate [Need Spawn]",false,function(val)
     _G.BrigadeShip = val
     StopTween(_G.BrigadeShip)
     if _G.BrigadeShip == true then
@@ -8925,10 +8986,11 @@ spawn(function()
     while wait() do
         if _G.BrigadeShip then
             pcall(function()
-                if game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") then
+                if game.workspace.Enemies:FindFirstChild("PirateGrandBrigade") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
+                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                        if v.Name == "PirateGrandBrigade" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
                         v.Humanoid.JumpPower = 0
@@ -8957,6 +9019,7 @@ spawn(function()
                             _G.FastAttack = false
                             AutoSkill = false
                             Skillaimbot = false
+                                            end
                                         end
                                     end
                                 end

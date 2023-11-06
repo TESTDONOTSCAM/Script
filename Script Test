@@ -3488,7 +3488,7 @@ function TPB(CFgo)
     print("REPEAT DIA BWANG")
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = true
 	local tween_sB = game:service"TweenService"
-	local infoB = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/120, Enum.EasingStyle.Linear)
+	local infoB = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/400, Enum.EasingStyle.Linear)
 	tweenB = tween_sB:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoB, {CFrame = CFgo})
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
 tweenB:Play()
@@ -8671,8 +8671,6 @@ task.spawn(function()
     end
 end)
 
---if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
-
 Sea:Toggle("Terror Shark [Need Spawn]",false,function(val)
     _G.TerShark = val
     StopTween(_G.TerShark)
@@ -8710,7 +8708,7 @@ spawn(function()
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,80,0))
                         else
-                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 7500 then
                             
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
@@ -8766,7 +8764,7 @@ spawn(function()
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                         else
-                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 7500 then
                             
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
@@ -8824,7 +8822,7 @@ spawn(function()
                         if game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                         else
-                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 7500 then
                             
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
@@ -8882,7 +8880,7 @@ spawn(function()
                     if game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").HumanoidRootPart.CFrame * CFrame.new(0,120,0))
                         else
-                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 7500 then
                             
                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
@@ -8936,7 +8934,7 @@ spawn(function()
                         if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
                             TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,2500,0))
                         else
-                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 7500 then
                             
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))

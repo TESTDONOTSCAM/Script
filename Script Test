@@ -3480,6 +3480,8 @@ if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.Huma
     if v:FindFirstChild("HumanoidRootpart") then
     tweenBa:Cancel()
 else
+ if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
+    tweenBa:Play()
 tweenBa.Completed:Wait(E)
 
 local tweenfunc = {}
@@ -3488,6 +3490,7 @@ function tweenfunc:Stop()
 	tweenBa:Cancel()
 end
 	return tweenfunc
+end
                 end
             end
         end

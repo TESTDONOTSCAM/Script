@@ -8990,7 +8990,7 @@ spawn(function()
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
                         EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
@@ -9002,7 +9002,7 @@ spawn(function()
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Beast
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
-                            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,2500,0))
+                            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,1500,0))
                         else
                         if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                             

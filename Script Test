@@ -8664,7 +8664,7 @@ task.spawn(function()
 
                             elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                                 print("repeat")
-                                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 200 then
+                                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
                                     print("ini")
                             TPB(CFrame.new(-17674.8555, 20.7589149, 683.226501, -0.247295782, 0.00329861674, 0.968934417, 0.0133375563, 0.99991107, -1.90202898e-09, -0.968848228, 0.0129232174, -0.247317776))
                             print("salah dia ini")

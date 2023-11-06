@@ -3476,6 +3476,7 @@ function TPB2(CFgo)
 tweenBa:Play()
 if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
     if v:FindFirstChild("HumanoidRootpart") then
     tweenBa:Cancel()
 else
@@ -3487,6 +3488,7 @@ function tweenfunc:Stop()
 	tweenBa:Cancel()
 end
 	return tweenfunc
+                end
             end
         end
     end

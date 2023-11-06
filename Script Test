@@ -4220,9 +4220,12 @@ spawn(function()
                                                 v.Head.CanCollide = false
                                                 StatrMagnet = true
                                                 AutoSkill = true
+                                                AimBotSkillPosition = v.HumanoidRootPart
+                                                Skillaimbot = true
                                             else
                                                 _G.AutoFarm = true
                                                 AutoSkill = false 
+                                                Skillaimbot = false
                                                 AutoHaki()
                                                 EquipWeapon(_G.Setting_table.Weapon)
                                                 TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))

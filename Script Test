@@ -3487,7 +3487,6 @@ function tweenfunc:Stop()
 	tweenBa:Cancel()
 end
 	return tweenfunc
-                end
             end
         end
     end

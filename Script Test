@@ -3474,7 +3474,6 @@ function TPB2(CFgo)
 	local infoBa = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
 	tweenBa = tween_sBa:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoBa, {CFrame = CFgo})
 tweenBa:Play()
-tweenBa.Completed:Wait(E)
 
 local tweenfunc = {}
 	
@@ -8586,7 +8585,7 @@ function EquipAllWeapon()
     end)
 end
 
-Sea:Toggle("Auto Sasil",_G.AutoSail,function(val)
+Sea:Toggle("Auto Sail",_G.AutoSail,function(val)
     _G.AutoRemover = val
     _G.Removing = val
     StopTween(_G.AutoSail)
@@ -8696,7 +8695,6 @@ end)
 
 Sea:Toggle("Terror Shark [Need Spawn]",false,function(val)
     _G.TerShark = val
-    StopTween(_G.TerShark)
     if _G.TerShark == true then
         _G.AutoFarm = false
         _G.AutoFarmFruitMastery = false
@@ -8753,7 +8751,6 @@ end)
 
 Sea:Toggle("Shark / Piranha [Need Spawn]",false,function(val)
     _G.Piranas = val
-    StopTween(_G.Piranas)
     if _G.Piranas == true then
         _G.AutoFarm = false
         _G.AutoFarmFruitMastery = false
@@ -8808,7 +8805,6 @@ end)
 
 Sea:Toggle("Fish Boat [Need Spawn]",false,function(val)
     _G.FishBoat = val
-    StopTween(_G.FishBoat)
     if _G.FishBoat == true then
         _G.AutoFarm = false
         _G.AutoFarmFruitMastery = false
@@ -8866,7 +8862,6 @@ end)
 
 Sea:Toggle("Pirate [Need Spawn]",false,function(val)
     _G.BrigadeShip = val
-    StopTween(_G.BrigadeShip)
     if _G.BrigadeShip == true then
         _G.AutoFarm = false
         _G.AutoFarmFruitMastery = false
@@ -8924,7 +8919,6 @@ end)
 
 Sea:Toggle("SeaBeast [Need Spawn] [BETA]",false,function(sea)
     _G.Beast = sea
-    StopTween(_G.Beast)
     if _G.Beast == true then
         _G.AutoFarm = false
         _G.AutoFarmFruitMastery = false

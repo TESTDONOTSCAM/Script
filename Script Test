@@ -8646,10 +8646,15 @@ if _G.AutoRemover == true then
                             elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                             _G.WalkWater = false
                             print("FalseWater")
-                            TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
+                            TPB(CFrame.new(-17824.543, 20.7565479, 819.378174, -0.334050685, -0.018375, 0.942375958, -0.0549235903, 0.998490572, -3.41900369e-10, -0.940953553, -0.051758673, -0.334555686))
                         print("anchored false 2")
+                        if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                            TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+                            TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                         _G.AutoSail = false
                         StopTween(_G.AutoSail)
+                        end
                     end
                 end
             end
@@ -8720,8 +8725,6 @@ spawn(function()
         end
     end
 end)
-
---if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") or game:GetService("ReplicatedStorage"):FindFirstChild("Shark") or game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") or game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") or game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
 
 Sea:Toggle("Terror Shark [Need Spawn]",false,function(val)
     _G.TerShark = val

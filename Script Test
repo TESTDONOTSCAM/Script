@@ -8513,7 +8513,7 @@ Misc:Line()
     end
     end)
     
-    Misc:Toggle("Walk on Water",true,function(value)
+    Misc:Toggle("Walk on Water",false,function(value)
     _G.WalkWater = value
     end)
     
@@ -8645,9 +8645,9 @@ if _G.AutoRemover == true then
                                     end
                             elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                             _G.WalkWater = false
+                            print("FalseWater")
                             TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
                         print("anchored false 2")
-                        _G.WalkWater = true
                         _G.AutoSail = false
                         StopTween(_G.AutoSail)
                     end
@@ -8975,7 +8975,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Grand Pirate [Need Spawn]",false,function(val)
+Sea:Toggle("Grand Pisdrate [Need Spawn]",false,function(val)
     _G.BrigadeShip = val
     StopTween(_G.BrigadeShip)
     if _G.BrigadeShip == true then

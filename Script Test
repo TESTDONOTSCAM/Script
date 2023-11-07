@@ -8819,7 +8819,7 @@ spawn(function()
             pcall(function()
                 if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 750 then
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
                      if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
@@ -8867,7 +8867,7 @@ spawn(function()
             pcall(function()
                 if game.workspace.Enemies:FindFirstChild("Piranha") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         if v.Name == "Piranha" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
@@ -8916,7 +8916,7 @@ spawn(function()
             pcall(function()
                 if game.workspace.Enemies:FindFirstChild("Shark") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         if v.Name == "Shark" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false

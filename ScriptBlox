@@ -4206,6 +4206,7 @@ end)
 
 Main:Toggle("Farm Bone",_G.BoneFarm,function(vu)
     _G.BoneFarm = vu
+StopTween(_G.BoneFarm)
     if _G.BoneFarm == true then
     _G.AutoFarm = false
     _G.AutoFarmFruitMastery = false

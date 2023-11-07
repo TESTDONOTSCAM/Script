@@ -8604,6 +8604,7 @@ if _G.AutoRemover == true then
     })	
     _G.AutoRemover = false
     _G.AutoSail = true
+    _G.Removing = true
     until not _G.AutoRemover
         end
     end)
@@ -8657,6 +8658,20 @@ if _G.AutoRemover == true then
     end
 end)
 
+spawn(function()
+    while wait() do
+        if _G.Removing then
+            pcall(function()
+                    repeat wait()
+                    local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
+                    local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
+                    local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
+                until not _G.Removing
+            end)
+        end
+    end
+end)
+
 --[[
     
     spawn(function()
@@ -8678,20 +8693,6 @@ end)
                     _G.SendShip = false
                     StopTween(_G.SendShip)
                 end
-            end)
-        end
-    end
-end)
-
-spawn(function()
-    while wait() do
-        if _G.Removing then
-            pcall(function()
-                    repeat wait()
-                    local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
-                    local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
-                    local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
-                until not _G.Removing
             end)
         end
     end

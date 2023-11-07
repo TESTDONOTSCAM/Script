@@ -4160,7 +4160,7 @@ spawn(function()
 						if game.Workspace.Enemies:FindFirstChild(Ms) then
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 								if v.Name == Ms and v.Humanoid.Health > 0 then
-									_G.PosMon = v.HumanoidRootPart.CFrame
+									PosMon = v.HumanoidRootPart.CFrame
 									_G.FastAttack = true
 									StatrMagnet = true
 									if v.Humanoid:FindFirstChild("Animator") then
@@ -4296,7 +4296,7 @@ spawn(function()
 						if game.Workspace.Enemies:FindFirstChild(Ms) then
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 								if v.Name == Ms and v.Humanoid.Health > 0 then
-									_G.PosMon = v.HumanoidRootPart.CFrame
+									PosMon = v.HumanoidRootPart.CFrame
 									_G.FastAttack = true
 									StatrMagnet = true
 									if v.Humanoid:FindFirstChild("Animator") then

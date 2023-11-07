@@ -3731,7 +3731,7 @@ spawn(function()
 	while task.wait() do
 		pcall(function()
 			if StatrMagnet then
-				if _G.AutoFarm or _G.SharkPir or _G.TerShark then
+				if _G.AutoFarm or _G.SharkPir or _G.TerShark _G.BoneFarm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 							if v.Name == Ms and (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 375 then

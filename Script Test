@@ -8669,6 +8669,7 @@ end)
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                 _G.AutoSail = false
+                                print("falseautosail")
                                 StopTween(_G.AutoSail)
                             end
                         end

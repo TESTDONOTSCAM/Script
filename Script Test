@@ -4134,6 +4134,7 @@ end)
 
 Main:Toggle("Farm Bone",_G.BoneFarm,function(vu)
     _G.BoneFarm = vu
+    StopTween(_G.BoneFarm)
     if _G.BoneFarm == true then
     _G.AutoFarm = false
     _G.AutoFarmFruitMastery = false
@@ -8838,13 +8839,9 @@ spawn(function()
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,80,0))
-                        else
-                            if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                                print("test")
-                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            print("dia mencari st")
                                  AutoSkill = false
                                  Skillaimbot = false
-                                    end
                                 end
                             end
                         end
@@ -8889,14 +8886,10 @@ spawn(function()
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Piranas
                     else
                     if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
+                        print("dia mencari ph")
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
-                        else
-                            if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                                print("test")
-                                TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                  AutoSkill = false
                                  Skillaimbot = false
-                                        end
                                     end
                                 end
                             end
@@ -8942,14 +8935,10 @@ spawn(function()
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Sharky
                     else
                     if game:GetService("ReplicatedStorage"):FindFirstChild("Shark") then
+                        print("dia mencari sh")
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
-                        else
-                            if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                                print("test")
-                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                  AutoSkill = false
                                  Skillaimbot = false
-                                        end
                                     end
                                 end
                             end
@@ -8996,14 +8985,10 @@ spawn(function()
                         until not v.Parent or not v.Health <= 0 or not _G.TerShark
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
+                            print("dia mencari fb")
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat").Sails.CFrame * CFrame.new(0,50,0))
-                        else
-                            if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                                print("test")
-                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                  AutoSkill = false
                                  Skillaimbot = false
-                                        end
                                     end
                                 end
                             end
@@ -9050,14 +9035,10 @@ spawn(function()
                         until not v.Parent or not v.Health.Value <= 0 or not _G.BrigadeShips
                     else
                     if game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
+                        print("dia mencari bb")
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,120,0))
-                        else
-                            if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                                print("test")
-                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                  AutoSkill = false
                                  Skillaimbot = false
-                                        end
                                     end
                                 end
                             end
@@ -9104,14 +9085,10 @@ spawn(function()
                         until not v.Parent or not v.Health.Value <= 0 or not _G.BrigadeShip
                     else
                     if game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
+                        print("dia mencari bg")
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,120,0))
-                        else
-                            if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                                print("test")
-                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                  AutoSkill = false
                                  Skillaimbot = false
-                                        end
                                     end
                                 end
                             end
@@ -9157,14 +9134,10 @@ spawn(function()
                     until not v.Parent or not v.Health <= 0 or not _G.Beast
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
+                            print("dia mencari s")
                             TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,1500,0))
-                        else
-                            if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                                print("test")
-                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                  AutoSkill = false
                                  Skillaimbot = false
-                                        end
                                     end
                                 end
                             end

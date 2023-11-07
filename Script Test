@@ -8606,8 +8606,8 @@ if _G.AutoRemover == true then
     _G.AutoSail = true
     _G.Removing = true
     until not _G.AutoRemover
-        end
-    end)
+    end
+end)
     
     task.spawn(function()
         while wait() do
@@ -8647,14 +8647,33 @@ if _G.AutoRemover == true then
                         if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+                            _G.Testing2 = true
                             TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
-                        _G.AutoSail = false
-                        StopTween(_G.AutoSail)
+                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                                TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                                elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+                                _G.AutoSail = false
+                                _G.Testing2 = false
+                                StopTween(_G.Testing2)
+                                StopTween(_G.AutoSail)
+                            end
                         end
                     end
                 end
             end
         end)
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.Testing2 then
+            pcall(function()
+                    repeat wait()
+                    TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,10))
+                until not _G.Testing2
+            end)
+        end
     end
 end)
 

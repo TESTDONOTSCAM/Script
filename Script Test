@@ -8889,7 +8889,7 @@ spawn(function()
                 if game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if v:FindFirstChild("Sails") and v:FindFirstChild("Humanoid") and v.Health > 0 then
+                    if v:FindFirstChild("Sails") and v:FindFirstChild("Health") and v.Health > 0 then
                         if v.Name == "FishBoat" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.Sails.CFrame
@@ -8907,7 +8907,7 @@ spawn(function()
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
-                        until not v.Parent or not v.Humanoid.Health <= 0 or not _G.TerShark
+                        until not v.Parent or not v.Health <= 0 or not _G.TerShark
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat").Sails.CFrame * CFrame.new(0,50,0))
@@ -9039,9 +9039,11 @@ spawn(function()
     while wait() do
         if _G.Beast then
             pcall(function()
+                if game.workspace.Seabeasts:FindFirstChild("SeaBeast1") then
                 for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
-                    if v:FindFirstChild("HumanoidRootPart") then
+                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Health") and v.Health > 0 then
+                        if v.Name == "SeaBeast1" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
                         print("StartMagnet")
@@ -9054,14 +9056,15 @@ spawn(function()
                         Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                        print("fast")
-                        
-                    until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Beast
+                        print("fast")  
+                    until not v.Parent or not v.Health <= 0 or not _G.Beast
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
                             TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,1500,0))
                             AutoSkill = false
                             Skillaimbot = false
+                                    end
+                                end
                             end
                         end
                     end

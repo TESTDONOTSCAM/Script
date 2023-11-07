@@ -8889,7 +8889,7 @@ spawn(function()
                 if game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if v:FindFirstChild("Sails") and v:FindFirstChild("Health") and v.Health > 0 then
+                    if v:FindFirstChild("Sails") and v:FindFirstChild("Health") and v.Health.Value > 0 then
                         if v.Name == "FishBoat" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.Sails.CFrame
@@ -8975,7 +8975,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Grand Pisdrate [Need Spawn]",false,function(val)
+Sea:Toggle("Grand Pirate [Need Spawn]",false,function(val)
     _G.BrigadeShip = val
     StopTween(_G.BrigadeShip)
     if _G.BrigadeShip == true then
@@ -9042,7 +9042,7 @@ spawn(function()
                 if game.workspace.Seabeasts:FindFirstChild("SeaBeast1") then
                 for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
                     if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
-                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Health") and v.Health > 0 then
+                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Health") and v.Health.Value > 0 then
                         if v.Name == "SeaBeast1" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame

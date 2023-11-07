@@ -3451,13 +3451,13 @@ spawn(function()
 while wait(.1) do
     if Type == 1 then
         Pos = CFrame.new(0,PosY,0)
-		wait(.1)
+		wait(.2)
 		Pos = CFrame.new(0,PosY,-30)
-		wait(.1)
+		wait(.2)
 		Pos = CFrame.new(30,PosY,0)
-		wait(.1)
+		wait(.2)
 		Pos = CFrame.new(0,PosY,30)
-		wait(.1)
+		wait(.2)
 		Pos = CFrame.new(-30,PosY,0)
     	end
     end
@@ -3476,7 +3476,6 @@ function TPB(Pos)
 	tweenB = tween_sB:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoB, {CFrame = Pos})
     game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
 tweenB:Play()
-tweenB.Completed:Wait(E)
 
 local tweenfunc = {}
 	
@@ -8658,27 +8657,31 @@ if _G.AutoRemover == true then
                                             Duration = 3;
                                             Button1 = "Okay"
                                         })
-                                    end
-                                elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
-                                    print("BBBB")
-                                TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
-                                print("LAGI")
-                                game:GetService("StarterGui"):SetCore("SendNotification", {
-                                    Title = "Boat Detected"; 
-                                    Text = "Tweening Success"; 
-                                    Icon = "http://www.roblox.com/asset/?id=14355269935";
-                                    Duration = 10;
-                                    Button1 = "Okay"
-                                })
-                                print("anchored false 2")
-                            _G.AutoSail = false
+
+                                _G.AutoSail = false
+                            _G.AutoSail2 = true
                             StopTween(_G.AutoSail)
                         end
                     end
                 end
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.AutoSail2 then
+            pcall(function()
+                if game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
+                game.Workspace.Boats:FindFirstChild("Guardian")["VehicleSeat"].Anchored = false
+                TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
+                print("anchored false 2")
+                end
             end)
         end
-    end)
+    end
+end)
     
     spawn(function()
         while wait() do
@@ -8773,7 +8776,7 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0) * Pos)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -8828,7 +8831,7 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0) * Pos)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -8883,7 +8886,7 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0) * Pos)
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
@@ -8941,7 +8944,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0) * Pos)
                         EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
@@ -9000,7 +9003,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0) * Pos)
                         EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
@@ -9054,7 +9057,7 @@ spawn(function()
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0) * Pos)
                         EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart

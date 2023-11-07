@@ -8806,8 +8806,14 @@ spawn(function()
                     else
                     if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
-                            AutoSkill = false
-                            Skillaimbot = false
+                        else
+                            if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                                if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                                 AutoSkill = false
+                                 Skillaimbot = false
+                                            end
+                                        end
                                     end
                                 end
                             end

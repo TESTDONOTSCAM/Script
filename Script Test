@@ -8684,9 +8684,12 @@ spawn(function()
     while wait() do
         if _G.Testing2 then
             pcall(function()
+                if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                     repeat wait()
                     TPP2(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,10))
                 until not _G.Testing2
+                end
             end)
         end
     end

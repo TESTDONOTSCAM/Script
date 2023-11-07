@@ -8604,11 +8604,6 @@ if _G.AutoRemover == true then
     })	
     _G.AutoRemover = false
     _G.AutoSail = true
-    wait(15)
-    _G.SendShip = true
-    _G.SendNof = true
-    _G.Removing = true
-    print("Work")
     until not _G.AutoRemover
         end
     end)
@@ -8661,6 +8656,8 @@ if _G.AutoRemover == true then
         end)
     end
 end)
+
+--[[
     
     spawn(function()
         while wait() do
@@ -8725,6 +8722,7 @@ spawn(function()
         end
     end
 end)
+]]--
 
 Sea:Toggle("Terror Shark [Need Spawn]",false,function(val)
     _G.TerShark = val

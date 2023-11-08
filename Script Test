@@ -8955,7 +8955,8 @@ spawn(function()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
-                        InstaAttackTRUE()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.TerShark
                     else
@@ -9009,7 +9010,8 @@ spawn(function()
                         AutoHaki()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
-                        InstaAttackTRUE()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Piranas
                     else
@@ -9059,7 +9061,8 @@ spawn(function()
                         AutoHaki()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
-                        InstaAttackTRUE()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Sharky
                     else
@@ -9103,17 +9106,18 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         AllWeapon = true
-                        TP1(v.Sails.CFrame * CFrame.new(0,25,0) * Pos)
+                        TP1(v.Sails.CFrame * CFrame.new(0,5,0) * Pos)
                         AutoSkill = true
                         AimBotSkillPosition = v.Sails
                         Skillaimbot = true
-                        InstaAttackTRUE()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Health <= 0 or not _G.TerShark
                     else
                         if game.ReplicatedStorage:FindFirstChild("FishBoat") then
                         print("dia mencari bb")
-                        topos(game.ReplicatedStorage:FindFirstChild("FishBoat").VehicleSeat.CFrame * CFrame.new(0,25,0))
+                        topos(game.ReplicatedStorage:FindFirstChild("FishBoat").VehicleSeat.CFrame * CFrame.new(0,5,0))
                         AutoSkill = false
                         Skillaimbot = false
                         AllWeapon = false
@@ -9150,18 +9154,19 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,25,0) * Pos)
+                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,4,0) * Pos)
                         AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.VehicleSeat
                         Skillaimbot = true
-                        InstaAttackTRUE()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Health.Value <= 0 or not _G.BrigadeShips
                     else
                     if game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade") then
                         print("dia mencari bb")
-                            topos(game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,25,0))
+                            topos(game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,4,0))
                                  AutoSkill = false
                                  Skillaimbot = false
                                  AllWeapon = false
@@ -9203,7 +9208,8 @@ spawn(function()
                         AutoSkill = true
                         AimBotSkillPosition = v.VehicleSeat
                         Skillaimbot = true
-                        InstaAttackTRUE()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Health.Value <= 0 or not _G.BrigadeShip
                     else
@@ -9249,7 +9255,8 @@ spawn(function()
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
-                        InstaAttackTRUE()
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")  
                     until not v.Parent or not v.Health.Value <= 0 or not _G.Beast
                     else

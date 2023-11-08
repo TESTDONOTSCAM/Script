@@ -8774,7 +8774,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Auto Sail",_G.AutoSail,function(val)
+Sea:Toggle("Autow Sail",_G.AutoSail,function(val)
     _G.AutoRemover = val
     StopTween(_G.AutoSail)
     StopTween(_G.SendShip)
@@ -8859,6 +8859,7 @@ end)
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                                 TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                 _G.AutoSail = false
+                                _G.AutoBoat2 = true
                                 print("falseautosail")
                                 StopTween(_G.AutoSail)
                             end
@@ -8894,6 +8895,22 @@ spawn(function()
                     local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
                     local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
                 until not _G.Removing
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.AutoBoat2 then
+            pcall(function()
+                if game.ReplicatedStorage:FindFirstChild("Terrorshark") or game.ReplicatedStorage:FindFirstChild("Piranha") or game.ReplicatedStorage:FindFirstChild("Shark") or game.ReplicatedStorage:FindFirstChild("SeaBeast1") or game.ReplicatedStorage:FindFirstChild("PirateBrigade") or game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade") or game.ReplicatedStorage:FindFirstChild("FishBoat") then
+                local guardianback = game.ReplicatedStorage:FindFirstChild("Guardian")
+                guardianback.Parent = game.Workspace.Boats
+                elseif game.Workspace.Enemies:FindFirstChild("Terrorshark") or game.Workspace.Enemies:FindFirstChild("Piranha") or game.Workspace.Enemies:FindFirstChild("Shark") or game.Workspace.SeaBeasts:FindFirstChild("SeaBeast1") or game.Workspace.Enemies:FindFirstChild("PirateBrigade") or game.Workspace.Enemies:FindFirstChild("PirateGrandBrigade") or game.Workspace.Enemies:FindFirstChild("FishBoat") then
+                local guardian = game.Workspace.Boats:FindFirstChild("Guardian")
+                guardian.Parent = game.ReplicatedStorage
+                end
             end)
         end
     end

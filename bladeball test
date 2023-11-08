@@ -9002,7 +9002,7 @@ spawn(function()
                 if game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.Sails.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if v:FindFirstChild("Sails") v.Health.Value > 0 then
+                    if v:FindFirstChild("Sails") v.Health.Value >= 0 then
                         if v.Name == "FishBoat" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.Sails.CFrame
@@ -9052,7 +9052,7 @@ spawn(function()
                 if game.workspace.Enemies:FindFirstChild("PirateBrigade") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if v:FindFirstChild("VehicleSeat") v.Health.Value > 0 then
+                    if v:FindFirstChild("VehicleSeat") v.Health.Value >= 0 then
                         if v.Name == "PirateBrigade" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.VehicleSeat.CFrame
@@ -9102,7 +9102,7 @@ spawn(function()
                 if game.workspace.Enemies:FindFirstChild("PirateGrandBrigade") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if (v.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if v:FindFirstChild("VehicleSeat") v.Health.Value > 0 then
+                    if v:FindFirstChild("VehicleSeat") v.Health.Value >= 0 then
                         if v.Name == "PirateGrandBrigade" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.VehicleSeat.CFrame

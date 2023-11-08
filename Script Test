@@ -3729,7 +3729,7 @@ function InMyNetWork(object)
 	if isnetworkowner then
 		return isnetworkowner(object)
 	else
-		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 200 then 
+		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 50 then 
 			return true
 		end
 		return false
@@ -3749,7 +3749,7 @@ task.spawn(function()
                             v.Humanoid:ChangeState(11)
 							v.Humanoid:ChangeState(14)
 							v.HumanoidRootPart.CFrame = PosMon
-							v.HumanoidRootPart.Size = Vector3.new(150,150,150)
+							v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 							v.HumanoidRootPart.CanCollide = false
 							v.Head.CanCollide = false
 						end
@@ -9169,7 +9169,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("SeaBewast [Need Spawn] [BETA]",false,function(sea)
+Sea:Toggle("SeaBeast [Need Spawn] [BETA]",false,function(sea)
     _G.Beast = sea
     StopTween(_G.Beast)
     if _G.Beast == true then

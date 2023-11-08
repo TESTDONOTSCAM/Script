@@ -8912,9 +8912,9 @@ spawn(function()
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Piranas
                     else
-                    if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
+                    if game.ReplicatedStorage:FindFirstChild("Piranha") then
                         print("dia mencari ph")
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                            topos(game.ReplicatedStorage:FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                                  AutoSkill = false
                                  Skillaimbot = false
                                     end
@@ -8961,9 +8961,9 @@ spawn(function()
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Sharky
                     else
-                    if game:GetService("ReplicatedStorage"):FindFirstChild("Shark") then
+                    if game.ReplicatedStorage:FindFirstChild("Shark") then
                         print("dia mencari sh")
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                            topos(game.ReplicatedStorage:FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                                  AutoSkill = false
                                  Skillaimbot = false
                                     end
@@ -9011,9 +9011,9 @@ spawn(function()
                         print("fast")
                         until not v.Parent or not v.Health <= 0 or not _G.TerShark
                     else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
+                        if game.ReplicatedStorage:FindFirstChild("FishBoat") then
                             print("dia mencari fb")
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat").Sails.CFrame * CFrame.new(0,50,0))
+                            topos(game.ReplicatedStorage:FindFirstChild("FishBoat").Sails.CFrame * CFrame.new(0,50,0))
                                  AutoSkill = false
                                  Skillaimbot = false
                                     end
@@ -9061,9 +9061,9 @@ spawn(function()
                         print("fast")
                         until not v.Parent or not v.Health.Value <= 0 or not _G.BrigadeShips
                     else
-                    if game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
+                    if game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade") then
                         print("dia mencari bb")
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,120,0))
+                            topos(game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,120,0))
                                  AutoSkill = false
                                  Skillaimbot = false
                                     end
@@ -9111,9 +9111,9 @@ spawn(function()
                         print("fast")
                         until not v.Parent or not v.Health.Value <= 0 or not _G.BrigadeShip
                     else
-                    if game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
+                    if game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade") then
                         print("dia mencari bg")
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,120,0))
+                            topos(game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,120,0))
                                  AutoSkill = false
                                  Skillaimbot = false
                                     end
@@ -9160,9 +9160,9 @@ spawn(function()
                         print("fast")  
                     until not v.Parent or not v.Health <= 0 or not _G.Beast
                     else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
+                        if game.ReplicatedStorage:FindFirstChild("SeaBeast1") then
                             print("dia mencari s")
-                            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,1500,0))
+                            TP1(game.ReplicatedStorage:FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,1500,0))
                                  AutoSkill = false
                                  Skillaimbot = false
                                     end

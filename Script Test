@@ -8774,7 +8774,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Autow Sail",_G.AutoSail,function(val)
+Sea:Toggle("Auto Sail",_G.AutoSail,function(val)
     _G.AutoRemover = val
     StopTween(_G.AutoSail)
     StopTween(_G.SendShip)
@@ -8910,6 +8910,12 @@ spawn(function()
                 elseif game.Workspace.Enemies:FindFirstChild("Terrorshark") or game.Workspace.Enemies:FindFirstChild("Piranha") or game.Workspace.Enemies:FindFirstChild("Shark") or game.Workspace.SeaBeasts:FindFirstChild("SeaBeast1") or game.Workspace.Enemies:FindFirstChild("PirateBrigade") or game.Workspace.Enemies:FindFirstChild("PirateGrandBrigade") or game.Workspace.Enemies:FindFirstChild("FishBoat") then
                 local guardian = game.Workspace.Boats:FindFirstChild("Guardian")
                 guardian.Parent = game.ReplicatedStorage
+                    wait(2)
+                    if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                        if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                            TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                        end
+                    end
                 end
             end)
         end

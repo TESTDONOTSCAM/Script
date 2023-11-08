@@ -3749,7 +3749,7 @@ task.spawn(function()
                             v.Humanoid:ChangeState(11)
 							v.Humanoid:ChangeState(14)
 							v.HumanoidRootPart.CFrame = PosMon
-							v.HumanoidRootPart.Size = Vector3.new(20,20,20)
+							v.HumanoidRootPart.Size = Vector3.new(150,150,150)
 							v.HumanoidRootPart.CanCollide = false
 							v.Head.CanCollide = false
 						end

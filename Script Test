@@ -8906,7 +8906,7 @@ spawn(function()
                 StopTween(_G.AutoSail)
 
             print("Mencari")
-            elseif game.Workspace.Enemies:FindFirstChild("Terrorshark").Humanoid.Health <= 0 or game.Workspace.Enemies:FindFirstChild("Piranha").Humanoid.Health <= 0 or game.Workspace.Enemies:FindFirstChild("Shark").Humanoid.Health <= 0 or game.Workspace.SeaBeasts:FindFirstChild("SeaBeast1").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("PirateBrigade").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("PirateGrandBrigade").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("FishBoat").Health.Value <= 0 then
+            if game.Workspace.Enemies:FindFirstChild("Terrorshark").Humanoid.Health <= 0 or game.Workspace.Enemies:FindFirstChild("Piranha").Humanoid.Health <= 0 or game.Workspace.Enemies:FindFirstChild("Shark").Humanoid.Health <= 0 or game.Workspace.SeaBeasts:FindFirstChild("SeaBeast1").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("PirateBrigade").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("PirateGrandBrigade").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("FishBoat").Health.Value <= 0 then
             print("Mencari")
             _G.StopTarget = false
             print("Mencari")
@@ -8917,6 +8917,7 @@ spawn(function()
                         TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                     elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
                         _G.AutoSail = true
+                            end
                         end
                     end
                 end

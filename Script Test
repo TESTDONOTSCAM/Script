@@ -8768,6 +8768,7 @@ spawn(function()
                 EquipWeapon(_G.Setting_table.Weapon)
                 wait(4)
                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                wait(4)
             end)
         end
     end

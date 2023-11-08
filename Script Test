@@ -3749,8 +3749,6 @@ task.spawn(function()
                             v.Humanoid:ChangeState(11)
 							v.Humanoid:ChangeState(14)
 							v.HumanoidRootPart.CFrame = PosMon
-							v.Humanoid.JumpPower = 0
-							v.Humanoid.WalkSpeed = 0
 							v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 							v.HumanoidRootPart.CanCollide = false
 							v.Head.CanCollide = false
@@ -8893,7 +8891,6 @@ spawn(function()
                         PosMon = v.HumanoidRootPart.CFrame
                         v.Humanoid.JumpPower = 0
                         v.Humanoid:ChangeState(11)
-                        StatrMagnet = true
                         _G.FastAttack = true
                         print("StartMagnet")
                     repeat wait()

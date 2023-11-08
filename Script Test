@@ -4432,7 +4432,7 @@ spawn(function()
                                                 _G.AutoFarm = false
                                                 AutoHaki()
                                                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,5,0))
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0

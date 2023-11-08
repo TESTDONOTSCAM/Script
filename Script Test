@@ -9172,7 +9172,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,25,0) * Pos)
+                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,4,0) * Pos)
                         AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.VehicleSeat
@@ -9183,7 +9183,7 @@ spawn(function()
                     else
                     if game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade") then
                         print("dia mencari bg")
-                            topos(game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,25,0))
+                            topos(game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,4,0))
                                  AutoSkill = false
                                  Skillaimbot = false
                                  AllWeapon = false

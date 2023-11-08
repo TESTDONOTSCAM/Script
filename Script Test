@@ -3729,7 +3729,7 @@ function InMyNetWork(object)
 	if isnetworkowner then
 		return isnetworkowner(object)
 	else
-		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 9999 then 
+		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 70 then 
 			return true
 		end
 		return false

@@ -8691,17 +8691,17 @@ end)
 
 --[[ Sea Beast ]]
 
-function EquipAllWeapon()
-    pcall(function()
-        for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            if v:IsA('Tool') and not (v.Name == "Summon Sea Beast" or v.Name == "Water Body" or v.Name == "Awakening") then
-                local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(v.Name) 
-                game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
-                wait(2)
-            end
+spawn(function()
+    while wait() do
+        if AllWeapon then
+            pcall(function()
+                EquipWeapon(_G.Setting_table.Weapon)
+                wait(4)
+                EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+            end)
         end
-    end)
-end
+    end
+end)
 
 Sea:Toggle("Auto Sail",_G.AutoSail,function(val)
     _G.AutoRemover = val
@@ -8871,6 +8871,7 @@ spawn(function()
                         TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                         AutoSkill = false
                         Skillaimbot = false
+                        AllWeapon = false
                                     end
                                 end
                             end
@@ -8922,6 +8923,7 @@ spawn(function()
                             topos(game.ReplicatedStorage:FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,25,0))
                                  AutoSkill = false
                                  Skillaimbot = false
+                                 AllWeapon = false
                                 end
                             end
                         end
@@ -8972,6 +8974,7 @@ spawn(function()
                             topos(game.ReplicatedStorage:FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,25,0))
                                  AutoSkill = false
                                  Skillaimbot = false
+                                 AllWeapon = false
                                 end
                             end
                         end
@@ -9005,7 +9008,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                        AllWeapon = true
                         TP1(v.Sails.CFrame * CFrame.new(0,25,0) * Pos)
                         AutoSkill = true
                         AimBotSkillPosition = v.Sails
@@ -9020,6 +9023,7 @@ spawn(function()
                         topos(game.ReplicatedStorage:FindFirstChild("FishBoat").VehicleSeat.CFrame * CFrame.new(0,25,0))
                         AutoSkill = false
                         Skillaimbot = false
+                        AllWeapon = false
                                 end
                             end
                         end
@@ -9054,7 +9058,7 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         TP1(v.VehicleSeat.CFrame * CFrame.new(0,25,0) * Pos)
-                        EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                        AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.VehicleSeat
                         Skillaimbot = true
@@ -9068,6 +9072,7 @@ spawn(function()
                             topos(game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,25,0))
                                  AutoSkill = false
                                  Skillaimbot = false
+                                 AllWeapon = false
                                 end
                             end
                         end
@@ -9102,7 +9107,7 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         TP1(v.VehicleSeat.CFrame * CFrame.new(0,25,0) * Pos)
-                        EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                        AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.VehicleSeat
                         Skillaimbot = true
@@ -9116,6 +9121,7 @@ spawn(function()
                             topos(game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,25,0))
                                  AutoSkill = false
                                  Skillaimbot = false
+                                 AllWeapon = false
                                 end
                             end
                         end
@@ -9147,8 +9153,8 @@ spawn(function()
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0) * Pos)
-                        EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,2000,0) * Pos)
+                        AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
                         Skillaimbot = true
@@ -9159,9 +9165,10 @@ spawn(function()
                     else
                         if game.ReplicatedStorage:FindFirstChild("SeaBeast1") then
                             print("dia mencari s")
-                            TP1(game.ReplicatedStorage:FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,1500,0))
+                            TP1(game.ReplicatedStorage:FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,2000,0))
                                  AutoSkill = false
                                  Skillaimbot = false
+                                 AllWeapon = false
                             end
                         end
                     end

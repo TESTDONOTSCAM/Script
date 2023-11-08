@@ -218,7 +218,7 @@ mainopens.Parent = mainopen
  _G.SectionImageColor = Color3.fromRGB(150, 150, 150)
  _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
  _G.SectionOn = Color3.fromRGB(0, 250, 0)
- _G.HubName = "ScriptBlox Premiumsfw"
+ _G.HubName = "ScriptBlox Premium"
 	
 	local RippleFPS = Instance.new("ScreenGui")
 	local Rippletime = Instance.new("ScreenGui")
@@ -3499,13 +3499,13 @@ while wait(.1) do
     if Type == 1 then
         Pos = CFrame.new(0,PosY,0)
 		wait(.1)
-		Pos = CFrame.new(0,PosY,-30)
+		Pos = CFrame.new(0,PosY,-15)
 		wait(.1)
-		Pos = CFrame.new(30,PosY,0)
+		Pos = CFrame.new(15,PosY,0)
 		wait(.1)
-		Pos = CFrame.new(0,PosY,30)
+		Pos = CFrame.new(0,PosY,15)
 		wait(.1)
-		Pos = CFrame.new(-30,PosY,0)
+		Pos = CFrame.new(-15,PosY,0)
     	end
     end
 end)
@@ -3741,26 +3741,57 @@ task.spawn(function()
 		pcall(function()
 			if StatrMagnet then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
+					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
 						if InMyNetWork(v.HumanoidRootPart) then
+                            if v.Humanoid:FindFirstChild("Animator") then
+								v.Humanoid.Animator:Destroy()
+							end
+                            v.Humanoid:ChangeState(11)
+							v.Humanoid:ChangeState(14)
 							v.HumanoidRootPart.CFrame = PosMon
 							v.Humanoid.JumpPower = 0
 							v.Humanoid.WalkSpeed = 0
-							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-							v.HumanoidRootPart.Transparency = 1
+							v.HumanoidRootPart.Size = Vector3.new(20,20,20)
 							v.HumanoidRootPart.CanCollide = false
 							v.Head.CanCollide = false
-							if v.Humanoid:FindFirstChild("Animator") then
-								v.Humanoid.Animator:Destroy()
-							end
-							v.Humanoid:ChangeState(11)
-							v.Humanoid:ChangeState(14)
 						end
 					end
 				end
 			end
 		end)
 	end
+end)
+
+spawn(function()
+	game:GetService("RunService").Stepped:Connect(function()
+		if _G.AutoFarm or _G.BoneFarm or _G.AutoFarmFruitMastery then
+			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+				setfflag("HumanoidParallelRemoveNoPhysics", "False")
+				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+				setfflag("CrashPadUploadToBacktraceToBacktraceBaseUrl", "")
+				setfflag("CrashUploadToBacktracePercentage", "0")
+				setfflag("CrashUploadToBacktraceBlackholeToken", "")
+				setfflag("CrashUploadToBacktraceWindowsPlayerToken", "")
+				game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+			else
+				if not game:GetService("Workspace"):FindFirstChild("LOL1") then
+					local LOL1 = Instance.new("Part")
+					LOL1.Name = "LOL1"
+					LOL1.Parent = game.Workspace
+					LOL1.Anchored = true
+					LOL1.Transparency = 0.8
+					LOL1.Size = Vector3.new(50,0.5,50)
+				elseif game:GetService("Workspace"):FindFirstChild("LOL1") then
+					game.Workspace["LOL1"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3.8,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+				end
+			end
+			for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = false
+				end
+			end
+		end
+	end)
 end)
 
 --[[

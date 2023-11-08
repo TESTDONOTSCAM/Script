@@ -3643,7 +3643,7 @@ end
     spawn(function()
     pcall(function()
     while wait() do
-    if _G.Sharkys or _G.BoneFarm or _G.FishBoat or _G.AutoAdvanceDungeon or _G.BrigadeShip or _G.AutoRemover or _G.AutoSail or _G.SendShip or _G.SharkPir or _G.TerShark or _G.Beast or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
+    if _G.BoneFarm or _G.FishBoat or _G.AutoAdvanceDungeon or _G.BrigadeShip or _G.AutoRemover or _G.AutoSail or _G.SendShip or _G.SharkPir or _G.TerShark or _G.Beast or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
     if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
     local Noclip = Instance.new("BodyVelocity")
     Noclip.Name = "BodyClip"
@@ -3726,10 +3726,42 @@ function StopTween(target)
 end)
 
 spawn(function()
+	game:GetService("RunService").Stepped:Connect(function()
+		if _G.AutoFarm or _G.BoneFarm or _G.AutoFarmFruitMastery then
+			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+				setfflag("HumanoidParallelRemoveNoPhysics", "False")
+				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+				setfflag("CrashPadUploadToBacktraceToBacktraceBaseUrl", "")
+				setfflag("CrashUploadToBacktracePercentage", "0")
+				setfflag("CrashUploadToBacktraceBlackholeToken", "")
+				setfflag("CrashUploadToBacktraceWindowsPlayerToken", "")
+				game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+			else
+				if not game:GetService("Workspace"):FindFirstChild("LOL1") then
+					local LOL1 = Instance.new("Part")
+					LOL1.Name = "LOL1"
+					LOL1.Parent = game.Workspace
+					LOL1.Anchored = true
+					LOL1.Transparency = 0.8
+					LOL1.Size = Vector3.new(50,0.5,50)
+				elseif game:GetService("Workspace"):FindFirstChild("LOL1") then
+					game.Workspace["LOL1"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3.8,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+				end
+			end
+			for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = false
+				end
+			end
+		end
+	end)
+end)
+
+spawn(function()
 	while task.wait() do
 		pcall(function()
 			if StatrMagnet then
-				if _G.AutoFarm or _G.SharkPir or _G.TerShark or _G.BoneFarm or _G.AutoFarmFruitMastery then
+				if _G.AutoFarm or _G.SharkPir or _G.TerShark or _G.BoneFarm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 							if v.Name == Ms and (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 375 then
@@ -3795,8 +3827,8 @@ Skillf = true
 
 spawn(function()
     while wait() do
-        if AutoSkill then
-            pcall(function()
+        pcall(function()
+            if AutoSkill then
                 if Skillz then
                     game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
                     wait(.1)
@@ -3822,8 +3854,8 @@ spawn(function()
                     wait(.1)
                     game:service('VirtualInputManager'):SendKeyEvent(false, "F", false, game)
                 end
-            end)
-        end
+            end
+        end)
     end
 end)
 
@@ -4263,7 +4295,7 @@ end)
 
 Main:Seperator("Mastery")
 
-Main:Slider("Health",1,100,65,function(vu)
+Main:Slider("Health",1,100,25,function(vu)
     HealthMs = vu
     _G.Kill_At = vu
 end)
@@ -8809,37 +8841,35 @@ spawn(function()
     while wait() do
         if _G.TerShark then
             pcall(function()
-                if game.workspace.Enemies:FindFirstChild("Terrorshark") then
+                if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                        if v.Name == "Terrorshark" then
-                        if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
+                     if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
-                        print("StartMagnet")
+                        v.Humanoid.JumpPower = 0
+                        v.Humanoid:ChangeState(11)
                         _G.FastAttack = true
+                        print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0) * Pos)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.TerShark
-                    end
-                end
-            end
-        end
-    else
-        if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-            print("dia mencari s")
-            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
-            else
-                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                    else
+                        if game.ReplicatedStorage:FindFirstChild("Terrorshark") then
+                            topos(game.ReplicatedStorage:FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,80,0))
+                            print("dia mencari st")
+                        else
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                        TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                         AutoSkill = false
                         Skillaimbot = false
+                                    end
+                                end
                             end
                         end
                     end
@@ -8864,86 +8894,30 @@ spawn(function()
             pcall(function()
                 if game.workspace.Enemies:FindFirstChild("Piranha") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         if v.Name == "Piranha" then
-                        if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
+                        v.Humanoid.JumpPower = 0
+                        v.Humanoid:ChangeState(11)
                         print("StartMagnet")
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Piranas
-                    end
-                end
-            end
-        end
-    else
-        if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
-            print("dia mencari s")
-            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
-            else
-                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                        AutoSkill = false
-                        Skillaimbot = false
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-
-Sea:Toggle("test [Need Spawn]",false,function(val)
-    _G.Sharkys = val
-    StopTween(_G.Sharkys)
-    if _G.Sharkys == true then
-        _G.AutoFarm = false
-        _G.AutoFarmFruitMastery = false
-    end
-end)
-
-spawn(function()
-    while wait() do
-        if _G.Sharkys then
-            pcall(function()
-                if game.workspace.Enemies:FindFirstChild("Isle Champion") then
-                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                        if v.Name == "Isle Champion" then
-                        if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
-                        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                        PosMon = v.HumanoidRootPart.CFrame
-                        print("StartMagnet")
-                        _G.FastAttack = true
-                    repeat wait()
-                        AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0) * Pos)
-                        EquipWeapon(_G.Setting_table.Weapon)
-                        game:GetService'VirtualUser':CaptureController()
-                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                        print("fast")
-                        until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Sharkys
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion") then
-                            print("dia mencari s")
-                            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion").HumanoidRootPart.CFrame * CFrame.new(0,15,0))
-                        end
-                    end
-                end
-            else
-                if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                     TPP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(-16606.0918, 130.704803, 1087.90845, -0.933031023, 7.60136913e-08, 0.359795898, 4.91600538e-08, 1, -8.37859417e-08, -0.359795898, -6.04872952e-08, -0.933031023))
-                        AutoSkill = false
-                        Skillaimbot = false
+                    else
+                    if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
+                        print("dia mencari ph")
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                                 AutoSkill = false
+                                 Skillaimbot = false
+                                    end
                                 end
                             end
                         end
@@ -8953,7 +8927,6 @@ spawn(function()
         end
     end
 end)
-
 
 Sea:Toggle("Shark [Need Spawn]",false,function(val)
     _G.Sharky = val
@@ -8970,35 +8943,31 @@ spawn(function()
             pcall(function()
                 if game.workspace.Enemies:FindFirstChild("Shark") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         if v.Name == "Shark" then
-                        if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
+                        v.Humanoid.JumpPower = 0
+                        v.Humanoid:ChangeState(11)
                         print("StartMagnet")
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Sharky
-                    end
-                end
-            end
-        end
-    else
-        if game:GetService("ReplicatedStorage"):FindFirstChild("Shark") then
-            print("dia mencari s")
-            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
-            else
-                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                        AutoSkill = false
-                        Skillaimbot = false
+                    else
+                    if game:GetService("ReplicatedStorage"):FindFirstChild("Shark") then
+                        print("dia mencari sh")
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                                 AutoSkill = false
+                                 Skillaimbot = false
+                                    end
+                                end
                             end
                         end
                     end
@@ -9021,40 +8990,34 @@ spawn(function()
     while wait() do
         if _G.FishBoat then
             pcall(function()
-                if game.workspace.Enemies:FindFirstChild("FishBoat") then
+                if game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if (v.Sails.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                     if v:FindFirstChild("Sails") then
                         if v.Name == "FishBoat" then
-                        if (v.Sails.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 1000 then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.Sails.CFrame
                         print("StartMagnet")
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.Sails.CFrame * CFrame.new(0,80,0) * Pos)
                         EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                        TP1(v.Sails.CFrame * CFrame.new(0,50,0) * Pos)
                         AutoSkill = true
                         AimBotSkillPosition = v.Sails
                         Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
-                        until not v.Parent or not v.Health.Value <= 0 or not _G.FishBoat
-                    end
-                end
-            end
-        end
-    else
-        if game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
-            print("dia mencari s")
-            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
-            else
-                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                        AutoSkill = false
-                        Skillaimbot = false
+                        until not v.Parent or not v.Health <= 0 or not _G.TerShark
+                    else
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat") then
+                            print("dia mencari fb")
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("FishBoat").Sails.CFrame * CFrame.new(0,50,0))
+                                 AutoSkill = false
+                                 Skillaimbot = false
+                                    end
+                                end
                             end
                         end
                     end
@@ -9079,9 +9042,9 @@ spawn(function()
             pcall(function()
                 if game.workspace.Enemies:FindFirstChild("PirateBrigade") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if (v.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                     if v:FindFirstChild("VehicleSeat") then
                         if v.Name == "PirateBrigade" then
-                        if (v.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 1000 then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.VehicleSeat.CFrame
                         print("StartMagnet")
@@ -9097,20 +9060,14 @@ spawn(function()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Health.Value <= 0 or not _G.BrigadeShips
-                    end
-                end
-            end
-        end
-    else
-        if game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade") then
-            print("dia mencari s")
-            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("PirateBrigade").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
-            else
-                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                        AutoSkill = false
-                        Skillaimbot = false
+                    else
+                    if game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
+                        print("dia mencari bb")
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,120,0))
+                                 AutoSkill = false
+                                 Skillaimbot = false
+                                    end
+                                end
                             end
                         end
                     end
@@ -9135,9 +9092,9 @@ spawn(function()
             pcall(function()
                 if game.workspace.Enemies:FindFirstChild("PirateGrandBrigade") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if (v.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                     if v:FindFirstChild("VehicleSeat") then
                         if v.Name == "PirateGrandBrigade" then
-                        if (v.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 1000 then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.VehicleSeat.CFrame
                         print("StartMagnet")
@@ -9153,20 +9110,14 @@ spawn(function()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Health.Value <= 0 or not _G.BrigadeShip
-                    end
-                end
-            end
-        end
-    else
-        if game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
-            print("dia mencari s")
-            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
-            else
-                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                        AutoSkill = false
-                        Skillaimbot = false
+                    else
+                    if game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade") then
+                        print("dia mencari bg")
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,120,0))
+                                 AutoSkill = false
+                                 Skillaimbot = false
+                                    end
+                                end
                             end
                         end
                     end
@@ -9191,9 +9142,9 @@ spawn(function()
             pcall(function()
                 if game.workspace.Seabeasts:FindFirstChild("SeaBeast1") then
                 for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
                     if v:FindFirstChild("HumanoidRootPart") then
                         if v.Name == "SeaBeast1" then
-                        if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 5000 then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
                         print("StartMagnet")
@@ -9207,19 +9158,14 @@ spawn(function()
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")  
-                        until not v.Parent or not v.Health <= 0 or not _G.Beast
+                    until not v.Parent or not v.Health <= 0 or not _G.Beast
+                    else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1") then
                             print("dia mencari s")
-                            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
-                        end
-                    end
-                end
-            else
-                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                     TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                        AutoSkill = false
-                        Skillaimbot = false
+                            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,1500,0))
+                                 AutoSkill = false
+                                 Skillaimbot = false
+                                    end
                                 end
                             end
                         end

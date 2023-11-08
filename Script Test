@@ -3812,7 +3812,7 @@ end)
 
 spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
-		if _G.AutoFarm or _G.BoneFarm or _G.AutoFarmFruitMastery then
+		if _G.BoneFarm then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
 				setfflag("HumanoidParallelRemoveNoPhysics", "False")
 				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -4432,7 +4432,7 @@ spawn(function()
                                                 _G.AutoFarm = false
                                                 AutoHaki()
                                                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,5,0))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
@@ -8904,7 +8904,7 @@ spawn(function()
                 _G.AutoSail = false
                 _G.StopTarget = true
                 StopTween(_G.AutoSail)
-                
+
             print("Mencari")
             elseif game.Workspace.Enemies:FindFirstChild("Terrorshark").Humanoid.Health <= 0 or game.Workspace.Enemies:FindFirstChild("Piranha").Humanoid.Health <= 0 or game.Workspace.Enemies:FindFirstChild("Shark").Humanoid.Health <= 0 or game.Workspace.SeaBeasts:FindFirstChild("SeaBeast1").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("PirateBrigade").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("PirateGrandBrigade").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("FishBoat").Health.Value <= 0 then
             print("Mencari")

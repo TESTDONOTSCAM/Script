@@ -8847,6 +8847,9 @@ spawn(function()
                      if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
+                        if v.Humanoid:FindFirstChild("Animator") then
+                            v.Humanoid.Animator:Destroy()
+                        end
                         v.Humanoid.JumpPower = 0
                         v.Humanoid:ChangeState(11)
                         _G.FastAttack = true
@@ -8854,14 +8857,14 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.TerShark
                     else
                         if game.ReplicatedStorage:FindFirstChild("Terrorshark") then
-                            topos(game.ReplicatedStorage:FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,80,0))
+                            topos(game.ReplicatedStorage:FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,25,0))
                             print("dia mencari st")
                         else
                         if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
@@ -8894,18 +8897,21 @@ spawn(function()
             pcall(function()
                 if game.workspace.Enemies:FindFirstChild("Piranha") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         if v.Name == "Piranha" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
+                        if v.Humanoid:FindFirstChild("Animator") then
+                            v.Humanoid.Animator:Destroy()
+                        end
                         v.Humanoid.JumpPower = 0
                         v.Humanoid:ChangeState(11)
                         print("StartMagnet")
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -8914,7 +8920,7 @@ spawn(function()
                     else
                     if game.ReplicatedStorage:FindFirstChild("Piranha") then
                         print("dia mencari ph")
-                            topos(game.ReplicatedStorage:FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                            topos(game.ReplicatedStorage:FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,25,0))
                                  AutoSkill = false
                                  Skillaimbot = false
                                     end
@@ -8943,18 +8949,21 @@ spawn(function()
             pcall(function()
                 if game.workspace.Enemies:FindFirstChild("Shark") then
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         if v.Name == "Shark" then
                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                         PosMon = v.HumanoidRootPart.CFrame
+                        if v.Humanoid:FindFirstChild("Animator") then
+                            v.Humanoid.Animator:Destroy()
+                        end
                         v.Humanoid.JumpPower = 0
                         v.Humanoid:ChangeState(11)
                         print("StartMagnet")
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -8963,7 +8972,7 @@ spawn(function()
                     else
                     if game.ReplicatedStorage:FindFirstChild("Shark") then
                         print("dia mencari sh")
-                            topos(game.ReplicatedStorage:FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                            topos(game.ReplicatedStorage:FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,25,0))
                                  AutoSkill = false
                                  Skillaimbot = false
                                     end

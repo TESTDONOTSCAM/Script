@@ -3725,6 +3725,46 @@ function StopTween(target)
     end)
 end)
 
+function InMyNetWork(object)
+	if isnetworkowner then
+		return isnetworkowner(object)
+	else
+		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 200 then 
+			return true
+		end
+		return false
+	end
+end
+
+task.spawn(function()
+	while task.wait() do
+		pcall(function()
+			if StatrMagnet then
+				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
+						if InMyNetWork(v.HumanoidRootPart) then
+							v.HumanoidRootPart.CFrame = PosMon
+							v.Humanoid.JumpPower = 0
+							v.Humanoid.WalkSpeed = 0
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							v.HumanoidRootPart.Transparency = 1
+							v.HumanoidRootPart.CanCollide = false
+							v.Head.CanCollide = false
+							if v.Humanoid:FindFirstChild("Animator") then
+								v.Humanoid.Animator:Destroy()
+							end
+							v.Humanoid:ChangeState(11)
+							v.Humanoid:ChangeState(14)
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
+
+--[[
+
 spawn(function()
 	while task.wait() do
 		pcall(function()
@@ -3766,6 +3806,7 @@ spawn(function()
 		end)
 	end
 end)
+]]--
 
 local gg = getrawmetatable(game)
 local old = gg.__namecall
@@ -4005,7 +4046,6 @@ spawn(function()
 	while wait(.1) do
 		pcall(function()
 			if _G.AutoFarm then
-			    if not Mix_Farm then
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					if _G.Farm_Boss then
 						_G.SelectBoss = nil
@@ -4120,11 +4160,10 @@ spawn(function()
 							else
 							topos(CFrameMon)
 							_G.FastAttack = false
-							    end
-						    end
-					    end
-				    end
-			    end
+							end
+						end
+					end
+				end
 			end
 		end)
 	end
@@ -8835,11 +8874,15 @@ spawn(function()
                         print("fast")
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.TerShark
                     else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,80,0))
+                        if game.ReplicatedStorage:FindFirstChild("Terrorshark") then
+                            topos(game.ReplicatedStorage:FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(0,80,0))
                             print("dia mencari st")
-                                 AutoSkill = false
-                                 Skillaimbot = false
+                        else
+                        if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                        TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                        AutoSkill = false
+                        Skillaimbot = false
+                                    end
                                 end
                             end
                         end

@@ -8944,7 +8944,6 @@ spawn(function()
                      TPP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(-16606.0918, 130.704803, 1087.90845, -0.933031023, 7.60136913e-08, 0.359795898, 4.91600538e-08, 1, -8.37859417e-08, -0.359795898, -6.04872952e-08, -0.933031023))
                         AutoSkill = false
                         Skillaimbot = false
-                                    end
                                 end
                             end
                         end

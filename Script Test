@@ -8862,7 +8862,7 @@ end)
                             elseif game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                             _G.WalkWater = false
                             print("FalseWater")
-                            TPB(CFrame.new(-17824.543, 20.7565479, 819.378174, -0.334050685, -0.018375, 0.942375958, -0.0549235903, 0.998490572, -3.41900369e-10, -0.940953553, -0.051758673, -0.334555686))
+                            TPB3(CFrame.new(-17824.543, 20.7565479, 819.378174, -0.334050685, -0.018375, 0.942375958, -0.0549235903, 0.998490572, -3.41900369e-10, -0.940953553, -0.051758673, -0.334555686))
                         print("anchored false 2")
                         if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))

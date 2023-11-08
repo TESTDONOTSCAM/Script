@@ -8919,11 +8919,13 @@ spawn(function()
     while wait() do
         if _G.AutoBoat2 then
             pcall(function()
-                if game.ReplicatedStorage:FindFirstChild("Terrorshark") or game.ReplicatedStorage:FindFirstChild("Piranha") or game.ReplicatedStorage:FindFirstChild("Shark") or game.ReplicatedStorage:FindFirstChild("SeaBeast1") or game.ReplicatedStorage:FindFirstChild("PirateBrigade") or game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade") or game.ReplicatedStorage:FindFirstChild("FishBoat") then
+                if game.Workspace.Enemies:FindFirstChild("Terrorshark") or game.Workspace.Enemies:FindFirstChild("Piranha") or game.Workspace.Enemies:FindFirstChild("Shark") or game.Workspace.SeaBeasts:FindFirstChild("SeaBeast1") or game.Workspace.Enemies:FindFirstChild("PirateBrigade") or game.Workspace.Enemies:FindFirstChild("PirateGrandBrigade") or game.Workspace.Enemies:FindFirstChild("FishBoat") then
                 game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                elseif (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                elseif game.ReplicatedStorage:FindFirstChild("Terrorshark") or game.ReplicatedStorage:FindFirstChild("Piranha") or game.ReplicatedStorage:FindFirstChild("Shark") or game.ReplicatedStorage:FindFirstChild("SeaBeast1") or game.ReplicatedStorage:FindFirstChild("PirateBrigade") or game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade") or game.ReplicatedStorage:FindFirstChild("FishBoat") then
+                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                     if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                         TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                        end
                     end
                 end
             end)

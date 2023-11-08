@@ -4645,7 +4645,7 @@ if _G.FastAttack_Mode == nil then
 	_G.FastAttack_Mode = "0.2"
 end
 
-MIo = {"Super Fast Attack", "0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"}
+MIo = {"Super Fast Attack", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"}
 
 Setting:Toggle("Fast Attack",true,function(vu)
 	_G.FastAttack = vu

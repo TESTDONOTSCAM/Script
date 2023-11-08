@@ -8920,18 +8920,10 @@ spawn(function()
         if _G.AutoBoat2 then
             pcall(function()
                 if game.ReplicatedStorage:FindFirstChild("Terrorshark") or game.ReplicatedStorage:FindFirstChild("Piranha") or game.ReplicatedStorage:FindFirstChild("Shark") or game.ReplicatedStorage:FindFirstChild("SeaBeast1") or game.ReplicatedStorage:FindFirstChild("PirateBrigade") or game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade") or game.ReplicatedStorage:FindFirstChild("FishBoat") then
-                TPB3(CFrame.new(-33130.4062, 20.759264, 17515.9453, -0.974288285, 0.0119510852, 0.224987879, 0.0122655546, 0.999924779, -8.87827728e-11, -0.224970952, 0.00275960099, -0.974361539))
-                print("dia selesai")
-                wait(300)
-                print("dia balik")
-                TPB3(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
-                print("dia balik")
-                wait(2)
-                    if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                        if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                            TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                            wait(60)
-                        end
+                game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+                elseif (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
+                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                        TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                     end
                 end
             end)

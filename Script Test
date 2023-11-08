@@ -8926,7 +8926,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,80,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -8934,7 +8934,7 @@ spawn(function()
                         until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Sharkys
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion") then
                             print("dia mencari s")
-                            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion").HumanoidRootPart.CFrame * CFrame.new(0,300,0))
+                            TP1(game:GetService("ReplicatedStorage"):FindFirstChild("Isle Champion").HumanoidRootPart.CFrame * CFrame.new(0,15,0))
                         end
                     end
                 end

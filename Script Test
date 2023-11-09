@@ -3884,28 +3884,7 @@ spawn(function()
     end
 end)
 
-Skillaimbot = false
-
-function closestplayer()
-	local dist = 120
-	local target = nil
-        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-				if v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then --- creating the checks
-					local magnitude = (v.HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude
-						if magnitude < dist then
-								dist = magnitude
-								target = v
-							end
-						end
-                    return target
-				end
-            end
-
-game:GetService("RunService").RenderStepped:Connect(function()
-if SkillAim then
-	camera.CFrame = CFrame.new(camera.CFrame.Position,closestplayer().HumanoidRootPart.Position) -- locks into the HEAD
-    end
-end)
+Skillaimbot = true
 
 local gg = getrawmetatable(game)
 local old = gg.__namecall

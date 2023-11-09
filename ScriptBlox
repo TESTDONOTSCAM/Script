@@ -219,7 +219,7 @@ mainopens.Parent = mainopen
  _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
  _G.SectionOn = Color3.fromRGB(0, 250, 0)
  _G.HubName = "ScriptBlox Premium
-_G.StrokeColor = Color3.fromRGB(162, 0, 255,)
+_G.StrokeColor = Color3.fromRGB(162, 0, 255)
 	
 	local RippleFPS = Instance.new("ScreenGui")
 	local Rippletime = Instance.new("ScreenGui")

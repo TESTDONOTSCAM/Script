@@ -3905,7 +3905,6 @@ gg.__namecall = newcclosure(function(...)
 	return old(...)
 end)
 
-
 Skillz = true
 Skillx = true
 Skillc = true

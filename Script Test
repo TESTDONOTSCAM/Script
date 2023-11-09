@@ -3884,7 +3884,7 @@ spawn(function()
     end
 end)
 
-SkillAim = false
+Skillaimbot = false
 
 function closestplayer()
 	local dist = 120
@@ -4461,13 +4461,14 @@ spawn(function()
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
-                                                SkillAim = true
+                                                Skillaimbot = true
+                                                AimBotSkillPosition = v.HumanoidRootPart
                                                 AutoSkill = true
                                             else
                                                 _G.AutoFarm = true
                                                 _G.FastAttack = true
                                                 AutoSkill = false 
-                                                SkillAim = false
+                                                Skillaimbot = false
                                                 AutoHaki()
                                                 EquipWeapon(_G.Setting_table.Weapon)
                                                 TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
@@ -9455,7 +9456,7 @@ spawn(function()
                             AllWeapon = true
                             AutoSkill = true
                             AimBotSkillPosition = v.HumanoidRootPart
-                            SkillAim = true
+                            Skillaimbot = true
                             
                             repeat task.wait()
 
@@ -9468,7 +9469,7 @@ spawn(function()
 
                             AllWeapon = false
                             AutoSkill = false
-                            SkillAim = false
+                            Skillaimbot = false
                             
                             TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
 
@@ -9516,7 +9517,7 @@ spawn(function()
                         AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
-                        SkillAim = true
+                        Skillaimbot = true
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -9530,7 +9531,7 @@ spawn(function()
                         if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                         TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                         AutoSkill = false
-                        SkillAim = false
+                        Skillaimbot = false
                         AllWeapon = false
                                     end
                                 end
@@ -9575,7 +9576,7 @@ spawn(function()
                         AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
-                        SkillAim = true
+                        Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -9585,7 +9586,7 @@ spawn(function()
                         print("dia mencari ph")
                             topos(game.ReplicatedStorage:FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(0,25,0))
                                  AutoSkill = false
-                                 SkillAim = false
+                                 Skillaimbot = false
                                  AllWeapon = false
                                 end
                             end
@@ -9629,7 +9630,7 @@ spawn(function()
                         AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
-                        SkillAim = true
+                        Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -9639,7 +9640,7 @@ spawn(function()
                         print("dia mencari sh")
                             topos(game.ReplicatedStorage:FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(0,25,0))
                                  AutoSkill = false
-                                 SkillAim = false
+                                 Skillaimbot = false
                                  AllWeapon = false
                                 end
                             end
@@ -9678,7 +9679,7 @@ spawn(function()
                         TP1(v.Sails.CFrame * CFrame.new(0,5,0) * Pos)
                         AutoSkill = true
                         AimBotSkillPosition = v.Sails
-                        SkillAim = true
+                        Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -9688,7 +9689,7 @@ spawn(function()
                         print("dia mencari bb")
                         topos(game.ReplicatedStorage:FindFirstChild("FishBoat").VehicleSeat.CFrame * CFrame.new(0,5,0))
                         AutoSkill = false
-                        SkillAim = false
+                        Skillaimbot = false
                         AllWeapon = false
                                 end
                             end
@@ -9727,7 +9728,7 @@ spawn(function()
                         AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.VehicleSeat
-                        SkillAim = true
+                        Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -9737,7 +9738,7 @@ spawn(function()
                         print("dia mencari bb")
                             topos(game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,4,0))
                                  AutoSkill = false
-                                 SkillAim = false
+                                 Skillaimbot = false
                                  AllWeapon = false
                                 end
                             end
@@ -9776,7 +9777,7 @@ spawn(function()
                         AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.VehicleSeat
-                        SkillAim = true
+                        Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -9786,7 +9787,7 @@ spawn(function()
                         print("dia mencari bg")
                             topos(game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade").VehicleSeat.CFrame * CFrame.new(0,4,0))
                                  AutoSkill = false
-                                 SkillAim = false
+                                 Skillaimbot = false
                                  AllWeapon = false
                                 end
                             end
@@ -9823,7 +9824,7 @@ spawn(function()
                         AllWeapon = true
                         AutoSkill = true
                         AimBotSkillPosition = v.HumanoidRootPart
-                        SkillAim = true
+                        Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")  
@@ -9833,7 +9834,7 @@ spawn(function()
                             print("dia mencari s")
                             TP1(game.ReplicatedStorage:FindFirstChild("SeaBeast1").HumanoidRootPart.CFrame * CFrame.new(0,2000,0))
                                  AutoSkill = false
-                                 SkillAim = false
+                                 Skillaimbot = false
                                  AllWeapon = false
                             end
                         end

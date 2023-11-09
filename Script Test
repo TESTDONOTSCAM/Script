@@ -3914,8 +3914,6 @@ spawn(function()
     while wait() do
         pcall(function()
             if AutoSkill then
-            if game:GetService("Players").LocalPlayer.Data.DevilFruit:FindFirstChild("Spirit-Spirit") then
-
                 if Skillz then
                     game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
                     wait(.1)
@@ -3936,16 +3934,10 @@ spawn(function()
                     wait(.1)
                     game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
                 end
-
-                --[[
                 if Skillf then
                     game:service('VirtualInputManager'):SendKeyEvent(true, "F", false, game)
                     wait(.1)
                     game:service('VirtualInputManager'):SendKeyEvent(false, "F", false, game)
-                end
-                ]]--
-
-            --elseif game:GetService("Players").LocalPlayer.Data.DevilFruit:FindFirstChild("Spirit-Spirit")
                 end
             end
         end)
@@ -4440,7 +4432,7 @@ spawn(function()
                                                 _G.AutoFarm = false
                                                 AutoHaki()
                                                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,5,10))
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,15))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0

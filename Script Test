@@ -8781,9 +8781,9 @@ spawn(function()
         if AllWeapon then
             pcall(function()
                 EquipWeapon(_G.Setting_table.Weapon)
-                wait(4)
+                wait(2)
                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-                wait(4)
+                wait(10)
             end)
         end
     end

@@ -1,3 +1,5 @@
+
+
 do local GUI = game.CoreGui:FindFirstChild("MyLibrary") if GUI then GUI:Destroy() end end
 do local Op = game.CoreGui:FindFirstChild("openshit") if Op then Op:Destroy() end end
 do local Ba = game.CoreGui:FindFirstChild("Balaraja") if Ba then Ba:Destroy() end end
@@ -2078,6 +2080,8 @@ end
 
 -- The actual code
 
+function trueparry()
+
 Balls.ChildAdded:Connect(function(Ball)
     if not VerifyBall(Ball) then
         return
@@ -2103,9 +2107,10 @@ Balls.ChildAdded:Connect(function(Ball)
         if (tick() - OldTick >= 1/60) then -- Don't want it to update too quickly because my velocity implementation is aids. Yes, I tried Ball.Velocity. No, it didn't work.
             OldTick = tick()
             OldPosition = Ball.Position
-        end
+            end
+        end)
     end)
-end)
+end
 
 local Library = Update:Window("Blox Fruits", "")
 local User = Library:Tab("        Status","rbxassetid://14355269935")
@@ -2123,7 +2128,7 @@ User:Toggle("Auto Parry",false,function(vu)
     if _G.Parry == true then
         repeat task.wati()
         if _G.ParryMethode == "Legit" then
-            Parry()
+            trueparry()
         elseif _G.ParryMethode == "Blatant" then
             SF:JustHit()
         elseif _G.ParryMethode == "Insane" then

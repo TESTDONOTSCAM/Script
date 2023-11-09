@@ -4445,7 +4445,7 @@ spawn(function()
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
-                                                TestStartMagnet = true
+                                                StatrMagnet = true
                                                 AutoSkill = true
                                                 AimBotSkillPosition = v.HumanoidRootPart
                                                 Skillaimbot = true
@@ -4468,6 +4468,7 @@ spawn(function()
                                     else
                                         AutoSkill = false
                                         TestStartMagnet = false
+                                        StatrMagnet = false
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                     end
                                 end

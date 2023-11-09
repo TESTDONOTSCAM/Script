@@ -3899,6 +3899,7 @@ spawn(function()
     while wait() do
         pcall(function()
             if AutoSkill then
+                repeat task.wait()
                 if Skillz then
                     game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
                     wait(.1)
@@ -3924,6 +3925,7 @@ spawn(function()
                     wait(.1)
                     game:service('VirtualInputManager'):SendKeyEvent(false, "F", false, game)
                 end
+            until not AutoSkill
             end
         end)
     end

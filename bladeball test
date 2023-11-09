@@ -2123,7 +2123,7 @@ spawn(function()
     while wait() do
         if _G.Parry then
             pcall(function()
-                trueparry()
+                Parry()
             end)
         end
     end

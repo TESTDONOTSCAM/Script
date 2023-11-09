@@ -2125,15 +2125,14 @@ end)
 
 User:Toggle("Auto Parry",false,function(vu)
     _G.Parry = vu
-    if _G.Parry == true then
-        repeat task.wati()
-        if _G.ParryMethode == "Legit" then
-            trueparry()
-        elseif _G.ParryMethode == "Blatant" then
-            SF:JustHit()
-        elseif _G.ParryMethode == "Insane" then
-            SF:FreezeHit()
+end)
+
+spawn(function()
+    while wait() do
+        if _G.Parry then
+            pcall(function()
+                trueparry()
+            end)
         end
-        until not _G.Parry
     end
 end)

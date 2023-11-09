@@ -8906,16 +8906,27 @@ spawn(function()
     while wait() do
         if _G.AutoBoat2 then
             pcall(function()
-                if game.Workspace.Enemies:FindFirstChild("Terrorshark") or game.Workspace.Enemies:FindFirstChild("Piranha") or game.Workspace.Enemies:FindFirstChild("Shark") or game.Workspace.SeaBeasts:FindFirstChild("SeaBeast1") or game.Workspace.Enemies:FindFirstChild("PirateBrigade") or game.Workspace.Enemies:FindFirstChild("PirateGrandBrigade") or game.Workspace.Enemies:FindFirstChild("FishBoat") then
-                game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                local guardian = game.Workspace.Boats:FindFirstChild("Guardian")
-                guardian.Parent = game.ReplicatedStorage
-            else
-                --if game.Workspace.Enemies:FindFirstChild("Terrorshark").Humanoid.Health <= 0 or game.Workspace.Enemies:FindFirstChild("Piranha").Humanoid.Health <= 0 or game.Workspace.Enemies:FindFirstChild("Shark").Humanoid.Health <= 0 or game.Workspace.SeaBeasts:FindFirstChild("SeaBeast1").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("PirateBrigade").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("PirateGrandBrigade").Health.Value <= 0 or game.Workspace.Enemies:FindFirstChild("FishBoat").Health.Value <= 0 then
-                if game.ReplicatedStorage:FindFirstChild("Terrorshark") or game.ReplicatedStorage:FindFirstChild("Piranha") or game.ReplicatedStorage:FindFirstChild("Shark") or game.ReplicatedStorage:FindFirstChild("SeaBeast1") or game.ReplicatedStorage:FindFirstChild("PirateBrigade") or game.ReplicatedStorage:FindFirstChild("PirateGrandBrigade") or game.ReplicatedStorage:FindFirstChild("FishBoat") then
-                if (game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
-                    if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                        TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
+                         if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
+                            game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+
+                            local guardian = game.Workspace.Boats:FindFirstChild("Guardian")
+                            guardian.Parent = game.ReplicatedStorage
+                            
+                            repeat task.wait()
+
+                            AutoHaki()
+
+                            until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
+
+                            local guardianback = game.ReplicatedStorage:FindFirstChild("Guardian")
+                            guardianback.Parent = game.Workspace.Boats
+
+                            wait(2)
+                            
+                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                            TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             end
                         end
                     end

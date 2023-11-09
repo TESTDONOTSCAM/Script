@@ -3878,7 +3878,7 @@ spawn(function()
                 wait(10)
                 StatrMagnet = false
                 print("startmagnet false")
-                wait(5)
+                wait(10)
             end)
         end
     end

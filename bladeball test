@@ -2115,14 +2115,6 @@ end
 local Library = Update:Window("Blox Fruits", "")
 local User = Library:Tab("        Status","rbxassetid://14355269935")
 
-User:Dropdown("Select Island",{
-    "Legit",
-    "Blatant",
-    "Insane",
-    },function(value)
-    _G.ParryMethode = value
-end)
-
 User:Toggle("Auto Parry",false,function(vu)
     _G.Parry = vu
 end)

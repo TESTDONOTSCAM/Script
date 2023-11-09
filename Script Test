@@ -4380,7 +4380,7 @@ end)
 
 Main:Seperator("Mastery")
 
-Main:Slider("Health",1,100,25,function(vu)
+Main:Slider("Health",1,100,65,function(vu)
     HealthMs = vu
     _G.Kill_At = vu
 end)
@@ -4430,6 +4430,7 @@ spawn(function()
                                         repeat task.wait()
                                             if v.Humanoid.Health <= HealthMs then
                                                 _G.AutoFarm = false
+                                                _G.FastAttack = false
                                                 AutoHaki()
                                                 EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                                                 TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,20))
@@ -4437,12 +4438,12 @@ spawn(function()
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
-                                                StatrMagnet = true
                                                 AutoSkill = true
                                                 AimBotSkillPosition = v.HumanoidRootPart
                                                 Skillaimbot = true
                                             else
                                                 _G.AutoFarm = true
+                                                _G.FastAttack = true
                                                 AutoSkill = false 
                                                 Skillaimbot = false
                                                 AutoHaki()

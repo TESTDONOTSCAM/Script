@@ -3831,7 +3831,7 @@ spawn(function()
 	while task.wait() do
 		pcall(function()
 			if StatrMagnet then
-				if _G.AutoFarm or _G.SharkPir or _G.TerShark or _G.BoneFarm then
+				if _G.AutoDoughtBoss or _G.AutoFarm or _G.BoneFarm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 							if v.Name == Ms and (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 375 then
@@ -3867,6 +3867,21 @@ spawn(function()
 			end
 		end)
 	end
+end)
+
+spawn(function()
+    while wait() do
+        if TestStartMagnet then
+            pcall(function()
+                StatrMagnet = true
+                print("startmagnet true")
+                wait(10)
+                StatrMagnet = false
+                print("startmagnet false")
+                wait(5)
+            end)
+        end
+    end
 end)
 
 local gg = getrawmetatable(game)
@@ -4143,7 +4158,7 @@ spawn(function()
 						SelectMonster = nil
 						_G.Farm_Mon = nil
 					else
-						StatrMagnet = nil
+						TestStartMagnet = nil
 						CheckLevel2()
 						AutoHaki()
 						_G.FastAttack = false
@@ -4168,7 +4183,7 @@ spawn(function()
 									v.Humanoid.WalkSpeed = 0
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(5,5,5)
-									StatrMagnet = nil
+									TestStartMagnet = nil
 									repeat wait(0.3)
 										TelePBoss(CFrameQBoss)
 										EquipWeapon(_G.Setting_table.Weapon)
@@ -4190,7 +4205,7 @@ spawn(function()
 								if v.Name == Ms and v.Humanoid.Health > 0 then
 									PosMon = v.HumanoidRootPart.CFrame
 									_G.FastAttack = true
-									StatrMagnet = true
+									TestStartMagnet = true
 									if v.Humanoid:FindFirstChild("Animator") then
 										v.Humanoid.Animator:Destroy()
 									end
@@ -4217,7 +4232,7 @@ spawn(function()
 							end
 							else
 							_G.FastAttack = false
-							StatrMagnet = false
+							TestStartMagnet = false
 							if game.ReplicatedStorage:FindFirstChild(Ms) then
 								topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
 							else
@@ -4279,7 +4294,7 @@ spawn(function()
                         SelectMonster = nil
                         _G.Farm_Mon = nil
                     else
-                        StatrMagnet = nil
+                        TestStartMagnet = nil
                         QuestBone()
                         AutoHaki()
                         _G.FastAttack = false
@@ -4304,7 +4319,7 @@ spawn(function()
                                     v.Humanoid.WalkSpeed = 0
                                     v.HumanoidRootPart.CanCollide = false
                                     v.HumanoidRootPart.Size = Vector3.new(5,5,5)
-                                    StatrMagnet = nil
+                                    TestStartMagnet = nil
                                     repeat wait()
                                         TelePBoss(CFrameQBoss)
                                         EquipWeapon(_G.Setting_table.Weapon)
@@ -4325,7 +4340,7 @@ spawn(function()
                                 if v.Name == Ms and v.Humanoid.Health > 0 then
                                     PosMon = v.HumanoidRootPart.CFrame
                                     _G.FastAttack = true
-                                    StatrMagnet = true
+                                    TestStartMagnet = true
                                     if v.Humanoid:FindFirstChild("Animator") then
                                         v.Humanoid.Animator:Destroy()
                                     end
@@ -4350,7 +4365,7 @@ spawn(function()
                             end
                             else
                             _G.FastAttack = false
-                            StatrMagnet = false
+                            TestStartMagnet = false
                             if game.ReplicatedStorage:FindFirstChild(Ms) then
                                 topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
                             else
@@ -4390,12 +4405,12 @@ spawn(function()
             pcall(function()
                 local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                 if not string.find(QuestTitle, NameMon) then
-                    StatrMagnet = false
+                    TestStartMagnet = false
                     AutoSkill = false
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                 end
                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                    StatrMagnet = false
+                    TestStartMagnet = false
                     AutoSkill = false
                     CheckLevel2()
                     repeat wait()
@@ -4424,7 +4439,7 @@ spawn(function()
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
-                                                StatrMagnet = true
+                                                TestStartMagnet = true
                                                 AutoSkill = true
                                                 AimBotSkillPosition = v.HumanoidRootPart
                                                 Skillaimbot = true
@@ -4440,13 +4455,13 @@ spawn(function()
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
-                                                StatrMagnet = true
+                                                TestStartMagnet = true
                                             end
-                                            StatrMagnet = true
+                                            TestStartMagnet = true
                                         until not _G.AutoFarmFruitMastery or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                     else
                                         AutoSkill = false
-                                        StatrMagnet = false
+                                        TestStartMagnet = false
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                     end
                                 end
@@ -4454,7 +4469,7 @@ spawn(function()
                         end
                     else
                         TP1(CFrameMon)
-                        StatrMagnet = false   
+                        TestStartMagnet = false   
                         AutoSkill = false 
                         local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Ms) 
                         if Mob then
@@ -5872,7 +5887,7 @@ spawn(function()
     v.Humanoid.WalkSpeed = 0
     v.Head.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-    StatrMagnet = true
+    TestStartMagnet = true
     MagnetDought = true
     PosMonDoughtOpenDoor = v.HumanoidRootPart.CFrame
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -5884,7 +5899,7 @@ spawn(function()
     end
     else
     MagnetDought = false
-    StatrMagnet = false
+    TestStartMagnet = false
     if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter") then
     topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     else

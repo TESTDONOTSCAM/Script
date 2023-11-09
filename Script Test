@@ -4439,7 +4439,7 @@ spawn(function()
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
                                                 AutoSkill = true
-                                                AimBotSkillPosition = v.HumanoidRootPart
+                                                AimBotSkillPosition = v.HumanoidRootPart.CFrame
                                                 Skillaimbot = true
                                             else
                                                 _G.AutoFarm = true

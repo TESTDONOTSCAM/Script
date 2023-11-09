@@ -219,6 +219,7 @@ mainopens.Parent = mainopen
  _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
  _G.SectionOn = Color3.fromRGB(0, 250, 0)
  _G.HubName = "ScriptBlox Premium"
+ _G.StrokeColor = Color3.fromRGB(162, 0, 255)
 	
 	local RippleFPS = Instance.new("ScreenGui")
 	local Rippletime = Instance.new("ScreenGui")
@@ -257,7 +258,7 @@ mainopens.Parent = mainopen
 	Strokefps.Parent = Framefps
 	Strokefps.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	Strokefps.LineJoinMode = Enum.LineJoinMode.Round
-	Strokefps.Color = _G.Color
+	Strokefps.Color = _G.StrokeColor
 	Strokefps.Transparency = 0
 	
 	Frametime.Name = "Frametime"
@@ -276,7 +277,7 @@ mainopens.Parent = mainopen
 	Stroketime.Parent = Frametime
 	Stroketime.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	Stroketime.LineJoinMode = Enum.LineJoinMode.Round
-	Stroketime.Color = _G.Color
+	Stroketime.Color = _G.StrokeColor
 	Stroketime.Transparency = 0
 	
 	TextLabelfps.Name = "TextLabelfps"
@@ -499,7 +500,7 @@ MCNR.Parent = Main
 MainStroke.Name = "posto"
  MainStroke.Parent = Main
  MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- MainStroke.Color = Color3.fromRGB(86,255,255)
+ MainStroke.Color = _G.StrokeColor
  MainStroke.LineJoinMode = Enum.LineJoinMode.Round
  MainStroke.Thickness = 1.5
  MainStroke.Transparency = 0
@@ -554,19 +555,6 @@ Logo.Size = UDim2.new(0, 120, 0, 120)
 Logo.Image = "http://www.roblox.com/asset/?id=14355269935"
 
 local Name = Instance.new("TextLabel")
---[[
-Name.Name = "Name"
-Name.Parent = Top
-Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Name.BackgroundTransparency = 1.000
-Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Name.BorderSizePixel = 0
-Name.Size = UDim2.new(0, 0, 0, 10)
-Name.Font = Enum.Font.Code
-Name.Text = text
-Name.TextColor3 = Color3.fromRGB(0, 0, 0)
-Name.TextSize = 14.000
-]]--
 
  Name.Name = "Name"
  Name.Parent = Top
@@ -656,7 +644,7 @@ PCNR.Parent = Page
 PageStr.Name = "posto"
  PageStr.Parent = Page
  PageStr.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- PageStr.Color = Color3.fromRGB(86,255,255)
+ PageStr.Color = _G.StrokeColor
  PageStr.LineJoinMode = Enum.LineJoinMode.Round
  PageStr.Thickness = 1.5
  PageStr.Transparency = 0
@@ -737,7 +725,7 @@ TabButton.TextXAlignment = Enum.TextXAlignment.Left
 TabButtonStroke.Name = "posto"
  TabButtonStroke.Parent = TabButton
  TabButtonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- TabButtonStroke.Color = Color3.fromRGB(86,255,255)
+ TabButtonStroke.Color = _G.StrokeColor
  TabButtonStroke.LineJoinMode = Enum.LineJoinMode.Round
  TabButtonStroke.Thickness = 1.5
  TabButtonStroke.Transparency = 0
@@ -746,9 +734,6 @@ TabButtonStroke.Archivable = true
    
    UICorner.CornerRadius = UDim.new(0, 0)
    UICorner.Parent = TabButton
-   
-   --UIPadding.Parent = TabButton
-   --UIPadding.PaddingLeft = UDim.new(0, 14)
 
 local TabFrame = Instance.new("Frame")
 local UICornerFrame = Instance.new("UICorner")
@@ -1039,7 +1024,7 @@ TextBtn.TextSize = 14.000
 TextBtnStroke.Name = "TextBtnStroke"
  TextBtnStroke.Parent = Button
  TextBtnStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- TextBtnStroke.Color = Color3.fromRGB(86,255,255)
+ TextBtnStroke.Color = _G.StrokeColor
  TextBtnStroke.LineJoinMode = Enum.LineJoinMode.Round
  TextBtnStroke.Thickness = 1.5
  TextBtnStroke.Transparency = 0
@@ -1108,7 +1093,7 @@ function main:Toggle(text,config,callback)
     ImageSTR.Name = "ImageSTR"
 	 ImageSTR.Parent = Toggle
 	 ImageSTR.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	 ImageSTR.Color = Color3.fromRGB(86,255,255)
+	 ImageSTR.Color = _G.StrokeColor
 	 ImageSTR.LineJoinMode = Enum.LineJoinMode.Round
 	 ImageSTR.Thickness = 1.5
 	 ImageSTR.Transparency = 0
@@ -1232,7 +1217,7 @@ function main:Dropdown(text,option,callback)
     posto1.Name = "posto"
     posto1.Parent = Dropdown
     posto1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    posto1.Color = Color3.fromRGB(255,255,255)
+    posto1.Color = _G.StrokeColor
     posto1.LineJoinMode = Enum.LineJoinMode.Round
     posto1.Thickness = 1
     posto1.Transparency = 0
@@ -1458,7 +1443,7 @@ function main:Dropdown2(text,old,option,callback)
     posto123.Name = "posto"
     posto123.Parent = Dropdown2
     posto123.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    posto123.Color = Color3.fromRGB(255,255,255)
+    posto123.Color = _G.StrokeColor
     posto123.LineJoinMode = Enum.LineJoinMode.Round
     posto123.Thickness = 1
     posto123.Transparency = 0
@@ -1707,7 +1692,7 @@ local Slider = Instance.new("Frame")
 posta.Name = "posto"
  posta.Parent = Slider
  posta.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- posta.Color = Color3.fromRGB(86,255,255)
+ posta.Color = _G.StrokeColor
  posta.LineJoinMode = Enum.LineJoinMode.Round
  posta.Thickness = 1.5
  posta.Transparency = 0
@@ -2088,7 +2073,7 @@ UIPadding_13.PaddingLeft = UDim.new(0, 10)
 
 Sep1.Name = "Sep1"
 Sep1.Parent = Seperator
-Sep1.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+Sep1.BackgroundColor3 = _G.StrokeColor
 Sep1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Sep1.BorderSizePixel = 0
 Sep1.Position = UDim2.new(0, -15, 0, 0)
@@ -2109,7 +2094,7 @@ Sep2.TextSize = 14.000
 
 Sep3.Name = "Sep3"
 Sep3.Parent = Seperator
-Sep3.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+Sep3.BackgroundColor3 = _G.StrokeColor
 Sep3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Sep3.BorderSizePixel = 0
 Sep3.Position = UDim2.new(0, 216, 0, 0)
@@ -2132,7 +2117,7 @@ function main:Line()
    
       Line.Name = "Line"
       Line.Parent = Linee
-      Line.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+      Line.BackgroundColor3 = _G.StrokeColor
       Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
       Line.BorderSizePixel = 0
       Line.Position = UDim2.new(0, 0, 0.449999988, 0)

@@ -9439,7 +9439,7 @@ spawn(function()
 
                             AutoHaki()
 
-                            until not v.Parent or not v.Humanoid.Health <= 0 or not v.Health.Value <= 0 or not _G.AutoBoat2
+                            until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
                         else
                             local guardianback = game.ReplicatedStorage:FindFirstChild("Guardian")
                             guardianback.Parent = game.Workspace.Boats

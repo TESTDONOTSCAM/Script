@@ -8919,12 +8919,12 @@ spawn(function()
                             AutoHaki()
 
                             until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
-
+                        else
                             local guardianback = game.ReplicatedStorage:FindFirstChild("Guardian")
                             guardianback.Parent = game.Workspace.Boats
 
                             wait(2)
-                            
+
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             end

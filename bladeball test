@@ -2182,14 +2182,12 @@ User:Dropdown("Select Island",{
     "Insane",
     },function(value)
     _G.ParryMethode = value
-    end)
-end
+end)
 
 User:Toggle("Auto Parry",false,function(vu)
     _G.Parry = vu
     if _G.Parry == true then
         repeat task.wati()
-        RunService.PreSimulation:Connect(function()
         if _G.ParryMethode == "Legit" then
             SF:Hit()
         elseif _G.ParryMethode == "Blatant" then
@@ -2198,6 +2196,5 @@ User:Toggle("Auto Parry",false,function(vu)
             SF:FreezeHit()
         end
         until not _G.Parry
-        end)
     end
 end)

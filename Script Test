@@ -5872,6 +5872,7 @@ spawn(function()
     v.Humanoid.WalkSpeed = 0
     v.Head.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+    StatrMagnet = true
     MagnetDought = true
     PosMonDoughtOpenDoor = v.HumanoidRootPart.CFrame
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -5883,6 +5884,7 @@ spawn(function()
     end
     else
     MagnetDought = false
+    StatrMagnet = false
     if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter") then
     topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     else
@@ -6141,9 +6143,9 @@ end)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("HornedMan","Bet")
     end
     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true and string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Stone") then
-    if game:GetService("Workspace").Enemies:FindFirstChild("Stone [Lv. 1550] [Boss]") then
+    if game:GetService("Workspace").Enemies:FindFirstChild("Stone") then
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    if v.Name == "Stone [Lv. 1550] [Boss]" then
+    if v.Name == "Stone" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
     EquipWeapon(_G.Setting_table.Weapon)
@@ -6161,9 +6163,9 @@ end)
     topos(CFrame.new(-1086.11621, 38.8425903, 6768.71436, 0.0231462717, -0.592676699, 0.805107772, 2.03251839e-05, 0.805323839, 0.592835128, -0.999732077, -0.0137055516, 0.0186523199))
     end
     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true and string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Island Empress") then
-    if game:GetService("Workspace").Enemies:FindFirstChild("Island Empress [Lv. 1675] [Boss]") then
+    if game:GetService("Workspace").Enemies:FindFirstChild("Island Empress") then
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    if v.Name == "Island Empress [Lv. 1675] [Boss]" then
+    if v.Name == "Island Empress" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
     EquipWeapon(_G.Setting_table.Weapon)
@@ -6181,9 +6183,9 @@ end)
     topos(CFrame.new(5713.98877, 601.922974, 202.751251, -0.101080291, -0, -0.994878292, -0, 1, -0, 0.994878292, 0, -0.101080291))
     end
     elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Kilo Admiral") then
-    if game:GetService("Workspace").Enemies:FindFirstChild("Kilo Admiral [Boss]") then
+    if game:GetService("Workspace").Enemies:FindFirstChild("Kilo Admiral") then
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    if v.Name == "Kilo Admiral [Boss]" then
+    if v.Name == "Kilo Admiral" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
     EquipWeapon(_G.Setting_table.Weapon)
@@ -6201,9 +6203,9 @@ end)
     topos(CFrame.new(2877.61743, 423.558685, -7207.31006, -0.989591599, -0, -0.143904909, -0, 1.00000012, -0, 0.143904924, 0, -0.989591479))
     end
     elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Captain Elephant") then
-    if game:GetService("Workspace").Enemies:FindFirstChild("Captain Elephant [Lv. 1875] [Boss]") then
+    if game:GetService("Workspace").Enemies:FindFirstChild("Captain Elephant") then
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    if v.Name == "Captain Elephant [Lv. 1875] [Boss]" then
+    if v.Name == "Captain Elephant" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
     EquipWeapon(_G.Setting_table.Weapon)
@@ -6221,9 +6223,9 @@ end)
     topos(CFrame.new(-13485.0283, 331.709259, -8012.4873, 0.714521289, 7.98849911e-08, 0.69961375, -1.02065748e-07, 1, -9.94383065e-09, -0.69961375, -6.43015241e-08, 0.714521289))
     end
     elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Beautiful Pirate") then
-    if game:GetService("Workspace").Enemies:FindFirstChild("Beautiful Pirate [Lv. 1950] [Boss]") then
+    if game:GetService("Workspace").Enemies:FindFirstChild("Beautiful Pirate") then
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    if v.Name == "Beautiful Pirate [Lv. 1950] [Boss]" then
+    if v.Name == "Beautiful Pirate" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
     EquipWeapon(_G.Setting_table.Weapon)
@@ -6384,7 +6386,7 @@ spawn(function()
                                     game:GetService("VirtualUser"):CaptureController()
                                     game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
-                                until not  _G.Autotushita or not v.Parent or v.Humanoid.Health <= 0
+                                until not _G.Autotushita or not v.Parent or v.Humanoid.Health <= 0
                             end
                         end
                     end

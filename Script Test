@@ -9430,11 +9430,6 @@ spawn(function()
 
                             local guardian = game.Workspace.Boats:FindFirstChild("Guardian")
                             guardian.Parent = game.ReplicatedStorage
-
-                            AllWeapon = true
-                            AutoSkill = true
-                            AimBotSkillPosition = v.HumanoidRootPart
-                            Skillaimbot = true
                             
                             repeat task.wait()
 

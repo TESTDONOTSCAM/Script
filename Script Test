@@ -5321,6 +5321,8 @@ end)
 
 AutoQuest:Seperator("World 3")
 
+--[[ Elite Hunter FIXED ]]
+
 local EliteProgress = AutoQuest:Label1("")
     
 spawn(function()
@@ -5806,6 +5808,8 @@ AutoQuest:Toggle("Auto Dragon Talon",_G.AutoDragonTalon,function(value)
     end
     end
 end)
+
+--[[ Dough king FIXED ]]
     
 AutoQuest:Seperator("Dought")
     
@@ -5931,6 +5935,8 @@ spawn(function()
     end
     end
 end)
+
+--[[]]
     
 AutoQuest:Seperator("Advance Dungeon")
     
@@ -9421,6 +9427,11 @@ spawn(function()
 
                             local guardian = game.Workspace.Boats:FindFirstChild("Guardian")
                             guardian.Parent = game.ReplicatedStorage
+
+                            AllWeapon = true
+                            AutoSkill = true
+                            AimBotSkillPosition = v.HumanoidRootPart
+                            Skillaimbot = true
                             
                             repeat task.wait()
 
@@ -9430,6 +9441,10 @@ spawn(function()
                         else
                             local guardianback = game.ReplicatedStorage:FindFirstChild("Guardian")
                             guardianback.Parent = game.Workspace.Boats
+
+                            AllWeapon = false
+                            AutoSkill = false
+                            Skillaimbot = false
 
                             wait(2)
 
@@ -9472,7 +9487,10 @@ spawn(function()
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        EquipWeapon(_G.Setting_table.Weapon)
+                        AllWeapon = true
+                        AutoSkill = true
+                        AimBotSkillPosition = v.HumanoidRootPart
+                        Skillaimbot = true
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -9528,7 +9546,10 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
-                        EquipWeapon(_G.Setting_table.Weapon)
+                        AllWeapon = true
+                        AutoSkill = true
+                        AimBotSkillPosition = v.HumanoidRootPart
+                        Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -9579,7 +9600,10 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
-                        EquipWeapon(_G.Setting_table.Weapon)
+                        AllWeapon = true
+                        AutoSkill = true
+                        AimBotSkillPosition = v.HumanoidRootPart
+                        Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")

@@ -2965,7 +2965,9 @@ elseif Lv >= 2050 or SelectMonster == "Posessed Mummy" then
 	CFrameMon = CFrame.new(-9545.7763671875, 69.619895935059, 6339.5615234375)    
 	TelePBoss(CFrameQ)
 
-	SelectMonster = "Reborn Skeleton" and SelectMonster = "Living Zombie" and SelectMonster = "Demonic Soul"
+	SelectMonster = "Reborn Skeleton"
+	SelectMonster = "Living Zombie"
+	SelectMonster = "Demonic Soul"
 
 		end
 	end
@@ -9445,7 +9447,7 @@ spawn(function()
                             AllWeapon = false
                             AutoSkill = false
                             Skillaimbot = false
-
+                            
                             TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
 
                             wait(2)

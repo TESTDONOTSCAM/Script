@@ -1755,7 +1755,7 @@ end
 
 RightButton.MouseButton1Click:Connect(function()
 TextLabel55.Text = Value
-    Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min)) or 0
+    Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min))
     pcall(function()
     callback(Value)
     end)

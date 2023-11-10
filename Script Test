@@ -1753,18 +1753,18 @@ if Value == nil then
 end
 
 RightButton.MouseButton1Click:Connect(function()
-    Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * RightButton.MouseButton1Click) + tonumber(min)) or 0
+    Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * TextLabel55.Text) + tonumber(min)) or 0
     pcall(function()
     callback(Value)
 end)
+RightButton
 TextLabel55.Text = Value
-
-Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * RightButton.MouseButton1Click) + tonumber(min))
+Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * TextLabel55.Text) + tonumber(min))
     pcall(function()
     callback(Value)
 end)
 
-Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * RightButton.MouseButton1Click) + tonumber(min))
+Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * TextLabel55.Text) + tonumber(min))
     pcall(function()
     callback(Value)
     end)

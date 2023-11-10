@@ -1756,10 +1756,8 @@ RightButton.MouseButton1Click:Connect(function()
     Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min)) or 0
     pcall(function()
     callback(Value)
-    end)
 end)
 
---[[
 TextLabel55.Text = Value
 Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min))
     pcall(function()
@@ -1771,7 +1769,6 @@ Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min))
     callback(Value)
     end)
 end)
-]]--
 
 TextLabel55.FocusLost:Connect(function()
 

@@ -9433,8 +9433,6 @@ spawn(function()
                             until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
                         else
 
-                            tween3:Play()
-
                             AllWeapon = false
                             AutoSkill = false
                             Skillaimbot = false
@@ -9443,6 +9441,8 @@ spawn(function()
 
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+                            tween3:Play()
                             end
                         end
                     end
@@ -9470,8 +9470,6 @@ spawn(function()
                             until not v.Parent or not v.Health.Value <= 0 or not _G.AutoBoat2
                         else
 
-                            tween3:Play()
-
                             AllWeapon = false
                             AutoSkill = false
                             Skillaimbot = false
@@ -9480,6 +9478,8 @@ spawn(function()
 
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+                            tween3:Play()
                             end
                         end
                     end
@@ -9507,8 +9507,6 @@ spawn(function()
                             until not v.Parent or not v.Health.Value <= 0 or not _G.AutoBoat2
                         else
 
-                            tween3:Play()
-
                             AllWeapon = false
                             AutoSkill = false
                             Skillaimbot = false
@@ -9517,6 +9515,8 @@ spawn(function()
 
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+                            tween3:Play()
                             end
                         end
                     end

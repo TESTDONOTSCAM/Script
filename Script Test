@@ -1730,21 +1730,9 @@ TextLabel55.BorderSizePixel = 0
 TextLabel55.Position = UDim2.new(0.34801802, 0, 0.150654599, 0)
 TextLabel55.Size = UDim2.new(0, 70, 0, 21)
 TextLabel55.Font = Enum.Font.Ubuntu
-TextLabel55.Text = set
+TextLabel55.Text = set/max
 TextLabel55.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel55.TextSize = 14.000
-
-TextLabel551.Parent = TestSlider
-TextLabel551.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel551.BackgroundTransparency = 1.000
-TextLabel551.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel551.BorderSizePixel = 0
-TextLabel551.Position = UDim2.new(0.34801802, 0, 0.150654599, 0)
-TextLabel551.Size = UDim2.new(0, 70, 0, 21)
-TextLabel551.Font = Enum.Font.Ubuntu
-TextLabel551.Text = set/max
-TextLabel551.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel551.TextSize = 14.000
 
 UICorner_4.CornerRadius = UDim.new(0, 4)
 UICorner_4.Parent = TextLabel
@@ -1766,13 +1754,13 @@ if Value == nil then
 end
 
 RightButton.MouseButton1Click:Connect(function()
-    Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * TextLabel551.Text) + tonumber(min)) or 0
+    Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * TextLabel55.Text) + tonumber(min)) or 0
     pcall(function()
     callback(Value)
 end)
 
 TextLabel55.Text = Value
-Value = math.floor((((tonumber(max) - tonumber(min) * TextLabel551.Text) / 300)) + tonumber(min))
+Value = math.floor((((tonumber(max) - tonumber(min) * TextLabel55.Text) / 300)) + tonumber(min))
     pcall(function()
     callback(Value)
     end)

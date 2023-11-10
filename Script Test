@@ -2077,7 +2077,7 @@ Sep1.BackgroundColor3 = _G.StrokeColor
 Sep1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Sep1.BorderSizePixel = 0
 Sep1.Position = UDim2.new(0, -15, 0, 0)
-Sep1.Size = UDim2.new(0, 80, 0, 3)
+Sep1.Size = UDim2.new(0, 78, 0, 3)
 
 Sep2.Name = "Sep2"
 Sep2.Parent = Seperator

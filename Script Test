@@ -1762,22 +1762,14 @@ TextLabel55.Text = Value
 Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min))
     pcall(function()
     callback(Value)
-end)
-
-Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min))
-    pcall(function()
-    callback(Value)
     end)
 end)
-
-TextLabel55.FocusLost:Connect(function()
 
 if tonumber(TextLabel55.Text) > max then
     TextLabel55.Text = max
 end
     TextLabel55.Text = tostring(TextLabel55.Text and math.floor((TextLabel55.Text / max) * (max - min) + min))
     pcall(callback, TextLabel55.Text)
-    end)
 end
 
 function main:Slider(text,min,max,set,callback)

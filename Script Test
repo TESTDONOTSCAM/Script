@@ -1753,23 +1753,23 @@ if Value == nil then
 end
 
 RightButton.MouseButton1Click:Connect(function()
-    Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * TextLabel55.Text) + tonumber(min)) or 0
+    Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min)) or 0
     pcall(function()
     callback(Value)
 end)
 RightButton
 TextLabel55.Text = Value
-Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * TextLabel55.Text) + tonumber(min))
+Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min))
     pcall(function()
     callback(Value)
 end)
 
-Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * TextLabel55.Text) + tonumber(min))
+Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min))
     pcall(function()
     callback(Value)
     end)
 end)
-   
+
 TextLabel55.FocusLost:Connect(function()
 
 if tonumber(TextLabel55.Text) > max then

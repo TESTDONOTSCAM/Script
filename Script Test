@@ -1728,9 +1728,9 @@ TextLabel55.BackgroundTransparency = 1.000
 TextLabel55.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel55.BorderSizePixel = 0
 TextLabel55.Position = UDim2.new(0.34801802, 0, 0.150654599, 0)
-TextLabel55.Size = UDim2.new(0, 70, 0, 21)
+TextLabel55.Size = UDim2.new(set/max, 0, 0, 5)
 TextLabel55.Font = Enum.Font.Ubuntu
-TextLabel55.Text = set/max
+TextLabel55.Text = set
 TextLabel55.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel55.TextSize = 14.000
 
@@ -1754,13 +1754,13 @@ if Value == nil then
 end
 
 RightButton.MouseButton1Click:Connect(function()
-    Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * TextLabel55.Text) + tonumber(min)) or 0
+    Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * TextLabel55.AbsoluteSize.X) + tonumber(min)) or 0
     pcall(function()
     callback(Value)
 end)
 
 TextLabel55.Text = Value
-Value = math.floor((((tonumber(max) - tonumber(min) * TextLabel55.Text) / 300)) + tonumber(min))
+Value = math.floor((((tonumber(max) - tonumber(min) * TextLabel55.AbsoluteSize.X) / 300)) + tonumber(min))
     pcall(function()
     callback(Value)
     end)

@@ -3571,6 +3571,21 @@ while wait(.1) do
 	end
 end)
 
+function TPBSafe(Pos)
+	local tween_s3 = game:service"TweenService"
+	local info3 = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - Pos.Position).Magnitude/170, Enum.EasingStyle.Linear)
+	tween3 = tween_s3:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, info3, {CFrame = Pos})
+tween3:Play()
+tween3.Completed:Wait(E)
+
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tween3:Cancel()
+end
+	return tweenfunc
+end
+
 function TPB3(Pos)
 	local tween_sBf = game:service"TweenService"
 	local infoBf = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - Pos.Position).Magnitude/600, Enum.EasingStyle.Linear)
@@ -9426,7 +9441,7 @@ spawn(function()
                          if v:FindFirstChild("HumanoidRootPart") then
                             game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
 
-                            TPB(CFrame.new(-40000.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
+                            _G.TPsafe = true
 
                             local guardian = game.Workspace.Boats:FindFirstChild("Guardian")
                             guardian.Parent = game.ReplicatedStorage
@@ -9440,11 +9455,14 @@ spawn(function()
                             local guardianback = game.ReplicatedStorage:FindFirstChild("Guardian")
                             guardianback.Parent = game.Workspace.Boats
 
+                            _G.TPsafe = false
+                            tween3:Cancel()
+                            StopTween(_G.TPsafe)
+                            _G.TPback = true
+
                             AllWeapon = false
                             AutoSkill = false
                             Skillaimbot = false
-                            
-                            TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
 
                             wait(2)
 
@@ -9454,6 +9472,26 @@ spawn(function()
                         end
                     end
                 end
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.TPsafe then
+            pcall(function()
+                TPBSafe(CFrame.new(-40000.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.TPback then
+            pcall(function()
+                TPB(CFrame.new(-43186.0938, 20.755722, 14150.7451, 0.404593438, -0.026889408, 0.914101243, 0.0663140193, 0.9977988, 5.95448357e-10, -0.912089169, 0.06061773, 0.405485988))
             end)
         end
     end

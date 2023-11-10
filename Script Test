@@ -9426,18 +9426,12 @@ spawn(function()
 
                             tween3:Cancel()
 
-                            local guardian = game.Workspace.Boats:FindFirstChild("Guardian")
-                            guardian.Parent = game.ReplicatedStorage
-
                             repeat task.wait()
 
                             AutoHaki()
 
                             until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
                         else
-
-                            local guardianback = game.ReplicatedStorage:FindFirstChild("Guardian")
-                            guardianback.Parent = game.Workspace.Boats
 
                             AllWeapon = false
                             AutoSkill = false

@@ -1657,117 +1657,6 @@ end
     return dropfunc
 end
 
-function main:Slidertest(text,min,max,set,callback)
-
-local TestSlider = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
-local UIPadding_2 = Instance.new("UIPadding")
-local RightButton = Instance.new("ImageButton")
-local UICorner_2 = Instance.new("UICorner")
-local UIPadding_3 = Instance.new("UIPadding")
-local LeftButton = Instance.new("ImageButton")
-local UICorner_3 = Instance.new("UICorner")
-local UIPadding_4 = Instance.new("UIPadding")
-local TextLabel55 = Instance.new("TextLabel")
-local TextLabel551 = Instance.new("TextLabel")
-local UICorner_4 = Instance.new("UICorner")
-local UIPageLayout = Instance.new("UIPageLayout")
-
-TestSlider.Name = "TestSlider"
-TestSlider.Parent = MainFramePage
-TestSlider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TestSlider.BackgroundTransparency = 0.800
-TestSlider.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TestSlider.BorderSizePixel = 0
-TestSlider.Position = UDim2.new(0, 0, 0.660116613, 0)
-TestSlider.Size = UDim2.new(0.976367235, 0, 0.0003436314, 30)
-
-UICorner.CornerRadius = UDim.new(0, 4)
-UICorner.Parent = TestSlider
-
-UIPadding_2.Parent = TestSlider
-UIPadding_2.PaddingLeft = UDim.new(0, 10)
-
-RightButton.Name = "RightButton"
-RightButton.Parent = TestSlider
-RightButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-RightButton.BackgroundTransparency = 1.000
-RightButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-RightButton.BorderSizePixel = 0
-RightButton.Position = UDim2.new(-0.0519376285, 5, 0, 0)
-RightButton.Size = UDim2.new(0.115407147, 0, 0.999998987, 0)
-RightButton.ZIndex = 2
-RightButton.Image = "http://www.roblox.com/asset/?id=15315117319"
-
-UICorner_2.CornerRadius = UDim.new(0, 4)
-UICorner_2.Parent = RightButton
-
-UIPadding_3.Parent = RightButton
-UIPadding_3.PaddingLeft = UDim.new(0, 10)
-
-LeftButton.Name = "LeftButton"
-LeftButton.Parent = TestSlider
-LeftButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LeftButton.BackgroundTransparency = 1.000
-LeftButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-LeftButton.BorderSizePixel = 0
-LeftButton.Position = UDim2.new(0.862087727, 5, 0, 0)
-LeftButton.Size = UDim2.new(0.115407147, 0, 0.999998987, 0)
-LeftButton.ZIndex = 2
-LeftButton.Image = "http://www.roblox.com/asset/?id=15315131846"
-
-UICorner_3.CornerRadius = UDim.new(0, 4)
-UICorner_3.Parent = LeftButton
-
-UIPadding_4.Parent = LeftButton
-UIPadding_4.PaddingLeft = UDim.new(0, 10)
-
-TextLabel55.Parent = TestSlider
-TextLabel55.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel55.BackgroundTransparency = 1.000
-TextLabel55.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel55.BorderSizePixel = 0
-TextLabel55.Position = UDim2.new(0.34801802, 0, 0.150654599, 0)
-TextLabel55.Size = UDim2.new(0, 70, 0, 21)
-TextLabel55.Font = Enum.Font.Ubuntu
-TextLabel55.Text = set
-TextLabel55.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel55.TextSize = 14.000
-
-UICorner_4.CornerRadius = UDim.new(0, 4)
-UICorner_4.Parent = TextLabel
-
-UIPageLayout.Parent = ListSet
-UIPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIPageLayout.EasingStyle = Enum.EasingStyle.Elastic
-UIPageLayout.GamepadInputEnabled = false
-UIPageLayout.Padding = UDim.new(0, 15)
-UIPageLayout.ScrollWheelInputEnabled = false
-UIPageLayout.TouchInputEnabled = false
-UIPageLayout.TweenTime = 0.400
-
-if Value == nil then
-    Value = set
-    pcall(function()
-    callback(Value)
-    end)
-end
-
-RightButton.MouseButton1Click:Connect(function()
-TextLabel55.Text = Value
-    Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min))
-    pcall(function()
-    callback(Value)
-    end)
-end)
-
-if tonumber(TextLabel55.Text) > max then
-    TextLabel55.Text = max
-end
-    TextLabel55.Text = tostring(TextLabel55.Text and math.floor((TextLabel55.Text / max) * (max - min) + min))
-    pcall(callback, TextLabel55.Text)
-end
-
 function main:Slider(text,min,max,set,callback)
 
 local Slider = Instance.new("Frame")
@@ -1919,8 +1808,8 @@ local uis = game:GetService("UserInputService")
 if Value == nil then
 Value = set
 pcall(function()
-callback(Value)
-    end)
+ callback(Value)
+ end)
 end
 
 AHEHE.MouseButton1Down:Connect(function()
@@ -4314,10 +4203,6 @@ local AutoFarm = Main:Toggle("Auto Farm",_G.AutoFarm,function(value)
     StopTween(_G.AutoFarm)
 end)
 
-Main:Slidertest("Test",1,100,65,function(test)
-    _G.Testtest = test
-end)
-
 spawn(function()
 	while wait(.1) do
 		pcall(function()
@@ -4445,6 +4330,8 @@ spawn(function()
 	end
 end)
 
+Main:Seperator("Bone")
+
 Main:Toggle("Farm Bone",_G.BoneFarm,function(vu)
     _G.BoneFarm = vu
     StopTween(_G.BoneFarm)
@@ -4452,6 +4339,18 @@ Main:Toggle("Farm Bone",_G.BoneFarm,function(vu)
     _G.AutoFarm = false
     _G.AutoFarmFruitMastery = false
     end
+end)
+
+Main:Button("Buy Surprise",function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
+end)
+    
+Main:Button("Stat Refund",function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,2)
+end)
+    
+Main:Button("Race Reroll",function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,3)
 end)
 
 spawn(function()
@@ -4576,20 +4475,6 @@ spawn(function()
 			end
 		end)
 	end
-end)
-
-Main:Seperator("Bone")
-
-Main:Button("Buy Surprise",function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
-end)
-    
-Main:Button("Stat Refund",function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,2)
-end)
-    
-Main:Button("Race Reroll",function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,3)
 end)
 
 Main:Seperator("Mastery")

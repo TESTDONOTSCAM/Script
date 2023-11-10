@@ -3901,23 +3901,84 @@ end)
 
 Skillaimbot = true
 
-local gg = getrawmetatable(game)
-local old = gg.__namecall
-setreadonly(gg,false)
-gg.__namecall = newcclosure(function(...)
-	local method = getnamecallmethod()
-	local args = {...}
-	if tostring(method) == "FireServer" then
-		if tostring(args[1]) == "RemoteEvent" then
-			if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
-				if Skillaimbot then
-					args[2] = AimBotSkillPosition
-					return old(unpack(args))
+spawn(function()
+	local gg = getrawmetatable(game)
+	local old = gg.__namecall
+	setreadonly(gg,false)
+	gg.__namecall = newcclosure(function(...)
+		local method = getnamecallmethod()
+		local args = {...}
+		if tostring(method) == "FireServer" then
+			if tostring(args[1]) == "RemoteEvent" then
+				if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
+					if UseSkillMasteryDevilFruit then
+						args[2] = PositionSkillMasteryDevilFruit
+						return old(unpack(args))
+					elseif Skillaimbot then
+						args[2] = AimBotSkillPosition
+						return old(unpack(args))
+					end
 				end
 			end
 		end
+		return old(...)
+	end)
+end)
+
+spawn(function()
+	while wait() do
+		if Skillaimbot then
+			pcall(function()
+				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+						AimBotSkillPosition = v:FindFirstChild("HumanoidRootPart").Position
+					end
+				end 
+			end)
+		end
 	end
-	return old(...)
+end)
+
+spawn(function()
+	while wait() do
+		if Skillaimbot then
+			pcall(function()
+				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					if v:FindFirstChild("Sails") then
+						AimBotSkillPosition = v:FindFirstChild("Sails").Position
+					end
+				end 
+			end)
+		end
+	end
+end)
+
+spawn(function()
+	while wait() do
+		if Skillaimbot then
+			pcall(function()
+				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					if v:FindFirstChild("VehicleSeat") then
+						AimBotSkillPosition = v:FindFirstChild("VehicleSeat").Position
+					end
+				end 
+			end)
+		end
+	end
+end)
+
+spawn(function()
+	while wait() do
+		if Skillaimbot then
+			pcall(function()
+				for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+					if v:FindFirstChild("HumanoidRootPart") then
+						AimBotSkillPosition = v:FindFirstChild("HumanoidRootPart").Position
+					end
+				end 
+			end)
+		end
+	end
 end)
 
 Skillz = true
@@ -4455,7 +4516,7 @@ spawn(function()
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
                                                 Skillaimbot = true
-                                                AimBotSkillPosition = v.HumanoidRootPart
+                                                
                                                 AutoSkill = true
                                             else
                                                 _G.AutoFarm = true
@@ -9428,6 +9489,7 @@ spawn(function()
 
                             repeat task.wait()
 
+                            Skillaimbot = true
                             AutoHaki()
 
                             until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
@@ -9482,7 +9544,7 @@ spawn(function()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
                         AutoSkill = true
-                        AimBotSkillPosition = v.HumanoidRootPart
+                        
                         Skillaimbot = true
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         game:GetService'VirtualUser':CaptureController()
@@ -9541,7 +9603,7 @@ spawn(function()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
                         AutoSkill = true
-                        AimBotSkillPosition = v.HumanoidRootPart
+                        
                         Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -9595,7 +9657,7 @@ spawn(function()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
                         AutoSkill = true
-                        AimBotSkillPosition = v.HumanoidRootPart
+                        
                         Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -9644,7 +9706,7 @@ spawn(function()
                         AllWeapon = true
                         TP1(v.Sails.CFrame * CFrame.new(0,5,0) * Pos)
                         AutoSkill = true
-                        AimBotSkillPosition = v.Sails
+                        
                         Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -9693,7 +9755,7 @@ spawn(function()
                         TP1(v.VehicleSeat.CFrame * CFrame.new(0,4,0) * Pos)
                         AllWeapon = true
                         AutoSkill = true
-                        AimBotSkillPosition = v.VehicleSeat
+                        
                         Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -9742,7 +9804,7 @@ spawn(function()
                         TP1(v.VehicleSeat.CFrame * CFrame.new(0,4,0) * Pos)
                         AllWeapon = true
                         AutoSkill = true
-                        AimBotSkillPosition = v.VehicleSeat
+                        
                         Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -9789,7 +9851,7 @@ spawn(function()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0) * Pos)
                         AllWeapon = true
                         AutoSkill = true
-                        AimBotSkillPosition = v.HumanoidRootPart
+                        
                         Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))

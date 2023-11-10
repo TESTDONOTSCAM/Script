@@ -9426,6 +9426,9 @@ spawn(function()
 
                             tween3:Cancel()
 
+                            local guardian = game.Workspace.Boats:FindFirstChild("Guardian")
+                            guardian.Parent = game.ReplicatedStorage
+
                             repeat task.wait()
 
                             AutoHaki()
@@ -9433,79 +9436,8 @@ spawn(function()
                             until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
                         else
 
-                            AllWeapon = false
-                            AutoSkill = false
-                            Skillaimbot = false
-
-                            wait(2)
-
-                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                            TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                            elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-                            tween3:Play()
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-
-spawn(function()
-    while wait() do
-        if _G.AutoBoat2 then
-            pcall(function()
-                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                        if (v.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 750 then
-                         if v:FindFirstChild("VehicleSeat") then
-                            game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-
-                            tween3:Cancel()
-
-                            repeat task.wait()
-
-                            AutoHaki()
-
-                            until not v.Parent or not v.Health.Value <= 0 or not _G.AutoBoat2
-                        else
-
-                            AllWeapon = false
-                            AutoSkill = false
-                            Skillaimbot = false
-
-                            wait(2)
-
-                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                            TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                            elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-                            tween3:Play()
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-
-spawn(function()
-    while wait() do
-        if _G.AutoBoat2 then
-            pcall(function()
-                    for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-                        if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 750 then
-                         if v:FindFirstChild("HumanoidRootPart") then
-                            game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-
-                            tween3:Cancel()
-
-                            repeat task.wait()
-
-                            AutoHaki()
-
-                            until not v.Parent or not v.Health.Value <= 0 or not _G.AutoBoat2
-                        else
+                            local guardianback = game.ReplicatedStorage:FindFirstChild("Guardian")
+                            guardianback.Parent = game.Workspace.Boats
 
                             AllWeapon = false
                             AutoSkill = false

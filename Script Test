@@ -9443,8 +9443,6 @@ spawn(function()
 
                             _G.TPsafe = true
 
-                            local guardian = game.Workspace.Boats:FindFirstChild("Guardian")
-                            guardian.Parent = game.ReplicatedStorage
                             
                             repeat task.wait()
 
@@ -9452,9 +9450,6 @@ spawn(function()
 
                             until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
                         else
-                            local guardianback = game.ReplicatedStorage:FindFirstChild("Guardian")
-                            guardianback.Parent = game.Workspace.Boats
-
                             _G.TPsafe = false
                             tween3:Cancel()
                             StopTween(_G.TPsafe)

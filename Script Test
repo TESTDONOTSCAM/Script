@@ -1745,19 +1745,26 @@ UIPageLayout.ScrollWheelInputEnabled = false
 UIPageLayout.TouchInputEnabled = false
 UIPageLayout.TweenTime = 0.400
 
+if Value == nil then
+    Value = set
+    pcall(function()
+    callback(Value)
+    end)
+end
+
 RightButton.MouseButton1Click:Connect(function()
-    Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min)) or 0
+    Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * RightButton.MouseButton1Click) + tonumber(min)) or 0
     pcall(function()
     callback(Value)
 end)
 TextLabel55.Text = Value
 
-Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min))
+Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * RightButton.MouseButton1Click) + tonumber(min))
     pcall(function()
     callback(Value)
 end)
 
-Value = math.floor((((tonumber(max) - tonumber(min)) / 300)) + tonumber(min))
+Value = math.floor((((tonumber(max) - tonumber(min)) / 300) * RightButton.MouseButton1Click) + tonumber(min))
     pcall(function()
     callback(Value)
     end)
@@ -1924,8 +1931,8 @@ local uis = game:GetService("UserInputService")
 if Value == nil then
 Value = set
 pcall(function()
- callback(Value)
- end)
+callback(Value)
+    end)
 end
 
 AHEHE.MouseButton1Down:Connect(function()

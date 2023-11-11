@@ -3571,6 +3571,21 @@ while wait(.1) do
 	end
 end)
 
+function TPB4(Pos)
+	local tween_sB4 = game:service"TweenService"
+	local infoB4 = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - Pos.Position).Magnitude/180, Enum.EasingStyle.Linear)
+	tweenB4 = tween_sB4:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoB4, {CFrame = Pos})
+tweenB4:Play()
+tweenB4.Completed:Wait(E)
+
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tweenB4:Cancel()
+end
+	return tweenfunc
+end
+
 function TPBSafe(Pos)
 	local tween_s3 = game:service"TweenService"
 	local info3 = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - Pos.Position).Magnitude/170, Enum.EasingStyle.Linear)
@@ -9493,14 +9508,17 @@ spawn(function()
                             game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
 
                             tween3:Cancel()
+                            TPB4(v.HumanoidRootPart * CFrame.new(0,0,30) * Pos)
 
                             repeat task.wait()
-
-                            Skillaimbot = true
+                            print("Wink")
                             AutoHaki()
 
                             until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
                         else
+                            print("WONK")
+
+                            tweenB4:Cancel()
 
                             AllWeapon = false
                             AutoSkill = false
@@ -9550,9 +9568,6 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         EquipWeapon(_G.Setting_table.Weapon)
-                        AutoSkill = true
-                        
-                        Skillaimbot = true
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -9609,9 +9624,6 @@ spawn(function()
                         AutoHaki()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
-                        AutoSkill = true
-                        
-                        Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -9663,9 +9675,6 @@ spawn(function()
                         AutoHaki()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
                         EquipWeapon(_G.Setting_table.Weapon)
-                        AutoSkill = true
-                        
-                        Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -9713,7 +9722,6 @@ spawn(function()
                         AllWeapon = true
                         TP1(v.Sails.CFrame * CFrame.new(0,5,0) * Pos)
                         AutoSkill = true
-                        
                         Skillaimbot = true
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))

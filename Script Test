@@ -1683,7 +1683,7 @@ local Slider = Instance.new("Frame")
  Slider.Parent = MainFramePage
  Slider.BackgroundColor3 = _G.Color
  Slider.BackgroundTransparency = 1
- Slider.Size = UDim2.new(0.976000011, 0, 0, 51)
+ Slider.Size = UDim2.new(0.976000011, 0, 0, 51) -- 0, 310, 0, 51
  
  slidercorner.CornerRadius = UDim.new(0, 5)
  slidercorner.Name = "slidercorner"
@@ -1743,7 +1743,7 @@ posta.Archivable = true
  bar.Name = "bar"
  bar.Parent = AHEHE
  bar.BackgroundColor3 = _G.BGColor_2
- bar.Size = UDim2.new(0, 290, 0, 5)
+ bar.Size = UDim2.new(0, 286, 0, 5)
  
  bar1.Name = "bar1"
  bar1.Parent = bar
@@ -1781,7 +1781,7 @@ posta.Archivable = true
  
  TextBox.Parent = slidervalue
  TextBox.BackgroundColor3 = _G.BGColor_2
- TextBox.Position = UDim2.new(0, 0, 0, 0)
+ TextBox.Position = UDim2.new(0, -5, 0, 0)
  TextBox.Size = UDim2.new(0, 60, 0, 20)
  TextBox.Font = Enum.Font.Gotham
  TextBox.TextColor3 = Color3.fromRGB(255,255,255)

@@ -8939,19 +8939,13 @@ Misc:Line(Color3.fromRGB(255,100,0))
 Misc:Seperator("Open UI",Color3.fromRGB(255,100,0))
 
 Misc:Button("Open Title",Color3.fromRGB(255,100,0),function()
-    local args = {
-        [1] = "getTitles"
-    }
-    
-    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getTitles")
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.Titles.Visible = true
 end)
 
 Misc:Button("Open Aura",Color3.fromRGB(255,100,0),function()
-    local args = {
-        [1] = "getColors"
-    }
-    
-    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getColors")
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.Colors.Visible = true
 end)
     
 Misc:Button("Open Devil Shop",Color3.fromRGB(255,100,0),function()

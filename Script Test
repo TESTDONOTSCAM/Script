@@ -4191,14 +4191,14 @@ end
     Update_Setting(getgenv()['MyName'])
 end)
     
-    Main:Button("Refresh Weapon",function()
+    Main:Button("Refresh Weapon",Color3.fromRGB(255,255,255),function()
     SelectWeapona:Clear()
     for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
     SelectWeapona:Add(v.Name)
     end
     end)
     
-local AutoFarm = Main:Toggle("Auto Farm",_G.AutoFarm,function(value)
+local AutoFarm = Main:Toggle("Auto Farm",Color3.fromRGB(255,255,255),_G.AutoFarm,function(value)
     _G.AutoFarm = value
     StopTween(_G.AutoFarm)
 end)
@@ -4332,7 +4332,7 @@ end)
 
 Main:Seperator("Bone")
 
-Main:Toggle("Farm Bone",_G.BoneFarm,function(vu)
+Main:Toggle("Farm Bone",Color3.fromRGB(255,0,0),_G.BoneFarm,function(vu)
     _G.BoneFarm = vu
     StopTween(_G.BoneFarm)
     if _G.BoneFarm == true then
@@ -4341,15 +4341,15 @@ Main:Toggle("Farm Bone",_G.BoneFarm,function(vu)
     end
 end)
 
-Main:Button("Buy Surprise",function()
+Main:Button("Buy Surprise",Color3.fromRGB(255,0,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
 end)
     
-Main:Button("Stat Refund",function()
+Main:Button("Stat Refund",Color3.fromRGB(255,0,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,2)
 end)
     
-Main:Button("Race Reroll",function()
+Main:Button("Race Reroll",Color3.fromRGB(255,0,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,3)
 end)
 

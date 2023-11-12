@@ -9585,10 +9585,12 @@ spawn(function()
                             AutoHaki()
                             until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
                         else
+                        if game:GetService("Workspace").Boats:FindFirstChild("Guardian") then
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
                             tween3:Play()
+                                end
                             end
                         end
                     end
@@ -9630,7 +9632,7 @@ spawn(function()
                         AutoSkill = true
                         
                         Skillaimbot = true
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * PosY)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0) * PosY)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")

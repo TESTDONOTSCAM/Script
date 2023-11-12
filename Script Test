@@ -4761,7 +4761,7 @@ if _G.FastAttack_Mode == nil then
 	_G.FastAttack_Mode = "0.2"
 end
 
-MIo = {"Super Fast Attack", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"}
+MIo = {"0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"}
 
 Setting:Toggle("Fast Attack",Color3.fromRGB(255,255,255),true,function(vu)
 	_G.FastAttack = vu
@@ -4814,16 +4814,15 @@ spawn(function()
     end)
 end)
 
-Setting:Dropdown2("Fast Attack Delay ","0.2",Color3.fromRGB(255,255,255),MIo,function(vu)
+Setting:Dropdown2("Fast Attack Delay ",Color3.fromRGB(255,255,255),"0",MIo,function(vu)
 	_G.FastAttack_Mode = vu
-	
 end)
 
 spawn(function()
 	while wait(.1) do
 		if _G.FastAttack_Mode then
 			pcall(function()
-				if _G.FastAttack_Mode == "Super Fast Attack" then
+				if _G.FastAttack_Mode == "0" then
 					_G.Fast_Delay = 0
 				elseif _G.FastAttack_Mode == "0.2" then
 					_G.Fast_Delay = 0.2

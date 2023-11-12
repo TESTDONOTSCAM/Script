@@ -4942,6 +4942,7 @@ function GetBladeHit()
 	end
 end)
 
+
 Setting:Seperator("Mastery Setting",Color3.fromRGB(224,0,255))
 
 Setting:Toggle("Skill Z",Color3.fromRGB(224,0,255),false,function(vu)
@@ -4961,6 +4962,37 @@ Setting:Toggle("Skill V",Color3.fromRGB(224,0,255),false,function(vu)
 end)
 
 Setting:Seperator("Other Setting",Color3.fromRGB(224,0,255))
+
+function CheckAntiCheatBypass()
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "General" or v.Name == "Shiftlock"  or v.Name == "FallDamage" or v.Name == "4444" or v.Name == "CamBob" or v.Name == "JumpCD" or v.Name == "Looking" or v.Name == "Run" then
+                v:Destroy()
+            end
+        end
+     end
+     for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "RobloxMotor6DBugFix" or v.Name == "Clans"  or v.Name == "Codes" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
+                v:Destroy()
+            end
+        end
+    end
+end
+
+local function bypassAntiExploit()
+    for _, instance in ipairs(filtergc()) do
+        if instance:IsA("AntiExploitSystem") then
+            instance:Destroy()
+        end
+    end
+end
+
+Setting:Toggle("Do Not Turn This Off",true,function(value)
+  _G.SafeFarm = value
+CheckAntiCheatBypass()
+bypassAntiExploit()
+end)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 

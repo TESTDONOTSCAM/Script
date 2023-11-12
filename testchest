@@ -30,28 +30,20 @@ spawn(function()
     end)
 end)
 
-function TP1(Pos)
-    Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-    if Distance < 25 then
-        Speed = 250
-    elseif Distance < 50 then
-        Speed = 210
-    elseif Distance < 150 then
-        Speed = 180
-    elseif Distance < 250 then
-        Speed = 170
-    elseif Distance < 500 then
-        Speed = 160
-    elseif Distance < 750 then
-        Speed = 150
-    elseif Distance >= 1000 then
-        Speed = 150
-    end
-    game:GetService("TweenService"):Create(
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
-        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
-        {CFrame = Pos}
-    ):Play().Completed:Wait(E)
+function TPP(CFgo)
+	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0 or not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") then tweenP:Cancel() repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 wait(7) return end
+	local tween_sP = game:service"TweenService"
+	local infoP = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
+	tweenP = tween_sP:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], infoP, {CFrame = CFgo})
+tweenP:Play()
+tweenP.Completed:Wait(E)
+
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tweenP:Cancel()
+end
+	return tweenfunc
 end
 
 spawn(function()
@@ -59,10 +51,8 @@ spawn(function()
         if _G.CursedChest then
             pcall(function()
                     if game:GetService("Workspace")["Map"].CursedTreasure then
-			TP1(game.Workspace.Map:FindFirstChild("CursedTreasure").CFrame)
-			print("GG")
-			_G.CursedChest = false
-			print("gugu")
+					TPP(game.Workspace.Map:FindFirstChild("CursedTreasure").CFrame)
+					_G.CursedChest = false
                 end
             end)
         end

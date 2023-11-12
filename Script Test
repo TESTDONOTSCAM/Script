@@ -3571,6 +3571,29 @@ while wait(.1) do
 	end
 end)
 
+Type = 2
+spawn(function()
+while wait() do
+    if Type == 2 then
+        PosY = CFrame.new(0,PosY,0)
+		wait()
+		PosY = CFrame.new(0,PosY,-45)
+		wait()
+		PosY = CFrame.new(45,PosY,0)
+		wait()
+		PosY = CFrame.new(0,PosY,45)
+		wait()
+		PosY = CFrame.new(-45,PosY,0)
+    	end
+    end
+end)
+
+spawn(function()
+while wait() do
+    Type = 2
+	end
+end)
+
 function TPBSafe(Pos)
 	local tween_s3 = game:service"TweenService"
 	local info3 = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - Pos.Position).Magnitude/170, Enum.EasingStyle.Linear)
@@ -3725,7 +3748,7 @@ function TP(Pos)
     _G.Clip = false
 end
     
-    spawn(function()
+spawn(function()
     pcall(function()
     while wait() do
     if _G.Autotushita or Auto_Cursed_Dual_Katana or _G.BoneFarm or _G.FishBoat or _G.AutoAdvanceDungeon or _G.BrigadeShip or _G.AutoRemover or _G.AutoSail or _G.SendShip or _G.SharkPir or _G.TerShark or _G.Beast or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
@@ -3741,7 +3764,7 @@ end
     end)
 end)
     
-    spawn(function()
+spawn(function()
     pcall(function()
     game:GetService("RunService").Stepped:Connect(function()
     if _G.BoneFarm or _G.FishBoat or _G.AutoAdvanceDungeon or _G.TerShark or _G.BrigadeShip or _G.SharkPir or _G.SendShip or _G.AutoSail or _G.AutoRemover or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NoClip or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
@@ -3755,7 +3778,7 @@ end)
     end)
 end)
     
-    spawn(function()
+spawn(function()
     while wait() do
     if _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
     pcall(function()
@@ -9556,15 +9579,18 @@ spawn(function()
                          if v:FindFirstChild("HumanoidRootPart") then
                             game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
 
+                            local GD = game.Workspace.Boats:FindFirstChild("Guardian")
+                            GD.Parent = game.ReplicatedStorage
+
                             tween3:Cancel()
 
                             repeat task.wait()
-
-                            Skillaimbot = true
                             AutoHaki()
-
                             until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
                         else
+
+                            local GDB = game.ReplicatedStorage:FindFirstChild("Guardian")
+                            GDB.Parent = game.Workspace.Boats
 
                             AllWeapon = false
                             AutoSkill = false
@@ -9617,7 +9643,7 @@ spawn(function()
                         AutoSkill = true
                         
                         Skillaimbot = true
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * PosY)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")
@@ -9671,7 +9697,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * PosY)
                         EquipWeapon(_G.Setting_table.Weapon)
                         AutoSkill = true
                         
@@ -9725,7 +9751,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * PosY)
                         EquipWeapon(_G.Setting_table.Weapon)
                         AutoSkill = true
                         
@@ -9775,7 +9801,7 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         AllWeapon = true
-                        TP1(v.Sails.CFrame * CFrame.new(0,5,0) * Pos)
+                        TP1(v.Sails.CFrame * CFrame.new(0,5,0) * PosY)
                         AutoSkill = true
                         
                         Skillaimbot = true
@@ -9823,7 +9849,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,4,0) * Pos)
+                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,4,0) * PosY)
                         AllWeapon = true
                         AutoSkill = true
                         
@@ -9872,7 +9898,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,4,0) * Pos)
+                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,4,0) * PosY)
                         AllWeapon = true
                         AutoSkill = true
                         
@@ -9919,7 +9945,7 @@ spawn(function()
                         print("StartMagnet")
                     repeat wait()
                         AutoHaki()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0) * Pos)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0) * PosY)
                         AllWeapon = true
                         AutoSkill = true
                         

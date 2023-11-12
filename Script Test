@@ -9579,25 +9579,12 @@ spawn(function()
                          if v:FindFirstChild("HumanoidRootPart") then
                             game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
 
-                            local GD = game.Workspace.Boats:FindFirstChild("Guardian")
-                            GD.Parent = game.ReplicatedStorage
-
                             tween3:Cancel()
 
                             repeat task.wait()
                             AutoHaki()
-                            until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
+                            until not v:FindFirstChild("HumanoidRootPart") or not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
                         else
-
-                            local GDB = game.ReplicatedStorage:FindFirstChild("Guardian")
-                            GDB.Parent = game.Workspace.Boats
-
-                            AllWeapon = false
-                            AutoSkill = false
-                            Skillaimbot = false
-
-                            wait(2)
-
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))
                             elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then

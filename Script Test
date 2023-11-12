@@ -5658,7 +5658,7 @@ spawn(function()
     end
 end)
 
-AutoQuest:Seperator("Auto Melee")
+AutoQuest:Seperator("Auto Melee",Color3.fromRGB(255,0,255))
     
 AutoQuest:Toggle("Auto Superhuman",Color3.fromRGB(255,0,255),_G.AutoSuperhuman,function(value)
     _G.AutoSuperhuman = value
@@ -8346,7 +8346,7 @@ Dungeon:Dropdown2("Select Dungeon",Color3.fromRGB(255,0,62),_G.Select_Map,Map,fu
 	_G.Select_Map = vu
 end)
 	
-Dungeon:Label("Misc")
+Dungeon:Seperator("Misc",Color3.fromRGB(255,0,62))
 Dungeon:Toggle("Bring Fruit",Color3.fromRGB(255,0,62),_G.BringFruit,function(vu)
 	BringFruit = vu
 	_G.BringFruit = vu
@@ -8376,7 +8376,7 @@ spawn(function()
 
 --[[ Race V4 ]]
 
-Race:Line()
+Race:Line(Color3.fromRGB(255,0,31))
 
 if World1 or World2 then
     Race:LabelWarn("Only Available At Sea 3")
@@ -8609,7 +8609,7 @@ DevilFruit:Line(Color3.fromRGB(255,0,0))
     _G.AutoBuyFruitSniper = value
     end)
     
-    DevilFruit:Seperator("Devil Fruits")
+    DevilFruit:Seperator("Devil Fruits",Color3.fromRGB(255,0,0))
     
     DevilFruit:Dropdown("Select Fruits Eat",Color3.fromRGB(255,0,0),FruitList,function(value)
     _G.SelectFruitEat = value
@@ -8748,8 +8748,8 @@ end)
 
 --[[ Shop Window ]]
 
-    Shop:Line()
-    Shop:Seperator("Abilities")
+    Shop:Line(Color3.fromRGB(255,70,0))
+    Shop:Seperator("Abilities",Color3.fromRGB(255,70,0))
     
     Shop:Button("Buy Geppo",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
@@ -8767,7 +8767,7 @@ end)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
     end)
     
-    Shop:Seperator("Fighting Style")
+    Shop:Seperator("Fighting Style",Color3.fromRGB(255,70,0))
     
     Shop:Button("Buy Black Leg",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
@@ -8812,7 +8812,7 @@ end)
     end)
     
     -----Shop----------------
-    Shop:Seperator("Accessory")
+    Shop:Seperator("Accessory",Color3.fromRGB(255,70,0))
     
     Shop:Button("Tomoe Ring",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
@@ -8826,7 +8826,7 @@ end)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Swordsman Hat")
     end)
     
-    Shop:Seperator("Sword")
+    Shop:Seperator("Sword",Color3.fromRGB(255,70,0))
     
     Shop:Button("Cutlass",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
@@ -8864,7 +8864,7 @@ end)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
     end)
     
-    Shop:Seperator("Gun")
+    Shop:Seperator("Gun",Color3.fromRGB(255,70,0))
     
     Shop:Button("Slingshot",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Slingshot")
@@ -8923,13 +8923,13 @@ Misc:Button("Open Inventory Fruit",Color3.fromRGB(255,100,0),function()
     game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Visible = true
 end)
 
-Misc:Seperator("Server")
+Misc:Seperator("Server",Color3.fromRGB(255,100,0))
     
 Misc:Button("Rejoin Server",Color3.fromRGB(255,100,0),function()
     game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
 end)
     
-Misc:Button("Server Hop",function()
+Misc:Button("Server Hop",Color3.fromRGB(255,100,0),function()
     Hop()
 end)
 

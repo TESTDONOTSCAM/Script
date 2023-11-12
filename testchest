@@ -1,0 +1,67 @@
+_G.CursedChest = true
+
+spawn(function()
+    pcall(function()
+    while wait() do
+    if _G.CursedChest == true then
+    if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
+    local Noclip = Instance.new("BodyVelocity")
+    Noclip.Name = "BodyClip"
+    Noclip.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+    Noclip.MaxForce = Vector3.new(100000,100000,100000)
+    Noclip.Velocity = Vector3.new(0,0,0)
+                end
+            end
+        end
+    end)
+end)
+    
+spawn(function()
+    pcall(function()
+    game:GetService("RunService").Stepped:Connect(function()
+    if _G.CursedChest == true then
+    for _, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+    if v:IsA("BasePart") then
+    v.CanCollide = false
+                    end
+                end
+            end
+        end)
+    end)
+end)
+
+function TP1(Pos)
+    Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if Distance < 25 then
+        Speed = 250
+    elseif Distance < 50 then
+        Speed = 210
+    elseif Distance < 150 then
+        Speed = 180
+    elseif Distance < 250 then
+        Speed = 170
+    elseif Distance < 500 then
+        Speed = 160
+    elseif Distance < 750 then
+        Speed = 150
+    elseif Distance >= 1000 then
+        Speed = 150
+    end
+    game:GetService("TweenService"):Create(
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = Pos}
+    ):Play().Completed:Wait(E)
+end
+
+spawn(function()
+    while wait() do
+        if _G.CursedChest then
+            pcall(function()
+                    if game:GetService("Workspace")["Map"].CursedTreasure then
+					TP1(game.Workspace.Map:FindFirstChild("CursedTreasure").CFrame)
+                end
+            end)
+        end
+    end
+end)

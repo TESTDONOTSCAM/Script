@@ -3766,7 +3766,7 @@ end)
 end)
 
 spawn(function()
-    while true do
+    while wait() do
         if _G.AutoHakiSpam or _G.AutoFarm or _G.AutoFarmFruitMastery or _G.AutoFarmSwanGlasses or _G.AutoFarmBossHallow or _G.Auto_Raid or _G.BoneFarm or _G.AutoRemover or _G.AutoSail or _G.TerShark or _G.Sharky or _G.Piranas or _G.FishBoat or _G.BrigadeShip or _G.BrigadeShips or _G.Beast then
         pcall(function()
                 AutoHaki()

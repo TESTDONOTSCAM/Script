@@ -5168,12 +5168,12 @@ end
 if World3 then
 Setting:Seperator("World 3 Fps Boost",Color3.fromRGB(224,0,255))
 Setting:Toggle("Fps Boost",Color3.fromRGB(224,0,255),false,function(value)
-        _G.FpsBoost3 = value
+        _G.FpsBoost1 = value
     end)
     spawn(function()
         pcall(function()
             while wait() do
-                if _G.FpsBoost3 then
+                if _G.FpsBoost1 then
                     game:GetService("Lighting").Sky:Destroy()
                     game:GetService("Lighting").BaseAtmosphere:Destroy()
                     game:GetService("Lighting").Bloom:Destroy()
@@ -9583,7 +9583,7 @@ spawn(function()
 
                             repeat task.wait()
                             AutoHaki()
-                            until not v:FindFirstChild("HumanoidRootPart") or not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
+                            until not v.Parent or not v.Humanoid.Health <= 0 or not _G.AutoBoat2
                         else
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
                             TPP(game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame * CFrame.new(0,1,0))

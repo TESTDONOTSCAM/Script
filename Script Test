@@ -3766,6 +3766,16 @@ end)
 end)
 
 spawn(function()
+    while true do
+        if _G.AutoHakiSpam or _G.AutoFarm or _G.AutoFarmFruitMastery or _G.AutoFarmSwanGlasses or _G.AutoFarmBossHallow or _G.Auto_Raid or _G.BoneFarm or _G.AutoRemover or _G.AutoSail or _G.TerShark or _G.Sharky or _G.Piranas or _G.FishBoat or _G.BrigadeShip or _G.BrigadeShips or _G.Beast then
+        pcall(function()
+                AutoHaki()
+            end)
+        end
+    end
+end)
+
+spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
 		if _G.BoneFarm or _G.AutoRemover or _G.AutoSail or _G.TerShark or _G.Sharky or _G.Piranas or _G.FishBoat or _G.BrigadeShip or _G.BrigadeShips or _G.Beast then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
@@ -4942,6 +4952,9 @@ function GetBladeHit()
 	end
 end)
 
+Setting:Toggle("Auto Haki",Color3.fromRGB(224,0,255),true,function(vu)
+    _G.AutoHakiSpam = vu
+end)
 
 Setting:Seperator("Mastery Setting",Color3.fromRGB(224,0,255))
 
@@ -6036,7 +6049,7 @@ spawn(function()
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     game:GetService("VirtualUser"):CaptureController()
     game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-    until not _G.AutoDoughtBoss or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 or game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") or KillMob == 0
+    until not _G.AutoDoughtBoss or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 or game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") or KillMob == 0
     end
     end
     end

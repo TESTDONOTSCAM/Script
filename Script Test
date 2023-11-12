@@ -1068,7 +1068,7 @@ TextBtn.MouseEnter:Connect(function()
    end)
 end
 
-function main:Toggle(text,config,callback)
+function main:Toggle(text,clr,config,callback)
     
     local Toggle = Instance.new("TextButton")
     Toggle.Name = "Toggle"
@@ -1093,7 +1093,7 @@ function main:Toggle(text,config,callback)
     ImageSTR.Name = "ImageSTR"
 	 ImageSTR.Parent = Toggle
 	 ImageSTR.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	 ImageSTR.Color = _G.StrokeColor
+	 ImageSTR.Color = Color3.fromRGB(clr) or _G.StrokeColor
 	 ImageSTR.LineJoinMode = Enum.LineJoinMode.Round
 	 ImageSTR.Thickness = 1.5
 	 ImageSTR.Transparency = 0
@@ -1194,7 +1194,7 @@ end)
     end
 end
 
-function main:Dropdown(text,option,callback)
+function main:Dropdown(text,clr,option,callback)
 
     local isdropping = false
     local Dropdown = Instance.new("Frame")
@@ -1217,7 +1217,7 @@ function main:Dropdown(text,option,callback)
     posto1.Name = "posto"
     posto1.Parent = Dropdown
     posto1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    posto1.Color = _G.StrokeColor
+    posto1.Color = Color3.fromRGB(clr) or _G.StrokeColor
     posto1.LineJoinMode = Enum.LineJoinMode.Round
     posto1.Thickness = 1
     posto1.Transparency = 0
@@ -1420,7 +1420,7 @@ function main:Dropdown(text,option,callback)
     return dropfunc
 end
 
-function main:Dropdown2(text,old,option,callback)
+function main:Dropdown2(text,clr,old,option,callback)
 
     local isdropping = false
     local Dropdown2 = Instance.new("Frame")
@@ -1443,7 +1443,7 @@ function main:Dropdown2(text,old,option,callback)
     posto123.Name = "posto"
     posto123.Parent = Dropdown2
     posto123.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    posto123.Color = _G.StrokeColor
+    posto123.Color = clr or _G.StrokeColor
     posto123.LineJoinMode = Enum.LineJoinMode.Round
     posto123.Thickness = 1
     posto123.Transparency = 0
@@ -1657,7 +1657,7 @@ end
     return dropfunc
 end
 
-function main:Slider(text,min,max,set,callback)
+function main:Slider(text,clr,min,max,set,callback)
 
 local Slider = Instance.new("Frame")
  local slidercorner = Instance.new("UICorner")
@@ -1692,7 +1692,7 @@ local Slider = Instance.new("Frame")
 posta.Name = "posto"
  posta.Parent = Slider
  posta.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- posta.Color = _G.StrokeColor
+ posta.Color = Color3.fromRGB(clr) or _G.StrokeColor
  posta.LineJoinMode = Enum.LineJoinMode.Round
  posta.Thickness = 1.5
  posta.Transparency = 0
@@ -1704,7 +1704,7 @@ posta.Archivable = true
  sliderr.BackgroundTransparency = 0.800
  sliderr.BackgroundColor3 = Color3.fromRGB(255,255,255)
  sliderr.Position = UDim2.new(0, 1, 0, 1)
- sliderr.Size = UDim2.new(0, 308, 0, 49)
+ sliderr.Size = UDim2.new(0.976000011, 0, 0, 49) -- 308
  
  sliderrcorner.CornerRadius = UDim.new(0, 5)
  sliderrcorner.Name = "sliderrcorner"
@@ -2101,7 +2101,7 @@ Sep3.Position = UDim2.new(0, 216, 0, 0)
 Sep3.Size = UDim2.new(0, 78, 0, 3)
 end
 
-function main:Line()
+function main:Line(clr)
 
    local Linee = Instance.new("Frame")
    local Line = Instance.new("Frame")
@@ -4186,7 +4186,7 @@ for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) 
     end
 end
     
-    local SelectWeapona = Main:Dropdown2("Select Weapon",_G.Setting_table.Weapon,WeaponList,function(value)
+    local SelectWeapona = Main:Dropdown2("Select Weapon",Color3.fromRGB(255,255,255),_G.Setting_table.Weapon,WeaponList,function(value)
     _G.Setting_table.Weapon = value
     Update_Setting(getgenv()['MyName'])
 end)
@@ -4341,7 +4341,7 @@ Main:Toggle("Farm Bone",_G.BoneFarm,function(vu)
     end
 end)
 
-Main:Button("Buy Surprise",255,255,255,function()
+Main:Button("Buy Surprise",function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
 end)
     

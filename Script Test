@@ -4055,7 +4055,7 @@ User:LabelIMG("       Discord : discord.gg/85gXUG58eW","rbxassetid://14764624462
 User:LabelIMG("       Instagram : @scriptblox.c","rbxassetid://14764619900")
 User:LabelIMG("       Youtube : ScriptBlox","rbxassetid://14764526356")
     
-User:Button("SUBSCRIBE YT SCRIPTBLOX",function()
+User:Button("SUBSCRIBE YT SCRIPTBLOX",Color3.fromRGB(255,255,255),function()
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "ScriptBlox"; 
         Text = "Youtube : Scriptblox"; 
@@ -4064,7 +4064,7 @@ User:Button("SUBSCRIBE YT SCRIPTBLOX",function()
     setclipboard("https://www.youtube.com/c/ScriptBloxChannel")
 end)
 
-User:Button("JOIN DISCORD",function()
+User:Button("JOIN DISCORD",Color3.fromRGB(255,255,255),function()
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "ScriptBlox"; 
         Text = "Thanks For Joining Our Discord"; 

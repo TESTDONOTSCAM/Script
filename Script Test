@@ -4988,10 +4988,19 @@ local function bypassAntiExploit()
     end
 end
 
-Setting:Toggle("Do Not Turn This Off",true,function(value)
+Setting:Toggle("Do Not Turn This Off",Color3.fromRGB(224,0,255),true,function(value)
   _G.SafeFarm = value
-CheckAntiCheatBypass()
-bypassAntiExploit()
+end)
+
+spawn(function()
+    while wait() do
+        if _G.SafeFarm then
+            pcall(function()
+                CheckAntiCheatBypass()
+                bypassAntiExploit()
+            end)
+        end
+    end
 end)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------

@@ -4512,7 +4512,7 @@ end)
 
 Main:Seperator("Chest",Color3.fromRGB(193,0,255))
 
-Main:Toggle("Cursec Treasure",Color3.fromRGB(193,0,255),false,function(vu)
+Main:Toggle("Cursed Treasure",Color3.fromRGB(193,0,255),false,function(vu)
     _G.CursedChest = vu
     StopTween(_G.CursedChest)
 end)
@@ -4523,8 +4523,45 @@ spawn(function()
             pcall(function()
                     if game:GetService("Workspace")["Map"].CursedTreasure then
 					TPP(game.Workspace.Map:FindFirstChild("CursedTreasure").CFrame)
+                    _G.CursedAttack = true
 					_G.CursedChest = false
 					StopTween(_G.CursedChest)
+                end
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.CursedAttack then
+            pcall(function()
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 120 then
+                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                        PosMon = v.HumanoidRootPart.CFrame
+                        if v.Humanoid:FindFirstChild("Animator") then
+                            v.Humanoid.Animator:Destroy()
+                        end
+                        v.Humanoid.JumpPower = 0
+                        v.Humanoid:ChangeState(11)
+                        print("StartMagnet")
+                        _G.FastAttack = true
+                    repeat wait()
+                        AutoHaki()
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0) * Pos)
+                        EquipWeapon(_G.Setting_table.Weapon)
+                        game:GetService'VirtualUser':CaptureController()
+                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                        print("fast")
+                        until not v.Parent or not v.Humanoid.Health <= 0 or not _G.CursedAttack
+                        if game.ReplicatedStorage:FindFirstChild("Bone Wraith") or game.ReplicatedStorage:FindFirstChild("Evil Wraith") then
+                            _G.CursedChest = true
+                            _G.CursedAttack = false
+                            StopTween(_G.CursedAttack)
+                            end
+                        end
+                    end
                 end
             end)
         end

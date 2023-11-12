@@ -59,7 +59,10 @@ spawn(function()
         if _G.CursedChest then
             pcall(function()
                     if game:GetService("Workspace")["Map"].CursedTreasure then
-					TP1(game.Workspace.Map:FindFirstChild("CursedTreasure").CFrame)
+			TP1(game.Workspace.Map:FindFirstChild("CursedTreasure").CFrame)
+			print("GG")
+			_G.CursedChest = false
+			print("gugu")
                 end
             end)
         end

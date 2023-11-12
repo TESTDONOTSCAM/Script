@@ -8893,18 +8893,24 @@ end)
     
 --[[ Misc ]]
 
-Misc:Line()
+Misc:Line(Color3.fromRGB(255,100,0))
 
-Misc:Seperator("Open UI")
+Misc:Seperator("Open UI",Color3.fromRGB(255,100,0))
 
 Misc:Button("Open Title",Color3.fromRGB(255,100,0),function()
-    local args = {[1] = "getTitles"}
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    local args = {
+        [1] = "getTitles"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
 end)
 
 Misc:Button("Open Aura",Color3.fromRGB(255,100,0),function()
-    local args = {[1] = "getColors"}
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    local args = {
+        [1] = "getColors"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
 end)
     
 Misc:Button("Open Devil Shop",Color3.fromRGB(255,100,0),function()
@@ -9010,7 +9016,7 @@ end)
     end
     end)
     
-    Misc:Seperator("Change Teams")
+    Misc:Seperator("Change Teams",Color3.fromRGB(255,100,0))
     
     Misc:Button("Join Pirates Team",Color3.fromRGB(255,100,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates")
@@ -9020,7 +9026,7 @@ end)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines")
     end)
     
-    Misc:Seperator("Boost")
+    Misc:Seperator("Boost",Color3.fromRGB(255,100,0))
     
     Misc:Button("Unlock Portal",Color3.fromRGB(255,100,0),function()
     _G.UnlockPortal = true
@@ -9091,7 +9097,7 @@ end)
     _G.Clip = false
     end)
     
-    Misc:Seperator("Codes")
+    Misc:Seperator("Codes",Color3.fromRGB(255,100,0))
     
     local x2Code = {
     "3BVISITS",
@@ -9126,7 +9132,7 @@ end)
     game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(_G.CodeSelect)
     end)
     
-    Misc:Seperator("State")
+    Misc:Seperator("State",Color3.fromRGB(255,100,0))
     
     Misc:Dropdown("Select Haki State",Color3.fromRGB(255,100,0),{"State 0","State 1","State 2","State 3","State 4","State 5"},function(value)
     _G.SelectStateHaki = value
@@ -9148,7 +9154,7 @@ end)
     end
     end)
     
-    Misc:Seperator("Graphic")
+    Misc:Seperator("Graphic",Color3.fromRGB(255,100,0))
     
     local a = game.Lighting
     local c = Instance.new("ColorCorrectionEffect", a)
@@ -9190,7 +9196,7 @@ end)
     end
     end)
     
-    Misc:Seperator("ESP")
+    Misc:Seperator("ESP",Color3.fromRGB(255,100,0))
     
     Misc:Toggle("ESP Player",Color3.fromRGB(255,100,0),false,function(value)
     ESPPlayer = value
@@ -9227,7 +9233,7 @@ end)
     end
     end)
     
-    Misc:Seperator("Abilities")
+    Misc:Seperator("Abilities",Color3.fromRGB(255,100,0))
     
     Misc:Toggle("Dodge No Cooldown",Color3.fromRGB(255,100,0),false,function(value)
     nododgecool = value

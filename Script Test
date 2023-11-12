@@ -1704,7 +1704,7 @@ posta.Archivable = true
  sliderr.BackgroundTransparency = 0.800
  sliderr.BackgroundColor3 = Color3.fromRGB(255,255,255)
  sliderr.Position = UDim2.new(0, 1, 0, 1)
- sliderr.Size = UDim2.new(0.976000011, 0, 0, 49) -- 308
+ sliderr.Size = UDim2.new(0, 308, 0, 49) -- 308
  
  sliderrcorner.CornerRadius = UDim.new(0, 5)
  sliderrcorner.Name = "sliderrcorner"

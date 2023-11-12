@@ -5403,7 +5403,7 @@ end)
     end)
     end)
     
-    AutoQuest:Toggle("Auto Swan Glasses Hop",Color3.fromRGB(255,255,255),_G.AutoFarmSwanGlasses_Hop,function(value)
+    AutoQuest:Toggle("Auto Swan Glasses Hop",Color3.fromRGB(255,0,255),_G.AutoFarmSwanGlasses_Hop,function(value)
     _G.AutoFarmSwanGlasses_Hop = value
     end)
     
@@ -5493,7 +5493,7 @@ spawn(function()
     end
 end)
 
-AutoQuest:Toggle("Auto Musketeer Hat",Color3.fromRGB(255,255,255),_G.AutoMusketeerHat,function(value)
+AutoQuest:Toggle("Auto Musketeer Hat",Color3.fromRGB(255,0,255),_G.AutoMusketeerHat,function(value)
     _G.AutoMusketeerHat = value
     StopTween(_G.AutoMusketeerHat)
     end)
@@ -5574,7 +5574,7 @@ AutoQuest:Toggle("Auto Musketeer Hat",Color3.fromRGB(255,255,255),_G.AutoMuskete
     end)
 end)
 
-AutoQuest:Toggle("Auto Dark Dagger",Color3.fromRGB(255,255,255),_G.AutoDarkDagger,function(value)
+AutoQuest:Toggle("Auto Dark Dagger",Color3.fromRGB(255,0,255),_G.AutoDarkDagger,function(value)
     _G.AutoDarkDagger = value
     StopTween(_G.AutoDarkDagger)
 end)
@@ -5617,7 +5617,7 @@ spawn(function()
     end)
 end)
 
-AutoQuest:Toggle("Auto Hallow Scythe",Color3.fromRGB(255,255,255),_G.AutoFarmBossHallow,function(value)
+AutoQuest:Toggle("Auto Hallow Scythe",Color3.fromRGB(255,0,255),_G.AutoFarmBossHallow,function(value)
     _G.AutoFarmBossHallow = value
     StopTween(_G.AutoFarmBossHallow)
 end)
@@ -5660,7 +5660,7 @@ end)
 
 AutoQuest:Seperator("Auto Melee")
     
-AutoQuest:Toggle("Auto Superhuman",Color3.fromRGB(255,255,255),_G.AutoSuperhuman,function(value)
+AutoQuest:Toggle("Auto Superhuman",Color3.fromRGB(255,0,255),_G.AutoSuperhuman,function(value)
     _G.AutoSuperhuman = value
 end)
     spawn(function()
@@ -5736,7 +5736,7 @@ end)
     end)
 end)
     
-AutoQuest:Toggle("Auto DeathStep",Color3.fromRGB(255,255,255),_G.AutoDeathStep,function(value)
+AutoQuest:Toggle("Auto DeathStep",Color3.fromRGB(255,0,255),_G.AutoDeathStep,function(value)
     _G.AutoDeathStep = value
     end)
     
@@ -5762,7 +5762,7 @@ AutoQuest:Toggle("Auto DeathStep",Color3.fromRGB(255,255,255),_G.AutoDeathStep,f
     end
 end)
     
-AutoQuest:Toggle("Auto Sharkman Karate",Color3.fromRGB(255,255,255),_G.AutoSharkman,function(value)
+AutoQuest:Toggle("Auto Sharkman Karate",Color3.fromRGB(255,0,255),_G.AutoSharkman,function(value)
     _G.AutoSharkman = value
     end)
     
@@ -5810,7 +5810,7 @@ AutoQuest:Toggle("Auto Sharkman Karate",Color3.fromRGB(255,255,255),_G.AutoShark
     end)
 end)
     
-AutoQuest:Toggle("Auto Electric Claw",Color3.fromRGB(255,255,255),_G.AutoElectricClaw,function(value)
+AutoQuest:Toggle("Auto Electric Claw",Color3.fromRGB(255,0,255),_G.AutoElectricClaw,function(value)
     _G.AutoElectricClaw = value
     StopTween(_G.AutoElectricClaw)
     end)
@@ -5881,7 +5881,7 @@ AutoQuest:Toggle("Auto Electric Claw",Color3.fromRGB(255,255,255),_G.AutoElectri
     end)
 end)
     
-AutoQuest:Toggle("Auto Dragon Talon",Color3.fromRGB(255,255,255),_G.AutoDragonTalon,function(value)
+AutoQuest:Toggle("Auto Dragon Talon",Color3.fromRGB(255,0,255),_G.AutoDragonTalon,function(value)
     _G.AutoDragonTalon = value
     end)
     
@@ -5909,7 +5909,7 @@ end)
 
 --[[ Dough king FIXED ]]
     
-AutoQuest:Seperator("Dought")
+AutoQuest:Seperator("Dought",Color3.fromRGB(255,0,255))
     
 local MobKilled = AutoQuest:Label("Killed")
     
@@ -5929,7 +5929,7 @@ spawn(function()
     end
 end)
     
-AutoQuest:Toggle("Auto Dought Boss",Color3.fromRGB(255,255,255),_G.AutoDoughtBoss,function(value)
+AutoQuest:Toggle("Auto Dought Boss",Color3.fromRGB(255,0,255),_G.AutoDoughtBoss,function(value)
     _G.AutoDoughtBoss = value
     StopTween(_G.AutoDoughtBoss)
 end)
@@ -6036,9 +6036,9 @@ end)
 
 --[[]]
     
-AutoQuest:Seperator("Advance Dungeon")
+AutoQuest:Seperator("Advance Dungeon",Color3.fromRGB(255,0,255))
     
-AutoQuest:Toggle("Auto Advance Dungeon",Color3.fromRGB(255,255,255),_G.AutoAdvanceDungeon,function(value)
+AutoQuest:Toggle("Auto Advance Dungeon",Color3.fromRGB(255,0,255),_G.AutoAdvanceDungeon,function(value)
     _G.AutoAdvanceDungeon = value
     StopTween(_G.AutoAdvanceDungeon)
 end)
@@ -6073,7 +6073,7 @@ spawn(function()
     end
 end)
 
-AutoQuest:Seperator("Other")
+AutoQuest:Seperator("Other",Color3.fromRGB(255,0,255))
     
 local ObservationRange = AutoQuest:Label("")
     
@@ -6085,7 +6085,7 @@ spawn(function()
     end
 end)
     
-AutoQuest:Toggle("Auto Farm Observation",Color3.fromRGB(255,255,255),_G.AutoObservation,function(value)
+AutoQuest:Toggle("Auto Farm Observation",Color3.fromRGB(255,0,255),_G.AutoObservation,function(value)
     _G.AutoObservation = value
     StopTween(_G.AutoObservation)
 end)
@@ -6180,9 +6180,9 @@ end)
     end)
     end)
 
-    AutoQuest:Seperator("Legendary Sword")
+    AutoQuest:Seperator("Legendary Sword",Color3.fromRGB(255,0,255))
     
-    AutoQuest:Toggle("Auto Legendary Sword",Color3.fromRGB(255,255,255),_G.AutoBuyLegendarySword,function(value)
+    AutoQuest:Toggle("Auto Legendary Sword",Color3.fromRGB(255,0,255),_G.AutoBuyLegendarySword,function(value)
     _G.AutoBuyLegendarySword = value
     end)
     
@@ -6214,17 +6214,17 @@ end)
     end
     end)
     
-    AutoQuest:Toggle("Auto Legendary Sword Hop",Color3.fromRGB(255,255,255),_G.AutoBuyLegendarySword_Hop,function(value)
+    AutoQuest:Toggle("Auto Legendary Sword Hop",Color3.fromRGB(255,0,255),_G.AutoBuyLegendarySword_Hop,function(value)
     _G.AutoBuyLegendarySword_Hop = value
     end)
     
-    AutoQuest:Seperator("Enchancement Colour")
+    AutoQuest:Seperator("Enchancement Colour",Color3.fromRGB(255,0,255))
     
-    AutoQuest:Toggle("Auto Enchancement Colour",Color3.fromRGB(255,255,255),_G.AutoBuyEnchancementColour,function(value)
+    AutoQuest:Toggle("Auto Enchancement Colour",Color3.fromRGB(255,0,255),_G.AutoBuyEnchancementColour,function(value)
     _G.AutoBuyEnchancementColour = value
     end)
     
-    AutoQuest:Toggle("Auto Enchancement Hop",Color3.fromRGB(255,255,255),_G.AutoBuyEnchancementColour_Hop,function(value)
+    AutoQuest:Toggle("Auto Enchancement Hop",Color3.fromRGB(255,0,255),_G.AutoBuyEnchancementColour_Hop,function(value)
     _G.AutoBuyEnchancementColour_Hop = value
     end)
     
@@ -6244,9 +6244,9 @@ end)
     end
     end)
     
-    AutoQuest:Seperator("Other")
+    AutoQuest:Seperator("Other",Color3.fromRGB(255,0,255))
     
-    AutoQuest:Toggle("Auto Rainbow Haki",Color3.fromRGB(255,255,255),_G.Auto_Rainbow_Haki,function(value)
+    AutoQuest:Toggle("Auto Rainbow Haki",Color3.fromRGB(255,0,255),_G.Auto_Rainbow_Haki,function(value)
     _G.Auto_Rainbow_Haki = value
     StopTween(_G.Auto_Rainbow_Haki)
     end)
@@ -6373,7 +6373,7 @@ end)
     end)
     end)
     
-    AutoQuest:Toggle("Auto Observation Haki v2",Color3.fromRGB(255,255,255),_G.AutoObservationv2,function(value)
+    AutoQuest:Toggle("Auto Observation Haki v2",Color3.fromRGB(255,0,255),_G.AutoObservationv2,function(value)
     _G.AutoObservationv2 = value
     StopTween(_G.AutoObservationv2)
     end)
@@ -6418,7 +6418,7 @@ end)
     end
     end)
     
-    AutoQuest:Toggle("Auto Farm Ectoplasm",Color3.fromRGB(255,255,255),_G.AutoEctoplasm,function(value)
+    AutoQuest:Toggle("Auto Farm Ectoplasm",Color3.fromRGB(255,0,255),_G.AutoEctoplasm,function(value)
     _G.AutoEctoplasm = value
     StopTween(_G.AutoEctoplasm)
     end)
@@ -6462,9 +6462,9 @@ end)
     end)
 end)
 
-AutoQuest:Seperator("Cursed Dual Katana")
+AutoQuest:Seperator("Cursed Dual Katana",Color3.fromRGB(255,0,255))
     
-AutoQuest:Toggle("Auto Yama",Color3.fromRGB(255,255,255),_G.AutoYama,function(value)
+AutoQuest:Toggle("Auto Yama",Color3.fromRGB(255,0,255),_G.AutoYama,function(value)
     _G.AutoYama = value
     StopTween(_G.AutoYama)
 end)
@@ -6481,7 +6481,7 @@ spawn(function()
     end
 end)
 
-AutoQuest:Toggle("Auto Tushita",Color3.fromRGB(255,255,255),_G.Autotushita,function(vu)
+AutoQuest:Toggle("Auto Tushita",Color3.fromRGB(255,0,255),_G.Autotushita,function(vu)
     _G.Autotushita = vu
     StopTween( _G.Autotushita)
 end)
@@ -6529,7 +6529,7 @@ spawn(function()
     end
 end)
 
-AutoQuest:Toggle("Auto Cdk",Color3.fromRGB(255,255,255),false,function(Value)
+AutoQuest:Toggle("Auto Cdk",Color3.fromRGB(255,0,255),false,function(Value)
     Auto_Cursed_Dual_Katana = Value
     StopTween(Auto_Cursed_Dual_Katana)
 end)
@@ -6968,9 +6968,9 @@ spawn(function()
     end
 end)
 
-AutoQuest:Seperator("Race V0 - 3")
+AutoQuest:Seperator("Race V0 - 3",Color3.fromRGB(255,0,255))
 
-AutoQuest:Toggle("Auto Evo Race",Color3.fromRGB(255,255,255),_G.Auto_EvoRace,function(value)
+AutoQuest:Toggle("Auto Evo Race",Color3.fromRGB(255,0,255),_G.Auto_EvoRace,function(value)
     _G.Auto_EvoRace = value
     StopTween(_G.Auto_EvoRace)
     end)
@@ -7025,7 +7025,7 @@ AutoQuest:Toggle("Auto Evo Race",Color3.fromRGB(255,255,255),_G.Auto_EvoRace,fun
     end)
     end)
     
-    AutoQuest:Toggle("Auto Bartlio Quest",Color3.fromRGB(255,255,255),_G.AutoBartilo,function(value)
+    AutoQuest:Toggle("Auto Bartlio Quest",Color3.fromRGB(255,0,255),_G.AutoBartilo,function(value)
     _G.AutoBartilo = value
     end)
     
@@ -7118,7 +7118,7 @@ AutoQuest:Toggle("Auto Evo Race",Color3.fromRGB(255,255,255),_G.Auto_EvoRace,fun
     end)
     end)
     
-    AutoQuest:Toggle("Auto Holy Torch",Color3.fromRGB(255,255,255),_G.AutoHolyTorch,function(value)
+    AutoQuest:Toggle("Auto Holy Torch",Color3.fromRGB(255,0,255),_G.AutoHolyTorch,function(value)
     _G.AutoHolyTorch = value
     StopTween(_G.AutoHolyTorch)
     end)
@@ -7363,8 +7363,8 @@ AutoQuest:Toggle("Auto Evo Race",Color3.fromRGB(255,255,255),_G.Auto_EvoRace,fun
 
     ]]
 
-    Stats:Line()
-    Stats:Seperator("Auto Stats")
+    Stats:Line(Color3.fromRGB(255,0,197))
+    Stats:Seperator("Auto Stats",Color3.fromRGB(255,0,197))
     
     local Pointstat = Stats:Label("Stat Points")
     
@@ -7376,28 +7376,28 @@ AutoQuest:Toggle("Auto Evo Race",Color3.fromRGB(255,255,255),_G.Auto_EvoRace,fun
     end
     end)
     
-    Stats:Toggle("Auto Melee",Color3.fromRGB(255,255,255),_G.Auto_Melee,function(value)
+    Stats:Toggle("Auto Melee",Color3.fromRGB(255,0,197),_G.Auto_Melee,function(value)
     _G.Auto_Melee = value
     end)
     
-    Stats:Toggle("Auto Defense",Color3.fromRGB(255,255,255),_G.Auto_Defense,function(value)
+    Stats:Toggle("Auto Defense",Color3.fromRGB(255,0,197),_G.Auto_Defense,function(value)
     _G.Auto_Defense = value
     end)
     
-    Stats:Toggle("Auto Sword",Color3.fromRGB(255,255,255),_G.Auto_Sword,function(value)
+    Stats:Toggle("Auto Sword",Color3.fromRGB(255,0,197),_G.Auto_Sword,function(value)
     _G.Auto_Sword = value
     end)
     
-    Stats:Toggle("Auto Gun",Color3.fromRGB(255,255,255),_G.Auto_Gun,function(value)
+    Stats:Toggle("Auto Gun",Color3.fromRGB(255,0,197),_G.Auto_Gun,function(value)
     _G.Auto_Gun = value
     end)
     
-    Stats:Toggle("Auto Devil Fruits",Color3.fromRGB(255,255,255),_G.Auto_DevilFruit,function(value)
+    Stats:Toggle("Auto Devil Fruits",Color3.fromRGB(255,0,197),_G.Auto_DevilFruit,function(value)
     _G.Auto_DevilFruit = value
     end)
     
     _G.PointStats = 1
-    Stats:Slider("Select Point",Color3.fromRGB(255,255,255),1,1000,1,function(value)
+    Stats:Slider("Select Point",Color3.fromRGB(255,0,197),1,1000,1,function(value)
     _G.PointStats = value
     end)
     
@@ -7474,7 +7474,7 @@ end)
 
     ]]
 
-Combat:Line()
+Combat:Line(Color3.fromRGB(255,0,131))
     local plyserv = Combat:Label("Players")
     
     spawn(function()
@@ -7499,11 +7499,11 @@ end)
     table.insert(Playerslist,v.Name)
     end
     
-    local SelectedPly = Combat:Dropdown("Select Players",Color3.fromRGB(255,255,255),Playerslist,function(value)
+    local SelectedPly = Combat:Dropdown("Select Players",Color3.fromRGB(255,0,131),Playerslist,function(value)
     _G.SelectPly = value
     end)
     
-    Combat:Button("Refresh Player",Color3.fromRGB(255,255,255),function()
+    Combat:Button("Refresh Player",Color3.fromRGB(255,0,131),function()
     Playerslist = {}
     SelectedPly:Clear()
     for i,v in pairs(game:GetService("Players"):GetChildren()) do
@@ -7511,7 +7511,7 @@ end)
     end
     end)
     
-    Combat:Toggle("Spectate Player",Color3.fromRGB(255,255,255),false,function(value)
+    Combat:Toggle("Spectate Player",Color3.fromRGB(255,0,131),false,function(value)
     SpectatePlys = value
     local plr1 = game:GetService("Players").LocalPlayer.Character.Humanoid
     local plr2 = game:GetService("Players"):FindFirstChild(_G.SelectPly)
@@ -7521,7 +7521,7 @@ end)
     game:GetService("Workspace").Camera.CameraSubject = game:GetService("Players").LocalPlayer.Character.Humanoid
     end)
     
-    Combat:Toggle("Teleport",Color3.fromRGB(255,255,255),false,function(value)
+    Combat:Toggle("Teleport",Color3.fromRGB(255,0,131),false,function(value)
     _G.TeleportPly = value
     pcall(function()
     if _G.TeleportPly then
@@ -7531,7 +7531,7 @@ end)
     end)
     end)
     
-    Combat:Toggle("Auto Farm Player",Color3.fromRGB(255,255,255),false,function(value)
+    Combat:Toggle("Auto Farm Player",Color3.fromRGB(255,0,131),false,function(value)
     _G.Auto_Kill_Ply = value
     StopTween(_G.Auto_Kill_Ply)
     end)
@@ -7571,7 +7571,7 @@ end)
     end
 end)
     
-    Combat:Seperator("Aimbot")
+    Combat:Seperator("Aimbot",Color3.fromRGB(255,0,131))
     
     spawn(function()
     while wait() do
@@ -7590,7 +7590,7 @@ end)
     end
     end)
     
-    Combat:Toggle("Aimbot Gun",Color3.fromRGB(255,255,255),false,function(value)
+    Combat:Toggle("Aimbot Gun",Color3.fromRGB(255,0,131),false,function(value)
     _G.Aimbot_Gun = value
     end)
     
@@ -7611,7 +7611,7 @@ end)
     end
     end)
     
-    Combat:Toggle("Aimbot Skill",Color3.fromRGB(255,255,255),false,function(value)
+    Combat:Toggle("Aimbot Skill",Color3.fromRGB(255,0,131),false,function(value)
     _G.Aimbot_Skill = value
     end)
     
@@ -7629,9 +7629,9 @@ end)
     end)
     end)
     
-    Combat:Seperator("PvP")
+    Combat:Seperator("PvP",Color3.fromRGB(255,0,131))
     
-    Combat:Toggle("Enabled PvP",Color3.fromRGB(255,255,255),false,function(value)
+    Combat:Toggle("Enabled PvP",Color3.fromRGB(255,0,131),false,function(value)
     _G.EnabledPvP = value
     end)
     
@@ -7647,7 +7647,7 @@ end)
     end)
     end)
     
-    Combat:Toggle("Safe Mode",Color3.fromRGB(255,255,255),false,function(value)
+    Combat:Toggle("Safe Mode",Color3.fromRGB(255,0,131),false,function(value)
     _G.Safe_Mode = value
     StopTween(_G.Safe_Mode)
     end)
@@ -7662,12 +7662,12 @@ end)
     end)
     end)
     
-    Combat:Button("Respawn",Color3.fromRGB(255,255,255),function()
+    Combat:Button("Respawn",Color3.fromRGB(255,0,131),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates")
     wait()
     end)
     
-    Combat:Seperator("Bounty")
+    Combat:Seperator("Bounty",Color3.fromRGB(255,0,131))
     
     local Current = Combat:Label("Current Bounties :")
     
@@ -7699,7 +7699,7 @@ end)
     end
     end)
     
-    local Earn = Combat:Label("Earned")
+    local Earn = Combat:Label("Earned",Color3.fromRGB(255,0,131))
     local OldBounty = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
     local Bounty = tostring(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value)
     local Earned = tostring(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value - OldBounty)
@@ -7726,7 +7726,7 @@ end)
     end
     end)
     
-    Combat:Toggle("Auto Farm Bounty",Color3.fromRGB(255,255,255),_G.AutoFarmBounty,function(value)
+    Combat:Toggle("Auto Farm Bounty",Color3.fromRGB(255,0,131),_G.AutoFarmBounty,function(value)
     _G.AutoFarmBounty = value
     StopTween(_G.AutoFarmBounty)
     end)
@@ -7889,7 +7889,7 @@ end)
     end)
     end)
     
-    Combat:Toggle("Auto Farm Bounty Hop",Color3.fromRGB(255,255,255),_G.AutoFarmBounty_Hop,function(value)
+    Combat:Toggle("Auto Farm Bounty Hop",Color3.fromRGB(255,0,131),_G.AutoFarmBounty_Hop,function(value)
     _G.AutoFarmBounty_Hop = value
     end)
     
@@ -7906,19 +7906,19 @@ end)
     end
     end)
     
-    Combat:Seperator("Misc Bounty")
+    Combat:Seperator("Misc Bounty",Color3.fromRGB(255,0,131))
     
-    Combat:Button("Next Player",Color3.fromRGB(255,255,255),function()
+    Combat:Button("Next Player",Color3.fromRGB(255,0,131),function()
     NextplySelect = true
     wait(.1)
     NextplySelect = false
     end)
     
-    Combat:Slider("Lock Bounty",Color3.fromRGB(255,255,255),1,25000000,750000,function(value)
+    Combat:Slider("Lock Bounty",Color3.fromRGB(255,0,131),1,25000000,750000,function(value)
     _G.BountyLock = value
     end)
     
-    Combat:Toggle("Start Bounty Lock",Color3.fromRGB(255,255,255),false,function(value)
+    Combat:Toggle("Start Bounty Lock",Color3.fromRGB(255,0,131),false,function(value)
     _G.StartBountyLock = value
     end)
     
@@ -7942,7 +7942,7 @@ end)
 
 
 if World3 then
-Teleport:Toggle("Auto Mystic Island",Color3.fromRGB(255,255,255),_G.AutoMysticIsland,function(value)
+Teleport:Toggle("Auto Mystic Island",Color3.fromRGB(255,0,100),_G.AutoMysticIsland,function(value)
     _G.AutoMysticIsland = value
 end)
         
@@ -7959,21 +7959,21 @@ spawn(function()
     end)
 end
     
-Teleport:Seperator("World - Monster")
+Teleport:Seperator("World - Monster",Color3.fromRGB(255,0,100))
     
-    Teleport:Button("Teleport To Old World",Color3.fromRGB(255,255,255),function()
+    Teleport:Button("Teleport To Old World",Color3.fromRGB(255,0,100),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
     end)
     
-    Teleport:Button("Teleport To Second Sea",Color3.fromRGB(255,255,255),function()
+    Teleport:Button("Teleport To Second Sea",Color3.fromRGB(255,0,100),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
     end)
     
-    Teleport:Button("Teleport To Third Sea",Color3.fromRGB(255,255,255),function()
+    Teleport:Button("Teleport To Third Sea",Color3.fromRGB(255,0,100),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
     end)
     
-    Teleport:Button("Teleport to Seabeast",Color3.fromRGB(255,255,255),function()
+    Teleport:Button("Teleport to Seabeast",Color3.fromRGB(255,0,100),function()
     for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
     if v:FindFirstChild("HumanoidRootPart") then
     topos(v.HumanoidRootPart.CFrame*CFrame.new(0,100,0))
@@ -7981,10 +7981,10 @@ Teleport:Seperator("World - Monster")
     end
 end)
     
-Teleport:Seperator("Teleport - Island")
+Teleport:Seperator("Teleport - Island",Color3.fromRGB(255,0,100))
     
 if World1 then
-    Teleport:Dropdown("Select Island",Color3.fromRGB(255,255,255),{
+    Teleport:Dropdown("Select Island",Color3.fromRGB(255,0,100),{
     "WindMill",
     "Marine",
     "Middle Town",
@@ -8009,7 +8009,7 @@ if World1 then
 end
     
 if World2 then
-    Teleport:Dropdown("Select Island",Color3.fromRGB(255,255,255),{
+    Teleport:Dropdown("Select Island",Color3.fromRGB(255,0,100),{
     "The Cafe",
     "Frist Spot",
     "Dark Area",
@@ -8032,7 +8032,7 @@ if World2 then
 end
     
 if World3 then
-    Teleport:Dropdown("Select Island",Color3.fromRGB(255,255,255),{
+    Teleport:Dropdown("Select Island",Color3.fromRGB(255,0,100),{
     "Mansion",
     "Port Town",
     "Great Tree",
@@ -8049,7 +8049,7 @@ if World3 then
     end)
 end
     
-    Teleport:Toggle("Teleport",Color3.fromRGB(255,255,255),false,function(value)
+    Teleport:Toggle("Teleport",Color3.fromRGB(255,0,100),false,function(value)
     _G.TeleportIsland = value
     if _G.TeleportIsland == true then
     game.Workspace.Gravity = 0
@@ -8154,7 +8154,7 @@ end)
     
 --[[ Dungeon ]]
 
-Dungeon:Line()
+Dungeon:Line(Color3.fromRGB(255,0,62))
     
 local TimeRaid = Dungeon:Label("Wait For Dungeon")
     
@@ -8171,12 +8171,12 @@ local TimeRaid = Dungeon:Label("Wait For Dungeon")
 end)
 
 
-Dungeon:Toggle("Auto Raid",Color3.fromRGB(255,255,255),_G.SettingRaid,function(vu)
+Dungeon:Toggle("Auto Raid",Color3.fromRGB(255,0,62),_G.SettingRaid,function(vu)
 	Auto_Raid = vu
 	_G.SettingRaid = vu
 end)
 
-	Dungeon:Toggle("Next Islands",Color3.fromRGB(255,255,255),_G.Next_Islands,function(vu)
+	Dungeon:Toggle("Next Islands",Color3.fromRGB(255,0,62),_G.Next_Islands,function(vu)
 		Next_Islands = vu
 		_G.Next_Islands = vu
 		
@@ -8323,7 +8323,7 @@ end)
 			end)
 		end
 	end)
-	Dungeon:Toggle("Auto Awaken",Color3.fromRGB(255,255,255),_G.Auto_Awaken,function(vu)
+	Dungeon:Toggle("Auto Awaken",Color3.fromRGB(255,0,62),_G.Auto_Awaken,function(vu)
 		_G.Auto_Awaken = vu
 		
 	end)
@@ -8342,16 +8342,16 @@ end)
 		"Bird: Phoenix"
 	}
 
-Dungeon:Dropdown2("Select Dungeon",Color3.fromRGB(255,255,255),_G.Select_Map,Map,function(vu)
+Dungeon:Dropdown2("Select Dungeon",Color3.fromRGB(255,0,62),_G.Select_Map,Map,function(vu)
 	_G.Select_Map = vu
 end)
 	
 Dungeon:Label("Misc")
-Dungeon:Toggle("Bring Fruit",Color3.fromRGB(255,255,255),_G.BringFruit,function(vu)
+Dungeon:Toggle("Bring Fruit",Color3.fromRGB(255,0,62),_G.BringFruit,function(vu)
 	BringFruit = vu
 	_G.BringFruit = vu
 end)
-Dungeon:Toggle("Get Fruit Inventory",Color3.fromRGB(255,255,255),_G.Get_Fruit,function(vu)
+Dungeon:Toggle("Get Fruit Inventory",Color3.fromRGB(255,0,62),_G.Get_Fruit,function(vu)
 	_G.Get_Fruit = vu
 	end)
 spawn(function()
@@ -8384,9 +8384,9 @@ end
 
 if World3 then
 
-Race:Seperator("Race V4")
+Race:Seperator("Race V4",Color3.fromRGB(255,0,31))
 
-Race:Toggle("Move Cam to Moon",Color3.fromRGB(255,255,255),false,function(vu)
+Race:Toggle("Move Cam to Moon",Color3.fromRGB(255,0,31),false,function(vu)
 	_G.AutoDooHee = vu
 end)
     
@@ -8403,41 +8403,41 @@ spawn(function()
     end
 end)
 
-Race:Button("Teleport To Temple of Time",Color3.fromRGB(255,255,255),function(va)
+Race:Button("Teleport To Temple of Time",Color3.fromRGB(255,0,31),function(va)
 	Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
 end)
 
-Race:Button("Teleport To Lever Pull",Color3.fromRGB(255,255,255),function(va)
+Race:Button("Teleport To Lever Pull",Color3.fromRGB(255,0,31),function(va)
 	topos(CFrame.new(28575.181640625, 14936.6279296875, 72.31636810302734))
 end)
 
-Race:Button("Teleport To Human Door",Color3.fromRGB(255,255,255),function(va)
+Race:Button("Teleport To Human Door",Color3.fromRGB(255,0,31),function(va)
 	topos(CFrame.new(29237.294921875, 14889.4267578125, -206.94955444335938))
 end)
 
-Race:Button("Teleport To Mink Door",Color3.fromRGB(255,255,255),function(va)
+Race:Button("Teleport To Mink Door",Color3.fromRGB(255,0,31),function(va)
 	topos(CFrame.new(29020.66015625, 14889.4267578125, -379.2682800292969))
 end)
 
-Race:Button("Teleport To Shark Door",Color3.fromRGB(255,255,255),function(va)
+Race:Button("Teleport To Shark Door",Color3.fromRGB(255,0,31),function(va)
 	topos(CFrame.new(28224.056640625, 14889.4267578125, -210.5872039794922))
 end)
 
-Race:Button("Teleport To Angel Door",Color3.fromRGB(255,255,255),function(va)
+Race:Button("Teleport To Angel Door",Color3.fromRGB(255,0,31),function(va)
 	topos(CFrame.new(28967.408203125, 14918.0751953125, 234.31198120117188))
 end)
 
-Race:Button("Teleport To Cyborg Door",Color3.fromRGB(255,255,255),function(va)
+Race:Button("Teleport To Cyborg Door",Color3.fromRGB(255,0,31),function(va)
 	topos(CFrame.new(28492.4140625, 14894.4267578125, -422.1100158691406))
 end)
 
-Race:Button("Teleport To Ghoul Door",Color3.fromRGB(255,255,255),function(va)
+Race:Button("Teleport To Ghoul Door",Color3.fromRGB(255,0,31),function(va)
 	topos(CFrame.new(28672.720703125, 14889.1279296875, 454.5961608886719))
 end)
 
 Race:Seperator("Trials")
 
-Race:Toggle("Auto Complete Trials",Color3.fromRGB(255,255,255),false,function(race)
+Race:Toggle("Auto Complete Trials",Color3.fromRGB(255,0,31),false,function(race)
 	_G.AutoQuestRace = race
 end)
 
@@ -8561,8 +8561,8 @@ end
 
 --[[ Devil Fruits ]]
 
-DevilFruit:Line()
-    DevilFruit:Seperator("Fruits Sniper")
+DevilFruit:Line(Color3.fromRGB(255,0,0))
+    DevilFruit:Seperator("Fruits Sniper",Color3.fromRGB(255,0,0))
     
     FruitList = {
     "Bomb-Bomb",
@@ -8601,21 +8601,21 @@ DevilFruit:Line()
     }
     
     _G.SelectFruit = ""
-    DevilFruit:Dropdown("Select Fruits Sniper",Color3.fromRGB(255,255,255),FruitList,function(value)
+    DevilFruit:Dropdown("Select Fruits Sniper",Color3.fromRGB(255,0,0),FruitList,function(value)
     _G.SelectFruit = value
     end)
     
-    DevilFruit:Toggle("Auto Buy Fruit Sniper",Color3.fromRGB(255,255,255),_G.AutoBuyFruitSniper,function(value)
+    DevilFruit:Toggle("Auto Buy Fruit Sniper",Color3.fromRGB(255,0,0),_G.AutoBuyFruitSniper,function(value)
     _G.AutoBuyFruitSniper = value
     end)
     
     DevilFruit:Seperator("Devil Fruits")
     
-    DevilFruit:Dropdown("Select Fruits Eat",Color3.fromRGB(255,255,255),FruitList,function(value)
+    DevilFruit:Dropdown("Select Fruits Eat",Color3.fromRGB(255,0,0),FruitList,function(value)
     _G.SelectFruitEat = value
     end)
     
-    DevilFruit:Toggle("Auto Eat Fruit",Color3.fromRGB(255,255,255),_G.AutoEatFruit,function(value)
+    DevilFruit:Toggle("Auto Eat Fruit",Color3.fromRGB(255,0,0),_G.AutoEatFruit,function(value)
     _G.AutoEatFruit = value
     end)
     
@@ -8629,7 +8629,7 @@ DevilFruit:Line()
     end)
     end)
     
-    DevilFruit:Toggle("Auto Eat Fruit Hop",Color3.fromRGB(255,255,255),_G.AutoEatFruitHop,function(value)
+    DevilFruit:Toggle("Auto Eat Fruit Hop",Color3.fromRGB(255,0,0),_G.AutoEatFruitHop,function(value)
     _G.AutoEatFruitHop = value
     end)
     
@@ -8658,7 +8658,7 @@ DevilFruit:Line()
     end)
     end)
     
-    DevilFruit:Toggle("Auto Random Fruit",Color3.fromRGB(255,255,255),_G.Random_Auto,function(value)
+    DevilFruit:Toggle("Auto Random Fruit",Color3.fromRGB(255,0,0),_G.Random_Auto,function(value)
     _G.Random_Auto = value
     end)
     
@@ -8672,12 +8672,12 @@ DevilFruit:Line()
     end)
     end)
     
-    DevilFruit:Button("Random Fruit",Color3.fromRGB(255,255,255),function()
+    DevilFruit:Button("Random Fruit",Color3.fromRGB(255,0,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
     end)
     
     
-    DevilFruit:Toggle("Auto Drop Fruit",Color3.fromRGB(255,255,255),_G.DropFruit,function(value)
+    DevilFruit:Toggle("Auto Drop Fruit",Color3.fromRGB(255,0,0),_G.DropFruit,function(value)
     _G.DropFruit = value
     end)
     
@@ -8712,7 +8712,7 @@ DevilFruit:Line()
     end
     end)
     
-    DevilFruit:Toggle("Auto Store Fruit",Color3.fromRGB(255,255,255),_G.AutoStoreFruit,function(value)
+    DevilFruit:Toggle("Auto Store Fruit",Color3.fromRGB(255,0,0),_G.AutoStoreFruit,function(value)
     _G.AutoStoreFruit = value
     end)
     
@@ -8729,7 +8729,7 @@ DevilFruit:Line()
     end)
     
     
-    DevilFruit:Toggle("Grab Fruit",Color3.fromRGB(255,255,255),_G.BringFruit,function(value)
+    DevilFruit:Toggle("Grab Fruit",Color3.fromRGB(255,0,0),_G.BringFruit,function(value)
     _G.BringFruit = value
     pcall(function()
     while _G.BringFruit do wait(.1)
@@ -8751,142 +8751,142 @@ end)
     Shop:Line()
     Shop:Seperator("Abilities")
     
-    Shop:Button("Buy Geppo",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Geppo",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
     end)
     
-    Shop:Button("Buy Buso Haki",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Buso Haki",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
     end)
     
-    Shop:Button("Buy Soru",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Soru",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
     end)
     
-    Shop:Button("Buy Observation(Ken) Haki",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Observation(Ken) Haki",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
     end)
     
     Shop:Seperator("Fighting Style")
     
-    Shop:Button("Buy Black Leg",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Black Leg",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
     end)
     
-    Shop:Button("Buy Electro",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Electro",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
     end)
     
-    Shop:Button("Buy Fishman Karate",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Fishman Karate",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
     end)
     
-    Shop:Button("Buy Dragon Claw",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Dragon Claw",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
     end)
     
-    Shop:Button("Buy Superhuman",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Superhuman",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
     end)
     
-    Shop:Button("Buy Death Step",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Death Step",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
     end)
     
-    Shop:Button("Buy Sharkman Karate",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Sharkman Karate",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
     end)
     
-    Shop:Button("Buy Electric Claw",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Electric Claw",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
     end)
     
-    Shop:Button("Buy Dragon Talon",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy Dragon Talon",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
     end)
     
-    Shop:Button("Buy GodHuman",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Buy GodHuman",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
     end)
     
     -----Shop----------------
     Shop:Seperator("Accessory")
     
-    Shop:Button("Tomoe Ring",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Tomoe Ring",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
     end)
     
-    Shop:Button("Black Cape",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Black Cape",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Black Cape")
     end)
     
-    Shop:Button("Swordsman Hat",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Swordsman Hat",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Swordsman Hat")
     end)
     
     Shop:Seperator("Sword")
     
-    Shop:Button("Cutlass",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Cutlass",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
     end)
     
-    Shop:Button("Katana",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Katana",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
     end)
     
-    Shop:Button("Iron Mace",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Iron Mace",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
     end)
     
-    Shop:Button("Duel Katana",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Duel Katana",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
     end)
     
-    Shop:Button("Triple Katana",Color3.fromRGB(255,255,255), function()
+    Shop:Button("Triple Katana",Color3.fromRGB(255,70,0), function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
     end)
     
-    Shop:Button("Pipe",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Pipe",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
     end)
     
-    Shop:Button("Dual Headed Blade",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Dual Headed Blade",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
     end)
     
-    Shop:Button("Bisento",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Bisento",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
     end)
     
-    Shop:Button("Soul Cane",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Soul Cane",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
     end)
     
     Shop:Seperator("Gun")
     
-    Shop:Button("Slingshot",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Slingshot",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Slingshot")
     end)
     
-    Shop:Button("Musket",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Musket",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Musket")
     end)
     
-    Shop:Button("Flintlock",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Flintlock",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Flintlock")
     end)
     
-    Shop:Button("Refined Flintlock",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Refined Flintlock",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Refined Flintlock")
     end)
     
-    Shop:Button("Cannon",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Cannon",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cannon")
     end)
     
-    Shop:Button("Kabucha",Color3.fromRGB(255,255,255),function()
+    Shop:Button("Kabucha",Color3.fromRGB(255,70,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","1")
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","2")
 end)
@@ -8897,35 +8897,35 @@ Misc:Line()
 
 Misc:Seperator("Open UI")
 
-Misc:Button("Open Title",Color3.fromRGB(255,255,255),function()
+Misc:Button("Open Title",Color3.fromRGB(255,100,0),function()
     local args = {[1] = "getTitles"}
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 
-Misc:Button("Open Aura",Color3.fromRGB(255,255,255),function()
+Misc:Button("Open Aura",Color3.fromRGB(255,100,0),function()
     local args = {[1] = "getColors"}
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
     
-Misc:Button("Open Devil Shop",Color3.fromRGB(255,255,255),function()
+Misc:Button("Open Devil Shop",Color3.fromRGB(255,100,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
     game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
 end)
     
-Misc:Button("Open Inventory",Color3.fromRGB(255,255,255),function()
+Misc:Button("Open Inventory",Color3.fromRGB(255,100,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")
     wait(1)
     game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Visible = true
 end)
     
-Misc:Button("Open Inventory Fruit",Color3.fromRGB(255,255,255),function()
+Misc:Button("Open Inventory Fruit",Color3.fromRGB(255,100,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryFruits")
     game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Visible = true
 end)
 
 Misc:Seperator("Server")
     
-Misc:Button("Rejoin Server",Color3.fromRGB(255,255,255),function()
+Misc:Button("Rejoin Server",Color3.fromRGB(255,100,0),function()
     game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
 end)
     
@@ -8933,7 +8933,7 @@ Misc:Button("Server Hop",function()
     Hop()
 end)
 
-Misc:Button("Hop To Lower Player",Color3.fromRGB(255,255,255),function()
+Misc:Button("Hop To Lower Player",Color3.fromRGB(255,100,0),function()
     getgenv().AutoTeleport = true
     getgenv().DontTeleportTheSameNumber = true
     getgenv().CopytoClipboard = false
@@ -8980,7 +8980,7 @@ Misc:Button("Hop To Lower Player",Color3.fromRGB(255,255,255),function()
     end
 end)
     
-    Misc:Toggle("Highlight Mode",Color3.fromRGB(255,255,255),false,function(value)
+    Misc:Toggle("Highlight Mode",Color3.fromRGB(255,100,0),false,function(value)
     if value == true then
     game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Beli.Visible = false
     game:GetService("Players")["LocalPlayer"].PlayerGui.Main.HP.Visible = false
@@ -9012,17 +9012,17 @@ end)
     
     Misc:Seperator("Change Teams")
     
-    Misc:Button("Join Pirates Team",Color3.fromRGB(255,255,255),function()
+    Misc:Button("Join Pirates Team",Color3.fromRGB(255,100,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates")
     end)
     
-    Misc:Button("Join Marines Team",Color3.fromRGB(255,255,255),function()
+    Misc:Button("Join Marines Team",Color3.fromRGB(255,100,0),function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines")
     end)
     
     Misc:Seperator("Boost")
     
-    Misc:Button("Unlock Portal",Color3.fromRGB(255,255,255),function()
+    Misc:Button("Unlock Portal",Color3.fromRGB(255,100,0),function()
     _G.UnlockPortal = true
     end)
     
@@ -9067,11 +9067,11 @@ end)
     end
     end)
     
-    Misc:Button("Invisible",Color3.fromRGB(255,255,255),function()
+    Misc:Button("Invisible",Color3.fromRGB(255,100,0),function()
     game:GetService("Players").LocalPlayer.Character.LowerTorso:Destroy()
     end)
     
-    Misc:Button("Click TP Tool",Color3.fromRGB(255,255,255),function()
+    Misc:Button("Click TP Tool",Color3.fromRGB(255,100,0),function()
     local plr = game:GetService("Players").LocalPlayer
     local mouse = plr:GetMouse()
     local tool = Instance.new("Tool")
@@ -9086,7 +9086,7 @@ end)
     tool.Parent = plr.Backpack
     end)
     
-    Misc:Button("Stop All Tween",Color3.fromRGB(255,255,255),function()
+    Misc:Button("Stop All Tween",Color3.fromRGB(255,100,0),function()
     topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
     _G.Clip = false
     end)
@@ -9109,7 +9109,7 @@ end)
     "STRAWHATMAINE"
     }
     
-    Misc:Button("Redeem All Codes",Color3.fromRGB(255,255,255),function()
+    Misc:Button("Redeem All Codes",Color3.fromRGB(255,100,0),function()
     function RedeemCode(value)
     game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
     end
@@ -9118,21 +9118,21 @@ end)
     end
     end)
     
-    Misc:Dropdown("Selected Codes",Color3.fromRGB(255,255,255),{"1MLIKES_RESET","THIRDSEA","SUB2GAMERROBOT_RESET1","SUB2UNCLEKIZARU"},function(value)
+    Misc:Dropdown("Selected Codes",Color3.fromRGB(255,100,0),{"1MLIKES_RESET","THIRDSEA","SUB2GAMERROBOT_RESET1","SUB2UNCLEKIZARU"},function(value)
     _G.CodeSelect = value
     end)
     
-    Misc:Button("Redeem Code",Color3.fromRGB(255,255,255),function()
+    Misc:Button("Redeem Code",Color3.fromRGB(255,100,0),function()
     game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(_G.CodeSelect)
     end)
     
     Misc:Seperator("State")
     
-    Misc:Dropdown("Select Haki State",Color3.fromRGB(255,255,255),{"State 0","State 1","State 2","State 3","State 4","State 5"},function(value)
+    Misc:Dropdown("Select Haki State",Color3.fromRGB(255,100,0),{"State 0","State 1","State 2","State 3","State 4","State 5"},function(value)
     _G.SelectStateHaki = value
     end)
     
-    Misc:Button("Change Buso Haki State",Color3.fromRGB(255,255,255),function()
+    Misc:Button("Change Buso Haki State",Color3.fromRGB(255,100,0),function()
     if _G.SelectStateHaki == "State 0" then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",0)
     elseif _G.SelectStateHaki == "State 1" then
@@ -9160,7 +9160,7 @@ end)
     OldContrastc = c.Contrast
     OldTintColorc = c.TintColor
     OldTintColore = e.TintColor
-    Misc:Toggle("RTX Mode",Color3.fromRGB(255,255,255),_G.RTXMode,function(value)
+    Misc:Toggle("RTX Mode",Color3.fromRGB(255,100,0),_G.RTXMode,function(value)
     _G.RTXMode = value
     if not _G.RTXMode then return end
     while _G.RTXMode do wait()
@@ -9192,35 +9192,35 @@ end)
     
     Misc:Seperator("ESP")
     
-    Misc:Toggle("ESP Player",Color3.fromRGB(255,255,255),false,function(value)
+    Misc:Toggle("ESP Player",Color3.fromRGB(255,100,0),false,function(value)
     ESPPlayer = value
     while ESPPlayer do wait()
     UpdateEspPlayer()
     end
     end)
     
-    Misc:Toggle("ESP Chest",Color3.fromRGB(255,255,255),false,function(value)
+    Misc:Toggle("ESP Chest",Color3.fromRGB(255,100,0),false,function(value)
     ChestESP = value
     while ChestESP do wait()
     UpdateChestEsp()
     end
     end)
     
-    Misc:Toggle("ESP Fruit",Color3.fromRGB(255,255,255),false,function(value)
+    Misc:Toggle("ESP Fruit",Color3.fromRGB(255,100,0),false,function(value)
     DevilFruitESP = value
     while DevilFruitESP do wait()
     UpdateBfEsp()
     end
     end)
     
-    Misc:Toggle("ESP Flower",Color3.fromRGB(255,255,255),false,function(value)
+    Misc:Toggle("ESP Flower",Color3.fromRGB(255,100,0),false,function(value)
     FlowerESP = value
     while FlowerESP do wait()
     UpdateFlowerEsp()
     end
     end)
     
-    Misc:Toggle("ESP Island",Color3.fromRGB(255,255,255),IslandESP,function(value)
+    Misc:Toggle("ESP Island",Color3.fromRGB(255,100,0),IslandESP,function(value)
     IslandESP = value
     while IslandESP do wait()
     UpdateIslandESP()
@@ -9229,17 +9229,17 @@ end)
     
     Misc:Seperator("Abilities")
     
-    Misc:Toggle("Dodge No Cooldown",Color3.fromRGB(255,255,255),false,function(value)
+    Misc:Toggle("Dodge No Cooldown",Color3.fromRGB(255,100,0),false,function(value)
     nododgecool = value
     NoDodgeCool()
     end)
     
-    Misc:Toggle("Infinite Energy",Color3.fromRGB(255,255,255),false,function(value)
+    Misc:Toggle("Infinite Energy",Color3.fromRGB(255,100,0),false,function(value)
     InfiniteEnergy = value
     originalstam = LocalPlayer.Character.Energy.Value
     end)
     
-    Misc:Toggle("Auto Active Race",Color3.fromRGB(255,255,255),_G.AutoAgility,function(value)
+    Misc:Toggle("Auto Active Race",Color3.fromRGB(255,100,0),_G.AutoAgility,function(value)
     _G.AutoAgility = value
     end)
     
@@ -9253,7 +9253,7 @@ end)
     end)
     end)
     
-    Misc:Toggle("Infinite Ability",Color3.fromRGB(255,255,255),false,function(value)
+    Misc:Toggle("Infinite Ability",Color3.fromRGB(255,100,0),false,function(value)
     InfAbility = value
     if value == false then
     game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
@@ -9268,7 +9268,7 @@ end)
     end
     end)
     
-    Misc:Toggle("Infinite Obversation Range",Color3.fromRGB(255,255,255),getgenv().InfiniteObRange,function(value)
+    Misc:Toggle("Infinite Obversation Range",Color3.fromRGB(255,100,0),getgenv().InfiniteObRange,function(value)
     getgenv().InfiniteObRange = value
     local VS = game:GetService("Players").LocalPlayer.VisionRadius.Value
     while getgenv().InfiniteObRange do
@@ -9287,7 +9287,7 @@ end)
     end
     end)
     
-    Misc:Toggle("Infinite Geppo",Color3.fromRGB(255,255,255),getgenv().InfGeppo,function(value)
+    Misc:Toggle("Infinite Geppo",Color3.fromRGB(255,100,0),getgenv().InfGeppo,function(value)
     getgenv().InfGeppo = value
     end)
     
@@ -9313,7 +9313,7 @@ end)
     end
     end)
     
-    Misc:Toggle("Infinite Soru",Color3.fromRGB(255,255,255),getgenv().InfSoru,function(value)
+    Misc:Toggle("Infinite Soru",Color3.fromRGB(255,100,0),getgenv().InfSoru,function(value)
     getgenv().InfSoru = value
     end)
     
@@ -9339,7 +9339,7 @@ end)
     end
     end)
     
-    Misc:Toggle("Walk on Water",Color3.fromRGB(255,255,255),false,function(value)
+    Misc:Toggle("Walk on Water",Color3.fromRGB(255,100,0),false,function(value)
     _G.WalkWater = value
     end)
     
@@ -9355,7 +9355,7 @@ end)
         end
     end)
     
-    Misc:Toggle("Fly",Color3.fromRGB(255,255,255),false,function(value)
+    Misc:Toggle("Fly",Color3.fromRGB(255,100,0),false,function(value)
     Fly = value
     end)
     
@@ -9384,7 +9384,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Auto Sail",Color3.fromRGB(255,255,255),_G.AutoSail,function(val)
+Sea:Toggle("Auto Sail",Color3.fromRGB(255,0,162),_G.AutoSail,function(val)
     _G.AutoRemover = val
     StopTween(_G.AutoSail)
     StopTween(_G.SendShip)
@@ -9531,7 +9531,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Terror Shark [Need Spawn]",Color3.fromRGB(255,255,255),false,function(val)
+Sea:Toggle("Terror Shark [Need Spawn]",Color3.fromRGB(255,0,162),false,function(val)
     _G.TerShark = val
     StopTween(_G.TerShark)
     if _G.TerShark == true then
@@ -9589,7 +9589,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Piranha [Need Spawn]",Color3.fromRGB(255,255,255),false,function(val)
+Sea:Toggle("Piranha [Need Spawn]",Color3.fromRGB(255,0,162),false,function(val)
     _G.Piranas = val
     StopTween(_G.Piranas)
     if _G.Piranas == true then
@@ -9643,7 +9643,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Shark [Need Spawn]",Color3.fromRGB(255,255,255),false,function(val)
+Sea:Toggle("Shark [Need Spawn]",Color3.fromRGB(255,0,162),false,function(val)
     _G.Sharky = val
     StopTween(_G.Sharky)
     if _G.Sharky == true then
@@ -9697,7 +9697,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Fish Boat [Need Spawn]",Color3.fromRGB(255,255,255),false,function(val)
+Sea:Toggle("Fish Boat [Need Spawn]",Color3.fromRGB(255,0,162),false,function(val)
     _G.FishBoat = val
     StopTween(_G.FishBoat)
     if _G.FishBoat == true then
@@ -9746,7 +9746,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Pirate [Need Spawn]",Color3.fromRGB(255,255,255),false,function(val)
+Sea:Toggle("Pirate [Need Spawn]",Color3.fromRGB(255,0,162),false,function(val)
     _G.BrigadeShips = val
     StopTween(_G.BrigadeShips)
     if _G.BrigadeShips == true then
@@ -9795,7 +9795,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Grand Pirate [Need Spawn]",Color3.fromRGB(255,255,255),false,function(val)
+Sea:Toggle("Grand Pirate [Need Spawn]",Color3.fromRGB(255,0,162),false,function(val)
     _G.BrigadeShip = val
     StopTween(_G.BrigadeShip)
     if _G.BrigadeShip == true then
@@ -9844,7 +9844,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("SeaBeast [Need Spawn] [BETA]",Color3.fromRGB(255,255,255),false,function(sea)
+Sea:Toggle("SeaBeast [Need Spawn] [BETA]",Color3.fromRGB(255,0,162),false,function(sea)
     _G.Beast = sea
     StopTween(_G.Beast)
     if _G.Beast == true then

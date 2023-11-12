@@ -9790,7 +9790,7 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         AllWeapon = true
-                        TP1(v.Sails.CFrame * CFrame.new(0,5,0))
+                        TP1(v.Sails.CFrame * CFrame.new(0,15,0))
                         AutoSkill = true
                         
                         Skillaimbot = true
@@ -9838,7 +9838,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,4,0))
+                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,15,0))
                         AllWeapon = true
                         AutoSkill = true
                         
@@ -9887,7 +9887,7 @@ spawn(function()
                         _G.FastAttack = true
                     repeat wait()
                         AutoHaki()
-                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,4,0))
+                        TP1(v.VehicleSeat.CFrame * CFrame.new(0,15,0))
                         AllWeapon = true
                         AutoSkill = true
                         Skillaimbot = true

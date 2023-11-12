@@ -711,7 +711,7 @@ local TabButtonStroke = Instance.new("UIStroke")
 
 TabButton.Name = text.."Server"
    TabButton.Parent = ScrollTab
-   TabButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
+   TabButton.BackgroundColor3 = Color3.fromRGB(0,0,0)
    TabButton.BackgroundTransparency = 0.400
    TabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)   
    TabButton.BorderSizePixel = 0

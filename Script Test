@@ -4973,7 +4973,7 @@ function CheckAntiCheatBypass()
      end
      for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
         if v:IsA("LocalScript") then
-            if v.Name == "RobloxMotor6DBugFix" or v.Name == "Clans"  or v.Name == "Codes" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
+            if v.Name == "RobloxMotor6DBugFix" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
                 v:Destroy()
             end
         end

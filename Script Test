@@ -4088,7 +4088,7 @@ User:LabelIMG("       Discord : discord.gg/85gXUG58eW","rbxassetid://14764624462
 User:LabelIMG("       Instagram : @scriptblox.c","rbxassetid://14764619900")
 User:LabelIMG("       Youtube : ScriptBlox","rbxassetid://14764526356")
     
-User:Button("SUBSCRIBE YT SCRIPTBLOX",Color3.fromRGB(162,0,255),function()
+User:Button("SUBSCRIBE YT SCRIPTBLOX",_G.StrokeColor,function()
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "ScriptBlox"; 
         Text = "Youtube : Scriptblox"; 
@@ -6168,7 +6168,7 @@ end)
 AutoQuest:Seperator("Dought",Color3.fromRGB(255,0,255))
     
 local MobKilled = AutoQuest:Label("Killed")
-    
+
 spawn(function()
     while wait() do
     pcall(function()

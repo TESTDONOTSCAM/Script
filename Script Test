@@ -4086,7 +4086,7 @@ local User = Library:Tab("        Status","rbxassetid://14355269935",_G.ColorUse
     local Setting = Library:Tab("        Setting","rbxassetid://14782648917",_G.ColorSetting)
     local AutoQuest = Library:Tab("        Quest & Item","rbxassetid://9606626859",_G.ColorQuest)
     local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.ColorStats)
-    local Sea = Library:Tab("        Seabeast","rbxassetid://11447063791",_G.ColorSea)
+    local Sea = Library:Tab("        Seabeast [Beta]","rbxassetid://11447063791",_G.ColorSea)
     local Combat = Library:Tab("        Combat","rbxassetid://14764193934",_G.ColorCombat)
     local Teleport = Library:Tab("        Teleport","rbxassetid://14764218351",_G.ColorTP)
     local Dungeon = Library:Tab("        Dungeon","rbxassetid://14764250087",_G.ColorRaid)
@@ -4918,6 +4918,52 @@ spawn(function()
             end)
         end
     end)
+end)
+
+Setting:Dropdown2("Fast Attack Delay ",_G.ColorSetting,"0",MIo,function(vu)
+	_G.FastAttack_Mode = vu
+end)
+
+spawn(function()
+	while wait(.1) do
+		if _G.FastAttack_Mode then
+			pcall(function()
+				if _G.FastAttack_Mode == "0" then
+					_G.Fast_Delay = 0
+				elseif _G.FastAttack_Mode == "0.2" then
+					_G.Fast_Delay = 0.2
+				elseif _G.FastAttack_Mode == "0.5" then
+					_G.Fast_Delay = 0.5
+				elseif _G.FastAttack_Mode == "0.15" then
+					_G.Fast_Delay = 0.15
+				elseif _G.FastAttack_Mode == "0.155" then
+					_G.Fast_Delay = 0.155
+				elseif _G.FastAttack_Mode == "0.16" then
+					_G.Fast_Delay = 0.16
+				elseif _G.FastAttack_Mode == "0.165" then
+					_G.Fast_Delay = 0.165
+				elseif _G.FastAttack_Mode == "0.17" then
+					_G.Fast_Delay = 0.17
+				elseif _G.FastAttack_Mode == "0.175" then
+					_G.Fast_Delay = 0.175
+				elseif _G.FastAttack_Mode == "0.18" then
+					_G.Fast_Delay = 0.18
+				elseif _G.FastAttack_Mode == "0.185" then
+					_G.Fast_Delay = 0.185
+				elseif _G.FastAttack_Mode == "0.190" then
+					_G.Fast_Delay = 0.190
+				elseif _G.FastAttack_Mode == "0.195" then
+					_G.Fast_Delay = 0.195
+				elseif _G.FastAttack_Mode == "1" then
+					_G.Fast_Delay = 0.1
+				elseif _G.FastAttack_Mode == "1.5" then
+					_G.Fast_Delay = 1.5
+				elseif _G.FastAttack_Mode == "2" then
+					_G.Fast_Delay = 2
+				end
+			end)
+		end
+	end
 end)
 
 local Client = game.Players.LocalPlayer
@@ -9748,7 +9794,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Terror Shark [Need Spawn]",_G.ColorSea,false,function(val)
+Sea:Toggle("Terror Shark [Probably Died]",_G.ColorSea,false,function(val)
     _G.TerShark = val
     StopTween(_G.TerShark)
     if _G.TerShark == true then
@@ -9806,7 +9852,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Piranha [Need Spawn]",_G.ColorSea,false,function(val)
+Sea:Toggle("Piranha [Work Fine]",_G.ColorSea,false,function(val)
     _G.Piranas = val
     StopTween(_G.Piranas)
     if _G.Piranas == true then
@@ -9860,7 +9906,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Shark [Need Spawn]",_G.ColorSea,false,function(val)
+Sea:Toggle("Shark [Work Fine]",_G.ColorSea,false,function(val)
     _G.Sharky = val
     StopTween(_G.Sharky)
     if _G.Sharky == true then
@@ -9914,7 +9960,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Fish Boat [Need Spawn]",_G.ColorSea,false,function(val)
+Sea:Toggle("Fish Boat [Probably Die]",_G.ColorSea,false,function(val)
     _G.FishBoat = val
     StopTween(_G.FishBoat)
     if _G.FishBoat == true then
@@ -9963,7 +10009,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Pirate [Need Spawn]",_G.ColorSea,false,function(val)
+Sea:Toggle("Pirate [Probably Die]",_G.ColorSea,false,function(val)
     _G.BrigadeShips = val
     StopTween(_G.BrigadeShips)
     if _G.BrigadeShips == true then
@@ -10012,7 +10058,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Grand Pirate [Need Spawn]",_G.ColorSea,false,function(val)
+Sea:Toggle("Grand Pirate [Probably Die]",_G.ColorSea,false,function(val)
     _G.BrigadeShip = val
     StopTween(_G.BrigadeShip)
     if _G.BrigadeShip == true then
@@ -10060,7 +10106,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("SeaBeast [Need Spawn] [BETA]",_G.ColorSea,false,function(sea)
+Sea:Toggle("SeaBeast [Probably Die]",_G.ColorSea,false,function(sea)
     _G.Beast = sea
     StopTween(_G.Beast)
     if _G.Beast == true then
@@ -10103,50 +10149,4 @@ spawn(function()
             end)
         end
     end
-end)
-
-Setting:Dropdown2("Fast Attack Delay ",_G.ColorSetting,"0",MIo,function(vu)
-	_G.FastAttack_Mode = vu
-end)
-
-spawn(function()
-	while wait(.1) do
-		if _G.FastAttack_Mode then
-			pcall(function()
-				if _G.FastAttack_Mode == "0" then
-					_G.Fast_Delay = 0
-				elseif _G.FastAttack_Mode == "0.2" then
-					_G.Fast_Delay = 0.2
-				elseif _G.FastAttack_Mode == "0.5" then
-					_G.Fast_Delay = 0.5
-				elseif _G.FastAttack_Mode == "0.15" then
-					_G.Fast_Delay = 0.15
-				elseif _G.FastAttack_Mode == "0.155" then
-					_G.Fast_Delay = 0.155
-				elseif _G.FastAttack_Mode == "0.16" then
-					_G.Fast_Delay = 0.16
-				elseif _G.FastAttack_Mode == "0.165" then
-					_G.Fast_Delay = 0.165
-				elseif _G.FastAttack_Mode == "0.17" then
-					_G.Fast_Delay = 0.17
-				elseif _G.FastAttack_Mode == "0.175" then
-					_G.Fast_Delay = 0.175
-				elseif _G.FastAttack_Mode == "0.18" then
-					_G.Fast_Delay = 0.18
-				elseif _G.FastAttack_Mode == "0.185" then
-					_G.Fast_Delay = 0.185
-				elseif _G.FastAttack_Mode == "0.190" then
-					_G.Fast_Delay = 0.190
-				elseif _G.FastAttack_Mode == "0.195" then
-					_G.Fast_Delay = 0.195
-				elseif _G.FastAttack_Mode == "1" then
-					_G.Fast_Delay = 0.1
-				elseif _G.FastAttack_Mode == "1.5" then
-					_G.Fast_Delay = 1.5
-				elseif _G.FastAttack_Mode == "2" then
-					_G.Fast_Delay = 2
-				end
-			end)
-		end
-	end
 end)

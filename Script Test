@@ -481,18 +481,17 @@ mainopens.Parent = mainopen
     end
 
 function Update:Window(text,logo,keybind)
-   local osfunc = {}
-   local uihide = false
-   local abc = false
-   local logo = logo or 14270030211
-   local currentpage = ""
-   local keybind = keybind or Enum.KeyCode.RightControl
-   local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
+local osfunc = {}
+local uihide = false
+local abc = false
+local logo = logo or 14270030211
+local currentpage = ""
+local keybind = keybind or Enum.KeyCode.RightControl
+local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 
 local MyLibrary = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local MCNR = Instance.new("UICorner")
-local MainStroke = Instance.new("UIStroke")
 
 MyLibrary.Name = "MyLibrary"
 MyLibrary.Parent = game.CoreGui --Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -513,16 +512,6 @@ Main:TweenSize(UDim2.new(0, 220, 0, 300),"Out","Quad",0.5,true)
 MCNR.CornerRadius = UDim.new(0, 6)
 MCNR.Name = "MCNR"
 MCNR.Parent = Main
-
-MainStroke.Name = "posto"
- MainStroke.Parent = Main
- MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- MainStroke.Color = _G.StrokeColor
- MainStroke.LineJoinMode = Enum.LineJoinMode.Round
- MainStroke.Thickness = 1.5
- MainStroke.Transparency = 0
- MainStroke.Enabled = true
-MainStroke.Archivable = true
 
 -- Top Bar
 
@@ -553,10 +542,13 @@ OpenTab.BorderSizePixel = 0
 OpenTab.Position = UDim2.new(0, 8, 0, 0)
 OpenTab.Size = UDim2.new(0, 30, 1, 0)
 OpenTab.Image = "http://www.roblox.com/asset/?id=15381251591"
+OpenTab.MouseButton1Click:Connect(function()
+    Tab.Visible = true
+end)
 
 local Name = Instance.new("TextLabel")
 
- Name.Name = "Name"
+Name.Name = "Name"
  Name.Parent = Top
  Name.BackgroundColor3 = Color3.fromRGB(35,255,255)
  Name.BackgroundTransparency = 1.000
@@ -565,7 +557,7 @@ local Name = Instance.new("TextLabel")
  Name.Font = Enum.Font.Code
  Name.Text = text
  Name.TextColor3 = Color3.fromRGB(255, 255, 255)
- Name.TextSize = 14.000
+Name.TextSize = 14.000
 
 -- TabBar
 
@@ -577,14 +569,29 @@ local UICorner = Instance.new("UICorner")
 local UIPadding = Instance.new("UIPadding")
 local TabCorner = Instance.new("UIListLayout")
 local TCNR_2 = Instance.new("UICorner")
+local OpenTab_2 = Instance.new("ImageButton")
 
 Tab.Name = "Tab"
 Tab.Parent = Main
-Tab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Tab.BackgroundTransparency = 1.000
+Tab.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Tab.BackgroundTransparency = 0
 Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Tab.BorderSizePixel = 0
+Tab.Visible = false
 Tab.Size = UDim2.new(0, 100, 1, 0)
+
+OpenTab_2.Name = "OpenTab"
+OpenTab_2.Parent = Tab
+OpenTab_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+OpenTab_2.BackgroundTransparency = 1.000
+OpenTab_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+OpenTab_2.BorderSizePixel = 0
+OpenTab_2.Position = UDim2.new(0, 8, 0, 0)
+OpenTab_2.Size = UDim2.new(0, 30, 0, 30)
+OpenTab_2.Image = "http://www.roblox.com/asset/?id=15381251591"
+OpenTab_2.MouseButton1Click:Connect(function()
+    Tab.Visible = false
+end)
 
 ScrollTab.Name = "ScrollTab"
 ScrollTab.Parent = Tab
@@ -625,7 +632,6 @@ local PCNR = Instance.new("UICorner")
 local MainPage = Instance.new("Frame")
 local PageList = Instance.new("Folder")
 local UIPageLayout = Instance.new("UIPageLayout")
-local PageStr = Instance.new("UIStroke")
 
 Page.Name = "Page"
 Page.Parent = Main
@@ -640,16 +646,6 @@ Page.Size = UDim2.new(0, 210, 0, 260)
 PCNR.CornerRadius = UDim.new(0, 6)
 PCNR.Name = "PCNR"
 PCNR.Parent = Page
-
-PageStr.Name = "posto"
- PageStr.Parent = Page
- PageStr.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- PageStr.Color = _G.StrokeColor
- PageStr.LineJoinMode = Enum.LineJoinMode.Round
- PageStr.Thickness = 1.5
- PageStr.Transparency = 0
- PageStr.Enabled = true
-PageStr.Archivable = true
 
 MainPage.Name = "MainPage"
 MainPage.Parent = Page
@@ -676,7 +672,7 @@ UIPageLayout.TweenTime = 0.400
 
 MakeDraggable(Top,Main)
  
- UserInputService.InputBegan:Connect(function(input)
+UserInputService.InputBegan:Connect(function(input)
   if input.KeyCode == Enum.KeyCode[yoo] then
   if uihide == false then
   uihide = true
@@ -706,12 +702,11 @@ local TabButton = Instance.new("TextButton")
 local TabImage = Instance.new("ImageLabel")
 local UIPadding_4 = Instance.new("UIPadding")
 local UIListLayout = Instance.new("UIListLayout")
-local TabButtonStroke = Instance.new("UIStroke")
 
 TabButton.Name = text.."Server"
 TabButton.Parent = ScrollTab
-TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TabButton.BackgroundTransparency = 1.000
+TabButton.BackgroundColor3 = Color3.fromRGB(0,0,0)
+TabButton.BackgroundTransparency = 0
 TabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabButton.BorderSizePixel = 0
 TabButton.ClipsDescendants = true
@@ -731,19 +726,9 @@ TabLine.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabLine.BorderSizePixel = 0
 TabLine.ClipsDescendants = true
 TabLine.Size = UDim2.new(1, 0, 0, 2)
-
-TabButtonStroke.Name = "posto"
- TabButtonStroke.Parent = TabButton
- TabButtonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- TabButtonStroke.Color = clr
- TabButtonStroke.LineJoinMode = Enum.LineJoinMode.Round
- TabButtonStroke.Thickness = 1.5
- TabButtonStroke.Transparency = 0
- TabButtonStroke.Enabled = true
-TabButtonStroke.Archivable = true
    
-   UICorner.CornerRadius = UDim.new(0, 0)
-   UICorner.Parent = TabButton
+UICorner.CornerRadius = UDim.new(0, 0)
+UICorner.Parent = TabButton
 
 local TabFrame = Instance.new("Frame")
 local UICornerFrame = Instance.new("UICorner")

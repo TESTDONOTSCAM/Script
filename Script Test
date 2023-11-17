@@ -505,8 +505,10 @@ Main.BackgroundTransparency = 0.100
 Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
 Main.ClipsDescendants = true
-Main.Position = UDim2.new(0.485958278, 0, 0.532887757, 0)
-Main.Size = UDim2.new(0, 563, 0, 366)
+Main.Position = UDim2.new(0.5, 0, 0.5, 0)
+Main.Size = UDim2.new(0, 220, 0, 300)
+
+Main:TweenSize(UDim2.new(0, 220, 0, 300),"Out","Quad",0.5,true)
 
 MCNR.CornerRadius = UDim.new(0, 6)
 MCNR.Name = "MCNR"
@@ -533,41 +535,24 @@ Top.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Top.BackgroundTransparency = 1.000
 Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Top.BorderSizePixel = 0
-Top.Size = UDim2.new(1, 0, 0, 25)
+Top.Size = UDim2.new(1, 0, 0, 30)
 
 local TCNR = Instance.new("UICorner")
 TCNR.CornerRadius = UDim.new(0, 6)
 TCNR.Name = "TCNR"
 TCNR.Parent = Top
 
-local Player = game.Players.LocalPlayer
-local Hub = Instance.new("TextLabel")
-Hub.Name = "Hub"
-Hub.Parent = Top
-Hub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Hub.BackgroundTransparency = 1.000
-Hub.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Hub.BorderSizePixel = 0
-Hub.Position = UDim2.new(0.256410271, 0, 0.400000006, 0)
-Hub.Size = UDim2.new(0.775147915, -100, -2.4000001, 100)
-Hub.Font = Enum.Font.Ubuntu
-Hub.Text = _G.HubName
-Hub.TextColor3 = Color3.fromRGB(86,255,255)
-Hub.TextScaled = true
-Hub.TextStrokeTransparency = 0.000
-Hub.TextSize = 14.000
-Hub.TextWrapped = true
+local OpenTab = Instance.new("ImageButton")
 
-local Logo = Instance.new("ImageLabel")
-Logo.Name = "Logo"
-Logo.Parent = Top
-Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Logo.BackgroundTransparency = 1.000
-Logo.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Logo.BorderSizePixel = 0
-Logo.Position = UDim2.new(0, 10, 0, 10)
-Logo.Size = UDim2.new(0, 120, 0, 120)
-Logo.Image = "http://www.roblox.com/asset/?id=14355269935"
+OpenTab.Name = "OpenTab"
+OpenTab.Parent = Top
+OpenTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+OpenTab.BackgroundTransparency = 1.000
+OpenTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+OpenTab.BorderSizePixel = 0
+OpenTab.Position = UDim2.new(0, 8, 0, 0)
+OpenTab.Size = UDim2.new(0, 30, 1, 0)
+OpenTab.Image = "http://www.roblox.com/asset/?id=15381251591"
 
 local Name = Instance.new("TextLabel")
 
@@ -599,8 +584,7 @@ Tab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Tab.BackgroundTransparency = 1.000
 Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Tab.BorderSizePixel = 0
-Tab.Position = UDim2.new(0, 10, 0, 140)
-Tab.Size = UDim2.new(0, 120, 0.677777767, -31)
+Tab.Size = UDim2.new(0, 100, 1, 0)
 
 ScrollTab.Name = "ScrollTab"
 ScrollTab.Parent = Tab
@@ -610,7 +594,8 @@ ScrollTab.BackgroundTransparency = 1.000
 ScrollTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ScrollTab.BorderSizePixel = 0
 ScrollTab.Selectable = false
-ScrollTab.Size = UDim2.new(1, 0, 1, 0)
+ScrollTab.Position = UDim2.new(0, 0, 0.126666665, 0)
+ScrollTab.Size = UDim2.new(1, 0, 0.873333335, 0)
 ScrollTab.ScrollBarThickness = 0
 
 PDD.Name = "PDD"
@@ -644,13 +629,13 @@ local PageStr = Instance.new("UIStroke")
 
 Page.Name = "Page"
 Page.Parent = Main
-Page.AnchorPoint = Vector2.new(1, 0)
-Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Page.AnchorPoint = Vector2.new(0.5, 0.5)
+Page.BackgroundColor3 = Color3.fromRGB(0, 0, 40)
 Page.BackgroundTransparency = 1.000
 Page.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Page.BorderSizePixel = 0
-Page.Position = UDim2.new(0.992110431, -6, -0.00833334494, 60)
-Page.Size = UDim2.new(0.994336367, -150, 1.01107192, -68)
+Page.Position = UDim2.new(0.5, 0, 0.5, 14)
+Page.Size = UDim2.new(0, 210, 0, 260)
 
 PCNR.CornerRadius = UDim.new(0, 6)
 PCNR.Name = "PCNR"
@@ -668,13 +653,12 @@ PageStr.Archivable = true
 
 MainPage.Name = "MainPage"
 MainPage.Parent = Page
-MainPage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainPage.BackgroundColor3 = Color3.fromRGB(0, 0, 40)
 MainPage.BackgroundTransparency = 1.000
 MainPage.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainPage.BorderSizePixel = 0
 MainPage.ClipsDescendants = true
-MainPage.Position = UDim2.new(0.117127046, 0, 0.110077783, 0)
-MainPage.Size = UDim2.new(0.770626187, 0, 0.76698035, 0)
+MainPage.Size = UDim2.new(1, 0, 1, 0)
 
 PageList.Name = "PageList"
 PageList.Parent = MainPage
@@ -707,7 +691,7 @@ Main:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
   wait(.4)
   Tab:TweenSize(UDim2.new(0, 120, 0.677777767, -31),"Out","Quad",0.5,true)
   wait(.4)
-  Page:TweenSize(UDim2.new(0.994336367, -150, 1.01107192, -68),"Out","Quad",0.5,true) -- Tween Ui Library
+  Page:TweenSize(UDim2.new(0.994336367, -150, 1.01107192, -68),"Out","Quad",0.5,true)
       end
    end
 end)
@@ -725,17 +709,28 @@ local UIListLayout = Instance.new("UIListLayout")
 local TabButtonStroke = Instance.new("UIStroke")
 
 TabButton.Name = text.."Server"
-   TabButton.Parent = ScrollTab
-   TabButton.BackgroundColor3 = Color3.fromRGB(0,0,0)
-   TabButton.BackgroundTransparency = 0.400
-   TabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)   
-   TabButton.BorderSizePixel = 0
-   TabButton.Size = UDim2.new(1,0,0,30)
-   TabButton.Font = Enum.Font.Ubuntu
-   TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-   TabButton.Text = text
-   TabButton.TextSize = 14.000
-TabButton.TextXAlignment = Enum.TextXAlignment.Left
+TabButton.Parent = ScrollTab
+TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TabButton.BackgroundTransparency = 1.000
+TabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabButton.BorderSizePixel = 0
+TabButton.ClipsDescendants = true
+TabButton.Position = UDim2.new(0, 0, 0.0774647892, 0)
+TabButton.Size = UDim2.new(1, 0, 0, 28)
+TabButton.Font = Enum.Font.Ubuntu
+TabButton.Text = text
+TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TabButton.TextSize = 14.000
+
+local TabLine = Instance.new("Frame")
+
+TabLine.Name = "TabLine"
+TabLine.Parent = ScrollTab
+TabLine.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TabLine.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabLine.BorderSizePixel = 0
+TabLine.ClipsDescendants = true
+TabLine.Size = UDim2.new(1, 0, 0, 2)
 
 TabButtonStroke.Name = "posto"
  TabButtonStroke.Parent = TabButton
@@ -755,12 +750,14 @@ local UICornerFrame = Instance.new("UICorner")
 
 TabFrame.Name = "TabFrame"
 TabFrame.Parent = TabButton
-TabFrame.ClipsDescendants = true
---TabFrame.Position = UDim2.new(0, 1, 0.1, 2)
-TabFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TabFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TabFrame.BackgroundTransparency = 1.000
-TabFrame.Position = UDim2.new(0,2,0,5)
-TabFrame.Size = UDim2.new(0,18,0,18)
+TabFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabFrame.BorderSizePixel = 0
+TabFrame.ClipsDescendants = true
+TabFrame.Position = UDim2.new(0, 0, 0, 5)
+TabFrame.Size = UDim2.new(0, 18, 0, 18)
+
 UICornerFrame.CornerRadius = UDim.new(0, 5)
 UICornerFrame.Parent = TabFrame
 
@@ -768,10 +765,11 @@ TabImage.Name = text or "TabImage"
 TabImage.Parent = TabFrame
 TabImage.BackgroundColor3 = _G.Color
 TabImage.BackgroundTransparency = 1.000
-TabImage.Position = UDim2.new(0,0,0,0)
-TabImage.Size = UDim2.new(0, 18, 0, 18)
+TabImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabImage.BorderSizePixel = 0
+TabImage.ClipsDescendants = true
+TabImage.Size = UDim2.new(1, 0, 1, 0)
 TabImage.Image = img or "rbxassetid://8666601749"
---TabImage.ImageColor3 = _G.Color
 
 local MainFramePage = Instance.new("ScrollingFrame")
 
@@ -781,7 +779,6 @@ MainFramePage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MainFramePage.BackgroundTransparency = 1.000
 MainFramePage.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainFramePage.BorderSizePixel = 0
-MainFramePage.Position = UDim2.new(0.114686899, 0, 0.093210049, 0)
 MainFramePage.Active = true
 MainFramePage.Selectable = false
 MainFramePage.Size = UDim2.new(1,0,1,0)

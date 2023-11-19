@@ -595,7 +595,7 @@ OpenTab_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 OpenTab_2.BackgroundTransparency = 1.000
 OpenTab_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 OpenTab_2.BorderSizePixel = 0
-OpenTab_2.Position = UDim2.new(0, 16, 0, 0)
+OpenTab_2.Position = UDim2.new(0, 8, 0, 0)
 OpenTab_2.Size = UDim2.new(0, 30, 0, 30)
 OpenTab_2.Visible = false
 OpenTab_2.Image = "http://www.roblox.com/asset/?id=15381251591"
@@ -623,6 +623,7 @@ OpenTab.MouseButton1Click:Connect(function()
     Tab.ZIndex = 2
     OpenTab_2.ZIndex = 3
     OpenTab_2.Visible = true
+    OpenTab_2.Position = UDim2.new(0, 8, 0, 0)
 end)
 
 ScrollTab.Name = "ScrollTab"
@@ -654,7 +655,7 @@ PLL.Padding = UDim.new(0, 2)
 TabCorner.Name = "TabCorner"
 TabCorner.Parent = Tab
 TabCorner.SortOrder = Enum.SortOrder.LayoutOrder
-TabCorner.Padding = UDim.new(0, 15)
+TabCorner.Padding = UDim.new(0, 4)
 
 TCNR_2.Name = "TCNR"
 TCNR_2.Parent = Tab
@@ -4106,19 +4107,19 @@ end)
 
 local Library = Update:Window("Blox Fruits", "")
 
-local User = Library:Tab("        Status","rbxassetid://14355269935",_G.ColorUser)
-    local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
-    local Setting = Library:Tab("        Setting","rbxassetid://14782648917",_G.ColorSetting)
-    local AutoQuest = Library:Tab("        Quest & Item","rbxassetid://9606626859",_G.ColorQuest)
-    local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.ColorStats)
-    local Sea = Library:Tab("        Seabeast [Beta]","rbxassetid://11447063791",_G.ColorSea)
-    local Combat = Library:Tab("        Combat","rbxassetid://14764193934",_G.ColorCombat)
-    local Teleport = Library:Tab("        Teleport","rbxassetid://14764218351",_G.ColorTP)
-    local Dungeon = Library:Tab("        Dungeon","rbxassetid://14764250087",_G.ColorRaid)
-    local Race = Library:Tab("        Race V4","rbxassetid://11446900930",_G.ColorRace)
-    local DevilFruit = Library:Tab("        Devil Fruit","rbxassetid://14764233722",_G.ColorDF)
-    local Shop = Library:Tab("        Shop Game","rbxassetid://14764242920",_G.ColorShop)
-local Misc = Library:Tab("        Misc+Esp","rbxassetid://11447063791",_G.ColorMisc)
+local User = Library:Tab("   Status","rbxassetid://14355269935",_G.ColorUser)
+    local Main = Library:Tab("   Main","rbxassetid://14764164264",_G.ColorMain)
+    local Setting = Library:Tab("   Setting","rbxassetid://14782648917",_G.ColorSetting)
+    local AutoQuest = Library:Tab("   Quest","rbxassetid://9606626859",_G.ColorQuest)
+    local Stats = Library:Tab("   Auto Stats","rbxassetid://14764174048",_G.ColorStats)
+    local Sea = Library:Tab("   Seabeast","rbxassetid://11447063791",_G.ColorSea)
+    local Combat = Library:Tab("   Combat","rbxassetid://14764193934",_G.ColorCombat)
+    local Teleport = Library:Tab("   Teleport","rbxassetid://14764218351",_G.ColorTP)
+    local Dungeon = Library:Tab("   Dungeon","rbxassetid://14764250087",_G.ColorRaid)
+    local Race = Library:Tab("   Race V4","rbxassetid://11446900930",_G.ColorRace)
+    local DevilFruit = Library:Tab("   Devil Fruit","rbxassetid://14764233722",_G.ColorDF)
+    local Shop = Library:Tab("   Shop Game","rbxassetid://14764242920",_G.ColorShop)
+local Misc = Library:Tab("   Misc","rbxassetid://11447063791",_G.ColorMisc)
 
 --[[  USER TABLE ]]
 

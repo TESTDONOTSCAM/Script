@@ -4088,7 +4088,7 @@ local User = Library:Tab("        Status","rbxassetid://14355269935",_G.ColorUse
     local Setting = Library:Tab("        Setting","rbxassetid://14782648917",_G.ColorSetting)
     local AutoQuest = Library:Tab("        Quest & Item","rbxassetid://9606626859",_G.ColorQuest)
     local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.ColorStats)
-    local Sea = Library:Tab("        Seabeast [Beta]","rbxassetid://11447063791",_G.ColorSea)
+    --local Sea = Library:Tab("        Seabeast [Beta]","rbxassetid://11447063791",_G.ColorSea)
     local Combat = Library:Tab("        Combat","rbxassetid://14764193934",_G.ColorCombat)
     local Teleport = Library:Tab("        Teleport","rbxassetid://14764218351",_G.ColorTP)
     local Dungeon = Library:Tab("        Dungeon","rbxassetid://14764250087",_G.ColorRaid)
@@ -9617,6 +9617,7 @@ end)
 
 --[[ Sea Beast ]]
 
+--[[
 spawn(function()
     while wait() do
         if AllWeapon then
@@ -10125,3 +10126,4 @@ spawn(function()
         end
     end
 end)
+]]--

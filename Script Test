@@ -580,7 +580,7 @@ Tab.Size = UDim2.new(0, 0, 1, 0)
 local PageStr = Instance.new("UIStroke")
 
 PageStr.Name = "posto"
- PageStr.Parent = Page
+ PageStr.Parent = Tab
  PageStr.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
  PageStr.Color = _G.StrokeColor
  PageStr.LineJoinMode = Enum.LineJoinMode.Round
@@ -595,14 +595,15 @@ OpenTab_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 OpenTab_2.BackgroundTransparency = 1.000
 OpenTab_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 OpenTab_2.BorderSizePixel = 0
-OpenTab_2.Position = UDim2.new(0, 8, 0, 0)
+OpenTab_2.Position = UDim2.new(0, 16, 0, 0)
 OpenTab_2.Size = UDim2.new(0, 30, 0, 30)
-OpenTab_2.Visible = true
+OpenTab_2.Visible = false
 OpenTab_2.Image = "http://www.roblox.com/asset/?id=15381251591"
 OpenTab_2.MouseButton1Click:Connect(function()
     Tab:TweenSize(UDim2.new(0, 0, 1, 0),"In","Quad",0.4,true)
     OpenTab_2.ZIndex = 0
     OpenTab.ZIndex = 2
+    OpenTab_2.Visible = false
 end)
 
 local OpenTab = Instance.new("ImageButton")
@@ -621,6 +622,7 @@ OpenTab.MouseButton1Click:Connect(function()
     Tab:TweenSize(UDim2.new(0, 100, 1, 0),"In","Quad",0.4,true)
     Tab.ZIndex = 2
     OpenTab_2.ZIndex = 3
+    OpenTab_2.Visible = true
 end)
 
 ScrollTab.Name = "ScrollTab"

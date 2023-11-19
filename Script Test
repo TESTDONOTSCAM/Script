@@ -513,6 +513,18 @@ MCNR.CornerRadius = UDim.new(0, 6)
 MCNR.Name = "MCNR"
 MCNR.Parent = Main
 
+local MainStroke = Instance.new("UIStroke")
+
+MainStroke.Name = "posto"
+ MainStroke.Parent = Main
+ MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+ MainStroke.Color = _G.StrokeColor
+ MainStroke.LineJoinMode = Enum.LineJoinMode.Round
+ MainStroke.Thickness = 1.5
+ MainStroke.Transparency = 0
+ MainStroke.Enabled = true
+MainStroke.Archivable = true
+
 -- Top Bar
 
 local Top = Instance.new("Frame")
@@ -565,6 +577,18 @@ Tab.BorderSizePixel = 0
 Tab.Visible = true
 Tab.Size = UDim2.new(0, 0, 1, 0)
 
+local PageStr = Instance.new("UIStroke")
+
+PageStr.Name = "posto"
+ PageStr.Parent = Page
+ PageStr.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+ PageStr.Color = _G.StrokeColor
+ PageStr.LineJoinMode = Enum.LineJoinMode.Round
+ PageStr.Thickness = 1.5
+ PageStr.Transparency = 0
+ PageStr.Enabled = true
+PageStr.Archivable = true
+
 OpenTab_2.Name = "OpenTab"
 OpenTab_2.Parent = Tab
 OpenTab_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -579,7 +603,6 @@ OpenTab_2.MouseButton1Click:Connect(function()
     Tab:TweenSize(UDim2.new(0, 0, 1, 0),"In","Quad",0.4,true)
     OpenTab_2.ZIndex = 0
     OpenTab.ZIndex = 2
-    OpenTab.Visible = true
 end)
 
 local OpenTab = Instance.new("ImageButton")
@@ -598,7 +621,6 @@ OpenTab.MouseButton1Click:Connect(function()
     Tab:TweenSize(UDim2.new(0, 100, 1, 0),"In","Quad",0.4,true)
     Tab.ZIndex = 2
     OpenTab_2.ZIndex = 3
-    OpenTab.Visible = false
 end)
 
 ScrollTab.Name = "ScrollTab"
@@ -610,6 +632,7 @@ ScrollTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ScrollTab.BorderSizePixel = 0
 ScrollTab.Selectable = false
 ScrollTab.Visible = true
+ScrollTab.ZIndex = 2
 ScrollTab.Position = UDim2.new(0, 0, 0.126666665, 0)
 ScrollTab.Size = UDim2.new(1, 0, 0.873333335, 0)
 ScrollTab.ScrollBarThickness = 0

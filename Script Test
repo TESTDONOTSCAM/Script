@@ -707,6 +707,7 @@ UIPageLayout.TouchInputEnabled = false
 UIPageLayout.TweenTime = 0.400
 
 MakeDraggable(Top,Main)
+MakeDraggable(ImageButton_2)
 
 UserInputService.InputBegan:Connect(function(input)
   if input.KeyCode == Enum.KeyCode[yoo] then

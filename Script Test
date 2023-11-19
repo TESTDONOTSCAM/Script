@@ -598,7 +598,7 @@ OpenTab_2.BorderSizePixel = 0
 OpenTab_2.Position = UDim2.new(0, 8, 0, 0)
 OpenTab_2.Size = UDim2.new(0, 30, 0, 30)
 OpenTab_2.Visible = false
-OpenTab_2.Image = "http://www.roblox.com/asset/?id=15381251591"
+OpenTab_2.Image = "http://www.roblox.com/asset/?id=15407153732"
 OpenTab_2.MouseButton1Click:Connect(function()
     Tab:TweenSize(UDim2.new(0, 0, 1, 0),"In","Quad",0.4,true)
     OpenTab_2.ZIndex = 0

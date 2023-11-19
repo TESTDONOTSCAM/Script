@@ -650,7 +650,7 @@ PDD.PaddingTop = UDim.new(0, 8)
 PLL.Name = "PLL"
 PLL.Parent = ScrollTab
 PLL.SortOrder = Enum.SortOrder.LayoutOrder
-PLL.Padding = UDim.new(0, 2)
+PLL.Padding = UDim.new(0, 0)
 
 TabCorner.Name = "TabCorner"
 TabCorner.Parent = Tab

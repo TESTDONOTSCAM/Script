@@ -3862,7 +3862,7 @@ end)
 
 spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
-		if _G.CursedChest or _G.BoneFarm then
+		if _G.BoneFarm then
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
 				setfflag("HumanoidParallelRemoveNoPhysics", "False")
 				setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -4251,6 +4251,10 @@ end)
 local AutoFarm = Main:Toggle("Auto Farm",_G.ColorMain,_G.AutoFarm,function(value)
     _G.AutoFarm = value
     StopTween(_G.AutoFarm)
+    if _G.AutoFarm == true then
+        _G.BoneFarm = false
+        _G.AutoFarmFruitMastery = false
+    end
 end)
 
 spawn(function()
@@ -4386,21 +4390,12 @@ Main:Toggle("Farm Bone",_G.ColorMain,_G.BoneFarm,function(vu)
     _G.BoneFarm = vu
     StopTween(_G.BoneFarm)
     if _G.BoneFarm == true then
-    _G.AutoFarm = false
+    _G.AutoFarm = true
     _G.AutoFarmFruitMastery = false
+    elseif _G.BoneFarm == false then
+    _G.AutoFarm = false
+    StopTween(_G.AutoFarm)
     end
-end)
-
-Main:Button("Buy Surprise",_G.ColorMain,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
-end)
-    
-Main:Button("Stat Refund",_G.ColorMain,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,2)
-end)
-    
-Main:Button("Race Reroll",_G.ColorMain,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,3)
 end)
 
 spawn(function()
@@ -4504,7 +4499,6 @@ spawn(function()
                                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                     until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
                                     if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
-                                    elseif Lv >= 1 and Lv <= 2499 then
                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                     end
                                     Attack = nil
@@ -4525,6 +4519,18 @@ spawn(function()
 			end
 		end)
 	end
+end)
+
+Main:Button("Buy Surprise",_G.ColorMain,function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
+end)
+    
+Main:Button("Stat Refund",_G.ColorMain,function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,2)
+end)
+    
+Main:Button("Race Reroll",_G.ColorMain,function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,3)
 end)
 
 --[[
@@ -4563,6 +4569,7 @@ Main:Toggle("Auto Mastery",_G.ColorMain,false,function(vu)
     StopTween(_G.AutoFarmFruitMastery)
     if _G.AutoFarmFruitMastery == true then
         _G.AutoFarm = true
+        _G.BoneFarm = false
     elseif _G.AutoFarmFruitMastery == false then
         _G.AutoFarm = false
         StopTween(_G.AutoFarm)

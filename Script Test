@@ -562,7 +562,7 @@ Tab.BackgroundColor3 = Color3.fromRGB(0,0,0)
 Tab.BackgroundTransparency = 0
 Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Tab.BorderSizePixel = 0
-Tab.Visible = false
+Tab.Visible = true
 Tab.Size = UDim2.new(0, 100, 1, 0)
 
 OpenTab_2.Name = "OpenTab"
@@ -575,8 +575,7 @@ OpenTab_2.Position = UDim2.new(0, 8, 0, 0)
 OpenTab_2.Size = UDim2.new(0, 30, 0, 30)
 OpenTab_2.Image = "http://www.roblox.com/asset/?id=15381251591"
 OpenTab_2.MouseButton1Click:Connect(function()
-    Tab.Visible = false
-    Tab.ZIndex = -1
+    Tab:TweenSize(UDim2.new(0, 0, 1, 0),"In","Quad",0.4,true)
 end)
 
 local OpenTab = Instance.new("ImageButton")
@@ -591,7 +590,7 @@ OpenTab.Position = UDim2.new(0, 8, 0, 0)
 OpenTab.Size = UDim2.new(0, 30, 1, 0)
 OpenTab.Image = "http://www.roblox.com/asset/?id=15381251591"
 OpenTab.MouseButton1Click:Connect(function()
-    Tab.Visible = true
+    Tab:TweenSize(UDim2.new(0, 100, 1, 0),"In","Quad",0.4,true)
     Tab.ZIndex = 2
 end)
 

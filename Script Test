@@ -578,12 +578,8 @@ OpenTab_2.Image = "http://www.roblox.com/asset/?id=15381251591"
 OpenTab_2.MouseButton1Click:Connect(function()
     Tab:TweenSize(UDim2.new(0, 0, 1, 0),"In","Quad",0.4,true)
     OpenTab_2.ZIndex = 0
-    OpenTab.ZIndex = 1
-    ScrollTab.Visible = false
-    TabButton.Visible = false
-    TabLine.Visible = false
-    TabFrame.Visible = false
-    TabImage.Visible = false
+    OpenTab.ZIndex = 2
+    OpenTab.Visible = true
 end)
 
 local OpenTab = Instance.new("ImageButton")
@@ -602,12 +598,7 @@ OpenTab.MouseButton1Click:Connect(function()
     Tab:TweenSize(UDim2.new(0, 100, 1, 0),"In","Quad",0.4,true)
     Tab.ZIndex = 2
     OpenTab_2.ZIndex = 3
-    OpenTab.ZIndex = 0
-    ScrollTab.Visible = true
-    TabButton.Visible = true
-    TabLine.Visible = true
-    TabFrame.Visible = true
-    TabImage.Visible = true
+    OpenTab.Visible = false
 end)
 
 ScrollTab.Name = "ScrollTab"
@@ -690,7 +681,7 @@ UIPageLayout.TouchInputEnabled = false
 UIPageLayout.TweenTime = 0.400
 
 MakeDraggable(Top,Main)
- 
+
 UserInputService.InputBegan:Connect(function(input)
   if input.KeyCode == Enum.KeyCode[yoo] then
   if uihide == false then
@@ -730,6 +721,7 @@ TabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabButton.BorderSizePixel = 0
 TabButton.ClipsDescendants = true
 TabButton.Visible = true
+TabButton.ZIndex = 2
 TabButton.Position = UDim2.new(0, 0, 0.0774647892, 0)
 TabButton.Size = UDim2.new(1, 0, 0, 28)
 TabButton.Font = Enum.Font.Ubuntu
@@ -746,6 +738,7 @@ TabLine.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabLine.BorderSizePixel = 0
 TabLine.ClipsDescendants = true
 TabLine.Visible = true
+TabLine.ZIndex = 2
 TabLine.Size = UDim2.new(1, 0, 0, 2)
    
 UICorner.CornerRadius = UDim.new(0, 0)
@@ -762,6 +755,7 @@ TabFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabFrame.BorderSizePixel = 0
 TabFrame.ClipsDescendants = true
 TabFrame.Visible = true
+TabFrame.ZIndex = 2
 TabFrame.Position = UDim2.new(0, 0, 0, 5)
 TabFrame.Size = UDim2.new(0, 18, 0, 18)
 
@@ -776,6 +770,7 @@ TabImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabImage.BorderSizePixel = 0
 TabImage.ClipsDescendants = true
 TabImage.Visible = true
+TabImage.ZIndex = 2
 TabImage.Size = UDim2.new(1, 0, 1, 0)
 TabImage.Image = img or "rbxassetid://8666601749"
 

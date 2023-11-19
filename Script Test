@@ -2117,8 +2117,8 @@ Sep1.Parent = Seperator
 Sep1.BackgroundColor3 = color or _G.StrokeColor
 Sep1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Sep1.BorderSizePixel = 0
-Sep1.Position = UDim2.new(0, -15, 0, 0)
-Sep1.Size = UDim2.new(0, 80, 0, 3)
+Sep1.Position = UDim2.new(0, 25, 0, 0)
+Sep1.Size = UDim2.new(0, 20, 0, 3)
 
 Sep2.Name = "Sep2"
 Sep2.Parent = Seperator
@@ -2126,8 +2126,8 @@ Sep2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Sep2.BackgroundTransparency = 1.000
 Sep2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Sep2.BorderSizePixel = 0
-Sep2.Position = UDim2.new(0, 88, 0, -9)
-Sep2.Size = UDim2.new(0, 108, 0, 20)
+Sep2.Position = UDim2.new(0, 65, 0, -9)
+Sep2.Size = UDim2.new(0, 75, 0, 20)
 Sep2.Font = Enum.Font.Ubuntu
 Sep2.Text = text
 Sep2.TextColor3 = Color3.fromRGB(224, 224, 224)
@@ -2138,8 +2138,8 @@ Sep3.Parent = Seperator
 Sep3.BackgroundColor3 = color or _G.StrokeColor
 Sep3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Sep3.BorderSizePixel = 0
-Sep3.Position = UDim2.new(0, 216, 0, 0)
-Sep3.Size = UDim2.new(0, 78, 0, 3)
+Sep3.Position = UDim2.new(0, 100, 0, 0)
+Sep3.Size = UDim2.new(0, 20, 0, 3)
 end
 
 function main:Line(clr)

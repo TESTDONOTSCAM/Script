@@ -2091,55 +2091,55 @@ function main:LabelIMG(text,img,color)
 function main:Seperator(text,color)
 
 local Seperator = Instance.new("Frame")
-   local Sep1 = Instance.new("Frame")
-   local Sep2 = Instance.new("TextLabel")
+local Sep1 = Instance.new("Frame")
+local Sep2 = Instance.new("TextLabel")
 local Sep3 = Instance.new("Frame")
 local UICorner_15 = Instance.new("UICorner")
 local UIPadding_13 = Instance.new("UIPadding")
-
+    
 Seperator.Name = "Seperator"
-Seperator.Parent = MainFramePage
-Seperator.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
-Seperator.BackgroundTransparency = 1.000
-Seperator.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Seperator.BorderSizePixel = 0
-Seperator.Position = UDim2.new(0.0120000001, 0, 0.00999999978, 0)
-Seperator.Size = UDim2.new(0, 313, 0, 5)
-
-UICorner_15.CornerRadius = UDim.new(0, 4)
-UICorner_15.Parent = Seperator
-
-UIPadding_13.Parent = Seperator
-UIPadding_13.PaddingLeft = UDim.new(0, 10)
-
-Sep1.Name = "Sep1"
-Sep1.Parent = Seperator
-Sep1.BackgroundColor3 = color or _G.StrokeColor
-Sep1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Sep1.BorderSizePixel = 0
-Sep1.Position = UDim2.new(0, 25, 0, 0)
-Sep1.Size = UDim2.new(0, 20, 0, 3)
-
-Sep2.Name = "Sep2"
-Sep2.Parent = Seperator
-Sep2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Sep2.BackgroundTransparency = 1.000
-Sep2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Sep2.BorderSizePixel = 0
-Sep2.Position = UDim2.new(0, 65, 0, -9)
-Sep2.Size = UDim2.new(0, 75, 0, 20)
-Sep2.Font = Enum.Font.Ubuntu
-Sep2.Text = text
-Sep2.TextColor3 = Color3.fromRGB(224, 224, 224)
-Sep2.TextSize = 14.000
-
-Sep3.Name = "Sep3"
-Sep3.Parent = Seperator
-Sep3.BackgroundColor3 = color or _G.StrokeColor
-Sep3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Sep3.BorderSizePixel = 0
-Sep3.Position = UDim2.new(0, 100, 0, 0)
-Sep3.Size = UDim2.new(0, 20, 0, 3)
+    Seperator.Parent = MainFramePage
+    Seperator.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+    Seperator.BackgroundTransparency = 1.000
+    Seperator.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Seperator.BorderSizePixel = 0
+    Seperator.Position = UDim2.new(0.0120000001, 0, 0.00999999978, 0)
+Seperator.Size = UDim2.new(0, 150, 0, 5)
+    
+    UICorner_15.CornerRadius = UDim.new(0, 4)
+    UICorner_15.Parent = Seperator
+    
+    UIPadding_13.Parent = Seperator
+    UIPadding_13.PaddingLeft = UDim.new(0, 10)
+    
+    Sep1.Name = "Sep1"
+    Sep1.Parent = Seperator
+    Sep1.BackgroundColor3 = color or _G.StrokeColor
+    Sep1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Sep1.BorderSizePixel = 0
+    Sep1.Position = UDim2.new(0, -15, 0, 0)
+    Sep1.Size = UDim2.new(0, 80, 0, 3)
+    
+    Sep2.Name = "Sep2"
+    Sep2.Parent = Seperator
+    Sep2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Sep2.BackgroundTransparency = 1.000
+    Sep2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Sep2.BorderSizePixel = 0
+    Sep2.Position = UDim2.new(0, 88, 0, -9)
+    Sep2.Size = UDim2.new(0, 108, 0, 20)
+    Sep2.Font = Enum.Font.Ubuntu
+    Sep2.Text = text
+    Sep2.TextColor3 = Color3.fromRGB(224, 224, 224)
+    Sep2.TextSize = 14.000
+    
+    Sep3.Name = "Sep3"
+    Sep3.Parent = Seperator
+    Sep3.BackgroundColor3 = color or _G.StrokeColor
+    Sep3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Sep3.BorderSizePixel = 0
+    Sep3.Position = UDim2.new(0, 216, 0, 0)
+    Sep3.Size = UDim2.new(0, 78, 0, 3)
 end
 
 function main:Line(clr)

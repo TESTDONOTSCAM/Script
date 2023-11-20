@@ -510,7 +510,7 @@ Main.Size = UDim2.new(0, 220, 0, 300)
 
 Main:TweenSize(UDim2.new(0, 220, 0, 300),"Out","Quad",0.5,true)
 
-MCNR.CornerRadius = UDim.new(0, 6)
+MCNR.CornerRadius = UDim.new(0, 4)
 MCNR.Name = "MCNR"
 MCNR.Parent = Main
 
@@ -540,7 +540,7 @@ Top.BorderSizePixel = 0
 Top.Size = UDim2.new(1, 0, 0, 30)
 
 local TCNR = Instance.new("UICorner")
-TCNR.CornerRadius = UDim.new(0, 6)
+TCNR.CornerRadius = UDim.new(0, 4)
 TCNR.Name = "TCNR"
 TCNR.Parent = Top
 
@@ -622,7 +622,8 @@ if tabhide == false then
         Tab:TweenSize(UDim2.new(0, 100, 1, 0),"In","Quad",0.4,true)
         Tab.ZIndex = 2
         OpenTab.ZIndex = 4
-        OpenTab.Position = UDim2.new(0, 4, 0, 0)
+        OpenTab.Position = UDim2.new(0, 2, 0, 0)
+        OpenTab.Size = UDim2.new(0, 20, 1, 0)
         OpenTab.Rotation = 270.000
         OpenTab_2.Visible = true
         OpenTab_2.ZIndex = 3
@@ -632,8 +633,8 @@ if tabhide == false then
         OpenTab.ZIndex = 2
         OpenTab.Rotation = 0
         OpenTab.Position = UDim2.new(0, 8, 0, 0)
+        OpenTab.Size = UDim2.new(0, 30, 1, 0)
         OpenTab_2.ZIndex = 0
-        OpenTab_2.Visible = false
     end
 end)
 
@@ -884,148 +885,6 @@ if abc == false then
     ScrollTab.CanvasSize = UDim2.new(0,0,0,PLL.AbsoluteContentSize.Y + 20)
    end)
 end)
-
-function Update:Notification(textdesc)
-   local NotificationHold = Instance.new("TextButton")
-   local NotificationFrame = Instance.new("Frame")
-   local OkayBtn = Instance.new("TextButton")
-   local OkayBtnCorner = Instance.new("UICorner")
-   local OkayBtnTitle = Instance.new("TextLabel")
-   local NotificationTitle = Instance.new("TextLabel")
-   local NotificationDesc = Instance.new("TextLabel")
-   local NotifCorner = Instance.new("UICorner")
-   local NotifHolderUIStroke = Instance.new("UIStroke")
-   local Line = Instance.new("Frame")
-   
-   NotificationHold.Name = "NotificationHold"
-   NotificationHold.Parent = MyLibrary
-   NotificationHold.BackgroundColor3 = _G.WindowBackgroundColor
-   NotificationHold.BackgroundTransparency = 1
-   NotificationHold.BorderSizePixel = 0
-   NotificationHold.Size = UDim2.new(0, 589, 0, 378)
-   NotificationHold.AutoButtonColor = false
-   NotificationHold.Font = Enum.Font.SourceSans
-   NotificationHold.Text = ""
-   NotificationHold.TextColor3 = _G.SectionTextColor
-   NotificationHold.TextSize = 13.000
-   
-   TweenService:Create(NotificationHold, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-    BackgroundTransparency = 1
-   }):Play()
-   wait(0.4)
-   
-   NotificationFrame.Name = "NotificationFrame"
-   NotificationFrame.Parent = NotificationHold
-   NotificationFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-   NotificationFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-   NotificationFrame.BorderColor3 = _G.SectionColor
-   NotificationFrame.BorderSizePixel = 0
-   NotificationFrame.Transparency = 0
-   NotificationFrame.ClipsDescendants = true
-   NotificationFrame.Position = UDim2.new(0, 295, 0, 190)
-   NotificationFrame.Size = UDim2.new(0, 0, 0, 0)
-   
-   NotificationFrame:TweenSize(UDim2.new(0, 400, 0, 250), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-   
-   NotifCorner.Name = "NotifCorner"
-   NotifCorner.Parent = NotificationFrame
-   NotifCorner.CornerRadius = UDim.new(0, 5)
-   
-   NotifHolderUIStroke.Name = "NotifHolderUIStroke"
-   NotifHolderUIStroke.Parent = NotificationFrame
-   NotifHolderUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-   NotifHolderUIStroke.Color = _G.SectionColor
-   NotifHolderUIStroke.LineJoinMode = Enum.LineJoinMode.Round
-   NotifHolderUIStroke.Thickness = 1
-   NotifHolderUIStroke.Transparency = 0
-   NotifHolderUIStroke.Enabled = true
-   NotifHolderUIStroke.Archivable = true
-   
-   OkayBtn.Name = "OkayBtn"
-   OkayBtn.Parent = NotificationFrame
-   OkayBtn.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
-   OkayBtn.BorderSizePixel = 1
-   OkayBtn.BorderColor3 = _G.SectionColor
-   OkayBtn.Position = UDim2.new(0, 125, 0, 190)
-   OkayBtn.Size = UDim2.new(0, 150, 0, 30)
-   OkayBtn.AutoButtonColor = true
-   OkayBtn.Font = Enum.Font.SourceSans
-   OkayBtn.Text = ""
-   OkayBtn.TextColor3 = _G.SectionTextColor
-   OkayBtn.TextSize = 13.000
-   
-   OkayBtnCorner.CornerRadius = UDim.new(0, 5)
-   OkayBtnCorner.Name = "OkayBtnCorner"
-   OkayBtnCorner.Parent = OkayBtn
-   
-   OkayBtnTitle.Name = "OkayBtnTitle"
-   OkayBtnTitle.Parent = OkayBtn
-   OkayBtnTitle.BackgroundColor3 = _G.SectionColor
-   OkayBtnTitle.BackgroundTransparency = 1.000
-   OkayBtnTitle.Size = UDim2.new(0, 150, 0, 30)
-   OkayBtnTitle.Text = "OK"
-   OkayBtnTitle.Font = Enum.Font.Gotham
-   OkayBtnTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
-   OkayBtnTitle.TextSize = 22.000
-   
-   NotificationTitle.Name = "NotificationTitle"
-   NotificationTitle.Parent = NotificationFrame
-   NotificationTitle.BackgroundColor3 = _G.SectionColor
-   NotificationTitle.BackgroundTransparency = 1.000
-   NotificationTitle.Position = UDim2.new(0, 0, 0, 10)
-   NotificationTitle.Size = UDim2.new(0, 400, 0, 25)
-   NotificationTitle.ZIndex = 3
-   NotificationTitle.Font = Enum.Font.Gotham
-   NotificationTitle.Text = "Notification"
-   NotificationTitle.TextColor3 = Color3.fromRGB(255, 0, 0)
-   NotificationTitle.TextSize = 22.000
-   
-   Line.Name = "Line"
-   Line.Parent = NotificationFrame
-   Line.BackgroundColor3 = _G.SectionColor
-   Line.BorderSizePixel = 0
-   Line.Position = UDim2.new(0, 10, 0, 40)
-   Line.Size = UDim2.new(0, 380, 0, 1)
-   
-   NotificationDesc.Name = "NotificationDesc"
-   NotificationDesc.Parent = NotificationFrame
-   NotificationDesc.BackgroundColor3 = _G.SectionColor
-   NotificationDesc.BackgroundTransparency = 1.000
-   NotificationDesc.Position = UDim2.new(0, 10, 0, 80)
-   NotificationDesc.Size = UDim2.new(0, 380, 0, 200)
-   NotificationDesc.Font = Enum.Font.Gotham
-   NotificationDesc.Text = textdesc
-   NotificationDesc.TextScaled = false
-   NotificationDesc.TextColor3 = _G.SectionTextColor
-   NotificationDesc.TextSize = 16.000
-   NotificationDesc.TextWrapped = true
-   NotificationDesc.TextXAlignment = Enum.TextXAlignment.Center
-   NotificationDesc.TextYAlignment = Enum.TextYAlignment.Top
-   
-   OkayBtn.MouseEnter:Connect(function()
-    TweenService:Create(OkayBtn, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-     BackgroundColor3 = Color3.fromRGB(34,34,34)}):Play()
-    end)
-   
-   OkayBtn.MouseLeave:Connect(function()
-    TweenService:Create(OkayBtn, TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-     BackgroundColor3 = Color3.fromRGB(25, 25, 25)}):Play()
-    end)
-   
-   OkayBtn.MouseButton1Click:Connect(function()
-    NotificationFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-   
-    wait(0.4)
-   
-    TweenService:Create(NotificationHold, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-     BackgroundTransparency = 1
-    }):Play()
-   
-    wait(.3)
-   
-    NotificationHold:Destroy()
-    end)
-end
 
 local main = {}
 

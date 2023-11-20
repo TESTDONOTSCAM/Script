@@ -2227,17 +2227,17 @@ end
 function TP1(Pos)
     Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance < 25 then
-        Speed = 250
+        Speed = 100
     elseif Distance < 50 then
-        Speed = 210
+        Speed = 100
     elseif Distance < 150 then
-        Speed = 180
+        Speed = 110
     elseif Distance < 250 then
-        Speed = 170
+        Speed = 120
     elseif Distance < 500 then
-        Speed = 160
+        Speed = 125
     elseif Distance < 750 then
-        Speed = 150
+        Speed = 130
     elseif Distance >= 1000 then
         Speed = 150
     end
@@ -2266,46 +2266,6 @@ function TP(Pos)
     _G.Clip = false
 end
 
-spawn(function()
-	while task.wait() do
-		pcall(function()
-			if StatrMagnet then
-				if _G.AF then
-					for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
-							if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 375 then
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								v.Humanoid:ChangeState(14)
-								v.Humanoid.JumpPower = 0
-								v.Humanoid.WalkSpeed = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-								v.HumanoidRootPart.CFrame = PosMon
-								sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-							end
-						end
-					end
-				else
-					for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
-						if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 350 then
-							if v.Humanoid:FindFirstChild("Animator") then
-								v.Humanoid.Animator:Destroy()
-							end
-							v.Humanoid:ChangeState(14)
-							v.Humanoid.JumpPower = 0
-							v.Humanoid.WalkSpeed = 0
-							v.HumanoidRootPart.CanCollide = false
-							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-							v.HumanoidRootPart.CFrame = PosMon
-						sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-					end
-				end
-			end
-		end)
-	end
-end)
-
 _G.AntiCheat = true
 
 spawn(function()
@@ -2328,6 +2288,7 @@ local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.Col
 
 Main:Toggle("Auto Farm",_G.ColorMain,false,function(vu)
     _G.AF = vu
+    StopTween(_G.AF)
 end)
 
 spawn(function()
@@ -2337,13 +2298,11 @@ spawn(function()
                 for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         PosMon = v.HumanoidRootPart.CFrame
-                        StatrMagnet = true
                     repeat wait()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,6) * PosY)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Test2
-                    StatrMagnet = false
                     end
                 end
             end)

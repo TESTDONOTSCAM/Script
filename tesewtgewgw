@@ -2267,12 +2267,42 @@ function TP(Pos)
 end
 
 spawn(function()
+    pcall(function()
+    while wait() do
+    if _G.Test2 == true then
+    if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
+    local Noclip = Instance.new("BodyVelocity")
+    Noclip.Name = "BodyClip"
+    Noclip.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+    Noclip.MaxForce = Vector3.new(100000,100000,100000)
+    Noclip.Velocity = Vector3.new(0,0,0)
+                end
+            end
+        end
+    end)
+end)
+    
+spawn(function()
+    pcall(function()
+    game:GetService("RunService").Stepped:Connect(function()
+    if _G.Test2 == true then
+    for _, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+    if v:IsA("BasePart") then
+    v.CanCollide = false
+                    end
+                end
+            end
+        end)
+    end)
+end)
+
+spawn(function()
 	while task.wait() do
 		pcall(function()
 			if StatrMagnet then
 				if _G.Test2 then
-						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-							if v.Name == Ms and (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 375 then
+						for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
+							if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 375 then
 								if v.Humanoid:FindFirstChild("Animator") then
 									v.Humanoid.Animator:Destroy()
 								end
@@ -2287,7 +2317,7 @@ spawn(function()
 						end
 					end
 				else
-					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
 						if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 350 then
 							if v.Humanoid:FindFirstChild("Animator") then
 								v.Humanoid.Animator:Destroy()
@@ -2304,21 +2334,6 @@ spawn(function()
 			end
 		end)
 	end
-end)
-
-spawn(function()
-    while wait() do
-        if TestStartMagnet then
-            pcall(function()
-                StatrMagnet = true
-                print("startmagnet true")
-                wait(10)
-                StatrMagnet = false
-                print("startmagnet false")
-                wait(10)
-            end)
-        end
-    end
 end)
 
 local Library = Update:Window("Blox Fruits", "")
@@ -2341,14 +2356,14 @@ spawn(function()
                         end
                         v.Humanoid.JumpPower = 0
                         v.Humanoid:ChangeState(11)
-                        TestStartMagnet = true
+                        StatrMagnet = true
                         print("StartMagnet")
                     repeat wait()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Test2
-                    TestStartMagnet = false
+                    StatrMagnet = false
                     end
                 end
             end)

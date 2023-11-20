@@ -2302,11 +2302,11 @@ spawn(function()
     while wait() do
         if _G.CD then
             pcall(function()
-                local args = {
-                    [1] = "5cdfad47-cd92-45ba-9ae7-e81de52a572b"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("DropsService"):WaitForChild("RF"):WaitForChild("CollectDrop"):InvokeServer(unpack(args))
+                if game:GetService("Workspace").Camera.Drops.Drop.Center then
+                    TPP(game:GetService("Workspace").Camera.Drops.Drop.Center.CFrame)
+                    wait(0.3)
+                    game:service('VirtualInputManager'):SendKeyEvent(true, "E", false, game)
+                end
             end)
         end
     end

@@ -2095,13 +2095,13 @@ while wait() do
     if Type == 2 then
         PosY = CFrame.new(0,PosY,0)
 		wait()
-		PosY = CFrame.new(0,PosY,-45)
+		PosY = CFrame.new(0,PosY,-4)
 		wait()
-		PosY = CFrame.new(45,PosY,0)
+		PosY = CFrame.new(4,PosY,0)
 		wait()
-		PosY = CFrame.new(0,PosY,45)
+		PosY = CFrame.new(0,PosY,4)
 		wait()
-		PosY = CFrame.new(-45,PosY,0)
+		PosY = CFrame.new(-4,PosY,0)
     	end
     end
 end)
@@ -2359,7 +2359,7 @@ spawn(function()
                         StatrMagnet = true
                         print("StartMagnet")
                     repeat wait()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,4))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,4) * PosY)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Test2

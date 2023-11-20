@@ -2066,6 +2066,206 @@ end
    return uitab
 end
 
+Type = 1
+spawn(function()
+while wait(.1) do
+    if Type == 1 then
+        Pos = CFrame.new(0,PosY,0)
+		wait(.1)
+		Pos = CFrame.new(0,PosY,-15)
+		wait(.1)
+		Pos = CFrame.new(15,PosY,0)
+		wait(.1)
+		Pos = CFrame.new(0,PosY,15)
+		wait(.1)
+		Pos = CFrame.new(-15,PosY,0)
+    	end
+    end
+end)
+
+spawn(function()
+while wait(.1) do
+    Type = 1
+	end
+end)
+
+Type = 2
+spawn(function()
+while wait() do
+    if Type == 2 then
+        PosY = CFrame.new(0,PosY,0)
+		wait()
+		PosY = CFrame.new(0,PosY,-45)
+		wait()
+		PosY = CFrame.new(45,PosY,0)
+		wait()
+		PosY = CFrame.new(0,PosY,45)
+		wait()
+		PosY = CFrame.new(-45,PosY,0)
+    	end
+    end
+end)
+
+spawn(function()
+while wait() do
+    Type = 2
+	end
+end)
+
+function TPBSafe(Pos)
+	local tween_s3 = game:service"TweenService"
+	local info3 = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - Pos.Position).Magnitude/170, Enum.EasingStyle.Linear)
+	tween3 = tween_s3:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, info3, {CFrame = Pos})
+tween3:Play()
+tween3.Completed:Wait(E)
+
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tween3:Cancel()
+end
+	return tweenfunc
+end
+
+function TPB3(Pos)
+	local tween_sBf = game:service"TweenService"
+	local infoBf = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - Pos.Position).Magnitude/600, Enum.EasingStyle.Linear)
+	tweenBf = tween_sBf:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoBf, {CFrame = Pos})
+tweenBf:Play()
+tweenBf.Completed:Wait(E)
+
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tweenBf:Cancel()
+end
+	return tweenfunc
+end
+
+function TPB(Pos)
+	local tween_sB = game:service"TweenService"
+	local infoB = TweenInfo.new((game:GetService("Workspace").Boats.Guardian.VehicleSeat.CFrame.Position - Pos.Position).Magnitude/180, Enum.EasingStyle.Linear)
+	tweenB = tween_sB:Create(game:GetService("Workspace").Boats.Guardian.VehicleSeat, infoB, {CFrame = Pos})
+tweenB:Play()
+tweenB.Completed:Wait(E)
+
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tweenB:Cancel()
+end
+	return tweenfunc
+end
+	
+function TPP(CFgo)
+	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0 or not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") then tweenP:Cancel() repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 wait(7) return end
+	local tween_sP = game:service"TweenService"
+	local infoP = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/150, Enum.EasingStyle.Linear)
+	tweenP = tween_sP:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], infoP, {CFrame = CFgo})
+tweenP:Play()
+tweenP.Completed:Wait(E)
+
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tweenP:Cancel()
+end
+	return tweenfunc
+end
+
+function TPP2(CFgo)
+	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0 or not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") then tweenPs:Cancel() repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 wait(7) return end
+	local tween_sPs = game:service"TweenService"
+	local infoPs = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/170, Enum.EasingStyle.Linear)
+	tweenPs = tween_sPs:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], infoPs, {CFrame = CFgo})
+tweenPs:Play()
+	
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tweenPs:Cancel()
+end
+	return tweenfunc
+end
+
+function topos2(Pos)
+	Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+	pcall(function() tweenT = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/180, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+	tweenT:Play()
+	tweenT.Completed:Wait(E)
+end
+    
+-- Topos Script
+function topos(Pos)
+        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/140, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+        tween:Play()
+        if Distance <= 250 then
+            tween:Cancel()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+        end
+        if _G.StopTween == true then
+            tween:Cancel()
+            _G.Clip = false
+        end
+    end
+    
+function GetDistance(target)
+    return math.floor((target.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
+end
+
+function BTP(P)
+repeat wait(1)
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+    task.wait()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+until (P.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500
+end
+
+function TP1(Pos)
+    Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if Distance < 25 then
+        Speed = 250
+    elseif Distance < 50 then
+        Speed = 210
+    elseif Distance < 150 then
+        Speed = 180
+    elseif Distance < 250 then
+        Speed = 170
+    elseif Distance < 500 then
+        Speed = 160
+    elseif Distance < 750 then
+        Speed = 150
+    elseif Distance >= 1000 then
+        Speed = 150
+    end
+    game:GetService("TweenService"):Create(
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = Pos}
+    ):Play()
+end
+    
+-- TP Script
+function TP(Pos)
+    Distance = (Pos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if Distance < 500 then
+    Speed = 700000
+    elseif Distance >= 1000 then
+    Speed = 500
+    end
+    game:GetService("TweenService"):Create(
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+    TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+    {CFrame = Pos}
+    ):Play()
+    _G.Clip = true
+    wait(Distance/Speed)
+    _G.Clip = false
+end
+
 spawn(function()
 	while task.wait() do
 		pcall(function()
@@ -2166,7 +2366,7 @@ end
 
 MIo = {"0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"}
 
-Setting:Toggle("Fast Attack",_G.ColorSetting,true,function(vu)
+Main:Toggle("Fast Attack",_G.ColorSetting,true,function(vu)
 	_G.FastAttack = vu
 end)
 
@@ -2217,7 +2417,7 @@ spawn(function()
     end)
 end)
 
-Setting:Dropdown2("Fast Attack Delay ",_G.ColorSetting,"0",MIo,function(vu)
+Main:Dropdown2("Fast Attack Delay ",_G.ColorSetting,"0",MIo,function(vu)
 	_G.FastAttack_Mode = vu
 end)
 

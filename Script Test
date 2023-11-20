@@ -4024,8 +4024,8 @@ Main:Seperator("Auto Farm",_G.ColorMain)
 
 local WeaponList = {
     "Melee",
-    "Devil Fruit",
     "Sword",
+    "Devil Fruit",
   }
 
 

@@ -2119,8 +2119,8 @@ Seperator.Size = UDim2.new(0, 200, 0, 5)
     Sep2.BackgroundTransparency = 1.000
     Sep2.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Sep2.BorderSizePixel = 0
-    Sep2.Position = UDim2.new(0, 88, 0, -9)
-    Sep2.Size = UDim2.new(0, 108, 0, 20)
+    Sep2.Position = UDim2.new(0, 70, 0, -9)
+    Sep2.Size = UDim2.new(0, 140, 0, 20)
     Sep2.Font = Enum.Font.Ubuntu
     Sep2.Text = text
     Sep2.TextColor3 = Color3.fromRGB(224, 224, 224)
@@ -2131,8 +2131,8 @@ Seperator.Size = UDim2.new(0, 200, 0, 5)
     Sep3.BackgroundColor3 = color or _G.StrokeColor
     Sep3.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Sep3.BorderSizePixel = 0
-    Sep3.Position = UDim2.new(0, 216, 0, 0)
-    Sep3.Size = UDim2.new(0, 78, 0, 3)
+    Sep3.Position = UDim2.new(0, 200, 0, 0)
+    Sep3.Size = UDim2.new(0, 40, 0, 5)
 end
 
 function main:Line(clr)

@@ -5315,20 +5315,6 @@ end)
     end
     end
     end)
-    end)
-    
-    AutoQuest:Toggle("Auto Swan Glasses Hop",_G.ColorQuest,_G.AutoFarmSwanGlasses_Hop,function(value)
-    _G.AutoFarmSwanGlasses_Hop = value
-    end)
-    
-    spawn(function()
-    pcall(function()
-    while wait(.1) do
-    if (_G.AutoFarmSwanGlasses and _G.AutoFarmSwanGlasses_Hop) and World2 and not game:GetService("ReplicatedStorage"):FindFirstChild("Don Swan") and not game:GetService("Workspace").Enemies:FindFirstChild("Don Swan") then
-    Hop()
-    end
-    end
-    end)
 end)
 
 AutoQuest:Seperator("World 3",_G.ColorQuest)
@@ -6217,7 +6203,7 @@ end)
 
     AutoQuest:Seperator("Legendary Sword",_G.ColorQuest)
     
-    AutoQuest:Toggle("Auto Legendary Sword",_G.ColorQuest,_G.AutoBuyLegendarySword,function(value)
+    AutoQuest:Toggle("Legendary Sword",_G.ColorQuest,_G.AutoBuyLegendarySword,function(value)
     _G.AutoBuyLegendarySword = value
     end)
     
@@ -6249,17 +6235,17 @@ end)
     end
     end)
     
-    AutoQuest:Toggle("Auto Legendary Sword Hop",_G.ColorQuest,_G.AutoBuyLegendarySword_Hop,function(value)
+    AutoQuest:Toggle("Legendary Sword Hop",_G.ColorQuest,_G.AutoBuyLegendarySword_Hop,function(value)
     _G.AutoBuyLegendarySword_Hop = value
     end)
     
-    AutoQuest:Seperator("Enchancement Colour",_G.ColorQuest)
+    AutoQuest:Seperator("Enchancement Color",_G.ColorQuest)
     
-    AutoQuest:Toggle("Auto Enchancement Colour",_G.ColorQuest,_G.AutoBuyEnchancementColour,function(value)
+    AutoQuest:Toggle("Enchancement Color",_G.ColorQuest,_G.AutoBuyEnchancementColour,function(value)
     _G.AutoBuyEnchancementColour = value
     end)
     
-    AutoQuest:Toggle("Auto Enchancement Hop",_G.ColorQuest,_G.AutoBuyEnchancementColour_Hop,function(value)
+    AutoQuest:Toggle("Enchancement Hop",_G.ColorQuest,_G.AutoBuyEnchancementColour_Hop,function(value)
     _G.AutoBuyEnchancementColour_Hop = value
     end)
     
@@ -6408,7 +6394,7 @@ end)
     end)
     end)
     
-    AutoQuest:Toggle("Auto Observation Haki v2",_G.ColorQuest,_G.AutoObservationv2,function(value)
+    AutoQuest:Toggle("Observation Haki v2",_G.ColorQuest,_G.AutoObservationv2,function(value)
     _G.AutoObservationv2 = value
     StopTween(_G.AutoObservationv2)
     end)
@@ -9269,12 +9255,12 @@ end)
     NoDodgeCool()
     end)
     
-    Misc:Toggle("Infinite Energy",_G.ColorMisc,false,function(value)
+    Misc:Toggle("Energy",_G.ColorMisc,false,function(value)
     InfiniteEnergy = value
     originalstam = LocalPlayer.Character.Energy.Value
     end)
     
-    Misc:Toggle("Auto Active Race",_G.ColorMisc,_G.AutoAgility,function(value)
+    Misc:Toggle("Active Race",_G.ColorMisc,_G.AutoAgility,function(value)
     _G.AutoAgility = value
     end)
     
@@ -9288,7 +9274,7 @@ end)
     end)
     end)
     
-    Misc:Toggle("Infinite Ability",_G.ColorMisc,false,function(value)
+    Misc:Toggle("Ability",_G.ColorMisc,false,function(value)
     InfAbility = value
     if value == false then
     game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
@@ -9303,7 +9289,7 @@ end)
     end
     end)
     
-    Misc:Toggle("Infinite Obversation Range",_G.ColorMisc,getgenv().InfiniteObRange,function(value)
+    Misc:Toggle("Obversation Range",_G.ColorMisc,getgenv().InfiniteObRange,function(value)
     getgenv().InfiniteObRange = value
     local VS = game:GetService("Players").LocalPlayer.VisionRadius.Value
     while getgenv().InfiniteObRange do
@@ -9322,7 +9308,7 @@ end)
     end
     end)
     
-    Misc:Toggle("Infinite Geppo",_G.ColorMisc,getgenv().InfGeppo,function(value)
+    Misc:Toggle("Geppo",_G.ColorMisc,getgenv().InfGeppo,function(value)
     getgenv().InfGeppo = value
     end)
     

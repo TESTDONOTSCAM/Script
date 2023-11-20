@@ -5202,6 +5202,8 @@ end)
 
 if World1 or World2 then
 
+_G.FpsBoost1 = {}
+
 Setting:Seperator("World 1/2 Fps Boost",_G.ColorSetting)
 Setting:Toggle("Fps Boost",_G.ColorSetting,false,function(value)
         _G.FpsBoost1 = value
@@ -5261,6 +5263,9 @@ Setting:Toggle("Fps Boost",_G.ColorSetting,false,function(value)
 end
 
 if World3 then
+
+_G.FpsBoost1 = {}
+
 Setting:Seperator("World 3 Fps Boost",_G.ColorSetting)
 Setting:Toggle("Fps Boost",_G.ColorSetting,false,function(value)
         _G.FpsBoost1 = value

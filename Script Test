@@ -757,6 +757,7 @@ if input.KeyCode == Enum.KeyCode[yoo] then
   if uihide == false then
     uihide = true
     Main:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
+    wait(0.6)
     MyLibrary.Enabled = false
 else
     uihide = false

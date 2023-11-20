@@ -2125,49 +2125,6 @@ local Library = Update:Window("Blox Fruits", "")
 
 local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
 
-local SelectWeapona = Main:Dropdown2("Select Weapon",_G.ColorMain,_G.Setting_table.Weapon,WeaponList,function(value)
-    _G.Setting_table.Weapon = value
-    Update_Setting(getgenv()['MyName'])
-end)
-  
-spawn(function()
-while wait() do
-    pcall(function()
-      if _G.Setting_table.Weapon == "Melee" then
-        for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            if v.ToolTip == "Melee" then
-            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-            _G.Setting_table.Weapon = v.Name
-        end
-    end
-end
-    elseif _G.Setting_table.Weapon == "Sword" then
-        for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-        if v.ToolTip == "Sword" then
-        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-        _G.Setting_table.Weapon = v.Name
-    end
-end
-    end
-        elseif _G.Setting_table.Weapon == "Devil Fruit" then
-            for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            if v.ToolTip == "Blox Fruit" then
-            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-            _G.Setting_table.Weapon = v.Name
-        end
-    end
-        end
-            else
-                for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if v.ToolTip == _G.Setting_table.Weapon then
-                    _G.Setting_table.Weapon = v.Name
-                    end
-                end
-            end
-        end)
-    end
-end)
-
 Main:Toggle("Test",_G.ColorMain,false,function(vu)
     _G.Test2 = vu
 end)
@@ -2190,7 +2147,6 @@ spawn(function()
                     repeat wait()
                         AutoHaki()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * PosY)
-                        EquipWeapon(_G.Setting_table.Weapon)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                         print("fast")

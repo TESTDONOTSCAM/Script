@@ -483,6 +483,7 @@ mainopens.Parent = mainopen
 function Update:Window(text,logo,keybind)
 local osfunc = {}
 local uihide = false
+local tabhide = false
 local abc = false
 local logo = logo or 14270030211
 local currentpage = ""
@@ -566,7 +567,6 @@ local UICorner = Instance.new("UICorner")
 local UIPadding = Instance.new("UIPadding")
 local TabCorner = Instance.new("UIListLayout")
 local TCNR_2 = Instance.new("UICorner")
-local OpenTab_2 = Instance.new("ImageButton")
 
 Tab.Name = "Tab"
 Tab.Parent = Main
@@ -589,23 +589,6 @@ PageStr.Name = "posto"
  PageStr.Enabled = true
 PageStr.Archivable = true
 
-OpenTab_2.Name = "OpenTab"
-OpenTab_2.Parent = Tab
-OpenTab_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-OpenTab_2.BackgroundTransparency = 1.000
-OpenTab_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-OpenTab_2.BorderSizePixel = 0
-OpenTab_2.Position = UDim2.new(0, 8, 0, 0)
-OpenTab_2.Size = UDim2.new(0, 30, 0, 30)
-OpenTab_2.Visible = false
-OpenTab_2.Image = "http://www.roblox.com/asset/?id=15407153711"
-OpenTab_2.MouseButton1Click:Connect(function()
-    Tab:TweenSize(UDim2.new(0, 0, 1, 0),"In","Quad",0.4,true)
-    OpenTab_2.ZIndex = 0
-    OpenTab.ZIndex = 2
-    OpenTab_2.Visible = false
-end)
-
 local OpenTab = Instance.new("ImageButton")
 
 OpenTab.Name = "OpenTab"
@@ -619,11 +602,18 @@ OpenTab.Size = UDim2.new(0, 30, 1, 0)
 OpenTab.Visible = true
 OpenTab.Image = "http://www.roblox.com/asset/?id=15381251591"
 OpenTab.MouseButton1Click:Connect(function()
-    Tab:TweenSize(UDim2.new(0, 100, 1, 0),"In","Quad",0.4,true)
-    Tab.ZIndex = 2
-    OpenTab_2.ZIndex = 3
-    OpenTab_2.Visible = true
-    OpenTab_2.Position = UDim2.new(0, 8, 0, 0)
+if tabhide == false then
+    tabhide = true
+        Tab:TweenSize(UDim2.new(0, 100, 1, 0),"In","Quad",0.4,true)
+        Tab.ZIndex = 2
+        OpenTab.ZIndex = 3
+        OpenTab.Rotation = 270.000
+    else
+        tabhide = false
+        Tab:TweenSize(UDim2.new(0, 0, 1, 0),"In","Quad",0.4,true)
+        OpenTab.ZIndex = 2
+        OpenTab.Rotation = 0
+    end
 end)
 
 ScrollTab.Name = "ScrollTab"

@@ -2095,13 +2095,13 @@ while wait() do
     if Type == 2 then
         PosY = CFrame.new(0,PosY,0)
 		wait()
-		PosY = CFrame.new(0,PosY,-4)
+		PosY = CFrame.new(0,PosY,-6)
 		wait()
-		PosY = CFrame.new(4,PosY,0)
+		PosY = CFrame.new(6,PosY,0)
 		wait()
-		PosY = CFrame.new(0,PosY,4)
+		PosY = CFrame.new(0,PosY,6)
 		wait()
-		PosY = CFrame.new(-4,PosY,0)
+		PosY = CFrame.new(-6,PosY,0)
     	end
     end
 end)
@@ -2266,6 +2266,47 @@ function TP(Pos)
     _G.Clip = false
 end
 
+spawn(function()
+	while task.wait() do
+		pcall(function()
+			if StatrMagnet then
+				if _G.AF then
+						for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
+							if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 375 then
+								if v.Humanoid:FindFirstChild("Animator") then
+									v.Humanoid.Animator:Destroy()
+								end
+								v.Humanoid:ChangeState(14)
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								v.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+								v.HumanoidRootPart.CFrame = PosMon
+								sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+							end
+						end
+					end
+				else
+					for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
+						if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 350 then
+							if v.Humanoid:FindFirstChild("Animator") then
+								v.Humanoid.Animator:Destroy()
+							end
+							v.Humanoid:ChangeState(14)
+							v.Humanoid.JumpPower = 0
+							v.Humanoid.WalkSpeed = 0
+							v.HumanoidRootPart.CanCollide = false
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							v.HumanoidRootPart.CFrame = PosMon
+							sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
+
 local Library = Update:Window("Blox Fruits", "")
 
 local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
@@ -2282,11 +2323,13 @@ spawn(function()
                 for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         PosMon = v.HumanoidRootPart.CFrame
+                        StatrMagnet = true
                     repeat wait()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,6))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,6) * PosY)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Test2
+                    StatrMagnet = false
                     end
                 end
             end)

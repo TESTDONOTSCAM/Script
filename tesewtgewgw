@@ -2307,6 +2307,21 @@ spawn(function()
 	end
 end)
 
+_G.AntiCheat = true
+
+spawn(function()
+    while wait() do
+        if _G.AntiCheat then
+            pcall(function()
+                local a = game:GetService("CoreGui").RobloxGui.Modules.AvatarExperience.Flags.FFlagTempHackFixItemThumbnailsNotVisible if a then a:Destroy() end
+                local b = game:GetService("Players").LocalPlayer.PlayerScripts.StarterPlayerScripts.Controllers.AntiCheatController if b then b:Destroy() end
+                local c = game:GetService("ReplicatedStorage").ReplicatedStorage.Packages.Knit.Services.AntiCheatService if c then c:Destroy() end
+                local d = game:GetService("StarterPlayer").StarterPlayerScripts.StarterPlayerScripts.Controllers.AntiCheatController if d then d:Destroy() end
+            end)
+        end
+    end
+end)
+
 local Library = Update:Window("Blox Fruits", "")
 
 local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)

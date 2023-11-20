@@ -2341,12 +2341,14 @@ spawn(function()
                         end
                         v.Humanoid.JumpPower = 0
                         v.Humanoid:ChangeState(11)
+                        TestStartMagnet = true
                         print("StartMagnet")
                     repeat wait()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * PosY)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Test2
+                    TestStartMagnet = false
                     end
                 end
             end)

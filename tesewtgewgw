@@ -2269,7 +2269,7 @@ end
 spawn(function()
     pcall(function()
     while wait() do
-    if _G.Test2 == true then
+    if _G.AF == true then
     if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
     local Noclip = Instance.new("BodyVelocity")
     Noclip.Name = "BodyClip"
@@ -2285,7 +2285,7 @@ end)
 spawn(function()
     pcall(function()
     game:GetService("RunService").Stepped:Connect(function()
-    if _G.Test2 == true then
+    if _G.AF == true then
     for _, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
     if v:IsA("BasePart") then
     v.CanCollide = false
@@ -2356,13 +2356,13 @@ local Library = Update:Window("Blox Fruits", "")
 local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
 local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.ColorStats)
 
-Main:Toggle("Test",_G.ColorMain,false,function(vu)
-    _G.Test2 = vu
+Main:Toggle("Auto Farm",_G.ColorMain,false,function(vu)
+    _G.AF = vu
 end)
 
 spawn(function()
     while wait() do
-        if _G.Test2 then
+        if _G.AF then
             pcall(function()
                 for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
@@ -2377,6 +2377,24 @@ spawn(function()
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Test2
                     end
                 end
+            end)
+        end
+    end
+end)
+
+Main:Toggle("Collect Drop",_G.ColorMain,false,function(vu)
+    _G.CD = vu
+end)
+
+spawn(function()
+    while wait() do
+        if _G.CD then
+            pcall(function()
+                local args = {
+                    [1] = "5cdfad47-cd92-45ba-9ae7-e81de52a572b"
+                }
+                
+                game:GetService("ReplicatedStorage"):WaitForChild("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("DropsService"):WaitForChild("RF"):WaitForChild("CollectDrop"):InvokeServer(unpack(args))
             end)
         end
     end

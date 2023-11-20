@@ -5136,12 +5136,11 @@ end)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-Setting:Toggle("Auto Set Spawn Points",_G.ColorSetting,true,function(value)
-    _G.AutoSetSpawn = value
-end)  
-    spawn(function()
-        pcall(function()
-            while wait() do
+_G.AutoSetSpawn = true
+
+spawn(function()
+    pcall(function()
+        while wait() do
             if _G.AutoSetSpawn then
             if game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
@@ -5151,33 +5150,31 @@ end)
     end)
 end)
 
-Setting:Button("Remove Sound",_G.ColorSetting,function()
-    for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
-    if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "SwordSlash" or v.Name == "Sounds" then
-    v:Destroy()
+_G.FpsBoost = {}
+
+spawn(function()
+    while wait() do
+        if _G.FpsBoost then
+            pcall(function()
+                game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
+            end)
         end
     end
-end)
-    
-Setting:Button("Delete Effect Damage",_G.ColorSetting,function()
-    game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
 end)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-Setting:Toggle("Fps Boost",_G.ColorSetting,true,function(value)
-    _G.WhiteScreen = value
-   end)
-    
-    spawn(function()
-       while wait() do
-       if _G.WhiteScreen then
-       for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
-       if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "DamageCounter" or v.Name == "SwordSlash" or v.Name == "SlashTail" or v.Name == "Sounds" then
-       v:Destroy()
-       end
-       end
-       end
+_G.FpsBoost = {}
+
+spawn(function()
+    while wait() do
+       if _G.FpsBoost then
+            for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
+                if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "DamageCounter" or v.Name == "SwordSlash" or v.Name == "SlashTail" or v.Name == "Sounds" then
+                v:Destroy()
+                end
+            end
+        end
     end
 end)
 
@@ -5202,17 +5199,13 @@ end)
 
 if World1 or World2 then
 
-_G.FpsBoost1 = {}
+_G.FpsBoost = {}
 
-Setting:Seperator("World 1/2 Fps Boost",_G.ColorSetting)
-Setting:Toggle("Fps Boost",_G.ColorSetting,false,function(value)
-        _G.FpsBoost1 = value
-    end)
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.FpsBoost1 then
-                    game:GetService("Lighting").FantasySky:Destroy()
+spawn(function()
+    pcall(function()
+        while wait() do
+            if _G.FpsBoost then
+                game:GetService("Lighting").FantasySky:Destroy()
                     local g = game
                     local w = g.Workspace
                     local l = g.Lighting
@@ -5264,17 +5257,13 @@ end
 
 if World3 then
 
-_G.FpsBoost1 = {}
+_G.FpsBoost = {}
 
-Setting:Seperator("World 3 Fps Boost",_G.ColorSetting)
-Setting:Toggle("Fps Boost",_G.ColorSetting,false,function(value)
-        _G.FpsBoost1 = value
-    end)
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.FpsBoost1 then
-                    game:GetService("Lighting").Sky:Destroy()
+spawn(function()
+    pcall(function()
+        while wait() do
+            if _G.FpsBoost then
+                game:GetService("Lighting").Sky:Destroy()
                     game:GetService("Lighting").BaseAtmosphere:Destroy()
                     game:GetService("Lighting").Bloom:Destroy()
                     game:GetService("Lighting").Blur:Destroy()

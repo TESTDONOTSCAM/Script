@@ -2310,6 +2310,22 @@ spawn(function()
     end
 end)
 
+Main:Toggle("Auto Heal",_G.ColorMain,false,function(vu)
+    _G.AH = vu
+end)
+
+spawn(function()
+    while wait() do
+        if _G.AH then
+            pcall(function()
+                if game.Workspace.LocalPlayer.Humanoid.Health <= 100 then
+                game:GetService("ReplicatedStorage"):WaitForChild("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("HealingService"):WaitForChild("RF"):WaitForChild("UseHeal"):InvokeServer()
+                end
+            end)
+        end
+    end
+end)
+
 Main:Toggle("Collect Drop",_G.ColorMain,false,function(vu)
     _G.CD = vu
 end)

@@ -621,7 +621,8 @@ if tabhide == false then
     tabhide = true
         Tab:TweenSize(UDim2.new(0, 100, 1, 0),"In","Quad",0.4,true)
         Tab.ZIndex = 2
-        OpenTab.ZIndex = 3
+        OpenTab.ZIndex = 4
+        OpenTab.Position = UDim2.new(0, 4, 0, 0)
         OpenTab.Rotation = 270.000
         OpenTab_2.Visible = true
         OpenTab_2.ZIndex = 3
@@ -630,6 +631,7 @@ if tabhide == false then
         Tab:TweenSize(UDim2.new(0, 0, 1, 0),"In","Quad",0.4,true)
         OpenTab.ZIndex = 2
         OpenTab.Rotation = 0
+        OpenTab.Position = UDim2.new(0, 8, 0, 0)
         OpenTab_2.ZIndex = 0
         OpenTab_2.Visible = false
     end

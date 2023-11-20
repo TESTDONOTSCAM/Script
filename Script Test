@@ -597,11 +597,12 @@ OpenTab_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 OpenTab_2.BackgroundTransparency = 1.000
 OpenTab_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 OpenTab_2.BorderSizePixel = 0
-OpenTab_2.ZIndex = 3
-OpenTab_2.Visible = false
+OpenTab_2.ZIndex = 0
+OpenTab_2.ImageTransparency = 1.000
+OpenTab_2.Visible = true
 OpenTab_2.Position = UDim2.new(0, 8, 0, 0)
 OpenTab_2.Size = UDim2.new(0, 30, 0, 30)
-OpenTab_2.Image = "http://www.roblox.com/asset/?id=15407153711"
+OpenTab_2.Image = ""
 
 local OpenTab = Instance.new("ImageButton")
 
@@ -622,11 +623,15 @@ if tabhide == false then
         Tab.ZIndex = 2
         OpenTab.ZIndex = 3
         OpenTab.Rotation = 270.000
+        OpenTab_2.Visible = true
+        OpenTab_2.ZIndex = 3
     else
         tabhide = false
         Tab:TweenSize(UDim2.new(0, 0, 1, 0),"In","Quad",0.4,true)
         OpenTab.ZIndex = 2
         OpenTab.Rotation = 0
+        OpenTab_2.ZIndex = 0
+        OpenTab_2.Visible = false
     end
 end)
 

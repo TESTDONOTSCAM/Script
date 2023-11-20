@@ -2097,14 +2097,14 @@ Seperator.Name = "Seperator"
     Seperator.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Seperator.BorderSizePixel = 0
     Seperator.Position = UDim2.new(0.0120000001, 0, 0.00999999978, 0)
-Seperator.Size = UDim2.new(1, 0, 0, 5)
+Seperator.Size = UDim2.new(0, 200, 0, 5)
 
     UICorner_15.CornerRadius = UDim.new(0, 4)
     UICorner_15.Parent = Seperator
     
     UIPadding_13.Parent = Seperator
     UIPadding_13.PaddingLeft = UDim.new(0, 10)
-    
+
     Sep1.Name = "Sep1"
     Sep1.Parent = Seperator
     Sep1.BackgroundColor3 = color or _G.StrokeColor

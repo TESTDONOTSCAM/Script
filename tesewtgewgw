@@ -2336,6 +2336,21 @@ spawn(function()
 	end
 end)
 
+spawn(function()
+    while wait() do
+        if TestStartMagnet then
+            pcall(function()
+                StatrMagnet = true
+                print("startmagnet true")
+                wait(10)
+                StatrMagnet = false
+                print("startmagnet false")
+                wait(5)
+            end)
+        end
+    end
+end)
+
 local Library = Update:Window("Blox Fruits", "")
 
 local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
@@ -2356,14 +2371,13 @@ spawn(function()
                         end
                         v.Humanoid.JumpPower = 0
                         v.Humanoid:ChangeState(11)
-                        StatrMagnet = true
-                        print("StartMagnet")
+                        TestStartMagnet = true
                     repeat wait()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,4) * PosY)
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,4))
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Test2
-                    StatrMagnet = false
+                    TestStartMagnet = false
                     end
                 end
             end)

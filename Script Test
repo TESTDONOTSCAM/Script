@@ -1815,7 +1815,7 @@ posta.Archivable = true
  
  TextBox.Parent = slidervalue
  TextBox.BackgroundColor3 = _G.BGColor_2
- TextBox.Position = UDim2.new(0, -140, 0, 0)
+ TextBox.Position = UDim2.new(0, -110, 0, 0)
  TextBox.Size = UDim2.new(0, 60, 0, 20)
  TextBox.Font = Enum.Font.Gotham
  TextBox.TextColor3 = Color3.fromRGB(255,255,255)

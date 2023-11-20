@@ -4022,29 +4022,63 @@ local Misc = Library:Tab("        Misc+Esp","rbxassetid://11447063791",_G.ColorM
 Main:Line(_G.ColorMain)
 Main:Seperator("Auto Farm",_G.ColorMain)
 
-WeaponList = {}
-    
-for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-    if v:IsA("Tool") then
-    table.insert(WeaponList ,v.Name)
-    end
-end
-    
-    local SelectWeapona = Main:Dropdown2("Select Weapon",_G.ColorMain,_G.Setting_table.Weapon,WeaponList,function(value)
+local WeaponList = {
+    "Melee",
+    "Sword",
+    "Devil Fruit",
+  }
+
+
+local SelectWeapona = Main:Dropdown2("Select Weapon",_G.ColorMain,_G.Setting_table.Weapon,WeaponList,function(value)
     _G.Setting_table.Weapon = value
     Update_Setting(getgenv()['MyName'])
 end)
-    
-    Main:Button("Refresh Weapon",_G.ColorMain,function()
-    SelectWeapona:Clear()
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-    SelectWeapona:Add(v.Name)
+  
+spawn(function()
+while wait() do
+    pcall(function()
+      if _G.Setting_table.Weapon == "Melee" then
+        for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+            if v.ToolTip == "Melee" then
+            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+            _G.Setting_table.Weapon = v.Name
+        end
     end
-    end)
+end
+    elseif _G.Setting_table.Weapon == "Sword" then
+        for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v.ToolTip == "Sword" then
+        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+        _G.Setting_table.Weapon = v.Name
+    end
+end
+    end
+        elseif _G.Setting_table.Weapon == "Devil Fruit" then
+            for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+            if v.ToolTip == "Blox Fruit" then
+            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+            _G.Setting_table.Weapon = v.Name
+        end
+    end
+        end
+            else
+                for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == _G.Setting_table.Weapon then
+                    _G.Setting_table.Weapon = v.Name
+                    end
+                end
+            end
+        end)
+    end
+end)
     
 local AutoFarm = Main:Toggle("Auto Farm",_G.ColorMain,_G.AutoFarm,function(value)
     _G.AutoFarm = value
     StopTween(_G.AutoFarm)
+    if _G.AutoFarm == true then
+        _G.BoneFarm = false
+        _G.AutoFarmFruitMastery = false
+    end
 end)
 
 spawn(function()
@@ -4180,8 +4214,11 @@ Main:Toggle("Farm Bone",_G.ColorMain,_G.BoneFarm,function(vu)
     _G.BoneFarm = vu
     StopTween(_G.BoneFarm)
     if _G.BoneFarm == true then
-    _G.AutoFarm = false
+    _G.AutoFarm = true
     _G.AutoFarmFruitMastery = false
+    elseif _G.BoneFarm == false then
+    _G.AutoFarm = false
+    StopTween(_G.AutoFarm)
     end
 end)
 

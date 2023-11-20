@@ -2359,7 +2359,7 @@ spawn(function()
                         StatrMagnet = true
                         print("StartMagnet")
                     repeat wait()
-                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,4))
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Test2

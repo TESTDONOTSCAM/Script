@@ -2110,9 +2110,9 @@ Seperator.Size = UDim2.new(0, 200, 0, 5)
     Sep1.BackgroundColor3 = color or _G.StrokeColor
     Sep1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Sep1.BorderSizePixel = 0
-    Sep1.Position = UDim2.new(0, 0, 0, 0)
-    Sep1.Size = UDim2.new(0, 20, 0, 3)
-    
+    Sep1.Position = UDim2.new(1, 0, 0, 0)
+    Sep1.Size = UDim2.new(0, 40, 0, 5)
+
     Sep2.Name = "Sep2"
     Sep2.Parent = Seperator
     Sep2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2155,7 +2155,7 @@ function main:Line(clr)
       Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
       Line.BorderSizePixel = 0
       Line.Position = UDim2.new(0, 0, 0.449999988, 0)
-   Line.Size = UDim2.new(1, 0, 1, 0)
+   Line.Size = UDim2.new(1, 0, 0, 5)
 end
    return main
 end

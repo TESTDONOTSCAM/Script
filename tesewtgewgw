@@ -2271,7 +2271,7 @@ spawn(function()
 		pcall(function()
 			if StatrMagnet then
 				if _G.AF then
-						for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
+					for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
 							if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 375 then
 								if v.Humanoid:FindFirstChild("Animator") then
 									v.Humanoid.Animator:Destroy()
@@ -2298,8 +2298,7 @@ spawn(function()
 							v.HumanoidRootPart.CanCollide = false
 							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 							v.HumanoidRootPart.CFrame = PosMon
-							sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-						end
+						sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
 					end
 				end
 			end

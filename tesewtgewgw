@@ -2319,9 +2319,10 @@ spawn(function()
         if _G.CD then
             pcall(function()
                 if game:GetService("Workspace").Camera.Drops.Drop.Center then
+                    if (game:GetService("Workspace").Camera.Drops.Drop.Center.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 45 then
                     TPP(game:GetService("Workspace").Camera.Drops.Drop.Center.CFrame)
-                    wait(0.3)
                     game:service('VirtualInputManager'):SendKeyEvent(true, "E", false, game)
+                    end
                 end
             end)
         end

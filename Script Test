@@ -2110,7 +2110,7 @@ Seperator.Size = UDim2.new(0, 200, 0, 5)
     Sep1.BackgroundColor3 = color or _G.StrokeColor
     Sep1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Sep1.BorderSizePixel = 0
-    Sep1.Position = UDim2.new(0, 20, 0, 0)
+    Sep1.Position = UDim2.new(0, -10, 0, 0)
     Sep1.Size = UDim2.new(0, 40, 0, 5)
 
     Sep2.Name = "Sep2"
@@ -2119,7 +2119,7 @@ Seperator.Size = UDim2.new(0, 200, 0, 5)
     Sep2.BackgroundTransparency = 1.000
     Sep2.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Sep2.BorderSizePixel = 0
-    Sep2.Position = UDim2.new(0, -20, 0, -9)
+    Sep2.Position = UDim2.new(0, 40, 0, -9)
     Sep2.Size = UDim2.new(0, 140, 0, 20)
     Sep2.Font = Enum.Font.Ubuntu
     Sep2.Text = text

@@ -2354,6 +2354,7 @@ end)
 local Library = Update:Window("Blox Fruits", "")
 
 local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
+local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.ColorStats)
 
 Main:Toggle("Test",_G.ColorMain,false,function(vu)
     _G.Test2 = vu
@@ -2378,6 +2379,68 @@ spawn(function()
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Test2
                     end
                 end
+            end)
+        end
+    end
+end)
+
+_G.Point = 1
+Stats:Slider("Select Point",_G.ColorStats,1,100,1,function(value)
+_G.Point = value
+end)
+
+Stats:Toggle("Sword Power",_G.ColorStats,false,function(vu)
+    _G.SP = vu
+end)
+
+Stats:Toggle("Element Power",_G.ColorStats,false,function(vu)
+    _G.EP = vu
+end)
+
+Stats:Toggle("Defense",_G.ColorStats,false,function(vu)
+    _G.DE = vu
+end)
+
+spawn(function()
+    while wait() do
+        if _G.SP then
+            pcall(function()
+                local args = {
+                    [1] = "PhysicalPower",
+                    [2] = _G.Point
+                }
+                
+                game:GetService("ReplicatedStorage"):WaitForChild("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("UpgradeSkill"):InvokeServer(unpack(args))
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.EP then
+            pcall(function()
+                local args = {
+                    [1] = "MagicPower",
+                    [2] = _G.Point
+                }
+                
+                game:GetService("ReplicatedStorage"):WaitForChild("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("UpgradeSkill"):InvokeServer(unpack(args))
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.DE then
+            pcall(function()
+                local args = {
+                    [1] = "Defense",
+                    [2] = _G.Point
+                }
+                
+                game:GetService("ReplicatedStorage"):WaitForChild("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("InventoryService"):WaitForChild("RF"):WaitForChild("UpgradeSkill"):InvokeServer(unpack(args))
             end)
         end
     end

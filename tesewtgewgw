@@ -2342,16 +2342,12 @@ spawn(function()
                         v.Humanoid.JumpPower = 0
                         v.Humanoid:ChangeState(11)
                         print("StartMagnet")
-                        TestStartMagnet = true
                         _G.FastAttack = true
                     repeat wait()
-                        AutoHaki()
                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * PosY)
                         game:GetService'VirtualUser':CaptureController()
                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                        print("fast")
                     until not v.Parent or not v.Humanoid.Health <= 0 or not _G.Test2
-                        TestStartMagnet = false
                         _G.FastAttack = false
                     end
                 end

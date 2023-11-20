@@ -2093,7 +2093,7 @@ local UIPadding_13 = Instance.new("UIPadding")
 Seperator.Name = "Seperator"
     Seperator.Parent = MainFramePage
     Seperator.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
-    Seperator.BackgroundTransparency = 0
+    Seperator.BackgroundTransparency = 1.000
     Seperator.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Seperator.BorderSizePixel = 0
     Seperator.Position = UDim2.new(0.0120000001, 0, 0.00999999978, 0)
@@ -2119,7 +2119,7 @@ Seperator.Size = UDim2.new(0, 200, 0, 5)
     Sep2.BackgroundTransparency = 1.000
     Sep2.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Sep2.BorderSizePixel = 0
-    Sep2.Position = UDim2.new(0, 30, 0, -9) -- Text
+    Sep2.Position = UDim2.new(0, 27, 0, -9) -- Text
     Sep2.Size = UDim2.new(0, 140, 0, 20)
     Sep2.Font = Enum.Font.Ubuntu
     Sep2.Text = text
@@ -2131,7 +2131,7 @@ Seperator.Size = UDim2.new(0, 200, 0, 5)
     Sep3.BackgroundColor3 = color or _G.StrokeColor
     Sep3.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Sep3.BorderSizePixel = 0 -- Line
-    Sep3.Position = UDim2.new(0, 160, 0, 0)
+    Sep3.Position = UDim2.new(0, 155, 0, 0)
     Sep3.Size = UDim2.new(0, 40, 0, 5)
 end
 

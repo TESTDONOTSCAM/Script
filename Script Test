@@ -4045,6 +4045,10 @@ end)
 local AutoFarm = Main:Toggle("Auto Farm",_G.ColorMain,_G.AutoFarm,function(value)
     _G.AutoFarm = value
     StopTween(_G.AutoFarm)
+    if _G.AutoFarm == true then
+        _G.BoneFarm = false
+        _G.AutoFarmFruitMastery = false
+    end
 end)
 
 spawn(function()
@@ -4180,8 +4184,11 @@ Main:Toggle("Farm Bone",_G.ColorMain,_G.BoneFarm,function(vu)
     _G.BoneFarm = vu
     StopTween(_G.BoneFarm)
     if _G.BoneFarm == true then
-    _G.AutoFarm = false
+    _G.AutoFarm = true
     _G.AutoFarmFruitMastery = false
+    elseif _G.BoneFarm == false then
+    _G.AutoFarm = false
+    StopTween(_G.AutoFarm)
     end
 end)
 

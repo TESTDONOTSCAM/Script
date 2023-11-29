@@ -1,3 +1,5 @@
+_G.Fast_Delay = 0
+
 if game.PlaceId == 2753915549 then
     World1 = true
 elseif game.PlaceId == 4442272183 then
@@ -1896,9 +1898,11 @@ spawn(function()
     end
 end)
 
+-- // Ui Table \\ --
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+-- // Window Table \\ --
 
 local Window = Fluent:CreateWindow({
     Title = "Test " .. Fluent.Version,
@@ -1910,10 +1914,14 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
+-- // Tab Table \\ --
+
 local BF = {
     Main = Window:AddTab({ Title = "Main", Icon = "" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
+
+-- // Main Table \\ --
 
 do
 
@@ -2107,6 +2115,205 @@ spawn(function()
 				end
 			end
 		end)
+	end
+end)
+
+end
+
+-- // Setting Table \\ --
+
+do
+
+local FastAttack = BF.Settings:AddToggle("Fast Attack", {
+    Title = "Fast Attack",
+    Default = false
+})
+
+FastAttack:OnChanged(function(vu)
+    _G.FastAttack = vu
+end)
+
+require(game.ReplicatedStorage.Util.CameraShaker):Stop()
+
+xShadowFastAttackx = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+
+xShadowx = debug.getupvalues(xShadowFastAttackx)[2]
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack then
+            if typeof(xShadowx) == "table" then
+                pcall(function()
+                    xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
+                    xShadowx.activeController.timeToNextAttack = 0
+                    xShadowx.activeController.hitboxMagnitude = 60
+                    xShadowx.activeController.active = false
+                    xShadowx.activeController.timeToNextBlock = 0
+                    xShadowx.activeController.focusStart = 1655503339.0980349
+                    xShadowx.activeController.increment = 1
+                    xShadowx.activeController.blocking = false
+                    xShadowx.activeController.attacking = false
+                    xShadowx.activeController.humanoid.AutoRotate = 50
+                end)
+            end
+        end
+    end)
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack == true then
+            game.Players.LocalPlayer.Character.Stun.Value = 0
+            game.Players.LocalPlayer.Character.Busy.Value = false        
+        end
+    end)
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack then
+             pcall(function()
+                game:GetService'VirtualUser':CaptureController()
+                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+            end)
+        end
+    end)
+end)
+
+local FastDrop = BF.Settings:AddDropdown("Fast Attack Delayy", {
+    Title = "Fast Attack Delay",
+    Values = {"0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"},
+    Multi = false,
+    Default = 1,
+})
+
+FastDrop:SetValue("0")
+
+FastDrop:OnChanged(function(vu)
+    _G.FastAttack_Mode = vu
+end)
+
+spawn(function()
+	while wait(.1) do
+		if _G.FastAttack_Mode then
+			pcall(function()
+				if _G.FastAttack_Mode == "0" then
+					_G.Fast_Delay = 0
+				elseif _G.FastAttack_Mode == "0.2" then
+					_G.Fast_Delay = 0.2
+				elseif _G.FastAttack_Mode == "0.5" then
+					_G.Fast_Delay = 0.5
+				elseif _G.FastAttack_Mode == "0.15" then
+					_G.Fast_Delay = 0.15
+				elseif _G.FastAttack_Mode == "0.155" then
+					_G.Fast_Delay = 0.155
+				elseif _G.FastAttack_Mode == "0.16" then
+					_G.Fast_Delay = 0.16
+				elseif _G.FastAttack_Mode == "0.165" then
+					_G.Fast_Delay = 0.165
+				elseif _G.FastAttack_Mode == "0.17" then
+					_G.Fast_Delay = 0.17
+				elseif _G.FastAttack_Mode == "0.175" then
+					_G.Fast_Delay = 0.175
+				elseif _G.FastAttack_Mode == "0.18" then
+					_G.Fast_Delay = 0.18
+				elseif _G.FastAttack_Mode == "0.185" then
+					_G.Fast_Delay = 0.185
+				elseif _G.FastAttack_Mode == "0.190" then
+					_G.Fast_Delay = 0.190
+				elseif _G.FastAttack_Mode == "0.195" then
+					_G.Fast_Delay = 0.195
+				elseif _G.FastAttack_Mode == "1" then
+					_G.Fast_Delay = 0.1
+				elseif _G.FastAttack_Mode == "1.5" then
+					_G.Fast_Delay = 1.5
+				elseif _G.FastAttack_Mode == "2" then
+					_G.Fast_Delay = 2
+				end
+			end)
+		end
+	end
+end)
+
+local Client = game.Players.LocalPlayer
+    local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
+    local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
+    spawn(function()
+        while task.wait() do
+            pcall(function()
+                if not shared.orl then shared.orl = STOPRL.wrapAttackAnimationAsync end
+                if not shared.cpc then shared.cpc = STOP.play end
+                    STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
+                    local Hits = STOPRL.getBladeHits(b,c,d)
+                    if Hits then
+                        if _G.FastAttack then
+                            STOP.play = function() end
+                            a:Play(0.01,0.01,0.01)
+                            func(Hits)
+                            STOP.play = shared.cpc
+                            wait(a.length * 0.5)
+                            a:Stop()
+                        else
+                        a:Play()
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+function GetBladeHit()
+		local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
+		local CmrFwLib = CombatFrameworkLib[2]
+		local p13 = CmrFwLib.activeController
+		local weapon = p13.blades[1]
+		if not weapon then 
+			return weapon
+		end
+		while weapon.Parent ~= game.Players.LocalPlayer.Character do
+			weapon = weapon.Parent 
+		end
+		return weapon
+	end
+	function AttackHit()
+		local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
+		local CmrFwLib = CombatFrameworkLib[2]
+		local plr = game.Players.LocalPlayer
+		for i = 1, 1 do
+			local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(plr.Character,{plr.Character.HumanoidRootPart},60)
+			local cac = {}
+			local hash = {}
+			for k, v in pairs(bladehit) do
+				if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
+					table.insert(cac, v.Parent.HumanoidRootPart)
+					hash[v.Parent] = true
+				end
+			end
+			bladehit = cac
+			if #bladehit > 0 then
+				pcall(function()
+					CmrFwLib.activeController.timeToNextAttack = 0
+					CmrFwLib.activeController.attacking = false
+					CmrFwLib.activeController.blocking = false
+					CmrFwLib.activeController.timeToNextBlock = 0
+					CmrFwLib.activeController.increment = 3
+					CmrFwLib.activeController.hitboxMagnitude = 120
+					CmrFwLib.activeController.focusStart = 0
+					game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetBladeHit()))
+					game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "")
+				end)
+			end
+		end
+	end
+	spawn(function()
+		while wait(.1) do
+			if _G.FastAttack then
+				pcall(function()
+				repeat task.wait(_G.Fast_Delay)
+					AttackHit()
+				until not _G.FastAttack
+			end)
+		end
 	end
 end)
 

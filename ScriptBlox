@@ -698,18 +698,13 @@ MakeDraggable(Top,Main)
   if input.KeyCode == Enum.KeyCode[yoo] then
   if uihide == false then
   uihide = true
-Page:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
-wait(.3)
-Tab:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
-wait(.3)
 Main:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
+wait(0.5)
+MyLibrary.Enabled = false
   else
    uihide = false
+MyLibrary.Enabled = true
   Main:TweenSize(UDim2.new(0, 563,0, 366),"Out","Quad",0.5,true)
-  wait(.4)
-  Tab:TweenSize(UDim2.new(0, 120, 0.677777767, -31),"Out","Quad",0.5,true)
-  wait(.4)
-  Page:TweenSize(UDim2.new(0.994336367, -150, 1.01107192, -68),"Out","Quad",0.5,true)
       end
    end
 end)

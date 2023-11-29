@@ -31,13 +31,9 @@ end
 
 if _G.Delta == true then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/Delta-ScriptBlox'))()
-    print("Delta ScriptBlox")
-    _G.Delta = false
 end
 
 if _G.DeltaBlox == true then
-    wait(3)
+    print("Delta ScriptBlox")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/ScriptBlox'))()
-    print("ScriptBlox")
-    _G.DeltaBlox = false
 end

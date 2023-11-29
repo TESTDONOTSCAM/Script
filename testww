@@ -3220,7 +3220,7 @@ spawn(function()
 end)
 
 BF.AutoQuest:AddParagraph({
-    Title = "World 3",
+    Title = "",
     Content = ""
 })
 
@@ -3376,7 +3376,7 @@ spawn(function()
 end)
 
 local MobKilled = BF.AutoQuest:AddParagraph({
-    Title = "Auto Dough King",
+    Title = "",
     Content = ""
 })
 

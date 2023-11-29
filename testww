@@ -2141,7 +2141,7 @@ spawn(function()
 end)
 
 BF.Main:AddParagraph({
-    Title = "Bone",
+    Title = "",
     Content = ""
 })
 
@@ -2312,7 +2312,7 @@ BF.Main:AddButton({
 })
 
 BF.Main:AddParagraph({
-    Title = "Devil Fruit Mastery",
+    Title = "",
     Content = ""
 })
 
@@ -2642,7 +2642,7 @@ function GetBladeHit()
 end)
 
 BF.Settings:AddParagraph({
-    Title = "Other Setting",
+    Title = "",
     Content = ""
 })
 
@@ -2853,7 +2853,7 @@ end
 do
 
 BF.AutoQuest:AddParagraph({
-    Title = "World 1",
+    Title = "",
     Content = ""
 })
 
@@ -3030,7 +3030,7 @@ spawn(function()
 end)
 
 BF.AutoQuest:AddParagraph({
-    Title = "World 2",
+    Title = "",
     Content = ""
 })
 
@@ -3824,7 +3824,7 @@ spawn(function()
     end)
     end
 end)
-    
+
 spawn(function()
     while wait() do
     pcall(function()

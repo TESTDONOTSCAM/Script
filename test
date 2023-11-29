@@ -14,18 +14,30 @@ if Fluxus and not Cache then
     wait(3)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/ScriptBlox'))()
 elseif not Fluxus then
-    Cache = false
 
-    game:GetService("StarterGui"):SetCore("SendNotification", {
+_G.Delta = true
+Cache = false
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "ScriptBlox [BOT]"; 
         Text = "Executor Not [Fluxus]"; 
         Icon = "http://www.roblox.com/asset/?id=14355269935";
         Duration = 10
     })
-    wait(3)
+wait(3)
+
+_G.DeltaBlox = true
+end
+
+if _G.Delta == true then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/Delta-ScriptBlox'))()
     print("Delta ScriptBlox")
+    _G.Delta = false
+end
+
+if _G.DeltaBlox == true then
     wait(3)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/ScriptBlox'))()
     print("ScriptBlox")
+    _G.DeltaBlox = false
 end

@@ -2251,6 +2251,7 @@ BF.Main:AddButton({
     Description = "Bone Surprise",
     Callback = function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
+    end
 })
 
 end

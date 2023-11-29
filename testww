@@ -1874,6 +1874,45 @@ spawn(function()
     end
 end)
 
+function CheckAntiCheatBypass()
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "General" or v.Name == "Shiftlock"  or v.Name == "FallDamage" or v.Name == "4444" or v.Name == "CamBob" or v.Name == "JumpCD" or v.Name == "Looking" or v.Name == "Run" then
+                v:Destroy()
+            end
+        end
+     end
+     for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "RobloxMotor6DBugFix" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
+                v:Destroy()
+            end
+        end
+    end
+end
+
+local function bypassAntiExploit()
+    for _, instance in ipairs(filtergc()) do
+        if instance:IsA("AntiExploitSystem") then
+            instance:Destroy()
+        end
+    end
+end
+
+_G.AutoSetSpawn = true
+
+spawn(function()
+    pcall(function()
+        while wait() do
+            if _G.AutoSetSpawn then
+            if game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                end
+            end
+        end
+    end)
+end)
+
 -- // Ui Table \\ --
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -2254,15 +2293,162 @@ BF.Main:AddButton({
     end
 })
 
+BF.Main:AddButton({
+    Title = "Stat Refund",
+    Description = "Status Refund",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,2)
+    end
+})
+
+BF.Main:AddButton({
+    Title = "Race Reroll",
+    Description = "Race Reroll",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,3)
+    end
+})
+
+BF.Main:AddParagraph({
+    Title = "Devil Fruit Mastery",
+    Content = "Mastery"
+})
+
+local MasterySlider = BF.Main:AddSlider("Slider", {
+    Title = "Health",
+    Description = "Health Mastery Slider",
+    Default = 65,
+    Min = 0,
+    Max = 100,
+    Rounding = 1,
+    Callback = function(vu)
+        HealthMs = vu
+        _G.Kill_At = vu
+    end
+})
+
+local MasteryFarm = BF.Main:AddToggle("Auto Mastery", {
+    Title = "Auto Mastery", 
+    Default = false
+})
+
+MasteryFarm:OnChanged(function(vu)
+    _G.AutoFarmFruitMastery = vu
+    StopTween(_G.AutoFarmFruitMastery)
+    if _G.AutoFarmFruitMastery == true then
+        _G.AutoFarm = true
+        _G.BoneFarm = false
+    elseif _G.AutoFarmFruitMastery == false then
+        _G.AutoFarm = false
+        StopTween(_G.AutoFarm)
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.AutoFarmFruitMastery then
+            pcall(function()
+                local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
+                if not string.find(QuestTitle, NameMon) then
+                    TestStartMagnet = false
+                    AutoSkill = false
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                end
+                if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                    TestStartMagnet = false
+                    AutoSkill = false
+                    CheckLevel2()
+                    repeat wait()
+                        TP1(CFrameQ)
+                    until (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 or not _G.AutoFarmFruitMastery
+                    if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 then
+                        wait(0.1)
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
+                        wait(0.1)
+                    end
+                elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                    CheckLevel2()
+                    if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                                if v.Name == Ms then
+                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+                                        HealthMs = v.Humanoid.MaxHealth * _G.Kill_At/100
+                                        repeat task.wait()
+                                            if v.Humanoid.Health <= HealthMs then
+                                                _G.AutoFarm = false
+                                                _G.FastAttack = false
+                                                AutoHaki()
+                                                EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,5))
+                                                v.HumanoidRootPart.CanCollide = false
+                                                PosMon = v.HumanoidRootPart.CFrame
+                                                v.Humanoid.WalkSpeed = 0
+                                                v.Head.CanCollide = false
+                                                Skillaimbot = true
+                                                
+                                                AutoSkill = true
+                                            else
+                                                _G.AutoFarm = true
+                                                _G.FastAttack = true
+                                                AutoSkill = false 
+                                                Skillaimbot = false
+                                                AutoHaki()
+                                                EquipWeapon(_G.SelectWeapon)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
+                                                v.HumanoidRootPart.CanCollide = false
+                                                v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                                PosMon = v.HumanoidRootPart.CFrame
+                                                v.Humanoid.WalkSpeed = 0
+                                                v.Head.CanCollide = false
+                                                TestStartMagnet = true
+                                            end
+                                            TestStartMagnet = true
+                                        until not _G.AutoFarmFruitMastery or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                    else
+                                        AutoSkill = false
+                                        TestStartMagnet = false
+                                        StatrMagnet = false
+                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        TP1(CFrameMon)
+                        TestStartMagnet = false   
+                        AutoSkill = false 
+                        local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Ms) 
+                        if Mob then
+                            TP1(Mob.HumanoidRootPart.CFrame * CFrame.new(0,0,10))
+                        else
+                            if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Y <= 1 then
+                                game:GetService("Players").LocalPlayer.Character.Humanoid.Jump = true
+                                task.wait()
+                                game:GetService("Players").LocalPlayer.Character.Humanoid.Jump = false
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end)
+
 end
 
 -- // Setting Table \\ --
 
 do
 
+BF.Settings:AddParagraph({
+    Title = "Farm Setting",
+    Content = "Setting"
+})
+
 local FastAttack = BF.Settings:AddToggle("Fast Attack", {
     Title = "Fast Attack",
-    Default = false
+    Default = true
 })
 
 FastAttack:OnChanged(function(vu)
@@ -2453,4 +2639,211 @@ function GetBladeHit()
 	end
 end)
 
+BF.Settings:AddParagraph({
+    Title = "Other Setting",
+    Content = "Setting"
+})
+
+local Haki = BF.Settings:AddToggle("Auto Haki", {
+    Title = "Auto Haki",
+    Default = true
+})
+
+Haki:OnChanged(function(vu)
+    _G.AutoHakiSpam = vu
+end)
+
+local Bypass = BF.Settings:AddToggle("Bypass Anti Cheat", {
+    Title = "❗❗Do Not Turn This Off❗❗",
+    Default = true
+})
+
+Bypass:OnChanged(function(vu)
+    _G.BypassCheat = vu
+end)
+
+spawn(function()
+    while wait() do
+        if _G.BypassCheat then
+            pcall(function()
+                CheckAntiCheatBypass()
+                bypassAntiExploit()
+            end)
+        end
+    end
+end)
+
+local Weather = BF.Settings:AddToggle("Remove Weather", {
+    Title = "Remove Weather",
+    Default = true
+})
+
+Weather:OnChanged(function(vu)
+    _G.RemoveWeather = vu
+end)
+
+spawn(function()
+    while wait() do
+        if _G.RemoveWeather then
+            pcall(function()
+                local RW = game:GetService("Players").LocalPlayer.PlayerScripts.WeatherStuff if RW then RW:Destroy() end
+             end)
+        end
+    end
+end)
+
+local Sounds = BF.Settings:AddToggle("Remove Sound", {
+    Title = "Remove Sounds",
+    Default = true
+})
+
+Weather:OnChanged(function(vu)
+    _G.RemoveSound = vu
+end)
+
+spawn(function()
+    while wait() do
+        if _G.RemoveSound then
+            for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
+                if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "DamageCounter" or v.Name == "SwordSlash" or v.Name == "SlashTail" or v.Name == "Sounds" then
+                    v:Destroy()
+                end
+            end
+        end
+    end
+end)
+
+if _G.RemoveSound == true then
+    game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
 end
+
+if World1 or World2 then
+local Fps = BF.Settings:AddToggle("[ FPS ] Management", {
+    Title = "[ FPS ] Management",
+    Default = false
+})
+    
+Fps:OnChanged(function(vu)
+    _G.FpsBoost1 = vu
+end)
+
+spawn(function()
+    pcall(function()
+        while wait() do
+            if _G.FpsBoost1 then
+                game:GetService("Lighting").FantasySky:Destroy()
+                    local g = game
+                    local w = g.Workspace
+                    local l = g.Lighting
+                    local t = w.Terrain
+                    t.WaterWaveSize = 0
+                    t.WaterWaveSpeed = 0
+                    t.WaterReflectance = 0
+                    t.WaterTransparency = 0
+                    l.GlobalShadows = false
+                    l.FogEnd = 9e9
+                    l.Brightness = 0
+                    settings().Rendering.QualityLevel = "Level01"
+                    for i, v in pairs(g:GetDescendants()) do
+                    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    elseif v:IsA("Decal") or v:IsA("Texture") then
+                    v.Transparency = 1
+                    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                    elseif v:IsA("Explosion") then
+                    v.Transparency = 1
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                    elseif v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                    end
+                    end
+                    for i, e in pairs(l:GetChildren()) do
+                    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                    e.Enabled = false
+                    end
+                    end
+                    for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
+                    if v.Name == ("Water;") then
+                    v.Transparency = 1
+                    v.Material = "Plastic"
+                        end
+                    end
+                end
+            end
+        end)
+    end)
+end
+
+if World3 then
+local Fps = BF.Settings:AddToggle("[ FPS ] Management", {
+    Title = "[ FPS ] Management",
+    Default = false
+})
+        
+Fps:OnChanged(function(vu)
+    _G.FpsBoost1 = vu
+end)
+spawn(function()
+    pcall(function()
+        while wait() do
+            if _G.FpsBoost1 then
+                game:GetService("Lighting").Sky:Destroy()
+                    local g = game
+                    local w = g.Workspace
+                    local l = g.Lighting
+                    local t = w.Terrain
+                    t.WaterWaveSize = 0
+                    t.WaterWaveSpeed = 0
+                    t.WaterReflectance = 0
+                    t.WaterTransparency = 0
+                    l.GlobalShadows = false
+                    l.FogEnd = 9e9
+                    l.Brightness = 0
+                    settings().Rendering.QualityLevel = "Level01"
+                    for i, v in pairs(g:GetDescendants()) do
+                    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    elseif v:IsA("Decal") or v:IsA("Texture") then
+                    v.Transparency = 1
+                    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                    elseif v:IsA("Explosion") then
+                    v.Transparency = 1
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                    elseif v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                    end
+                    end
+                    for i, e in pairs(l:GetChildren()) do
+                    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                    e.Enabled = false
+                    end
+                    end
+                    for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
+                    if v.Name == ("Water;") then
+                    v.Transparency = 1
+                    v.Material = "Plastic"
+                        end
+                    end
+                end
+            end
+        end)
+    end)
+end
+
+end
+
+-- // Quest Table \\ --

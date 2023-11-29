@@ -2025,6 +2025,7 @@ local AutoFarm = BF.Main:AddToggle("Auto Farm", {
 
 AutoFarm:OnChanged(function(vu)
     _G.AutoFarm = vu
+    StopTween(_G.AutoFarm)
 end)
 
 spawn(function()

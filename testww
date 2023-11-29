@@ -797,6 +797,52 @@ function CheckLevel2()
         end
     end
 end
+
+function QuestBone()
+	local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
+	if _G.Upto then
+		Lv = Lv + 100
+	end
+if World3 then
+	if Lv >= 1975 and Lv <= 1999 or SelectMonster == "Reborn Skeleton" then
+	Ms = "Reborn Skeleton"
+	NameQuest = "HauntedQuest1"
+	QuestLv = 1
+	NameMon = "Reborn Skeleton"
+	CFrameQ = CFrame.new(-9480.8271484375, 142.13066101074, 5566.0712890625)
+	CFrameMon = CFrame.new(-8817.880859375, 191.16761779785, 6298.6557617188)
+	TelePBoss(CFrameQ)
+elseif Lv >= 2000 and Lv <= 2024 or SelectMonster == "Living Zombie" then
+	Ms = "Living Zombie"
+	NameQuest = "HauntedQuest1"
+	QuestLv = 2
+	NameMon = "Living Zombie"
+	CFrameQ = CFrame.new(-9480.8271484375, 142.13066101074, 5566.0712890625)
+	CFrameMon = CFrame.new(-10125.234375, 183.94705200195, 6242.013671875)
+	TelePBoss(CFrameQ)
+elseif Lv >= 2025 and Lv <= 2049  or  SelectMonster == "Demonic Soul" then
+	Ms = "Demonic Soul"
+	NameQuest = "HauntedQuest2"
+	QuestLv = 1
+	NameMon = "Demonic"
+	CFrameQ = CFrame.new(-9516.9931640625, 178.00651550293, 6078.4653320313)
+	CFrameMon = CFrame.new(-9712.03125, 204.69589233398, 6193.322265625)
+	TelePBoss(CFrameQ)
+elseif Lv >= 2050 or SelectMonster == "Posessed Mummy" then
+	Ms = "Posessed Mummy"
+	NameQuest = "HauntedQuest2"
+	QuestLv = 2
+	NameMon = "Posessed Mummy"
+	CFrameQ = CFrame.new(-9516.9931640625, 178.00651550293, 6078.4653320313)
+	CFrameMon = CFrame.new(-9545.7763671875, 69.619895935059, 6339.5615234375)    
+	TelePBoss(CFrameQ)
+
+	SelectMonster = "Reborn Skeleton"
+	SelectMonster = "Living Zombie"
+	SelectMonster = "Demonic Soul"
+		end
+	end
+end
     
 function Hop()
     local PlaceID = game.PlaceId
@@ -2096,7 +2142,7 @@ spawn(function()
 						_G.Farm_Boss = true
 						_G.FastAttack = false
 					elseif SelectMonster ~= nil then
-						CheckLevel2()
+						QuestBone()
 						AutoHaki()
 						_G.FastAttack = false
 						repeat wait(.2)
@@ -2111,7 +2157,7 @@ spawn(function()
 						_G.Farm_Mon = nil
 					else
 						TestStartMagnet = nil
-						CheckLevel2()
+						QuestBone()
 						AutoHaki()
 						_G.FastAttack = false
 						repeat wait(.2)
@@ -2208,7 +2254,7 @@ do
 
 local FastAttack = BF.Settings:AddToggle("Fast Attack", {
     Title = "Fast Attack",
-    Default = true
+    Default = false
 })
 
 FastAttack:OnChanged(function(vu)

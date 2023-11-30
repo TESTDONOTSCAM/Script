@@ -5,7 +5,7 @@ do local ui =  game:GetService("CoreGui"):FindFirstChild("RippleFPS")  if ui the
 do local uix =  game:GetService("CoreGui"):FindFirstChild("Rippletime")  if uix then uix:Destroy() end end
 
 if _G.Fast_Delay == nil then
-	_G.Fast_Delay = 0.2
+	_G.Fast_Delay = 0
 end
 
 local openshit = Instance.new("ScreenGui")
@@ -123,6 +123,7 @@ mainopens.Parent = mainopen
   end
  )
  end
+
  _G.BGColor_1 = Color3.fromRGB(30,30,30)
  _G.BGColor_2 = Color3.fromRGB(20, 20, 20)
  _G.Color = Color3.fromRGB(255,255,255)
@@ -3994,7 +3995,7 @@ local Misc = Library:Tab("        Misc+Esp","rbxassetid://11447063791",_G.ColorM
 
 -- \\ User Table // --
 
-local Update:Notification("Hello")
+Update:Notification("Hello Test How are you")
 
 do
 

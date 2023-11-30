@@ -28,6 +28,7 @@ local ImageButton_2 = Instance.new("ImageButton")
 buttonframe.Parent = openshit
 buttonframe.Name = "buttonframe"
 buttonframe.BackgroundColor3 = Color3.fromRGB(0,0,0)
+buttonframe.Transparency = 1.000
 buttonframe.BorderColor3 = Color3.fromRGB(0, 0, 0)
 buttonframe.BorderSizePixel = 0
 buttonframe.Position = UDim2.new(0.00790273491, 0, 0.233524337, 0)
@@ -37,6 +38,7 @@ UICorner_11.Parent = buttonframe
 UICorner_12.Parent = ImageButton_2
 
 ImageButton_2.Parent = buttonframe
+ImageButton_2.Transparency = 1.000
 ImageButton_2.BackgroundColor3 = Color3.fromRGB(86,255,255)
 ImageButton_2.BorderColor3 = Color3.fromRGB(86,255,255)
 ImageButton_2.BorderSizePixel = 0
@@ -1844,7 +1846,7 @@ function CheckLevel2()
     if _G.Upto then
         Lv = Lv + 100
     end
-    if World1 and not Auto_Raid then
+    if World1 and not AutoRaid then
         if Lv == 1 or Lv <= 9 or SelectMonster == "" then -- Bandit
             Ms = "Bandit"
             NameQuest = "BanditQuest1"
@@ -2140,7 +2142,7 @@ function CheckLevel2()
             
         end
     end
-    if World2 and not Auto_Raid then
+    if World2 and not AutoRaid then
          
         if Lv == 700 or Lv <= 724 or SelectMonster == "Raider" then -- Raider
             Ms = "Raider"
@@ -2332,7 +2334,7 @@ function CheckLevel2()
             TelePBoss(CFrameQ)
         end
     end
-    if World3 and not Auto_Raid then
+    if World3 and not AutoRaid then
         if Lv >= 1500 and Lv <= 1524 or SelectMonster == "Pirate Millionaire" then -- Pirate Millionaire
             Ms = "Pirate Millionaire"
             NameQuest = "PiratePortQuest"
@@ -3428,7 +3430,7 @@ end)
 
 spawn(function()
     while wait() do
-        if _G.AutoHakiSpam or _G.AutoFarm or _G.AutoFarmFruitMastery or _G.AutoFarmSwanGlasses or _G.AutoFarmBossHallow or _G.Auto_Raid or _G.BoneFarm or _G.AutoRemover or _G.AutoSail or _G.TerShark or _G.Sharky or _G.Piranas or _G.FishBoat or _G.BrigadeShip or _G.BrigadeShips or _G.Beast then
+        if _G.AutoHakiSpam or _G.AutoFarm or _G.AutoFarmFruitMastery or _G.AutoFarmSwanGlasses or _G.AutoFarmBossHallow or _G.AutoRaid or _G.BoneFarm or _G.AutoRemover or _G.AutoSail or _G.TerShark or _G.Sharky or _G.Piranas or _G.FishBoat or _G.BrigadeShip or _G.BrigadeShips or _G.Beast then
         pcall(function()
                 AutoHaki()
             end)
@@ -3758,9 +3760,9 @@ local Misc = Library:Tab("        Misc+Esp","rbxassetid://11447063791",_G.ColorM
 
 -- \\ User Table // --
 
-Update:Notification("Hello Test","How Are You?")
-
 do
+
+Update:Notification("Script Currently On Loading")
 
 User:Line()
 
@@ -7529,34 +7531,37 @@ spawn(function()
 end)
 
 Dungeon:Dropdown("Select Dungeon",_G.ColorRaid,{"Dark","Sand","Magma","Rumble","Flame","Ice","Light","Quake","Human: Buddha","Flame","Bird: Phoenix"},function(vu)
-	_G.Select_Map = vu
+	_G.SelectMap = vu
 end)
 
-Dungeon:Toggle("Auto Raid",_G.ColorRaid,_G.SettingRaid,function(vu)
-	Auto_Raid = vu
-	_G.SettingRaid = vu
+if _G.SelectMap == nil then
+    _G.SelectMap = "Flame"
+end
+
+Dungeon:Toggle("Auto Raid",_G.ColorRaid,_G.Raids,function(vu)
+	AutoRaid = vu
+	_G.Raids = vu
 end)
 
-	Dungeon:Toggle("Next Islands",_G.ColorRaid,_G.Next_Islands,function(vu)
-		Next_Islands = vu
-		_G.Next_Islands = vu
-		
+	Dungeon:Toggle("Next Islands",_G.ColorRaid,_G.NextIsland,function(vu)
+		NextIsland = vu
+		_G.NextIsland = vu	
 	end)
 
-	if _G.SettingRaid then
-		Auto_Raid = true
+	if _G.Raids then
+		AutoRaid = true
 	end
 	
-	if type(_G.Select_Map) ~= 'string' then
-		_G.Select_Map = "Flame"
+	if type(_G.SelectMap) ~= 'string' then
+		_G.SelectMap = "Flame"
 	end
 	function Buy_Chip()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaidsNpc", "Select", _G.Select_Map)
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaidsNpc", "Select", _G.SelectMap)
 	end
 	spawn(function()
 		while wait(.5) do
 			pcall(function()
-				if Auto_Raid then
+				if AutoRaid then
 					if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
 						for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
 							if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
@@ -7566,7 +7571,7 @@ end)
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 									v.HumanoidRootPart.Transparency = 0.5
-								until not Auto_Raid or not v.Parent or v.Humanoid.Health <= 0
+								until not AutoRaid or not v.Parent or v.Humanoid.Health <= 0
 							end
 						end
 					end
@@ -7579,7 +7584,7 @@ end)
 	spawn(function()
 		while wait(.5) do
 			pcall(function()
-				if Next_Islands then
+				if NextIsland then
 					if game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5") then
 						for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
 							if v.Name == "Island 5" and (v.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 2300 then
@@ -7627,7 +7632,7 @@ end)
 	spawn(function()
 		while wait(2) do
 			pcall(function()
-				if Auto_Raid_Farm then
+				if AutoRaidFarm then
 					if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == false then
 						_G.Stop_Tween = true
 					elseif game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
@@ -7640,10 +7645,10 @@ end)
 	spawn(function()
 		while wait(.5) do
 			pcall(function()
-				if Auto_Raid then
+				if AutoRaid then
 					if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == false then
 						if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Special Microchip") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Special Microchip") then
-							Auto_Raid_Farm = true
+							AutoRaidFarm = true
 							Mix_Farm = true
 							if World2 then
 								fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon2.Button.Main.ClickDetector)
@@ -7655,26 +7660,26 @@ end)
 								until game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true
 							end
 						else
-							if _G.SettingRaid or _G.Melee_Hop or Auto_Phoenix_Awaken then
+							if _G.Raids or _G.Melee_Hop or Auto_Phoenix_Awaken then
 								_G.Have_Fruit = nil
 								Raid_FG()
 							end
 							Buy_Chip()
 							wait(1)
-							if _G.SettingRaid and not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Special Microchip") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Special Microchip") then
+							if _G.Raids and not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Special Microchip") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Special Microchip") then
 								HopServer()
 								wait(50)
-							elseif Auto_Raid_Farm and not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Special Microchip") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Special Microchip") then
+							elseif AutoRaidFarm and not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Special Microchip") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Special Microchip") then
 								Mix_Farm = nil
 								_G.Stop_Tween = nil
-								Auto_Raid_Farm = nil
+								AutoRaidFarm = nil
 								Text("ไม่มีผลปีศาจเหลือแล้ว")
 							end
 						end
 					elseif game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
 						repeat wait(1)
 						until game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == false
-						if _G.Auto_Awaken then
+						if _G.AutoAwaken then
 							wait(2)
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Awakener","Check")
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Awakener","Awaken")
@@ -7685,22 +7690,22 @@ end)
 		end
 	end)
 
-Dungeon:Toggle("Auto Awaken",_G.ColorRaid,_G.Auto_Awaken,function(vu)
-	_G.Auto_Awaken = vu	
+Dungeon:Toggle("Auto Awaken",_G.ColorRaid,false,function(vu)
+	_G.AutoAwaken = vu	
 end)
 	
 Dungeon:Seperator("Misc",_G.ColorRaid)
-Dungeon:Toggle("Bring Fruit",_G.ColorRaid,_G.BringFruit,function(vu)
+Dungeon:Toggle("Bring Fruit",_G.ColorRaid,false,function(vu)
 	BringFruit = vu
 	_G.BringFruit = vu
 end)
-Dungeon:Toggle("Get Fruit Inventory",_G.ColorRaid,_G.Get_Fruit,function(vu)
-	_G.Get_Fruit = vu
+Dungeon:Toggle("Get Fruit Inventory",_G.ColorRaid,false,function(vu)
+	_G.GetFruit = vu
 	end)
 spawn(function()
 		while wait(.5) do
 			pcall(function()
-				if _G.Get_Fruit then
+				if _G.GetFruit then
 					if Inventory_Fruit then
 						Inventory_Fruit = nil
 					end
@@ -8573,5 +8578,7 @@ end)
     end)
     end
 end)
+
+Update:Notification("Script Loading Complete")
 
 end

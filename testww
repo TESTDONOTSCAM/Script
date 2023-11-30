@@ -5197,6 +5197,7 @@ BF.Misc:AddButton({
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",4)
         elseif _G.SelectStateHaki == "State 5" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",5)
+        end
     end
 })
 

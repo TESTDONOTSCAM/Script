@@ -137,11 +137,11 @@ mainopens.Parent = mainopen
  _G.TabTextColor = Color3.fromRGB(150, 150, 150)
  _G.TabImageColor = Color3.fromRGB(150, 150, 150)
  _G.TabThemeColor = Color3.fromRGB(250, 0, 0)
- _G.SectionColor = Color3.fromRGB(150, 150, 150)
+ _G.SectionColor = Color3.fromRGB(255,0,210)
  _G.SectionImageColor = Color3.fromRGB(150, 150, 150)
- _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
+ _G.SectionTextColor = Color3.fromRGB(255,255,255)
  _G.SectionOn = Color3.fromRGB(0, 250, 0)
- _G.HubName = "ScriptBlox"
+ _G.HubName = "ScriptBlox Premium"
 
  _G.StrokeColor = Color3.fromRGB(162, 0, 255)
 
@@ -3036,8 +3036,6 @@ function NoDodgeCool()
     end
     end
 end
-    
-
 
 -- Fly Script
 function fly()
@@ -3760,7 +3758,7 @@ local Misc = Library:Tab("        Misc+Esp","rbxassetid://11447063791",_G.ColorM
 
 -- \\ User Table // --
 
-Update:Notification("Hello Test How are you")
+Update:Notification("Hello Test","How Are You?")
 
 do
 
@@ -4701,10 +4699,6 @@ Setting:Toggle("[ FPS ] Management",_G.ColorSetting,false,function(value)
             end
         end)
     end)
-end
-
-if _G.FpsBoost1 == true then
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/BetaLag'))()
 end
 
 end

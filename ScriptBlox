@@ -3764,6 +3764,8 @@ do
 
 Update:Notification("Script Currently On Loading")
 
+wait(3)
+
 User:Line()
 
 User:LabelIMG("       Discord : discord.gg/85gXUG58eW","rbxassetid://14764624462")
@@ -7696,7 +7698,7 @@ spawn(function()
 	end
 end)
 
-Dungeon:Toggle("Auto Start Law Dungeon",_G.ColorRaid,false,function(value)
+Dungeon:Toggle("Auto Start Law Dungeon",_G.ColorRaid,_G.Auto_Start_Law_Dungeon,function(value)
  _G.Auto_Start_Law_Dungeon = value
 end)
 
@@ -8598,6 +8600,8 @@ end)
     end)
     end
 end)
+
+wait(3)
 
 Update:Notification("Script Loading Complete")
 

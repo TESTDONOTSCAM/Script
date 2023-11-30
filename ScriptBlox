@@ -7696,7 +7696,7 @@ spawn(function()
 	end
 end)
 
-Dungeon:Toggle("Auto Start Law Dungeon",_G.ColorRaid,_G.Auto_Start_Law_Dungeon,function(value)
+Dungeon:Toggle("Auto Start Law Dungeon",_G.ColorRaid,false,function(value)
  _G.Auto_Start_Law_Dungeon = value
 end)
 

@@ -3901,6 +3901,10 @@ Main:Dropdown("Select Weapon",_G.ColorMain,{"Melee", "Sword", "Devil Fruit"},fun
     _G.SelectWeapon = value
 end)
 
+if _G.SelectWeapon == nil then
+    _G.SelectWeapon = "Melee"
+end
+
 spawn(function()
     while wait() do
         pcall(function()
@@ -4346,10 +4350,6 @@ do
 Setting:Line(_G.ColorSetting)
 Setting:Seperator("Farm Setting",_G.ColorSetting)
 
-if _G.FastAttack_Mode == nil then
-	_G.FastAttack_Mode = "0"
-end
-
 Setting:Toggle("Fast Attack",_G.ColorSetting,true,function(vu)
 	_G.FastAttack = vu
 end)
@@ -4402,44 +4402,48 @@ spawn(function()
 end)
 
 Setting:Dropdown("Fast Attack Delay ",_G.ColorSetting,{"0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"},function(vu)
-	_G.FastAttack_Mode = vu
+	_G.FastMode = vu
 end)
+
+if _G.FastMode == nil then
+	_G.FastMode = "0"
+end
 
 spawn(function()
 	while wait(.1) do
-		if _G.FastAttack_Mode then
+		if _G.FastMode then
 			pcall(function()
-				if _G.FastAttack_Mode == "0" then
+				if _G.FastMode == "0" then
 					_G.Fast_Delay = 0
-				elseif _G.FastAttack_Mode == "0.2" then
+				elseif _G.FastMode == "0.2" then
 					_G.Fast_Delay = 0.2
-				elseif _G.FastAttack_Mode == "0.5" then
+				elseif _G.FastMode == "0.5" then
 					_G.Fast_Delay = 0.5
-				elseif _G.FastAttack_Mode == "0.15" then
+				elseif _G.FastMode == "0.15" then
 					_G.Fast_Delay = 0.15
-				elseif _G.FastAttack_Mode == "0.155" then
+				elseif _G.FastMode == "0.155" then
 					_G.Fast_Delay = 0.155
-				elseif _G.FastAttack_Mode == "0.16" then
+				elseif _G.FastMode == "0.16" then
 					_G.Fast_Delay = 0.16
-				elseif _G.FastAttack_Mode == "0.165" then
+				elseif _G.FastMode == "0.165" then
 					_G.Fast_Delay = 0.165
-				elseif _G.FastAttack_Mode == "0.17" then
+				elseif _G.FastMode == "0.17" then
 					_G.Fast_Delay = 0.17
-				elseif _G.FastAttack_Mode == "0.175" then
+				elseif _G.FastMode == "0.175" then
 					_G.Fast_Delay = 0.175
-				elseif _G.FastAttack_Mode == "0.18" then
+				elseif _G.FastMode == "0.18" then
 					_G.Fast_Delay = 0.18
-				elseif _G.FastAttack_Mode == "0.185" then
+				elseif _G.FastMode == "0.185" then
 					_G.Fast_Delay = 0.185
-				elseif _G.FastAttack_Mode == "0.190" then
+				elseif _G.FastMode == "0.190" then
 					_G.Fast_Delay = 0.190
-				elseif _G.FastAttack_Mode == "0.195" then
+				elseif _G.FastMode == "0.195" then
 					_G.Fast_Delay = 0.195
-				elseif _G.FastAttack_Mode == "1" then
+				elseif _G.FastMode == "1" then
 					_G.Fast_Delay = 0.1
-				elseif _G.FastAttack_Mode == "1.5" then
+				elseif _G.FastMode == "1.5" then
 					_G.Fast_Delay = 1.5
-				elseif _G.FastAttack_Mode == "2" then
+				elseif _G.FastMode == "2" then
 					_G.Fast_Delay = 2
 				end
 			end)

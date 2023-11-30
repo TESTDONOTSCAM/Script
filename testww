@@ -4703,6 +4703,10 @@ Setting:Toggle("[ FPS ] Management",_G.ColorSetting,false,function(value)
     end)
 end
 
+if _G.FpsBoost1 == true then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/BetaLag'))()
+end
+
 end
 
 -- \\ Quest Table // --

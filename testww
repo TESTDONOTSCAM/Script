@@ -791,8 +791,10 @@ function Update:Notification(textdesc)
    NotificationHold.Parent = MyLibrary
    NotificationHold.BackgroundColor3 = _G.WindowBackgroundColor
    NotificationHold.BackgroundTransparency = 1
+   NotificationHold.AnchorPoint = Vector2.new(0.5,0.5)
    NotificationHold.BorderSizePixel = 0
    NotificationHold.Size = UDim2.new(0, 589, 0, 378)
+   NotificationHold.Position = UDim2.new(0.5,0,0.5,0)
    NotificationHold.AutoButtonColor = false
    NotificationHold.Font = Enum.Font.SourceSans
    NotificationHold.Text = ""
@@ -812,7 +814,7 @@ function Update:Notification(textdesc)
    NotificationFrame.BorderSizePixel = 0
    NotificationFrame.Transparency = 0
    NotificationFrame.ClipsDescendants = true
-   NotificationFrame.Position = UDim2.new(0, 295, 0, 190)
+   NotificationFrame.Position = UDim2.new(0.5,0,0.5,0)
    NotificationFrame.Size = UDim2.new(0, 0, 0, 0)
    
    NotificationFrame:TweenSize(UDim2.new(0, 400, 0, 250), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
@@ -4132,41 +4134,41 @@ do
 Main:Line(_G.ColorMain)
 Main:Seperator("Auto Farm",_G.ColorMain)
     
-local SelectWeapona = Main:Dropdown("Select Weapon",_G.ColorMain,{"Melee", "Sword", "Devil Fruit"},function(value)
-    _G.Setting_table.Weapon = value
+Main:Dropdown("Select Weapon",_G.ColorMain,{"Melee", "Sword", "Devil Fruit"},function(value)
+    _G.SelectWeapon = value
 end)
 
 spawn(function()
     while wait() do
         pcall(function()
-          if _G.Setting_table.Weapon == "Melee" then
+          if _G.SelectWeapon == "Melee" then
             for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                 if v.ToolTip == "Melee" then
                 if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                _G.Setting_table.Weapon = v.Name
+                _G.SelectWeapon = v.Name
             end
         end
     end
-        elseif _G.Setting_table.Weapon == "Sword" then
+        elseif _G.SelectWeapon == "Sword" then
             for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
             if v.ToolTip == "Sword" then
             if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-            _G.Setting_table.Weapon = v.Name
+            _G.SelectWeapon = v.Name
         end
     end
         end
-            elseif _G.Setting_table.Weapon == "Devil Fruit" then
+            elseif _G.SelectWeapon == "Devil Fruit" then
                 for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                 if v.ToolTip == "Blox Fruit" then
                 if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                _G.Setting_table.Weapon = v.Name
+                _G.SelectWeapon = v.Name
             end
         end
             end
                 else
                     for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                        if v.ToolTip == _G.Setting_table.Weapon then
-                        _G.Setting_table.Weapon = v.Name
+                        if v.ToolTip == _G.SelectWeapon then
+                        _G.SelectWeapon = v.Name
                         end
                     end
                 end
@@ -4531,7 +4533,7 @@ spawn(function()
                                                 AutoSkill = false 
                                                 Skillaimbot = false
                                                 AutoHaki()
-                                                EquipWeapon(_G.Setting_table.Weapon)
+                                                EquipWeapon(_G.SelectWeapon)
                                                 TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5059,7 +5061,7 @@ spawn(function()
                         if v.Name == "Mob Leader" then
                             
                             repeat wait()
-                                EquipWeapon(_G.Setting_table.Weapon)
+                                EquipWeapon(_G.SelectWeapon)
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 TP(v.HumanoidRootPart.CFrame*CFrame.new(0,20,0))
                                 game:GetService'VirtualUser':CaptureController()
@@ -5087,7 +5089,7 @@ spawn(function()
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
                              
                             repeat wait()
-                                EquipWeapon(_G.Setting_table.Weapon)
+                                EquipWeapon(_G.SelectWeapon)
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 TP(v.HumanoidRootPart.CFrame*CFrame.new(0,25,15))
                                 game:GetService'VirtualUser':CaptureController()
@@ -5130,7 +5132,7 @@ spawn(function()
         pcall(function()
         repeat task.wait()
         sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
-        EquipWeapon(_G.Setting_table.Weapon)
+        EquipWeapon(_G.SelectWeapon)
         AutoHaki()
         v.HumanoidRootPart.Transparency = 1
         v.HumanoidRootPart.CanCollide = false
@@ -5161,7 +5163,7 @@ spawn(function()
         OldCFrameBartlio = v.HumanoidRootPart.CFrame
         repeat task.wait()
         sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
-        EquipWeapon(_G.Setting_table.Weapon)
+        EquipWeapon(_G.SelectWeapon)
         AutoHaki()
         v.HumanoidRootPart.Transparency = 1
         v.HumanoidRootPart.CanCollide = false
@@ -5223,7 +5225,7 @@ AutoQuest:Toggle("Auto Rengoku",_G.ColorQuest,_G.AutoRengoku,function(value)
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
     if (v.Name == "Snow Lurker" or v.Name == "Arctic Warrior") and v.Humanoid.Health > 0 then
     repeat task.wait()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     AutoHaki()
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5260,7 +5262,7 @@ end)
     repeat task.wait()
     pcall(function()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -5321,7 +5323,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     v.HumanoidRootPart.CanCollide = false
     v.Humanoid.WalkSpeed = 0
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5371,7 +5373,7 @@ AutoQuest:Toggle("Auto Musketeer Hat",_G.ColorQuest,_G.AutoMusketeerHat,function
     if v.Name == "Forest Pirate" then
     repeat task.wait()
     pcall(function()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     AutoHaki()
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -5404,7 +5406,7 @@ AutoQuest:Toggle("Auto Musketeer Hat",_G.ColorQuest,_G.AutoMusketeerHat,function
     OldCFrameElephant = v.HumanoidRootPart.CFrame
     repeat task.wait()
     pcall(function()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     AutoHaki()
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5451,7 +5453,7 @@ spawn(function()
     repeat task.wait()
     pcall(function()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -5492,7 +5494,7 @@ spawn(function()
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
     if string.find(v.Name , "Soul Reaper") then
     repeat task.wait()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     AutoHaki()
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame*CFrame.new(5,10,7))
@@ -5690,7 +5692,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     v.HumanoidRootPart.CanCollide = false
     v.Humanoid.WalkSpeed = 0
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5716,7 +5718,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     v.HumanoidRootPart.CanCollide = false
     v.Humanoid.WalkSpeed = 0
     v.Head.CanCollide = false
@@ -5997,7 +5999,7 @@ end)
     if v.Name == "Stone" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.CFrame = OldCFrameRainbow
@@ -6017,7 +6019,7 @@ end)
     if v.Name == "Island Empress" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.CFrame = OldCFrameRainbow
@@ -6037,7 +6039,7 @@ end)
     if v.Name == "Kilo Admiral" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -6057,7 +6059,7 @@ end)
     if v.Name == "Captain Elephant" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -6077,7 +6079,7 @@ end)
     if v.Name == "Beautiful Pirate" then
     OldCFrameRainbow = v.HumanoidRootPart.CFrame
     repeat task.wait()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -6183,7 +6185,7 @@ spawn(function()
                             if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 repeat task.wait()
                                     AutoHaki()
-                                    EquipWeapon(_G.Setting_table.Weapon)
+                                    EquipWeapon(_G.SelectWeapon)
                                     v.HumanoidRootPart.CanCollide = false
                                     v.Humanoid.WalkSpeed = 0
                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -6684,7 +6686,7 @@ AutoQuest:Toggle("Auto Evo Race",_G.ColorQuest,_G.Auto_EvoRace,function(value)
     if v.Name == "Zombie [Lv. 950]" then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -7134,13 +7136,13 @@ end)
     if game.Players:FindFirstChild(_G.SelectPly) then
     if game.Players:FindFirstChild(_G.SelectPly).Character.Humanoid.Health > 0 then
     repeat task.wait()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     AutoHaki()
     game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CanCollide = false
     topos(game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CFrame * CFrame.new(0,35,0))
     spawn(function()
     pcall(function()
-    if _G.Setting_table.Weapon == SelectWeaponSword then
+    if _G.SelectWeapon == SelectWeaponSword then
     local args = {
     [1] = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.Position,
     [2] = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart

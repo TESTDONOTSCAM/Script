@@ -20,6 +20,7 @@ local ImageButton_2 = Instance.new("ImageButton")
 buttonframe.Parent = openshit
 buttonframe.Name = "buttonframe"
 buttonframe.BackgroundColor3 = Color3.fromRGB(0,0,0)
+buttonframe.Transparency = 1.000
 buttonframe.BorderColor3 = Color3.fromRGB(0, 0, 0)
 buttonframe.BorderSizePixel = 0
 buttonframe.Position = UDim2.new(0.00790273491, 0, 0.233524337, 0)
@@ -30,6 +31,7 @@ UICorner_12.Parent = ImageButton_2
 
 ImageButton_2.Parent = buttonframe
 ImageButton_2.BackgroundColor3 = Color3.fromRGB(86,255,255)
+ImageButton_2.Transparency = 1.000
 ImageButton_2.BorderColor3 = Color3.fromRGB(86,255,255)
 ImageButton_2.BorderSizePixel = 0
 ImageButton_2.Position = UDim2.new(0.0242961459, 0, 0.0168576241, 0)
@@ -1988,6 +1990,13 @@ local BF = {
 -- // Main Table \\ --
 
 do
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "ScriptBlox"; 
+    Text = "Loading Script"; 
+    Icon = "http://www.roblox.com/asset/?id=14355269935";
+    Duration = 10
+})
 
 BF.Main:AddParagraph({
     Title = "Auto Farm",
@@ -5201,6 +5210,31 @@ BF.Misc:AddButton({
     end
 })
 
+local Colorpicker = BF.Misc:AddColorpicker("Colorpicker", {
+    Title = "Colorpicker",
+    Default = Color3.fromRGB(96, 205, 255)
+})
+
+Colorpicker:OnChanged(function()
+    print("Colorpicker changed:", Colorpicker.Value)
+end)
+
+Colorpicker:SetValueRGB(Color3.fromRGB(0, 255, 140))
+
+local TColorpicker = BF.Misc:AddColorpicker("TransparencyColorpicker", {
+    Title = "Colorpicker",
+    Description = "but you can change the transparency.",
+    Transparency = 0,
+    Default = Color3.fromRGB(96, 205, 255)
+})
+
+TColorpicker:OnChanged(function()
+    print(
+        "TColorpicker changed:", TColorpicker.Value,
+        "Transparency:", TColorpicker.Transparency
+    )
+end)
+
 BF.Misc:AddParagraph({ Title = "", Content = ""})
 
 local Player = BF.Misc:AddToggle("", {
@@ -5408,5 +5442,12 @@ spawn(function()
     end)
     end
 end)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "ScriptBlox"; 
+	Text = "Script Loaded"; 
+	Icon = "http://www.roblox.com/asset/?id=14355269935";
+	Duration = 10
+})
 
 end

@@ -191,8 +191,6 @@ local Stroketime = Instance.new("UIStroke")
 		end
 	end)
  
- local Update = {}
- 
  local DiscordLib = {}
  
 	local TweenService = game:GetService("TweenService")

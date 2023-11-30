@@ -1,0 +1,248 @@
+_G.BetaLag = true
+
+spawn(function()
+	pcall(function()
+		while wait() do
+			if _G.BetaLag then
+				repeat task.wait()
+						-- Boat Castle
+						local Boat = game.Workspace.Map:WaitForChild("Boat Castle").IslandModel
+					
+						local BCD = Boat:FindFirstChild("Details") if BCD then BCD:Destroy() end
+						local BCH = Boat:FindFirstChild("Hotel") if BCH then BCH:Destroy() end
+						local BCM = Boat:FindFirstChild("Model") if BCM then BCM:Destroy() end
+					
+						-- CakeLoaf [ Done ]
+						local Cake = game.Workspace.Map.CakeLoaf.IslandModel
+					
+						local CLD = Cake:FindFirstChild("Details") if CLD then CLD:Destroy() end
+						local CLH = Cake:FindFirstChild("Hotel") if CLH then CLH:Destroy() end
+						local CLM = Cake:FindFirstChild("Model") if CLM then CLM:Destroy() end
+					
+							local CLC1 = Cake:FindFirstChild("CakeMountain1") if CLC1 then CLC1:Destroy() end
+							local CLC2 = Cake:FindFirstChild("CakeMountain2") if CLC2 then CLC2:Destroy() end
+							local CLC3 = Cake:FindFirstChild("CakeMountain3") if CLC3 then CLC3:Destroy() end
+							local CLC4 = Cake:FindFirstChild("CakeMountain4") if CLC4 then CLC4:Destroy() end
+							local CLC5 = Cake:FindFirstChild("CakeMountain5") if CLC5 then CLC5:Destroy() end
+					
+								local CLT1 = Cake:FindFirstChild("CandryTree2") if CLT1 then CLT1:Destroy() end
+								local CLT2 = Cake:FindFirstChild("CandyTree1") if CLT2 then CLT2:Destroy() end
+					
+									local CLCAN = Cake:FindFirstChild("Cannon2") if CLCAN then CLCAN:Destroy() end
+					
+									local CLH1 = Cake:FindFirstChild("House1") if CLH1 then CLH1:Destroy() end
+									local CLH2 = Cake:FindFirstChild("House2") if CLH2 then CLH2:Destroy() end
+									local CLH3 = Cake:FindFirstChild("House3") if CLH3 then CLH3:Destroy() end
+									local CLHT = Cake:FindFirstChild("Tower1") if CLHT then CLHT:Destroy() end
+									local CLHB = Cake:FindFirstChild("Trees") if CLHB then CLHB:Destroy() end
+									local CLSI = Cake:FindFirstChild("snowisland_Cylinder.081") if CLSI then CLSI:Destroy() end
+									local CLPT = Cake:FindFirstChild("Part") if CLPT then CLPT:Destroy() end
+									local CLPG = Cake:FindFirstChild("PluginGrass") if CLPG then CLPG:Destroy() end
+									local CLBM = game.Workspace.Map:WaitForChild("CakeLoaf"):FindFirstChild("BigMirror") if CLBM then CLBM:Destroy() end
+									local CLWC50 = Cake:FindFirstChild("wcmansion_Cylinder.050") if CLWC50 then CLWC50:Destroy() end
+									local CLWC51 = Cake:FindFirstChild("wcmansion_Cylinder.051") if CLWC51 then CLWC51:Destroy() end
+									local CLWC52 = Cake:FindFirstChild("wcmansion_Cylinder.052") if CLWC52 then CLWC52:Destroy() end
+									local CLWC55 = Cake:FindFirstChild("wcmansion_Cylinder.055") if CLWC55 then CLWC55:Destroy() end
+									local CLWC56 = Cake:FindFirstChild("wcmansion_Cylinder.056") if CLWC56 then CLWC56:Destroy() end
+									local CLWC57 = Cake:FindFirstChild("wcmansion_Cylinder.057") if CLWC57 then CLWC57:Destroy() end
+									local CLWC60 = Cake:FindFirstChild("wcmansion_Cylinder.060") if CLWC60 then CLWC60:Destroy() end
+									local CLWC61 = Cake:FindFirstChild("wcmansion_Cylinder.061") if CLWC61 then CLWC61:Destroy() end
+									local CLWH35 = Cake:FindFirstChild("wc_house_Cylinder.035") if CLWH35 then CLWH35:Destroy() end
+									local CLWH35s = Cake:FindFirstChild("wc_houses_Cylinder.035") if CLWH35s then CLWH35s:Destroy() end
+									local CLWP = Cake:FindFirstChild("wc_plane") if CLWP then CLWP:Destroy() end
+									local CLWP1 = Cake:FindFirstChild("wc_Plane.001") if CLWP1 then CLWP1:Destroy() end
+									local CLWP2 = Cake:FindFirstChild("wc_Plane.002") if CLWP2 then CLWP2:Destroy() end
+									local CLWP3 = Cake:FindFirstChild("wc_Plane.003") if CLWP3 then CLWP3:Destroy() end
+									local CLTHIRLL = Cake:FindFirstChild("thrill_Cube.004") if CLTHIRLL then CLTHIRLL:Destroy() end
+									local CLWCP7 = Cake:FindFirstChild("wcmansion_Plane.007") if CLWCP7 then CLWCP7:Destroy() end
+									local CLWCP8 = Cake:FindFirstChild("wcmansion_Plane.008") if CLWCP8 then CLWCP8:Destroy() end
+									local CLWCP9 = Cake:FindFirstChild("wcmansion_Plane.009") if CLWCP9 then CLWCP9:Destroy() end
+									local CLWCP13 = Cake:FindFirstChild("wcmansion_Plane.013") if CLWCP13 then CLWCP13:Destroy() end
+									local CLWCR2 = Cake:FindFirstChild("wcroad2") if CLWCR2 then CLWCR2:Destroy() end
+									local CLWCR3 = Cake:FindFirstChild("wcroad3") if CLWCR3 then CLWCR3:Destroy() end
+									local CLBC109 = Cake:FindFirstChild("bloxfruits_bossarea_Cylinder.109") if CLBC109 then CLBC109:Destroy() end
+									local CLBI97 = Cake:FindFirstChild("bloxfruits_island2_Cylinder.097") if CLBI97 then CLBI97:Destroy() end
+									local CLBI103 = Cake:FindFirstChild("bloxfruits_island2_Cylinder.103") if CLBI103 then CLBI103:Destroy() end
+									local CLBI104 = Cake:FindFirstChild("bloxfruits_island2_Cylinder.104") if CLBI104 then CLBI104:Destroy() end
+									local CLSI80 = Cake:FindFirstChild("snowisland_Cylinder.080") if CLSI80 then CLSI80:Destroy() end
+									local CLSI84 = Cake:FindFirstChild("snowisland_Cylinder.084") if CLSI84 then CLSI84:Destroy() end
+									local CLWR001 = Cake:FindFirstChild("wcroad_Cube.001") if CLWR001 then CLWR001:Destroy() end
+									local CLWROCK1 = Cake:FindFirstChild("Rock1") if CLWROCK1 then CLWROCK1:Destroy() end
+									local CLWROCK2 = Cake:FindFirstChild("Rock2") if CLWROCK2 then CLWROCK2:Destroy() end
+									local CLWROCK3 = Cake:FindFirstChild("Rock3") if CLWROCK3 then CLWROCK3:Destroy() end
+									local CLWROCK4 = Cake:FindFirstChild("Rock4") if CLWROCK4 then CLWROCK4:Destroy() end
+									local CLWCoach = Cake:FindFirstChild("Couch") if CLWCoach then CLWCoach:Destroy() end
+									local CLWUNI = Cake:FindFirstChild("Union") if CLWUNI then CLWUNI:Destroy() end
+									local CLWcone = Cake:FindFirstChild("cone") if CLWcone then CLWcone:Destroy() end
+									local CLWedge = Cake:FindFirstChild("Wedge") if CLWedge then CLWedge:Destroy() end
+					
+						-- CandyCane [ Done ]
+						local Candy = game.Workspace.Map.CandyCane
+					
+						local CCH = Candy:FindFirstChild("Tree") if CCH then CCH:Destroy() end
+						local CCM = Candy:FindFirstChild("Model") if CCM then CCM:Destroy() end
+						local CCB1 = Candy:FindFirstChild("Bush1") if CCB1 then CCB1:Destroy() end
+						local CCB2 = Candy:FindFirstChild("Bush2") if CCB2 then CCB2:Destroy() end
+						local CCB3 = Candy:FindFirstChild("Bush3") if CCB3 then CCB3:Destroy() end
+						local CCPT1 = Candy:FindFirstChild("PineTree1") if CCPT1 then CCPT1:Destroy() end
+						local CCPT2 = Candy:FindFirstChild("PineTree2") if CCPT2 then CCPT2:Destroy() end
+						local CCR1 = Candy:FindFirstChild("Rocks1") if CCR1 then CCR1:Destroy() end
+						local CCR2 = Candy:FindFirstChild("Rocks2") if CCR2 then CCR2:Destroy() end
+						local CCR3 = Candy:FindFirstChild("Rocks3") if CCR3 then CCR3:Destroy() end
+						local CCTR1 = Candy:FindFirstChild("Tree1") if CCTR1 then CCTR1:Destroy() end
+						local CCTR2 = Candy:FindFirstChild("Tree2") if CCTR2 then CCTR2:Destroy() end
+						local CCPART = Candy:FindFirstChild("Part") if CCPART then CCPART:Destroy() end
+						local CCPG = Candy:FindFirstChild("PluginGrass") if CCPG then CCPG:Destroy() end
+						local CCrock1 = Candy:FindFirstChild("rock1") if CCrock1 then CCrock1:Destroy() end
+						local CCrock3 = Candy:FindFirstChild("rock3") if CCrock3 then CCrock3:Destroy() end
+						local CCCPS = Candy:FindFirstChild("Meshes/candyprops_Sphere") if CCCPS then CCCPS:Destroy() end
+						local CCCylin = Candy:FindFirstChild("Meshes/candyprops_Cylinder.003") if CCCylin then CCCylin:Destroy() end
+						local CCrossa = Candy:FindFirstChild("Meshes/snowisland_Cylinder.081") if CCrossa then CCrossa:Destroy() end
+						local CCHallow = Candy:FindFirstChild("HollowTrunk") if CCHallow then CCHallow:Destroy() end
+						local CCFish = Candy:FindFirstChild("Meshes/fishman_islands_Plane.003") if CCFish then CCFish:Destroy() end
+						local CCroad = Candy:FindFirstChild("Meshes/road") if CCroad then CCroad:Destroy() end
+						local CCdoks = Candy:FindFirstChild("Meshes/docks_Cube.051") if CCdoks then CCdoks:Destroy() end
+						local CCdoksa = Candy:FindFirstChild("Meshes/bloxfruits_bossarea_Cylinder.110") if CCdoksa then CCdoksa:Destroy() end
+						local CCdoksf = Candy:FindFirstChild("Meshes/bloxfruits_island2_Cylinder.103") if CCdoksf then CCdoksf:Destroy() end
+					
+						-- Great Tree [ Done ]
+						local Great = game.Workspace.Map:WaitForChild("Great Tree").IslandModel
+					
+						local GTD = Great:FindFirstChild("Details") if GTD then GTD:Destroy() end
+						local GTM = Great:FindFirstChild("Part") if GTM then GTM:Destroy() end
+						local GTPG = Great:FindFirstChild("PluginGrass") if GTPG then GTPG:Destroy() end
+						local GTCUBE2 = Great:FindFirstChild("small_island1_Cube.002") if GTCUBE2 then GTCUBE2:Destroy() end
+						local GTCUBE3 = Great:FindFirstChild("small_island1_Cube.003") if GTCUBE3 then GTCUBE3:Destroy() end
+						local GTCUBE7 = Great:FindFirstChild("small_island1_Cube.007") if GTCUBE7 then GTCUBE7:Destroy() end
+						local GTCUBE8 = Great:FindFirstChild("small_island1_Cube.008") if GTCUBE8 then GTCUBE8:Destroy() end
+						local GTCUBE9 = Great:FindFirstChild("small_island1_Cube.009") if GTCUBE9 then GTCUBE9:Destroy() end
+						local GTCUBE11 = Great:FindFirstChild("small_island1_Cube.011") if GTCUBE11 then GTCUBE11:Destroy() end
+						local GTCUBE18 = Great:FindFirstChild("small_island1_Cube.018") if GTCUBE18 then GTCUBE18:Destroy() end
+						local GTCy = Great:FindFirstChild("small_island1_Cylinder") if GTCy then GTCy:Destroy() end
+						local GTCUBEFIX = Great:FindFirstChild("smallisland1_fixes_Cube.010") if GTCUBEFIX then GTCUBEFIX:Destroy() end
+						local GTSI74 = Great:FindFirstChild("snowisland_Cylinder.074") if GTSI74 then GTSI74:Destroy() end
+						local GTSI80 = Great:FindFirstChild("snowisland_Cylinder.080") if GTSI80 then GTSI80:Destroy() end
+						local GTSI81 = Great:FindFirstChild("snowisland_Cylinder.081") if GTSI81 then GTSI81:Destroy() end
+						local GTSI84 = Great:FindFirstChild("snowisland_Cylinder.084") if GTSI84 then GTSI84:Destroy() end
+						local GTbf94 = Great:FindFirstChild("bloxfruits_island2_Cylinder.094") if GTbf94 then GTbf94:Destroy() end
+						local GTbf97 = Great:FindFirstChild("bloxfruits_island2_Cylinder.097") if GTbf97 then GTbf97:Destroy() end
+						local GTbf103 = Great:FindFirstChild("bloxfruits_island2_Cylinder.103") if GTbf103 then GTbf103:Destroy() end
+						local GTbf104 = Great:FindFirstChild("bloxfruits_island2_Cylinder.104") if GTbf104 then GTbf104:Destroy() end
+						local GTboss108 = Great:FindFirstChild("bloxfruits_bossarea_Cylinder.108") if GTboss108 then GTboss108:Destroy() end
+						local GTboss109 = Great:FindFirstChild("bloxfruits_bossarea_Cylinder.109") if GTboss109 then GTboss109:Destroy() end
+						local GTboss110 = Great:FindFirstChild("bloxfruits_bossarea_Cylinder.110") if GTboss110 then GTboss110:Destroy() end
+						local GTTP = Great:FindFirstChild("TreeTop") if GTTP then GTTP:Destroy() end
+						local GTRT = Great:FindFirstChild("Rocks") if GTRT then GTRT:Destroy() end
+						local GTdbz = Great:FindFirstChild("dbz_map1_Cube.012") if GTdbz then GTdbz:Destroy() end
+					
+						-- Haunted Castle
+						local Haunted = game.Workspace.Map:WaitForChild("Haunted Castle").IslandModel
+					
+						local HCD = Haunted:FindFirstChild("Details") if HCD then HCD:Destroy() end
+						local HCM = Haunted:FindFirstChild("Tree") if HCM then HCM:Destroy() end
+						local HCTree = Haunted:FindFirstChild("Trees") if HCTree then HCTree:Destroy() end
+						local HCPart = Haunted:FindFirstChild("Part") if HCPart then HCPart:Destroy() end
+						local HCPG = Haunted:FindFirstChild("PluginGrass") if HCPG then HCPG:Destroy() end
+						local HCGate = Haunted:FindFirstChild("gatedetail1") if HCGate then HCGate:Destroy() end
+						local HCthrill = Haunted:FindFirstChild("thrill_Cylinder.034") if HCthrill then HCthrill:Destroy() end
+						local HCWedge = Haunted:FindFirstChild("Wedge") if HCWedge then HCWedge:Destroy() end
+						local HCTow = Haunted:FindFirstChild("Tower") if HCTow then HCTow:Destroy() end
+						local HCPin = Haunted:FindFirstChild("PineTree") if HCPin then HCPin:Destroy() end
+					
+						-- Ice Cream Island [ Done ]
+						local Cream = game.Workspace.Map:WaitForChild("Ice Cream Island").IslandModel
+					
+						local ICID = Cream:FindFirstChild("Details") if ICID then ICID:Destroy() end
+						local ICIH = Cream:FindFirstChild("Hotel") if ICIH then ICIH:Destroy() end
+						local ICIM = Cream:FindFirstChild("Model") if ICIM then ICIM:Destroy() end
+						local ICIMs = Cream:FindFirstChild("ic_Plane") if ICIMs then ICIMs:Destroy() end
+						local ICIR = Cream:FindFirstChild("Rock1") if ICIR then ICIR:Destroy() end
+						local ICISI = Cream:FindFirstChild("snowisland_Cylinder.081") if ICISI then ICISI:Destroy() end
+						local ICIB108 = Cream:FindFirstChild("bloxfruits_bossarea_Cylinder.108") if ICIB108 then ICIB108:Destroy() end
+						local ICIB110 = Cream:FindFirstChild("bloxfruits_bossarea_Cylinder.110") if ICIB110 then ICIB110:Destroy() end
+						local ICIB111 = Cream:FindFirstChild("bloxfruits_bossarea_Cylinder.111") if ICIB111 then ICIB111:Destroy() end
+						local ICIB112 = Cream:FindFirstChild("bloxfruits_bossarea_Cylinder.112") if ICIB112 then ICIB112:Destroy() end
+						local ICIB098 = Cream:FindFirstChild("bloxfruits_island2_Cylinder.098") if ICIB098 then ICIB098:Destroy() end
+						local ICIR1 = Cream:FindFirstChild("rock1") if ICIR1 then ICIR1:Destroy() end
+						local ICIP = Cream:FindFirstChild("Part") if ICIP then ICIP:Destroy() end
+						local ICIL = Cream:FindFirstChild("Ladder") if ICIL then ICIL:Destroy() end
+						local ICIPG = Cream:FindFirstChild("PluginGrass") if ICIPG then ICIPG:Destroy() end
+					
+					
+						-- Peanut Island [ Done ]
+						local Peanut = game.Workspace.Map:WaitForChild("Peanut Island").IslandModel
+					
+						local PID = Peanut:FindFirstChild("Details") if PID then PID:Destroy() end
+						local PIM = Peanut:FindFirstChild("Model") if PIM then PIM:Destroy() end
+						local PIT = Peanut:FindFirstChild("Tree") if PIT then PIT:Destroy() end
+						local PISI = Peanut:FindFirstChild("snowisland_Cylinder.081") if PISI then PISI:Destroy() end
+						local PIB108 = Peanut:FindFirstChild("bloxfruits_bossarea_Cylinder.108") if PIB108 then PIB108:Destroy() end
+						local PIB110 = Peanut:FindFirstChild("bloxfruits_bossarea_Cylinder.110") if PIB110 then PIB110:Destroy() end
+						local PIB098 = Peanut:FindFirstChild("bloxfruits_island2_Cylinder.098") if PIB098 then PIB098:Destroy() end
+						local PIB086 = Peanut:FindFirstChild("bloxfruits_island2_Cylinder.086") if PIB086 then PIB086:Destroy() end
+						local PIP = Peanut:FindFirstChild("Part") if PIP then PIP:Destroy() end
+						local PICUBE = Peanut:FindFirstChild("nuts_fixed_Cube.005") if PICUBE then PICUBE:Destroy() end
+						local PICUBE8 = Peanut:FindFirstChild("nuts_fixed_Cube.008") if PICUBE8 then PICUBE8:Destroy() end
+						local PICUBE6 = Peanut:FindFirstChild("nuts_fixed_Cube.006") if PICUBE6 then PICUBE6:Destroy() end
+						local PICUBE1 = Peanut:FindFirstChild("nuts_fixed_Cube") if PICUBE1 then PICUBE1:Destroy() end
+					
+						-- Port
+						local Port = game.Workspace.Map.Port.IslandModel
+					
+						local PD = Port:FindFirstChild("PluginGrass") if PD then PD:Destroy() end
+						local PH = Port:FindFirstChild("Hotels") if PH then PH:Destroy() end
+						local PT = Port:FindFirstChild("Tree") if PT then PT:Destroy() end
+						local PHs = Port:FindFirstChild("Wedge") if PHs then PHs:Destroy() end
+						local PHa = Port:FindFirstChild("Part") if PHa then PHa:Destroy() end
+						local PHe = Port:FindFirstChild("snowisland_Cylinder.081") if PHe then PHe:Destroy() end
+						local PH3 = Port:FindFirstChild("bloxfruits_island2_Cylinder.098") if PH3 then PH3:Destroy() end
+					
+						-- Waterfall
+						local WaterFall = game.Workspace.Map.Waterfall.IslandModel
+					
+						local ICIDs = WaterFall:FindFirstChild("BiggTree") if ICIDs then ICIDs:Destroy() end
+						local ICIHs = WaterFall:FindFirstChild("Tree") if ICIHs then ICIHs:Destroy() end
+						--local ICIMSS = WaterFall:FindFirstChild("Model") if ICIMSS then ICIMSS:Destroy() end
+						local ICIMssS = WaterFall:FindFirstChild("Details") if ICIMssS then ICIMssS:Destroy() end
+						local WaHouse = WaterFall:FindFirstChild("BigHouse") if WaHouse then WaHouse:Destroy() end
+						local WaBam = WaterFall:FindFirstChild("BambooTree") if WaBam then WaBam:Destroy() end
+						local WaCir = WaterFall:FindFirstChild("Circle") if WaCir then WaCir:Destroy() end
+						local WaPart = WaterFall:FindFirstChild("Part") if WaPart then WaPart:Destroy() end
+						local WaGrass = WaterFall:FindFirstChild("PluginGrass") if WaGrass then WaGrass:Destroy() end
+						local WaGrasss = WaterFall:FindFirstChild("snowisland_Cylinder.081") if WaGrasss then WaGrasss:Destroy() end
+						local WaGrassa = WaterFall:FindFirstChild("Wedge") if WaGrassa then WaGrassa:Destroy() end
+					
+						-- Turtle
+						local Turtle = game.Workspace.Map.Turtle.IslandModel
+					
+						local ICIMd = Turtle:FindFirstChild("Rocks") if ICIMd then ICIMd:Destroy() end
+						local ICIMda = Turtle:FindFirstChild("Tree") if ICIMda then ICIMda:Destroy() end
+						local TurShroom = Turtle:FindFirstChild("Shroom1") if TurShroom then TurShroom:Destroy() end
+						local TurShroom2 = Turtle:FindFirstChild("Shroom2") if TurShroom2 then TurShroom2:Destroy() end
+						local TurVine1 = Turtle:FindFirstChild("Vines1") if TurVine1 then TurVine1:Destroy() end
+						local TurVine2 = Turtle:FindFirstChild("Vines2") if TurVine2 then TurVine2:Destroy() end
+						local TurVine3 = Turtle:FindFirstChild("Vines3") if TurVine3 then TurVine3:Destroy() end
+						local TurDetails = Turtle:FindFirstChild("Town2Details") if TurDetails then TurDetails:Destroy() end
+						local TurTown = Turtle:FindFirstChild("TownDetails") if TurTown then TurTown:Destroy() end   
+						local TurTrees = Turtle:FindFirstChild("Trees") if TurTrees then TurTrees:Destroy() end
+						local TurRock1 = Turtle:FindFirstChild("Rock1") if TurRock1 then TurRock1:Destroy() end
+						local TurPart = Turtle:FindFirstChild("Part") if TurPart then TurPart:Destroy() end
+						local TurRock = Turtle:FindFirstChild("Rock") if TurRock then TurRock:Destroy() end
+						local TurWood = Turtle:FindFirstChild("Wood") if TurWood then TurWood:Destroy() end
+						local TurWoods = Turtle:FindFirstChild("PluginGrass") if TurWoods then TurWoods:Destroy() end
+						print("Cleaning Map")
+					until not _G.BetaLag
+				end
+			end
+		end)
+	end)
+
+spawn(function()
+	while wait(50) do
+		if _G.BetaLag then
+			pcall(function()
+				_G.BetaLag = false
+			end)
+		end
+	end
+end)

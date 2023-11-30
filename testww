@@ -3032,9 +3032,8 @@ spawn(function()
                 if game.Workspace.Enemies:FindFirstChild("Mob Leader") then
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if v.Name == "Mob Leader" then
-                            
                             repeat wait()
-                                EquipWeapon(_G.Setting_table.Weapon)
+                                EquipWeapon(_G.SelectWeapon)
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 TP(v.HumanoidRootPart.CFrame*CFrame.new(0,20,0))
                                 game:GetService'VirtualUser':CaptureController()
@@ -3062,7 +3061,7 @@ spawn(function()
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
                              
                             repeat wait()
-                                EquipWeapon(_G.Setting_table.Weapon)
+                                EquipWeapon(_G.SelectWeapon)
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 TP(v.HumanoidRootPart.CFrame*CFrame.new(0,25,15))
                                 game:GetService'VirtualUser':CaptureController()
@@ -3114,7 +3113,7 @@ spawn(function()
         pcall(function()
         repeat task.wait()
         sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
-        EquipWeapon(_G.Setting_table.Weapon)
+        EquipWeapon(_G.SelectWeapon)
         AutoHaki()
         v.HumanoidRootPart.Transparency = 1
         v.HumanoidRootPart.CanCollide = false
@@ -3145,7 +3144,7 @@ spawn(function()
         OldCFrameBartlio = v.HumanoidRootPart.CFrame
         repeat task.wait()
         sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
-        EquipWeapon(_G.Setting_table.Weapon)
+        EquipWeapon(_G.SelectWeapon)
         AutoHaki()
         v.HumanoidRootPart.Transparency = 1
         v.HumanoidRootPart.CanCollide = false
@@ -3212,7 +3211,7 @@ spawn(function()
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
     if (v.Name == "Snow Lurker" or v.Name == "Arctic Warrior") and v.Humanoid.Health > 0 then
     repeat task.wait()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     AutoHaki()
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -3254,7 +3253,7 @@ spawn(function()
     repeat task.wait()
     pcall(function()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -3313,7 +3312,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     v.HumanoidRootPart.CanCollide = false
     v.Humanoid.WalkSpeed = 0
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -3367,7 +3366,7 @@ spawn(function()
     repeat task.wait()
     pcall(function()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     v.HumanoidRootPart.CanCollide = false
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
@@ -3403,7 +3402,7 @@ spawn(function()
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
     if string.find(v.Name , "Soul Reaper") then
     repeat task.wait()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     AutoHaki()
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     topos(v.HumanoidRootPart.CFrame*CFrame.new(5,10,7))
@@ -3472,7 +3471,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     v.HumanoidRootPart.CanCollide = false
     v.Humanoid.WalkSpeed = 0
     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -3498,7 +3497,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
     repeat task.wait()
     AutoHaki()
-    EquipWeapon(_G.Setting_table.Weapon)
+    EquipWeapon(_G.SelectWeapon)
     v.HumanoidRootPart.CanCollide = false
     v.Humanoid.WalkSpeed = 0
     v.Head.CanCollide = false

@@ -1,5 +1,46 @@
 _G.Fast_Delay = 0
 
+local openshit = Instance.new("ScreenGui")
+local mainopen = Instance.new("TextButton")
+local mainopens = Instance.new("UICorner")
+local loki = Instance.new("ImageLabel")
+local posto = Instance.new("UIStroke")
+
+openshit.Name = "openshit"
+openshit.Parent = game.CoreGui
+openshit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+local UICorner_11 = Instance.new("UICorner")
+local UICorner_12 = Instance.new("UICorner")
+
+local buttonframe = Instance.new("Frame")
+
+local ImageButton_2 = Instance.new("ImageButton")
+
+buttonframe.Parent = openshit
+buttonframe.Name = "buttonframe"
+buttonframe.BackgroundColor3 = Color3.fromRGB(0,0,0)
+buttonframe.BorderColor3 = Color3.fromRGB(0, 0, 0)
+buttonframe.BorderSizePixel = 0
+buttonframe.Position = UDim2.new(0.00790273491, 0, 0.233524337, 0)
+buttonframe.Size = UDim2.new(0, 51, 0, 50)
+
+UICorner_11.Parent = buttonframe
+UICorner_12.Parent = ImageButton_2
+
+ImageButton_2.Parent = buttonframe
+ImageButton_2.BackgroundColor3 = Color3.fromRGB(86,255,255)
+ImageButton_2.BorderColor3 = Color3.fromRGB(86,255,255)
+ImageButton_2.BorderSizePixel = 0
+ImageButton_2.Position = UDim2.new(0.0242961459, 0, 0.0168576241, 0)
+ImageButton_2.Size = UDim2.new(0, 49, 0, 48)
+ImageButton_2.Image = "http://www.roblox.com/asset/?id=14355269935"
+ImageButton_2.MouseButton1Click:Connect(function()
+    getfenv().keytoclick = "LeftControl"
+    local vim = game:service("VirtualInputManager")
+    vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+
 if game.PlaceId == 2753915549 then
     World1 = true
 elseif game.PlaceId == 4442272183 then
@@ -1938,7 +1979,10 @@ local BF = {
     Stats = Window:AddTab({ Title = "Auto Stats", Icon = "rbxassetid://14764174048" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://14764218351" }),
     Dungeon = Window:AddTab({ Title = "Dungeon", Icon = "rbxassetid://14764250087" }),
-    Race = Window:AddTab({ Title = "Race V4", Icon = "rbxassetid://11446900930" })
+    Race = Window:AddTab({ Title = "Race V4", Icon = "rbxassetid://11446900930" }),
+    DevilFruit = Window:AddTab({ Title = "Devil Fruits", Icon = "rbxassetid://14764233722" }),
+    Shop = Window:AddTab({ Title = "Game Shop", Icon = "rbxassetid://14764242920" }),
+    Misc = Window:AddTab({ Title = "Misc + Esp", Icon = "rbxassetid://11447063791" })
 }
 
 -- // Main Table \\ --
@@ -4367,7 +4411,7 @@ BF.Race:AddParagraph({
     Content = ""
 })
 
-Tabs.Race:AddButton({
+BF.Race:AddButton({
     Title = "Teleport To Temple Of Time",
     Description = "Race V4",
     Callback = function(vu)
@@ -4375,7 +4419,7 @@ Tabs.Race:AddButton({
     end
 })
 
-Tabs.Race:AddButton({
+BF.Race:AddButton({
     Title = "Teleport To Lever Pull",
     Description = "Race V4",
     Callback = function(vu)
@@ -4383,7 +4427,7 @@ Tabs.Race:AddButton({
     end
 })
 
-Tabs.Race:AddButton({
+BF.Race:AddButton({
     Title = "Teleport To Human Door",
     Description = "Race V4",
     Callback = function(vu)
@@ -4391,7 +4435,7 @@ Tabs.Race:AddButton({
     end
 })
 
-Tabs.Race:AddButton({
+BF.Race:AddButton({
     Title = "Teleport To Mink Door",
     Description = "Race V4",
     Callback = function(vu)
@@ -4399,7 +4443,7 @@ Tabs.Race:AddButton({
     end
 })
 
-Tabs.Race:AddButton({
+BF.Race:AddButton({
     Title = "Teleport To Shark Door",
     Description = "Race V4",
     Callback = function(vu)
@@ -4407,7 +4451,7 @@ Tabs.Race:AddButton({
     end
 })
 
-Tabs.Race:AddButton({
+BF.Race:AddButton({
     Title = "Teleport To Angel Door",
     Description = "Race V4",
     Callback = function(vu)
@@ -4415,7 +4459,7 @@ Tabs.Race:AddButton({
     end
 })
 
-Tabs.Race:AddButton({
+BF.Race:AddButton({
     Title = "Teleport To Cyborg Door",
     Description = "Race V4",
     Callback = function(vu)
@@ -4423,7 +4467,7 @@ Tabs.Race:AddButton({
     end
 })
 
-Tabs.Race:AddButton({
+BF.Race:AddButton({
     Title = "Teleport To Ghoul Door",
     Description = "Race V4",
     Callback = function(vu)
@@ -4562,5 +4606,806 @@ spawn(function()
     	end)
 	end)
 end
+
+end
+
+-- // Devil Fruit Table \\ --
+
+do
+
+BF.DevilFruit:AddParagraph({
+    Title = "Devil Fruits",
+    Content = ""
+})
+
+local SFS = BF.DevilFruit:AddDropdown("Select Fruits Sniper", {
+    Title = "Select Fruits Sniper",
+    Values = {
+        "Bomb-Bomb",
+        "Spike-Spike",
+        "Chop-Chop",
+        "Spring-Spring",
+        "Kilo-Kilo",
+        "Spin-Spin",
+        "Bird: Falcon",
+        "Smoke-Smoke",
+        "Flame-Flame",
+        "Ice-Ice",
+        "Sand-Sand",
+        "Dark-Dark",
+        "Revive-Revive",
+        "Diamond-Diamond",
+        "Light-Light",
+        "Love-Love",
+        "Rubber-Rubber",
+        "Barrier-Barrier",
+        "Magma-Magma",
+        "Door-Door",
+        "Quake-Quake",
+        "Human-Human: Buddha",
+        "String-String",
+        "Bird-Bird: Phoenix",
+        "Rumble-Rumble",
+        "Paw-Paw",
+        "Gravity-Gravity",
+        "Dough-Dough",
+        "Venom-Venom",
+        "Shadow-Shadow",
+        "Control-Control",
+        "Soul-Soul",
+        "Dragon-Dragon"
+        },
+    Multi = false,
+    Default = 1,
+})
+
+SFS:SetValue("Bomb-Bomb")
+
+SFS:OnChanged(function(vu)
+    _G.SelectFruit = vu
+end)
+
+local ABFS = BF.DevilFruit:AddToggle("Auto Buy Fruit Sniper", {
+    Title = "Auto Buy Fruit Sniper",
+    Default = false 
+})
+
+ABFS:OnChanged(function(vu)
+    _G.AutoBuyFruitSniper = vu
+end)
+
+local ARF = BF.DevilFruit:AddToggle("Auto Random Fruit", {
+    Title = "Auto Random Fruit",
+    Default = false 
+})
+
+ARF:OnChanged(function(vu)
+    _G.Random_Auto = vu
+end)
+
+spawn(function()
+    pcall(function()
+        while wait(.1) do
+            if _G.Random_Auto then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+            end
+        end
+    end)
+end)
+
+end
+
+-- // Shop Table \\ --
+
+do
+
+BF.Shop:AddParagraph({
+    Title = "Abilities",
+    Content = ""
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Geppo",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Buso Haki",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Soru",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Observation [Ken] Haki",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
+    end
+})
+
+BF.Shop:AddParagraph({
+    Title = "",
+    Content = ""
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Black Leg",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Electro",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Fishman Karate",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Dragon Claw",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Superhuman",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Death Step",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Sharkman Karate",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Electric Claw",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Dragon Talon",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Buy Godhuman",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+    end
+})
+
+BF.Shop:AddParagraph({ Title = "", Content = ""})
+
+BF.Shop:AddButton({
+    Title = "Tomoe Ring",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Black Cape",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Black Cape")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Swordman Hat",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Swordsman Hat")
+    end
+})
+
+BF.Shop:AddParagraph({ Title = "", Content = ""})
+
+BF.Shop:AddButton({
+    Title = "Cutlass",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Katana",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Iron Mace",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Dual Katana",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Triple Katana",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Pipe",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Dual Headed Blade",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Bisento",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Soul Cane",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
+    end
+})
+
+BF.Shop:AddParagraph({ Title = "", Content = ""})
+
+BF.Shop:AddButton({
+    Title = "Slingshot",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Slingshot")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Musket",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Musket")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Flintlock",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Flintlock")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Refined Flintlock",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Refined Flintlock")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Cannon",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cannon")
+    end
+})
+
+BF.Shop:AddButton({
+    Title = "Kabucha",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","1")
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","2")
+    end
+})
+
+end
+
+-- // Misc Table \\ --
+
+do
+
+BF.Misc:AddParagraph({ Title = "Misc + Esp", Content = ""})
+
+BF.Misc:AddButton({
+    Title = "Open Title",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getTitles")
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.Titles.Visible = true
+    end
+})
+
+BF.Misc:AddButton({
+    Title = "Open Aura",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getColors")
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.Colors.Visible = true
+    end
+})
+
+BF.Misc:AddButton({
+    Title = "Open Devil Shop",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
+    end
+})
+
+BF.Misc:AddButton({
+    Title = "Open Inventory",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")
+        wait(1)
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Visible = true
+    end
+})
+
+BF.Misc:AddButton({
+    Title = "Open Inventory Fruit",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryFruits")
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Visible = true
+    end
+})
+
+BF.Misc:AddParagraph({ Title = "", Content = ""})
+
+BF.Misc:AddButton({
+    Title = "Rejoin Server",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+    end
+})
+
+BF.Misc:AddButton({
+    Title = "Server Hop",
+    Description = "Shop",
+    Callback = function()
+        Hop()
+    end
+})
+
+BF.Misc:AddButton({
+    Title = "Hop To Lower Server",
+    Description = "Shop",
+    Callback = function()
+        getgenv().AutoTeleport = true
+    getgenv().DontTeleportTheSameNumber = true
+    getgenv().CopytoClipboard = false
+    if not game:IsLoaded() then
+    print("Game is loading waiting...")
+    end
+    local maxplayers = math.huge
+    local serversmaxplayer;
+    local goodserver;
+    local gamelink = "https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"
+    function serversearch()
+    for _, v in pairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync(gamelink)).data) do
+    if type(v) == "table" and v.playing ~= nil and maxplayers > v.playing then
+    serversmaxplayer = v.maxPlayers
+    maxplayers = v.playing
+    goodserver = v.id
+    end
+    end
+    end
+    function getservers()
+    serversearch()
+    for i,v in pairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync(gamelink))) do
+    if i == "nextPageCursor" then
+    if gamelink:find("&cursor=") then
+    local a = gamelink:find("&cursor=")
+    local b = gamelink:sub(a)
+    gamelink = gamelink:gsub(b, "")
+    end
+    gamelink = gamelink .. "&cursor=" ..v
+    getservers()
+    end
+    end
+    end
+    getservers()
+    if AutoTeleport then
+    if DontTeleportTheSameNumber then
+    if #game:GetService("Players"):GetPlayers() - 4  == maxplayers then
+    return warn("It has same number of players (except you)")
+    elseif goodserver == game.JobId then
+    return warn("Your current server is the most empty server atm")
+    end
+    end
+    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, goodserver)
+        end
+    end
+})
+
+BF.Misc:AddParagraph({ Title = "", Content = ""})
+
+BF.Misc:AddButton({
+    Title = "Join Pirates Team",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates")
+    end
+})
+
+BF.Misc:AddButton({
+    Title = "Join Marines Team",
+    Description = "Shop",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines")
+    end
+})
+
+BF.Misc:AddParagraph({ Title = "", Content = ""})
+
+BF.Misc:AddButton({
+    Title = "Unlock Portal",
+    Description = "Shop",
+    Callback = function()
+        _G.UnlockPortal = true
+    end
+})
+
+spawn(function()
+    while wait() do
+    pcall(function()
+    if _G.UnlockPortal == true then
+    for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Notifications:GetChildren()) do
+    if v.Name == "NotificationTemplate" then
+    if string.find(v.Text,"cannot") then
+    v:Destroy()
+    end
+    end
+    end
+    end
+    end)
+    end
+end)
+    
+spawn(function()
+    while wait() do
+    pcall(function()
+    if _G.UnlockPortal == true then
+    CastlePostoMansion = CFrame.new(-5084.8447265625, 316.48101806641, -3145.3752441406)
+    MansiontoCastlePos = CFrame.new(-12464.596679688, 376.30590820312, -7567.2626953125)
+    Castletophydra = CFrame.new(-5095.33984375, 316.48101806641, -3168.3134765625)
+    HydratoCastle = CFrame.new(5741.869140625, 611.94750976562, -282.61154174805)
+    if (CastlePostoMansion.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 8 then
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12471.169921875, 374.94024658203, -7551.677734375))
+    end
+    if (MansiontoCastlePos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 8 then
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-5072.08984375, 314.5412902832, -3151.1098632812))
+    end
+    if (Castletophydra.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 8 then
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5748.7587890625, 610.44982910156, -267.81704711914))
+    end
+    if (HydratoCastle.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 8 then
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-5072.08984375, 314.5412902832, -3151.1098632812))
+    end
+    end
+    end)
+    end
+end)
+
+BF.Misc:AddButton({
+    Title = "Redeem All Code",
+    Description = "Shop",
+    Callback = function()
+    function RedeemCode(value)
+        game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
+    end
+        for i,v in pairs(x2Code) do
+        RedeemCode(v)
+        end
+    end
+})
+
+BF.Misc:AddParagraph({ Title = "", Content = ""})
+
+BF.Misc:AddButton({
+    Title = "Change Buso Haki State",
+    Description = "Shop",
+    Callback = function()
+        if _G.SelectStateHaki == "State 0" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",0)
+        elseif _G.SelectStateHaki == "State 1" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",1)
+        elseif _G.SelectStateHaki == "State 2" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",2)
+        elseif _G.SelectStateHaki == "State 3" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",3)
+        elseif _G.SelectStateHaki == "State 4" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",4)
+        elseif _G.SelectStateHaki == "State 5" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",5)
+    end
+})
+
+BF.Misc:AddParagraph({ Title = "", Content = ""})
+
+local Player = BF.Misc:AddToggle("", {
+    Title = "Player Esp",
+    Default = false 
+})
+
+Player:OnChanged(function(vu)
+    ESPPlayer = vu
+    while ESPPlayer do wait()
+    UpdateEspPlayer()
+    end
+end)
+    
+local Chest = BF.Misc:AddToggle("", {
+    Title = "Chest Esp",
+    Default = false 
+})
+
+Chest:OnChanged(function(vu)
+    ChestESP = vu
+    while ChestESP do wait()
+    UpdateChestEsp()
+    end
+end)
+    
+local DevilFruitEsp = BF.Misc:AddToggle("", {
+    Title = "Devil Fruit Esp",
+    Default = false 
+})
+
+DevilFruitEsp:OnChanged(function(vu)
+    DevilFruitESP = vu
+    while DevilFruitESP do wait()
+    UpdateBfEsp()
+    end
+end)
+    
+local Flower = BF.Misc:AddToggle("", {
+    Title = "Flower Esp",
+    Default = false 
+})
+
+Flower:OnChanged(function(vu)
+    FlowerESP = vu
+    while FlowerESP do wait()
+    UpdateFlowerEsp()
+    end
+end)
+
+local Island = BF.Misc:AddToggle("", {
+    Title = "Island Esp",
+    Default = false 
+})
+
+Island:OnChanged(function(vu)
+    IslandESP = vu
+    while IslandESP do wait()
+    UpdateIslandESP()
+    end
+end)
+
+BF.Misc:AddParagraph({ Title = "", Content = ""})
+
+local InfDodge = BF.Misc:AddToggle("", {
+    Title = "Dodge No Cooldown",
+    Default = false 
+})
+
+InfDodge:OnChanged(function(vu)
+    nododgecool = vu
+    NoDodgeCool()
+end)
+
+local InfEnergy = BF.Misc:AddToggle("", {
+    Title = "Infinite Energy",
+    Default = false 
+})
+
+InfEnergy:OnChanged(function(vu)
+    InfiniteEnergy = vu
+    originalstam = LocalPlayer.Character.Energy.Value
+end)
+
+local InfAbil = BF.Misc:AddToggle("", {
+    Title = "Infinite Ability",
+    Default = false 
+})
+
+InfAbil:OnChanged(function(vu)
+    _InfAbility = vu
+    if value == false then
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
+    end
+end)
+
+spawn(function()
+    while wait() do
+    if InfAbility then
+    InfAb()
+    end
+    end
+end)
+
+local InfGeppo = BF.Misc:AddToggle("", {
+    Title = "Infinite Geppo",
+    Default = false 
+})
+
+InfGeppo:OnChanged(function(vu)
+    getgenv().InfGeppo = vu
+end)
+
+spawn(function()
+    while wait() do
+    pcall(function()
+    if getgenv().InfGeppo then
+    for i,v in next, getgc() do
+    if game:GetService("Players").LocalPlayer.Character.Geppo then
+    if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.Character.Geppo then
+    for i2,v2 in next, getupvalues(v) do
+    if tostring(i2) == "9" then
+    repeat wait(.1)
+    setupvalue(v,i2,0)
+    until not getgenv().InfGeppo or game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0
+    end
+    end
+    end
+    end
+    end
+    end
+    end)
+    end
+end)
+
+local InfSoru = BF.Misc:AddToggle("", {
+    Title = "Infinite Soru",
+    Default = false 
+})
+
+InfSoru:OnChanged(function(vu)
+    getgenv().InfSoru = vu
+end)
+
+spawn(function()
+    while wait() do
+    pcall(function()
+    if getgenv().InfSoru and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") ~= nil  then
+    for i,v in next, getgc() do
+    if game:GetService("Players").LocalPlayer.Character.Soru then
+    if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.Character.Soru then
+    for i2,v2 in next, getupvalues(v) do
+    if typeof(v2) == "table" then
+    repeat wait(.1)
+    v2.LastUse = 0
+    until not getgenv().InfSoru or game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0
+    end
+    end
+    end
+    end
+    end
+    end
+    end)
+    end
+end)
+
+BF.Misc:AddParagraph({ Title = "", Content = ""})
+
+local WalkWater = BF.Misc:AddToggle("WoW", {
+    Title = "Walk On Water",
+    Default = false 
+})
+
+WalkWater:OnChanged(function(vu)
+    _G.WalkWater = vu
+end)
+
+spawn(function()
+    while task.wait() do
+        pcall(function()
+            if _G.WalkWater then
+                game:GetService("Workspace").Map["WaterBase-Plane"].Size = Vector3.new(1000,112,1000)
+            else
+                game:GetService("Workspace").Map["WaterBase-Plane"].Size = Vector3.new(1000,80,1000)
+            end
+        end)
+    end
+end)
+
+local Fly = BF.Misc:AddToggle("Fly", {
+    Title = "Fly",
+    Default = false 
+})
+
+Fly:OnChanged(function(vu)
+    Fly = vu
+end)
+
+spawn(function()
+    while wait() do
+    pcall(function()
+    if Fly then
+    fly()
+    end
+    end)
+    end
+end)
 
 end

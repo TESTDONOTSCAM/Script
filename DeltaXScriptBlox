@@ -1963,12 +1963,12 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 -- // Window Table \\ --
 
 local Window = Fluent:CreateWindow({
-    Title = "Premium ",
+    Title = "SriptBlox Premium",
     SubTitle = "By ScriptBlox",
     TabWidth = 160,
-    Size = UDim2.fromOffset(580, 460),
+    Size = UDim2.fromOffset(480, 360),
     Acrylic = true,
-    Theme = "Dark",
+    Theme = "Light",
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 

@@ -3670,7 +3670,6 @@ local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
     local Setting = Library:Tab("        Setting","rbxassetid://14782648917",_G.ColorSetting)
     local AutoQuest = Library:Tab("        Quest & Item","rbxassetid://9606626859",_G.ColorQuest)
     local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.ColorStats)
-    local Sea = Library:Tab("        SeaEvent","rbxassetid://15412636044",_G.ColorSea)
     local Combat = Library:Tab("        Combat","rbxassetid://14764193934",_G.ColorCombat)
     local Teleport = Library:Tab("        Teleport","rbxassetid://14764218351",_G.ColorTP)
     local Dungeon = Library:Tab("        Dungeon","rbxassetid://14764250087",_G.ColorRaid)
@@ -6635,7 +6634,9 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Buy & Sail",_G.ColorSea,_G.AutoSail,function(val)
+Main:Seperator("Sea Event",_G.ColorMain)
+
+Main:Toggle("Buy & Sail",_G.ColorMain,_G.AutoSail,function(val)
     _G.AutoRemover = val
     StopTween(_G.AutoSail)
     StopTween(_G.SendShip)
@@ -6774,7 +6775,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Terror Shark [Beta]",_G.ColorSea,false,function(val)
+Main:Toggle("Terror Shark [Beta]",_G.ColorMain,false,function(val)
     _G.TerShark = val
     StopTween(_G.TerShark)
     if _G.TerShark == true then
@@ -6832,7 +6833,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Piranha [Work]",_G.ColorSea,false,function(val)
+Main:Toggle("Piranha [Work]",_G.ColorMain,false,function(val)
     _G.Piranas = val
     StopTween(_G.Piranas)
     if _G.Piranas == true then
@@ -6886,7 +6887,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Shark [Work]",_G.ColorSea,false,function(val)
+Main:Toggle("Shark [Work]",_G.ColorMain,false,function(val)
     _G.Sharky = val
     StopTween(_G.Sharky)
     if _G.Sharky == true then
@@ -6940,7 +6941,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Fish Boat [Beta]",_G.ColorSea,false,function(val)
+Main:Toggle("Fish Boat [Beta]",_G.ColorMain,false,function(val)
     _G.FishBoat = val
     StopTween(_G.FishBoat)
     if _G.FishBoat == true then
@@ -6989,7 +6990,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Pirate [Beta]",_G.ColorSea,false,function(val)
+Main:Toggle("Pirate [Beta]",_G.ColorMain,false,function(val)
     _G.BrigadeShips = val
     StopTween(_G.BrigadeShips)
     if _G.BrigadeShips == true then
@@ -7038,7 +7039,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Grand Pirate [Beta]",_G.ColorSea,false,function(val)
+Main:Toggle("Grand Pirate [Beta]",_G.ColorMain,false,function(val)
     _G.BrigadeShip = val
     StopTween(_G.BrigadeShip)
     if _G.BrigadeShip == true then
@@ -7086,7 +7087,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("SeaBeast [Beta]",_G.ColorSea,false,function(sea)
+Main:Toggle("SeaBeast [Beta]",_G.ColorMain,false,function(sea)
     _G.Beast = sea
     StopTween(_G.Beast)
     if _G.Beast == true then

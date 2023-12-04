@@ -147,9 +147,11 @@ mainopens.Parent = mainopen
 
  _G.StrokeColor = Color3.fromRGB(162, 0, 255)
 
- _G.ColorUser = Color3.fromRGB(162, 0, 255)
- _G.ColorMain = Color3.fromRGB(193, 0, 255)
- _G.ColorSetting = Color3.fromRGB(224, 0, 255)
+ _G.ColorMain = Color3.fromRGB(162, 0, 255)
+ _G.ColorEgg = Color3.fromRGB(193, 0, 255)
+ _G.ColorTeleport = Color3.fromRGB(224, 0, 255)
+
+ --[[
  _G.ColorQuest = Color3.fromRGB(255, 0, 255)
  _G.ColorStats = Color3.fromRGB(255, 0, 197)
  _G.ColorSea = Color3.fromRGB(255, 0, 162)
@@ -160,6 +162,7 @@ mainopens.Parent = mainopen
  _G.ColorDF = Color3.fromRGB(255, 0, 0)
  _G.ColorShop = Color3.fromRGB(255, 70, 0)
  _G.ColorMisc = Color3.fromRGB(255, 120, 0)
+ ]]--
 	
 	local RippleFPS = Instance.new("ScreenGui")
 	local Rippletime = Instance.new("ScreenGui")
@@ -1833,8 +1836,73 @@ end
 local Library = Update:Window("Blox Fruits", "")
 
 local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
+local Egg = Library:Tab("        Egg","rbxassetid://14764164264",_G.ColorEgg)
+local Teleport = Library:Tab("        Teleport","rbxassetid://14764164264",_G.ColorTeleport)
 
-Main:Dropdown("Select Egg",_G.ColorMain,{
+do
+
+Main:Seperator("",_G.ColorMain)
+
+Main:Toggle("Auto Random Potions",_G.ColorMain,false,function(vu)
+   _G.AutoPotion = vu
+end)
+
+spawn(function()
+   while wait() do
+      if _G.AutoPotion then
+         pcall(function()
+           game:GetService("ReplicatedStorage").Network:WaitForChild("VendingMachines_Purchase"):InvokeServer("PotionVendingMachine1",1)
+         end)
+      end
+   end
+end)
+
+Main:Toggle("Auto Random Enchants",_G.ColorMain,false,function(vu)
+   _G.AutoPotion = vu
+end)
+
+spawn(function()
+   while wait() do
+      if _G.AutoPotion then
+         pcall(function()
+            local args = {
+               [1] = "EnchantVendingMachine1",
+               [2] = 1
+           }
+           
+           game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("VendingMachines_Purchase"):InvokeServer(unpack(args))
+         end)
+      end
+   end
+end)
+
+
+   
+Main:Toggle("Auto Claim Diamond",_G.ColorMain,false,function(vu)
+   _G.ClaimDiamond = vu
+end)
+
+spawn(function()
+   while wait() do
+      if _G.ClaimDiamond then
+         pcall(function()
+            local args = {
+               [1] = "SmallDailyDiamonds"
+           }
+           
+           game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("DailyRewards_Redeem"):InvokeServer(unpack(args))
+         end)
+      end
+   end
+end)
+
+end
+
+-- // Egg Table \\ --
+
+do
+
+HatchEgg = {
    "Cracked Egg",
    "Spotted Egg",
    "Paw Egg",
@@ -1897,7 +1965,9 @@ Main:Dropdown("Select Egg",_G.ColorMain,{
    "Hell Egg",
    "Metal Egg",
    "Sakura Egg"
-},function(vu)
+}
+
+Egg:Dropdown("Select Egg",_G.ColorEgg,HatchEgg,function(vu)
    _G.SelectEgg = vu
 end)
 
@@ -1905,7 +1975,11 @@ if _G.SelectEgg == nil then
    _G.SelectEgg = "Cracked Egg"
 end
 
-Main:Toggle("Auto Hatch Egg",_G.ColorMain,false,function(vu)
+Egg:Slider("Open More Egg",_G.ColorEgg,1,99,1,function(vu)
+   _G.OpenMore = vu
+end)
+
+Egg:Toggle("Auto Hatch Egg",_G.ColorEgg,false,function(vu)
    _G.AutoHatch = vu
 end)
 
@@ -1915,7 +1989,7 @@ spawn(function()
          pcall(function()
                local args = {
                   [1] = _G.SelectEgg,
-                  [2] = 1
+                  [2] = _G.OpenMore
               }
               
               game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Eggs_RequestPurchase"):InvokeServer(unpack(args))
@@ -1934,3 +2008,5 @@ spawn(function()
        end
    end)
 end)
+
+end

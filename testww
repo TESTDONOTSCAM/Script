@@ -1833,6 +1833,284 @@ end
    return uitab
 end
 
+function TP1(Pos)
+   Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+   if Distance < 25 then
+       Speed = 5000
+   elseif Distance < 50 then
+       Speed = 2000
+   elseif Distance < 150 then
+       Speed = 800
+   elseif Distance < 250 then
+       Speed = 600
+   elseif Distance < 500 then
+       Speed = 300
+   elseif Distance < 750 then
+       Speed = 250
+   elseif Distance >= 1000 then
+       Speed = 200
+   end
+   game:GetService("TweenService"):Create(
+       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+       TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+       {CFrame = Pos}
+   ):Play()
+end
+
+function PetMap()
+   if _G.SelectMap == "Area [1]" then
+      MapWalk1 = CFrame.new(179.779129, 16.4641533, -176.592178, -0.0198902376, 8.30881746e-08, -0.999802172, -1.81059756e-09, 1, 8.31406339e-08, 0.999802172, 3.46392626e-09, -0.0198902376)
+      MapWalk2 = CFrame.new(256.573914, 17.214674, -178.343491, 0.0149580669, 3.61942796e-08, -0.999888122, -1.29016409e-09, 1, 3.61790278e-08, 0.999888122, 7.48851425e-10, 0.0149580669)
+      MapWalk3 = CFrame.new(257.134186, 19.2660294, -231.96579, 0.999987602, 7.46904968e-11, -0.00498521328, -1.5485889e-10, 1, -1.60808504e-08, 0.00498521328, 1.60814224e-08, 0.999987602)
+      MapWalk4 = CFrame.new(182.026031, 17.2484264, -232.471939, -0.0209675673, 3.49303271e-08, 0.999780178, 1.78335191e-09, 1, -3.49006051e-08, -0.999780178, 1.05117903e-09, -0.0209675673)
+   elseif _G.SelectMap == "Area [2]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [3]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [4]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [5]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [6]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [7]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [8]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [9]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [10]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [11]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [12]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [13]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [14]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [15]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [16]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [17]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [18]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [19]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [20]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [21]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [22]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [23]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [24]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [25]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [26]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [27]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [28]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [29]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [30]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [31]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [32]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [33]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [34]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [35]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [36]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [37]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [38]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [39]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [40]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [41]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [42]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [43]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [44]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [45]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [46]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [47]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [48]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [49]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   elseif _G.SelectMap == "Area [50]" then
+      MapWalk1 = CFrame.new()
+      MapWalk2 = CFrame.new()
+      MapWalk3 = CFrame.new()
+      MapWalk4 = CFrame.new()
+   end
+end
+
 local Library = Update:Window("Blox Fruits", "")
 
 local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
@@ -1840,6 +2118,45 @@ local Egg = Library:Tab("        Egg","rbxassetid://14764164264",_G.ColorEgg)
 local Teleport = Library:Tab("        Teleport","rbxassetid://14764164264",_G.ColorTeleport)
 
 do
+
+MapSelect = {
+   "Area [1]",
+   "Area [2]",
+   "Area [3]"
+}
+
+Main:Seperator("Auto Farm",_G.ColorMain)
+
+Egg:Dropdown("Select Map",_G.ColorEgg,MapSelect,function(vu)
+   _G.SelectMap = vu
+end)
+
+if _G.SelectMap == nil then
+   _G.SelectMap = "Area [1]"
+end
+
+Main:Toggle("Auto Farm",_G.ColorMain,false,function(vu)
+   _G.AutoFarm = vu
+end)
+
+spawn(function()
+   while wait() do
+      if _G.AutoFarm then
+         pcall(function()
+            PetMap()
+            if _G.SelectMap == _G.SelectMap then
+               TP1(MapWalk1)
+               wait(5)
+               TP1(MapWalk2)
+               wait(5)
+               TP1(MaoWalk3)
+               wait(5)
+               TP1(MapWalk4)
+            end
+         end)
+      end
+   end
+end)
 
 Main:Seperator("",_G.ColorMain)
 
@@ -1865,12 +2182,7 @@ spawn(function()
    while wait() do
       if _G.AutoPotion then
          pcall(function()
-            local args = {
-               [1] = "EnchantVendingMachine1",
-               [2] = 1
-           }
-           
-           game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("VendingMachines_Purchase"):InvokeServer(unpack(args))
+           game:GetService("ReplicatedStorage").Network:WaitForChild("VendingMachines_Purchase"):InvokeServer("EnchantVendingMachine1",1)
          end)
       end
    end
@@ -1886,11 +2198,7 @@ spawn(function()
    while wait() do
       if _G.ClaimDiamond then
          pcall(function()
-            local args = {
-               [1] = "SmallDailyDiamonds"
-           }
-           
-           game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("DailyRewards_Redeem"):InvokeServer(unpack(args))
+           game:GetService("ReplicatedStorage").Network:WaitForChild("DailyRewards_Redeem"):InvokeServer("SmallDailyDiamonds")
          end)
       end
    end
@@ -1970,8 +2278,47 @@ HatchEgg = {
 MultipleEgg = {
    "1 Hatch Egg",
    "2 Hatch Egg",
-   "3 Hatch Egg"
+   "3 Hatch Egg",
+   "4 Hatch Egg",
+   "5 Hatch Egg",
+   "6 Hatch Egg",
+   "7 Hatch Egg",
+   "8 Hatch Egg",
+   "9 Hatch Egg",
+   "10 Hatch Egg",
+   "11 Hatch Egg",
+   "12 Hatch Egg",
+   "13 Hatch Egg",
+   "14 Hatch Egg",
+   "15 Hatch Egg",
+   "16 Hatch Egg",
+   "17 Hatch Egg",
+   "18 Hatch Egg",
+   "19 Hatch Egg",
+   "20 Hatch Egg",
+   "21 Hatch Egg",
+   "22 Hatch Egg",
+   "23 Hatch Egg",
+   "24 Hatch Egg",
+   "25 Hatch Egg",
+   "26 Hatch Egg",
+   "27 Hatch Egg",
+   "28 Hatch Egg",
+   "29 Hatch Egg",
+   "30 Hatch Egg"
 }
+
+local Animation = false
+
+Egg:Button("Remove Egg Animation",_G.ColorEgg,function()
+   if Animation == false then
+   Animation = true
+   game:GetService("Players").LocalPlayer.PlayerGui.EggOpenAnimation.Enabled = false
+   else
+   Animation = false
+   game:GetService("Players").LocalPlayer.PlayerGui.EggOpenAnimation.Enabled = true
+   end
+end)
 
 Egg:Dropdown("Select Egg",_G.ColorEgg,HatchEgg,function(vu)
    _G.SelectEgg = vu
@@ -1999,6 +2346,60 @@ Egg:Toggle("Auto Hatch Egg",_G.ColorEgg,false,function(vu)
          _G.OpenMore = 2
       elseif _G.MultiEgg == "3 Hatch Egg" then
          _G.OpenMore = 3
+      elseif _G.MultiEgg == "4 Hatch Egg" then
+         _G.OpenMore = 4
+      elseif _G.MultiEgg == "5 Hatch Egg" then
+         _G.OpenMore = 5
+      elseif _G.MultiEgg == "6 Hatch Egg" then
+         _G.OpenMore = 6
+      elseif _G.MultiEgg == "7 Hatch Egg" then
+         _G.OpenMore = 7
+      elseif _G.MultiEgg == "8 Hatch Egg" then
+         _G.OpenMore = 8
+      elseif _G.MultiEgg == "9 Hatch Egg" then
+         _G.OpenMore = 9
+      elseif _G.MultiEgg == "10 Hatch Egg" then
+         _G.OpenMore = 10
+      elseif _G.MultiEgg == "11 Hatch Egg" then
+         _G.OpenMore = 11
+      elseif _G.MultiEgg == "12 Hatch Egg" then
+         _G.OpenMore = 12
+      elseif _G.MultiEgg == "13 Hatch Egg" then
+         _G.OpenMore = 13
+      elseif _G.MultiEgg == "14 Hatch Egg" then
+         _G.OpenMore = 14
+      elseif _G.MultiEgg == "15 Hatch Egg" then
+         _G.OpenMore = 15
+      elseif _G.MultiEgg == "16 Hatch Egg" then
+         _G.OpenMore = 16
+      elseif _G.MultiEgg == "17 Hatch Egg" then
+         _G.OpenMore = 17
+      elseif _G.MultiEgg == "18 Hatch Egg" then
+         _G.OpenMore = 18
+      elseif _G.MultiEgg == "19 Hatch Egg" then
+         _G.OpenMore = 19
+      elseif _G.MultiEgg == "20 Hatch Egg" then
+         _G.OpenMore = 20
+      elseif _G.MultiEgg == "21 Hatch Egg" then
+         _G.OpenMore = 21
+      elseif _G.MultiEgg == "22 Hatch Egg" then
+         _G.OpenMore = 22
+      elseif _G.MultiEgg == "23 Hatch Egg" then
+         _G.OpenMore = 23
+      elseif _G.MultiEgg == "24 Hatch Egg" then
+         _G.OpenMore = 24
+      elseif _G.MultiEgg == "25 Hatch Egg" then
+         _G.OpenMore = 25
+      elseif _G.MultiEgg == "26 Hatch Egg" then
+         _G.OpenMore = 26
+      elseif _G.MultiEgg == "27 Hatch Egg" then
+         _G.OpenMore = 27
+      elseif _G.MultiEgg == "28 Hatch Egg" then
+         _G.OpenMore = 28
+      elseif _G.MultiEgg == "29 Hatch Egg" then
+         _G.OpenMore = 29
+      elseif _G.MultiEgg == "30 Hatch Egg" then
+         _G.OpenMore = 30
       end
       until not _G.AutoHatch
    end

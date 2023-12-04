@@ -1834,9 +1834,78 @@ local Library = Update:Window("Blox Fruits", "")
 
 local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
 
-Main:Dropdown("Select Egg",_G.ColorMain,{"Cracked Egg","Spotted Egg","Paw Egg","Grass Egg","Wood Egg","Pumpkin Egg"},function(vu)
+HatchEgg = {
+   "Cracked Egg",
+   "Spotted Egg",
+   "Paw Egg",
+   "Grass Egg",
+   "Wood Egg",
+   "Pumpkin Egg",
+   "Hive Egg",
+   "Acorn Egg",
+   "Blossom Egg",
+   "Corgi Egg",
+   "Cat Egg",
+   "Dog Egg",
+   "Dragon Egg",
+   "Rock Egg",
+   "Geode Egg",
+   "Hut Egg",
+   "Grave Egg",
+   "Spike Egg",
+   "Sprout Egg",
+   "Spirit Egg",
+   "Crimson Egg",
+   "Overgrown Egg",
+   "Mossy Egg",
+   "Jungle Egg",
+   "Sandcastle Egg",
+   "Palm Tree Egg",
+   "Beach Ball Egg",
+   "Coral Egg",
+   "Anchor Egg",
+   "Atlantis Egg",
+   "Tropical Egg",
+   "Beach Egg",
+   "Coconut Egg",
+   "Tiki Egg",
+   "Sand Bucket Egg",
+   "Sunny Egg",
+   "Pirate Egg",
+   "Ship Egg",
+   "Zebra Egg",
+   "Cheetah Egg",
+   "Cactus Egg",
+   "Fossil Egg",
+   "Egyptian Egg",
+   "Sandstone Egg",
+   "Cowboy Egg",
+   "Canyon Egg",
+   "Hyena Egg",
+   "Melted Egg",
+   "Snow Egg",
+   "Icile Egg",
+   "Snowman Egg",
+   "Yeti Egg",
+   "Ice Egg",
+   "Thawed Egg",
+   "Magma Egg",
+   "Obsidian Egg",
+   "Volcano Egg",
+   "Bone Egg",
+   "Tentacle Egg",
+   "Hell Egg",
+   "Metal Egg",
+   "Sakura Egg"
+}
+
+Main:Dropdown("Select Egg",_G.ColorMain,HatchEgg,function(vu)
    _G.SelectEgg = vu
 end)
+
+if _G.SelectEgg == nil then
+   _G.SelectEgg = "Cracked Egg"
+end
 
 Main:Toggle("Auto Hatch Egg",_G.ColorMain,false,function(vu)
    _G.AutoHatch = vu
@@ -1846,50 +1915,20 @@ spawn(function()
    while wait() do
       if _G.AutoHatch then
          pcall(function()
-            if _G.SelectEgg == "Cracked Egg" then
                local args = {
-                  [1] = "Cracked Egg",
+                  [1] = _G.SelectEgg,
                   [2] = 1
               }
               
               game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Eggs_RequestPurchase"):InvokeServer(unpack(args))
-            elseif _G.SelectEgg == "Spotted Egg" then
-               local args = {
-                  [1] = "Spotted Egg",
-                  [2] = 1
-              }
-              
-              game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Eggs_RequestPurchase"):InvokeServer(unpack(args))
-            elseif _G.SelectEgg == "Paw Egg" then
-               local args = {
-                  [1] = "Paw Egg",
-                  [2] = 1
-              }
-              
-              game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Eggs_RequestPurchase"):InvokeServer(unpack(args))
-            elseif _G.SelectEgg == "Grass Egg" then
-               local args = {
-                  [1] = "Grass Egg",
-                  [2] = 1
-              }
-              
-              game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Eggs_RequestPurchase"):InvokeServer(unpack(args))
-            elseif _G.SelectEgg == "Wood Egg" then
-               local args = {
-                  [1] = "Wood Egg",
-                  [2] = 1
-              }
-              
-              game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Eggs_RequestPurchase"):InvokeServer(unpack(args))
-            elseif _G.SelectEgg == "Pumpkin Egg" then
-               local args = {
-                  [1] = "Pumpkin Egg",
-                  [2] = 1
-              }
-              
-              game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Eggs_RequestPurchase"):InvokeServer(unpack(args))
-            end
          end)
       end
    end
 end)
+
+if _G.AutoHatch == true then
+   repeat task.wait
+      game:GetService'VirtualUser':CaptureController()
+      game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+   until not _G.AutoHatch
+end

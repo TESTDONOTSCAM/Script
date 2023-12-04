@@ -2091,22 +2091,6 @@ spawn(function()
          pcall(function()
             PetMap()
             if _G.SelectMap == _G.SelectMap then
-               game:GetService("Workspace").ScriptBott.Humanoid:MoveTo(MapWalk1)
-               game:GetService("Workspace").ScriptBott.Humanoid.MoveToFinished:Wait()
-            end
-         end)
-      end
-   end
-end)
-
---[[
-
-spawn(function()
-   while wait() do
-      if _G.AutoFarm then
-         pcall(function()
-            PetMap()
-            if _G.SelectMap == _G.SelectMap then
                TP1(MapWalk1)
                wait(5)
                TP1(MapWalk2)
@@ -2115,8 +2099,6 @@ spawn(function()
       end
    end
 end)
-
-]]--
 
 Main:Seperator("",_G.ColorMain)
 

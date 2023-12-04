@@ -60,10 +60,10 @@ LocalPlayer.CharacterAdded:Connect(function(char)
 	HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
 end)
 
-if game.PlaceId == 6284583030 or game.PlaceId == 10321372166 or game.PlaceId == 7722306047 or game.PlaceId == 12610002282 or game.PlaceId == 8737899170 then
+if game.PlaceId == 6284583030 or game.PlaceId == 10321372166 or game.PlaceId == 7722306047 or game.PlaceId == 12610002282 then
 	
 	local banSuccess, banError = pcall(function() 
-		local Blunder = require(game:GetService("ReplicatedStorage"):WaitForChild("X", 10):WaitForChild("Blunder", 10):WaitForChild("BlunderList", 10))
+		local Blunder = require(game:GetService("ReplicatedStorage"):WaitForChild("Blunder", 10))
 		if not Blunder or not Blunder.getAndClear then LocalPlayer:Kick("Error while bypassing the anti-cheat! (Didn't find blunder)") end
 		
 		local OldGet = Blunder.getAndClear
@@ -99,7 +99,6 @@ if game.PlaceId == 6284583030 or game.PlaceId == 10321372166 or game.PlaceId == 
 	Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 	Humanoid = Character:WaitForChild("Humanoid")
 	HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
-	
 	
 	local bypassSuccess, bypassError = pcall(function()
 		if not Library.Network then 

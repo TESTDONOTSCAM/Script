@@ -1967,6 +1967,12 @@ HatchEgg = {
    "Sakura Egg"
 }
 
+MultipleEgg = {
+   "1 Hatch Egg",
+   "2 Hatch Egg",
+   "3 Hatch Egg"
+}
+
 Egg:Dropdown("Select Egg",_G.ColorEgg,HatchEgg,function(vu)
    _G.SelectEgg = vu
 end)
@@ -1975,12 +1981,27 @@ if _G.SelectEgg == nil then
    _G.SelectEgg = "Cracked Egg"
 end
 
-Egg:Slider("Open More Egg",_G.ColorEgg,1,99,1,function(vu)
-   _G.OpenMore = vu
+Egg:Dropdown("Hatch Multiple Egg",_G.ColorEgg,MultipleEgg,function(vu)
+   _G.MultiEgg = vu
 end)
+
+if _G.MultiEgg == nil then
+   _G.MultiEgg = "1 Hatch Egg"
+end
 
 Egg:Toggle("Auto Hatch Egg",_G.ColorEgg,false,function(vu)
    _G.AutoHatch = vu
+   if _G.AutoHatch == true then
+      repeat wait()
+      if _G.MultiEgg == "1 Hatch Egg" then
+         _G.OpenMore = 1
+      elseif _G.MultiEgg == "2 Hatch Egg" then
+         _G.OpenMore = 2
+      elseif _G.MultiEgg == "3 Hatch Egg" then
+         _G.OpenMore = 3
+      end
+      until not _G.AutoHatch
+   end
 end)
 
 spawn(function()

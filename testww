@@ -1834,7 +1834,7 @@ local Library = Update:Window("Blox Fruits", "")
 
 local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
 
-HatchEgg = {
+Main:Dropdown("Select Egg",_G.ColorMain,{
    "Cracked Egg",
    "Spotted Egg",
    "Paw Egg",
@@ -1897,9 +1897,7 @@ HatchEgg = {
    "Hell Egg",
    "Metal Egg",
    "Sakura Egg"
-}
-
-Main:Dropdown("Select Egg",_G.ColorMain,HatchEgg,function(vu)
+},function(vu)
    _G.SelectEgg = vu
 end)
 
@@ -1926,9 +1924,13 @@ spawn(function()
    end
 end)
 
-if _G.AutoHatch == true then
-   repeat task.wait
-      game:GetService'VirtualUser':CaptureController()
-      game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-   until not _G.AutoHatch
-end
+spawn(function()
+   game:GetService("RunService").RenderStepped:Connect(function()
+       if _G.AutoHatch then
+            pcall(function()
+               game:GetService'VirtualUser':CaptureController()
+               game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+           end)
+       end
+   end)
+end)

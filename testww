@@ -1860,254 +1860,200 @@ end
 function PetMap()
    if _G.SelectMap == "Area [1]" then
       MapWalk1 = CFrame.new(179.779129, 16.4641533, -176.592178, -0.0198902376, 8.30881746e-08, -0.999802172, -1.81059756e-09, 1, 8.31406339e-08, 0.999802172, 3.46392626e-09, -0.0198902376)
-      MapWalk2 = CFrame.new(256.573914, 17.214674, -178.343491, 0.0149580669, 3.61942796e-08, -0.999888122, -1.29016409e-09, 1, 3.61790278e-08, 0.999888122, 7.48851425e-10, 0.0149580669)
-      MapWalk3 = CFrame.new(257.134186, 19.2660294, -231.96579, 0.999987602, 7.46904968e-11, -0.00498521328, -1.5485889e-10, 1, -1.60808504e-08, 0.00498521328, 1.60814224e-08, 0.999987602)
-      MapWalk4 = CFrame.new(182.026031, 17.2484264, -232.471939, -0.0209675673, 3.49303271e-08, 0.999780178, 1.78335191e-09, 1, -3.49006051e-08, -0.999780178, 1.05117903e-09, -0.0209675673)
+      MapWalk2 = CFrame.new(257.134186, 19.2660294, -231.96579, 0.999987602, 7.46904968e-11, -0.00498521328, -1.5485889e-10, 1, -1.60808504e-08, 0.00498521328, 1.60814224e-08, 0.999987602)
+
    elseif _G.SelectMap == "Area [2]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [3]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [4]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [5]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [6]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [7]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [8]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [9]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [10]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [11]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [12]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [13]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [14]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [15]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [16]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [17]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [18]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [19]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [20]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [21]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [22]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [23]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [24]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [25]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [26]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [27]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [28]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [29]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [30]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [31]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [32]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [33]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [34]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [35]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [36]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [37]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [38]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [39]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [40]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [41]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [42]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [43]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [44]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [45]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [46]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
+
    elseif _G.SelectMap == "Area [47]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
    elseif _G.SelectMap == "Area [48]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
    elseif _G.SelectMap == "Area [49]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
    elseif _G.SelectMap == "Area [50]" then
       MapWalk1 = CFrame.new()
       MapWalk2 = CFrame.new()
-      MapWalk3 = CFrame.new()
-      MapWalk4 = CFrame.new()
    end
 end
 
@@ -2127,7 +2073,7 @@ MapSelect = {
 
 Main:Seperator("Auto Farm",_G.ColorMain)
 
-Egg:Dropdown("Select Map",_G.ColorEgg,MapSelect,function(vu)
+Main:Dropdown("Select Map",_G.ColorMain,MapSelect,function(vu)
    _G.SelectMap = vu
 end)
 
@@ -2145,18 +2091,32 @@ spawn(function()
          pcall(function()
             PetMap()
             if _G.SelectMap == _G.SelectMap then
-               TP1(MapWalk1)
-               wait(5)
-               TP1(MapWalk2)
-               wait(5)
-               TP1(MaoWalk3)
-               wait(5)
-               TP1(MapWalk4)
+               game:GetService("Workspace").ScriptBott.Humanoid:MoveTo(MapWalk1)
+               game:GetService("Workspace").ScriptBott.Humanoid.MoveToFinished:Wait()
             end
          end)
       end
    end
 end)
+
+--[[
+
+spawn(function()
+   while wait() do
+      if _G.AutoFarm then
+         pcall(function()
+            PetMap()
+            if _G.SelectMap == _G.SelectMap then
+               TP1(MapWalk1)
+               wait(5)
+               TP1(MapWalk2)
+            end
+         end)
+      end
+   end
+end)
+
+]]--
 
 Main:Seperator("",_G.ColorMain)
 

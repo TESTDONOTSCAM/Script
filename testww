@@ -2031,18 +2031,6 @@ MultipleEgg = {
    "30 Hatch Egg"
 }
 
-local Animation = false
-
-Egg:Button("Remove Egg Animation",_G.ColorEgg,function()
-   if Animation == false then
-   Animation = true
-   game:GetService("Players").LocalPlayer.PlayerGui.EggOpenAnimation.Enabled = false
-   else
-   Animation = false
-   game:GetService("Players").LocalPlayer.PlayerGui.EggOpenAnimation.Enabled = true
-   end
-end)
-
 Egg:Dropdown("Select Egg",_G.ColorEgg,HatchEgg,function(vu)
    _G.SelectEgg = vu
 end)
@@ -2132,12 +2120,7 @@ spawn(function()
    while wait() do
       if _G.AutoHatch then
          pcall(function()
-               local args = {
-                  [1] = _G.SelectEgg,
-                  [2] = _G.OpenMore
-              }
-              
-              game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Eggs_RequestPurchase"):InvokeServer(unpack(args))
+              game:GetService("ReplicatedStorage").Network:WaitForChild("Eggs_RequestPurchase"):InvokeServer(_G.SelectEgg,_G.OpenMore)
          end)
       end
    end

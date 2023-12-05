@@ -1872,7 +1872,7 @@ spawn(function()
       if _G.AutoFarm then
          pcall(function()
             for i, v in pairs(game:GetService("Workspace"):WaitForChild("__THINGS").Breakables:GetDescendants()) do
-               if v.Name == "ClickDetector" and v.Parent then
+               if v.Name == "Hitbox" and v.Parent then
                    fireclickdetector(v)
                end
             end

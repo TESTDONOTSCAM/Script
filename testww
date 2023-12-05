@@ -1869,15 +1869,15 @@ end)
 
 spawn(function()
    while wait() do
-      if _G.AutoFarm then
-         pcall(function()
-            for i, v in pairs(game:GetService("Workspace"):WaitForChild("__THINGS").Breakables:GetDescendants()) do
-               if v.Name == "Hitbox" and v.Parent then
-                   fireclickdetector(v)
-               end
-            end
-         end)
-      end
+       if _G.AutoFarm then
+           pcall(function()
+                   repeat task.wait()
+                   for i, v in pairs(game:GetService("Workspace"):WaitForChild("__THINGS").Breakables:GetChildren()) do
+                   game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Breakables_PlayerDealDamage"):FireServer(v.Name)
+                   end
+               until not _G.AutoFarm
+           end)
+       end
    end
 end)
 

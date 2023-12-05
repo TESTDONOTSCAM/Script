@@ -1873,7 +1873,7 @@ spawn(function()
          pcall(function()
             for i, v in pairs(game:GetService("Workspace"):WaitForChild("__THINGS").Breakables:GetDescendants()) do
                if v.Name == "ClickDetector" and v.Parent then
-                   fireclickdetector(v.Parent)
+                   --fireclickdetector(v.Parent)
                end
             end
          end)

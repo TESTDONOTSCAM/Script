@@ -1871,7 +1871,7 @@ spawn(function()
    while wait() do
       if _G.AutoFarm then
          pcall(function()
-            for i, v in pairs(game:GetService("Workspace"):FindFirstChild("__THINGS").Breakables:GetDescendants()) do
+            for i, v in pairs(game:GetService("Workspace"):WaitForChild("__THINGS").Breakables:GetDescendants()) do
                if v.Name == "ClickDetector" and v.Parent then
                    fireclickdetector(v.Parent)
                end

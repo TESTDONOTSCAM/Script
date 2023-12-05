@@ -1889,16 +1889,17 @@ spawn(function()
    while wait() do
        if _G.AutoFarms then
            pcall(function()
-               repeat task.wait()
-                  for i, v in pairs(game:GetService("Workspace"):WaitForChild("__THINGS").Breakables:GetChildren()) do
-                     if v.Name then
-                     if (v.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 200 then
-                     game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Breakables_PlayerDealDamage"):FireServer(v.Name)
-                     
-                        end
+               for i , v2 in pairs(game:GetService("Workspace").Map:GetDescendants()) do
+                  if v2.Name == "Main" or v2.Name == "Easy" then
+                     if (v2.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 40 then
+                        repeat task.wait()
+                           for i, v in pairs(game:GetService("Workspace"):WaitForChild("__THINGS").Breakables:GetChildren()) do
+                              game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Breakables_PlayerDealDamage"):FireServer(v.Name)
+                           end
+                        until not _G.AutoFarms
                      end
                   end
-               until not _G.AutoFarms
+               end
            end)
        end
    end

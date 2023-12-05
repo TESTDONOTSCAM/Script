@@ -1874,7 +1874,6 @@ spawn(function()
             for i, v in pairs(game:GetService("Workspace"):FindFirstChild("__THINGS").Breakables:GetDescendants()) do
                if v.Name == "ClickDetector" and v.Parent then
                    fireclickdetector(v.Parent)
-                   print(1+1)
                end
             end
          end)

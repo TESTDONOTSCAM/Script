@@ -3521,6 +3521,8 @@ spawn(function()
     end
 end)
 
+_G.AutoHakiSpam = true
+
 spawn(function()
     while wait() do
         if _G.Auto_StartRaid or _G.Auto_Next_Island or _G.Kill_Aura or _G.Auto_Start_Law_Dungeon or _G.AutoHakiSpam or _G.AutoFarm or _G.AutoFarmFruitMastery or _G.AutoFarmSwanGlasses or _G.AutoFarmBossHallow or _G.AutoRaid or _G.BoneFarm or _G.AutoRemover or _G.AutoSail or _G.TerShark or _G.Sharky or _G.Piranas or _G.FishBoat or _G.BrigadeShip or _G.BrigadeShips or _G.Beast then
@@ -3840,7 +3842,6 @@ local Library = Update:Window("Blox Fruits", "")
 
 local User = Library:Tab("• Status              ", "rbxassetid://7040410130")
 local Main = Library:Tab("• Main                 ","rbxassetid://11446825283")
-local Setting = Library:Tab("• Setting         ","rbxassetid://11446859498")
 local Race = Library:Tab("• Race V4           ","rbxassetid://11446900930")
 local Stats = Library:Tab("• Stats                 ","rbxassetid://11447069304")
 local Combat = Library:Tab("• Player               ","rbxassetid://11446900930")
@@ -4004,12 +4005,145 @@ spawn(function()
                     for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                         if v.ToolTip == _G.SelectWeapon then
                         _G.SelectWeapon = v.Name
-                        end
                     end
                 end
+            end
+        end)
+    end
+end)
+
+Main:Toggle("Fast Attack",true,function(vu)
+	_G.FastAttack = vu
+end)
+
+require(game.ReplicatedStorage.Util.CameraShaker):Stop()
+
+xShadowFastAttackx = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+
+xShadowx = debug.getupvalues(xShadowFastAttackx)[2]
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack then
+            if typeof(xShadowx) == "table" then
+                pcall(function()
+                    xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
+                    xShadowx.activeController.timeToNextAttack = 0
+                    xShadowx.activeController.hitboxMagnitude = 60
+                    xShadowx.activeController.active = false
+                    xShadowx.activeController.timeToNextBlock = 0
+                    xShadowx.activeController.focusStart = 1655503339.0980349
+                    xShadowx.activeController.increment = 1
+                    xShadowx.activeController.blocking = false
+                    xShadowx.activeController.attacking = false
+                    xShadowx.activeController.humanoid.AutoRotate = 50
+                end)
+            end
+        end
+    end)
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack == true then
+            game.Players.LocalPlayer.Character.Stun.Value = 0
+            game.Players.LocalPlayer.Character.Busy.Value = false        
+        end
+    end)
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack then
+             pcall(function()
+                game:GetService'VirtualUser':CaptureController()
+                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
             end)
         end
     end)
+end)
+
+local Client = game.Players.LocalPlayer
+    local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
+    local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
+    spawn(function()
+        while task.wait() do
+            pcall(function()
+                if not shared.orl then shared.orl = STOPRL.wrapAttackAnimationAsync end
+                if not shared.cpc then shared.cpc = STOP.play end
+                    STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
+                    local Hits = STOPRL.getBladeHits(b,c,d)
+                    if Hits then
+                        if _G.FastAttack then
+                            STOP.play = function() end
+                            a:Play(0.01,0.01,0.01)
+                            func(Hits)
+                            STOP.play = shared.cpc
+                            wait(a.length * 0.5)
+                            a:Stop()
+                        else
+                        a:Play()
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+function GetBladeHit()
+		local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
+		local CmrFwLib = CombatFrameworkLib[2]
+		local p13 = CmrFwLib.activeController
+		local weapon = p13.blades[1]
+		if not weapon then 
+			return weapon
+		end
+		while weapon.Parent ~= game.Players.LocalPlayer.Character do
+			weapon = weapon.Parent 
+		end
+		return weapon
+	end
+	function AttackHit()
+		local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
+		local CmrFwLib = CombatFrameworkLib[2]
+		local plr = game.Players.LocalPlayer
+		for i = 1, 1 do
+			local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(plr.Character,{plr.Character.HumanoidRootPart},60)
+			local cac = {}
+			local hash = {}
+			for k, v in pairs(bladehit) do
+				if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
+					table.insert(cac, v.Parent.HumanoidRootPart)
+					hash[v.Parent] = true
+				end
+			end
+			bladehit = cac
+			if #bladehit > 0 then
+				pcall(function()
+					CmrFwLib.activeController.timeToNextAttack = 0
+					CmrFwLib.activeController.attacking = false
+					CmrFwLib.activeController.blocking = false
+					CmrFwLib.activeController.timeToNextBlock = 0
+					CmrFwLib.activeController.increment = 3
+					CmrFwLib.activeController.hitboxMagnitude = 120
+					CmrFwLib.activeController.focusStart = 0
+					game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetBladeHit()))
+					game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "")
+				end)
+			end
+		end
+	end
+	spawn(function()
+		while wait(.1) do
+			if _G.FastAttack then
+				pcall(function()
+				repeat task.wait(_G.Fast_Delay)
+					AttackHit()
+				until not _G.FastAttack
+			end)
+		end
+	end
+end)
     
 Main:Toggle("Auto Farm",false,function(value)
     _G.AutoFarm = value
@@ -4415,201 +4549,7 @@ end
 
 do
 
-Setting:Line()
-Setting:Seperator("Farm Setting")
-
-Setting:Toggle("Fast Attack",true,function(vu)
-	_G.FastAttack = vu
-end)
-
-require(game.ReplicatedStorage.Util.CameraShaker):Stop()
-
-xShadowFastAttackx = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-
-xShadowx = debug.getupvalues(xShadowFastAttackx)[2]
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack then
-            if typeof(xShadowx) == "table" then
-                pcall(function()
-                    xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
-                    xShadowx.activeController.timeToNextAttack = 0
-                    xShadowx.activeController.hitboxMagnitude = 60
-                    xShadowx.activeController.active = false
-                    xShadowx.activeController.timeToNextBlock = 0
-                    xShadowx.activeController.focusStart = 1655503339.0980349
-                    xShadowx.activeController.increment = 1
-                    xShadowx.activeController.blocking = false
-                    xShadowx.activeController.attacking = false
-                    xShadowx.activeController.humanoid.AutoRotate = 50
-                end)
-            end
-        end
-    end)
-end)
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack == true then
-            game.Players.LocalPlayer.Character.Stun.Value = 0
-            game.Players.LocalPlayer.Character.Busy.Value = false        
-        end
-    end)
-end)
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack then
-             pcall(function()
-                game:GetService'VirtualUser':CaptureController()
-                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-            end)
-        end
-    end)
-end)
-
-Setting:Dropdown("Fast Attack Delay ",{"0", "0.2", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185", "0.190", "0.195", "1", "1.5", "2"},function(vu)
-	_G.FastMode = vu
-end)
-
-if _G.FastMode == nil then
-	_G.FastMode = "0"
-end
-
-spawn(function()
-	while wait(.1) do
-		if _G.FastMode then
-			pcall(function()
-				if _G.FastMode == "0" then
-					_G.Fast_Delay = 0
-				elseif _G.FastMode == "0.2" then
-					_G.Fast_Delay = 0.2
-				elseif _G.FastMode == "0.5" then
-					_G.Fast_Delay = 0.5
-				elseif _G.FastMode == "0.15" then
-					_G.Fast_Delay = 0.15
-				elseif _G.FastMode == "0.155" then
-					_G.Fast_Delay = 0.155
-				elseif _G.FastMode == "0.16" then
-					_G.Fast_Delay = 0.16
-				elseif _G.FastMode == "0.165" then
-					_G.Fast_Delay = 0.165
-				elseif _G.FastMode == "0.17" then
-					_G.Fast_Delay = 0.17
-				elseif _G.FastMode == "0.175" then
-					_G.Fast_Delay = 0.175
-				elseif _G.FastMode == "0.18" then
-					_G.Fast_Delay = 0.18
-				elseif _G.FastMode == "0.185" then
-					_G.Fast_Delay = 0.185
-				elseif _G.FastMode == "0.190" then
-					_G.Fast_Delay = 0.190
-				elseif _G.FastMode == "0.195" then
-					_G.Fast_Delay = 0.195
-				elseif _G.FastMode == "1" then
-					_G.Fast_Delay = 0.1
-				elseif _G.FastMode == "1.5" then
-					_G.Fast_Delay = 1.5
-				elseif _G.FastMode == "2" then
-					_G.Fast_Delay = 2
-				end
-			end)
-		end
-	end
-end)
-
-local Client = game.Players.LocalPlayer
-    local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
-    local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
-    spawn(function()
-        while task.wait() do
-            pcall(function()
-                if not shared.orl then shared.orl = STOPRL.wrapAttackAnimationAsync end
-                if not shared.cpc then shared.cpc = STOP.play end
-                    STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
-                    local Hits = STOPRL.getBladeHits(b,c,d)
-                    if Hits then
-                        if _G.FastAttack then
-                            STOP.play = function() end
-                            a:Play(0.01,0.01,0.01)
-                            func(Hits)
-                            STOP.play = shared.cpc
-                            wait(a.length * 0.5)
-                            a:Stop()
-                        else
-                        a:Play()
-                    end
-                end
-            end
-        end)
-    end
-end)
-
-function GetBladeHit()
-		local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
-		local CmrFwLib = CombatFrameworkLib[2]
-		local p13 = CmrFwLib.activeController
-		local weapon = p13.blades[1]
-		if not weapon then 
-			return weapon
-		end
-		while weapon.Parent ~= game.Players.LocalPlayer.Character do
-			weapon = weapon.Parent 
-		end
-		return weapon
-	end
-	function AttackHit()
-		local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
-		local CmrFwLib = CombatFrameworkLib[2]
-		local plr = game.Players.LocalPlayer
-		for i = 1, 1 do
-			local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(plr.Character,{plr.Character.HumanoidRootPart},60)
-			local cac = {}
-			local hash = {}
-			for k, v in pairs(bladehit) do
-				if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
-					table.insert(cac, v.Parent.HumanoidRootPart)
-					hash[v.Parent] = true
-				end
-			end
-			bladehit = cac
-			if #bladehit > 0 then
-				pcall(function()
-					CmrFwLib.activeController.timeToNextAttack = 0
-					CmrFwLib.activeController.attacking = false
-					CmrFwLib.activeController.blocking = false
-					CmrFwLib.activeController.timeToNextBlock = 0
-					CmrFwLib.activeController.increment = 3
-					CmrFwLib.activeController.hitboxMagnitude = 120
-					CmrFwLib.activeController.focusStart = 0
-					game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetBladeHit()))
-					game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "")
-				end)
-			end
-		end
-	end
-	spawn(function()
-		while wait(.1) do
-			if _G.FastAttack then
-				pcall(function()
-				repeat task.wait(_G.Fast_Delay)
-					AttackHit()
-				until not _G.FastAttack
-			end)
-		end
-	end
-end)
-
-Setting:Toggle("Auto Haki",true,function(vu)
-    _G.AutoHakiSpam = vu
-end)
-
-Setting:Seperator("Other Setting")
-
-Setting:Toggle("Do Not Turn This Off",true,function(value)
-  _G.SafeFarm = value
-end)
+_G.SafeFarm = true
 
 spawn(function()
     while wait() do
@@ -4622,9 +4562,7 @@ spawn(function()
     end
 end)
 
-Setting:Toggle("Remove Effect",true,function(value)
-    _G.WhiteScreen = value
-end)
+_G.WhiteScreen = true
     
 spawn(function()
     while wait() do
@@ -4648,69 +4586,8 @@ spawn(function()
     end
 end)
 
-if World1 or World2 then
-
-Setting:Toggle("[ FPS ] Management",false,function(value)
-        _G.FpsBoost1 = value
-    end)
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.FpsBoost1 then
-                    game:GetService("Lighting").FantasySky:Destroy()
-                    local g = game
-                    local w = g.Workspace
-                    local l = g.Lighting
-                    local t = w.Terrain
-                    t.WaterWaveSize = 0
-                    t.WaterWaveSpeed = 0
-                    t.WaterReflectance = 0
-                    t.WaterTransparency = 0
-                    l.GlobalShadows = false
-                    l.FogEnd = 9e9
-                    l.Brightness = 0
-                    settings().Rendering.QualityLevel = "Level01"
-                    for i, v in pairs(g:GetDescendants()) do
-                    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-                    v.Material = "Plastic"
-                    v.Reflectance = 0
-                    elseif v:IsA("Decal") or v:IsA("Texture") then
-                    v.Transparency = 1
-                    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-                    v.Lifetime = NumberRange.new(0)
-                    elseif v:IsA("Explosion") then
-                    v.Transparency = 1
-                    v.BlastPressure = 1
-                    v.BlastRadius = 1
-                    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-                    v.Enabled = false
-                    elseif v:IsA("MeshPart") then
-                    v.Material = "Plastic"
-                    v.Reflectance = 0
-                    v.TextureID = 10385902758728957
-                    end
-                    end
-                    for i, e in pairs(l:GetChildren()) do
-                    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-                    e.Enabled = false
-                    end
-                    end
-                    for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
-                    if v.Name == ("Water;") then
-                    v.Transparency = 1
-                    v.Material = "Plastic"
-                        end
-                    end
-                end
-            end
-        end)
-    end)
-end
-
 if World3 then
-Setting:Toggle("[ FPS ] Management",true,function(value)
-        _G.FpsBoost1 = value
-    end)
+_G.FpsBoost1 = true
     spawn(function()
         pcall(function()
             while wait() do

@@ -373,7 +373,7 @@ Player Name
  Hub.Position = UDim2.new(0, 110, 0, 0)
  Hub.Size = UDim2.new(0, 81, 0, 27)
  Hub.Font = Enum.Font.Code
- Hub.Text = "[ Shy Hub ]"
+ Hub.Text = "「 By ScriptBlox 」"
  Hub.TextColor3 = Color3.fromRGB(86,255,255)
  Hub.TextSize = 16.000
  Hub.TextXAlignment = Enum.TextXAlignment.Left
@@ -8916,7 +8916,7 @@ end)
 end)
 
 if _G.Fast_Delay == nil then
-	_G.Fast_Delay = 0
+	_G.Fast_Delay = 0.15
 end
 
 _G.FastAttack = true

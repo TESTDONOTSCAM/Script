@@ -4642,7 +4642,7 @@ Setting:Toggle("[ FPS ] Management",_G.ColorSetting,false,function(value)
 end
 
 if World3 then
-Setting:Toggle("[ FPS ] Management",_G.ColorSetting,true,function(value)
+Setting:Toggle("[ FPS ] Management",_G.ColorSetting,false,function(value)
         _G.FpsBoost1 = value
     end)
     spawn(function()

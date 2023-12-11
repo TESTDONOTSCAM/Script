@@ -4408,7 +4408,7 @@ Setting:Dropdown("Fast Attack Delay ",_G.ColorSetting,{"0", "0.2", "0.15", "0.15
 end)
 
 if _G.FastMode == nil then
-	_G.FastMode = "0"
+	_G.FastMode = "0.15"
 end
 
 spawn(function()

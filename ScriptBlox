@@ -3563,10 +3563,10 @@ spawn(function()
             pcall(function()
                 StatrMagnet = true
                 print("startmagnet true")
-                wait(10)
+                wait(5)
                 StatrMagnet = false
                 print("startmagnet false")
-                wait(5)
+                wait(10)
             end)
         end
     end

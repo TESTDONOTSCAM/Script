@@ -5235,8 +5235,8 @@ spawn(function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest","BartiloQuest",1)
         end
         elseif game:GetService("Players").LocalPlayer.Data.Level.Value >= 800 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo") == 1 then
-        if game:GetService("Workspace").Enemies:FindFirstChild("Jeremy [Lv. 850] [Boss]") then
-        Mon = "Jeremy [Lv. 850] [Boss]"
+        if game:GetService("Workspace").Enemies:FindFirstChild("Jeremy") then
+        Mon = "Jeremy"
         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
         if v.Name == Ms then
         OldCFrameBartlio = v.HumanoidRootPart.CFrame
@@ -5255,7 +5255,7 @@ spawn(function()
         until not v.Parent or v.Humanoid.Health <= 0 or _G.AutoBartilo == false
         end
         end
-        elseif game:GetService("ReplicatedStorage"):FindFirstChild("Jeremy [Lv. 850] [Boss]") then
+        elseif game:GetService("ReplicatedStorage"):FindFirstChild("Jeremy") then
         repeat topos(CFrame.new(-456.28952, 73.0200958, 299.895966)) wait() until not _G.AutoBartilo or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-456.28952, 73.0200958, 299.895966)).Magnitude <= 10
         wait(1.1)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo")

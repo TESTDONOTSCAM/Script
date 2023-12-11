@@ -5,7 +5,7 @@ do local ui =  game:GetService("CoreGui"):FindFirstChild("RippleFPS")  if ui the
 do local uix =  game:GetService("CoreGui"):FindFirstChild("Rippletime")  if uix then uix:Destroy() end end
 
 if _G.Fast_Delay == nil then
-	_G.Fast_Delay = 0
+	_G.Fast_Delay = 0.15
 end
 
 local openshit = Instance.new("ScreenGui")
@@ -4886,7 +4886,6 @@ spawn(function()
                     local TurRock = Turtle:FindFirstChild("Rock") if TurRock then TurRock:Destroy() end
                     local TurWood = Turtle:FindFirstChild("Wood") if TurWood then TurWood:Destroy() end
                     local TurWoods = Turtle:FindFirstChild("PluginGrass") if TurWoods then TurWoods:Destroy() end
-                    print("Cleaning Map")
                 end
             end
         end

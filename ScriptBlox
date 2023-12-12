@@ -3760,16 +3760,8 @@ local Misc = Library:Tab("        Misc+Esp","rbxassetid://11447063791",_G.ColorM
 do
 
 Update:Notification("Thanks For Using ScriptBlox Premium","ScriptBlox Premium")
-
-wait(2)
-
 Update:Notification("Subscribe Scriptblox On Youtube","ScriptBlox Premium")
-
-wait(2)
-
 Update:Notification("Script Currently On Loading","ScriptBlox Premium")
-
-wait(3)
 
 User:Line()
 
@@ -8916,7 +8908,7 @@ end)
     end
 end)
 
-wait(3)
+wait(2)
 
 Update:Notification("Script Loading Complete","ScriptBlox Premium")
 

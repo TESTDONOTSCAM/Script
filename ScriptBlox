@@ -896,7 +896,7 @@ local UIPadding = Instance.new("UIPadding")
     UIPadding.Parent = NotificationName
     UIPadding.PaddingLeft = UDim.new(0, 10)
         
-    wait(5)
+    wait(3)
         
     Notification:TweenSize(UDim2.new(0, 0, 0, 60),"In","Quad",0.4,true)
 
@@ -913,7 +913,7 @@ local UIPadding = Instance.new("UIPadding")
     NotificationName:TweenSize(UDim2.new(-0.518777788, 140, 0.5, 0),"In","Quad",0.1,true)
     NotificationName.Text = ""
         
-    wait(1.5)
+    wait(1)
 
     NotificationScreen.Enabled = false
 end

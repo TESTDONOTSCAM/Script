@@ -896,7 +896,7 @@ local UIPadding = Instance.new("UIPadding")
     UIPadding.Parent = NotificationName
     UIPadding.PaddingLeft = UDim.new(0, 10)
         
-    wait(3)
+    wait(5)
         
     Notification:TweenSize(UDim2.new(0, 0, 0, 60),"In","Quad",0.4,true)
 
@@ -913,7 +913,7 @@ local UIPadding = Instance.new("UIPadding")
     NotificationName:TweenSize(UDim2.new(-0.518777788, 140, 0.5, 0),"In","Quad",0.1,true)
     NotificationName.Text = ""
         
-    wait(1)
+    wait(1.5)
 
     NotificationScreen.Enabled = false
 end
@@ -3760,6 +3760,8 @@ local Misc = Library:Tab("        Misc+Esp","rbxassetid://11447063791",_G.ColorM
 do
 
 Update:Notification("Script Currently On Loading","ScriptBlox Premium")
+
+wait(3)
 
 User:Line()
 
@@ -8695,6 +8697,22 @@ spawn(function()
 end)
     
 Misc:Seperator("Codes",_G.ColorMisc)
+
+local x2Code = {
+"3BVISITS",
+"UPD16",
+"FUDD10",
+"BIGNEWS",
+"THEGREATACE",
+"SUB2GAMERROBOT_EXP1",
+"StrawHatMaine",
+"Sub2OfficialNoobie",
+"SUB2NOOBMASTER123",
+"Sub2Daigrock",
+"Axiore",
+"TantaiGaming",
+"STRAWHATMAINE"
+}
     
 Misc:Button("Redeem All Codes",_G.ColorMisc,function()
     function RedeemCode(value)
@@ -8906,7 +8924,7 @@ end)
     end
 end)
 
-wait(2)
+wait(3)
 
 Update:Notification("Script Loading Complete","ScriptBlox Premium")
 

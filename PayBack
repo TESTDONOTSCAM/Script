@@ -3484,10 +3484,10 @@ spawn(function()
             pcall(function()
                 StatrMagnet = true
                 print("startmagnet true")
-                wait(10)
+                wait(3)
                 StatrMagnet = false
                 print("startmagnet false")
-                wait(5)
+                wait(10)
             end)
         end
     end
@@ -3729,6 +3729,10 @@ spawn(function()
             end)
         end
     end)
+
+Main:Toggle("Fast Attack",_G.ColorMain,_G.FastAttack,function(vu)
+    _G.FastAttack = vu
+end)
     
 Main:Toggle("Auto Farm",_G.ColorMain,false,function(value)
     _G.AutoFarm = value
@@ -3736,6 +3740,8 @@ Main:Toggle("Auto Farm",_G.ColorMain,false,function(value)
     if _G.AutoFarm == true then
         _G.BoneFarm = false
         _G.AutoFarmFruitMastery = false
+    elseif _G.AutoFarm == false then
+        _G.FastAttack = false
     end
 end)
 
@@ -3875,6 +3881,8 @@ Main:Toggle("Farm Bone",_G.ColorMain,_G.BoneFarm,function(vu)
     if _G.BoneFarm == true then
     _G.AutoFarm = false
     _G.AutoFarmFruitMastery = false
+    elseif _G.BoneFarm == false then
+        _G.FastAttack == false
     end
 end)
 

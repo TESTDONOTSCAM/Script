@@ -1005,7 +1005,7 @@ local UIPadding = Instance.new("UIPadding")
     UIPadding.Parent = NotificationName
     UIPadding.PaddingLeft = UDim.new(0, 10)
         
-    wait(5)
+    wait(3)
         
     Notification:TweenSize(UDim2.new(0, 0, 0, 60),"In","Quad",0.4,true)
 
@@ -1021,8 +1021,6 @@ local UIPadding = Instance.new("UIPadding")
         
     NotificationName:TweenSize(UDim2.new(-0.518777788, 140, 0.5, 0),"In","Quad",0.1,true)
     NotificationName.Text = ""
-        
-    wait(1.5)
 
     NotificationScreen.Enabled = false
 end
@@ -2150,13 +2148,8 @@ function CheckLevel2()
             NameMon = "Fishman Warrior"
             CFrameQ = CFrame.new(61122.5625, 18.4716396, 1568.16504, 0.893533468, 3.95251609e-09, 0.448996574, -2.34327455e-08, 1, 3.78297464e-08, -0.448996574, -4.43233645e-08, 0.893533468)
             CFrameMon = CFrame.new(60946.6094, 48.6735229, 1525.91687, -0.0817126185, 8.90751153e-08, 0.996655822, 2.00889794e-08, 1, -8.77269599e-08, -0.996655822, 1.28533992e-08, -0.0817126185)
-            if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-                _G.Stop_Tween = true
-                TP(CFrameQ)
-                wait(.5)
+            if Lv == 375 or Lv <= 399 then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
-                wait(.5)
-                _G.Stop_Tween = nil
             end
             
         elseif Lv == 400 or Lv <= 449 or SelectMonster == "Fishman Commando" then -- Fishman Commando
@@ -2167,13 +2160,8 @@ function CheckLevel2()
             NameMon = "Fishman Commando"
             CFrameQ = CFrame.new(61122.5625, 18.4716396, 1568.16504)
             CFrameMon = CFrame.new(61900.6211, 18.4828186, 1473.38196, 0.699908674, -1.60197153e-08, -0.714232326, -5.19895842e-08, 1, -7.33762278e-08, 0.714232326, 8.84893012e-08, 0.699908674)
-            if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-                _G.Stop_Tween = true
-                TP(CFrameQ)
-                wait(.5)
+            if Lv == 400 or Lv <= 449 then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
-                wait(.5)
-                _G.Stop_Tween = nil
             end
 
         elseif Lv == 450 or Lv <= 474 or SelectMonster == "God's Guard" then 
@@ -2183,13 +2171,8 @@ function CheckLevel2()
             NameMon = "God's Guards"
             CFrameQ = CFrame.new(-4721.71436, 845.277161, -1954.20105)
             CFrameMon = CFrame.new(-4716.95703, 853.089722, -1933.925427)
-            if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-                _G.Stop_Tween = true
-                TP(CFrameQ)
-                wait(.5)
+            if Lv == 450 or Lv <= 474 then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
-                wait(.5)
-                _G.Stop_Tween = nil
             end
 
         elseif Lv == 475 or Lv <= 524 or SelectMonster == "Shanda" then

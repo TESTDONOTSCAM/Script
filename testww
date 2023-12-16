@@ -1,8 +1,6 @@
 do local GUI = game.CoreGui:FindFirstChild("MyLibrary") if GUI then GUI:Destroy() end end
 do local Op = game.CoreGui:FindFirstChild("openshit") if Op then Op:Destroy() end end
 do local Ba = game.CoreGui:FindFirstChild("Balaraja") if Ba then Ba:Destroy() end end
-do local ui =  game:GetService("CoreGui"):FindFirstChild("RippleFPS")  if ui then ui:Destroy() end end
-do local uix =  game:GetService("CoreGui"):FindFirstChild("Rippletime")  if uix then uix:Destroy() end end
 
 if _G.Fast_Delay == nil then
 	_G.Fast_Delay = 0.15
@@ -112,8 +110,6 @@ spawn(function()
 		end
 	end
 end)
-
-
 
 -- < // Library \\ > --
 
@@ -269,250 +265,8 @@ mainopens.Parent = mainopen
  _G.ColorDF = Color3.fromRGB(255, 0, 0)
  _G.ColorShop = Color3.fromRGB(255, 70, 0)
  _G.ColorMisc = Color3.fromRGB(255, 120, 0)
-	
-	local RippleFPS = Instance.new("ScreenGui")
-	local Rippletime = Instance.new("ScreenGui")
-	local Framefps = Instance.new("Frame")
-	local Frametime = Instance.new("Frame")
-	local UICorner213 = Instance.new("UICorner")
-	local UICorner214 = Instance.new("UICorner")
-	local TextLabelfps = Instance.new("TextLabel")
-	local TextLabeltime = Instance.new("TextLabel")
-	local ImageLabelfps = Instance.new("ImageLabel")
-	local ImageLabeltime = Instance.new("ImageLabel")
-	local Strokefps = Instance.new("UIStroke")
-	local Stroketime = Instance.new("UIStroke")
-	
-	RippleFPS.Name = "RippleFPS"
-	RippleFPS.Parent = game.CoreGui
-	RippleFPS.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	
-	Rippletime.Name = "Rippletime"
-	Rippletime.Parent = game.CoreGui
-	Rippletime.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	
-	Framefps.Name = "Framefps"
-	Framefps.Parent = RippleFPS
-	Framefps.AnchorPoint = Vector2.new(0.5, 0.5)
-	Framefps.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-	Framefps.BorderSizePixel = 0
-	Framefps.Position = UDim2.new(0.3, 0, -0.03, 0)
-	Framefps.Size = UDim2.new(0, 70, 0, 40)
-	
-	UICorner213.CornerRadius = UDim.new(0, 4)
-	UICorner213.Parent = Framefps
-	
-	Strokefps.Thickness = 1
-	Strokefps.Name = ""
-	Strokefps.Parent = Framefps
-	Strokefps.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	Strokefps.LineJoinMode = Enum.LineJoinMode.Round
-	Strokefps.Color = _G.StrokeColor
-	Strokefps.Transparency = 0
-	
-	Frametime.Name = "Frametime"
-	Frametime.Parent = Rippletime
-	Frametime.AnchorPoint = Vector2.new(0.53, 0.5)
-	Frametime.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-	Frametime.BorderSizePixel = 0
-	Frametime.Position = UDim2.new(0.5, 0, -0.03, 0)
-	Frametime.Size = UDim2.new(0, 240, 0, 40)
-	
-	UICorner214.CornerRadius = UDim.new(0, 4)
-	UICorner214.Parent = Frametime
-	
-	Stroketime.Thickness = 1
-	Stroketime.Name = ""
-	Stroketime.Parent = Frametime
-	Stroketime.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	Stroketime.LineJoinMode = Enum.LineJoinMode.Round
-	Stroketime.Color = _G.StrokeColor
-	Stroketime.Transparency = 0
-	
-	TextLabelfps.Name = "TextLabelfps"
-	TextLabelfps.Parent = Framefps
-	TextLabelfps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabelfps.BackgroundTransparency = 1.000
-	TextLabelfps.Position = UDim2.new(0,0,0,0)
-	TextLabelfps.Size = UDim2.new(1,0,1,0)
-	TextLabelfps.Font = Enum.Font.Ubuntu
-	TextLabelfps.Text = "FPS : N/A"
-	TextLabelfps.TextColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabelfps.TextSize = 16.000
-	TextLabelfps.TextXAlignment = Enum.TextXAlignment.Center
-	
-	TextLabeltime.Name = "TextLabeltime"
-	TextLabeltime.Parent = Frametime
-	TextLabeltime.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabeltime.BackgroundTransparency = 1.000
-	TextLabeltime.Position = UDim2.new(0,0,0,0)
-	TextLabeltime.Size = UDim2.new(1,0,1,0)
-	TextLabeltime.Font = Enum.Font.Ubuntu
-	TextLabeltime.Text = "FPS : N/A"
-	TextLabeltime.TextColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabeltime.TextSize = 16.000
-	TextLabeltime.TextXAlignment = Enum.TextXAlignment.Center
-	
-	spawn(function()
-		while wait() do
-			pcall(function()
-				local scripttime=game.Workspace.DistributedGameTime
-				local seconds = scripttime%60
-				local minutes = math.floor(scripttime/60%60)
-				local hours = math.floor(scripttime/3600)
-				local tempo = string.format("[ %.0f Hour's , %.0f Minute , %.0f Second ]", hours ,minutes, seconds)
-				TextLabeltime.Text = tempo
-			end)
-		end
-	end)
-	
-	spawn(function()
-		while wait() do
-			pcall(function()
-				TextLabelfps.Text = "[ FPS ]"..string.format("%d",workspace:GetRealPhysicsFPS())
-			end)
-		end
-	end)
  
  local Update = {}
- 
- local DiscordLib = {}
- 
-	local TweenService = game:GetService("TweenService")
-	local Balaraja = Instance.new("ScreenGui")
-	
-		Balaraja.Name = "Balaraja"
-    Balaraja.Parent = game.CoreGui
-    Balaraja.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	
-    local NotiFrame = Instance.new("Frame")
-    NotiFrame.Name = "NotiFrame"
-    NotiFrame.Parent = Balaraja
-    NotiFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-    NotiFrame.BackgroundColor3 = Color3.fromRGB(35,35,35)
-    NotiFrame.BorderSizePixel = 0
-    NotiFrame.Position =  UDim2.new(1, -210, 1, 100)
-    NotiFrame.Size = UDim2.new(0, 400, 0, 500)
-    NotiFrame.ClipsDescendants = true
-    NotiFrame.BackgroundTransparency = 1
-    
-    local Notilistlayout = Instance.new("UIListLayout")
-    Notilistlayout.Parent = NotiFrame
-    Notilistlayout.SortOrder = Enum.SortOrder.LayoutOrder
-    Notilistlayout.Padding = UDim.new(0, 5)		
-
-    function DiscordLib:Notification(titel,text,delays)
-        local TitleFrame = Instance.new("Frame")
-        TitleFrame.Name = "TitleFrame"
-        TitleFrame.Parent = NotiFrame
-        TitleFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-        TitleFrame.BackgroundColor3 = Color3.fromRGB(35,35,35)
-        TitleFrame.BorderSizePixel = 0
-        TitleFrame.Position =  UDim2.new(0.5, 0, 0.5,0)
-        TitleFrame.Size = UDim2.new(0, 0, 0, 0)
-        TitleFrame.ClipsDescendants = true
-        TitleFrame.BackgroundTransparency = 0
-    
-        local ConnerTitile = Instance.new("UICorner")
-    
-        ConnerTitile.CornerRadius = UDim.new(0, 4)
-        ConnerTitile.Name = ""
-        ConnerTitile.Parent = TitleFrame
-    
-        TitleFrame:TweenSizeAndPosition(UDim2.new(0, 400-10, 0, 70),  UDim2.new(0.5, 0, 0.5,0), "Out", "Quad", 0.3, true)
-    
-        local imagenoti = Instance.new("ImageLabel")
-    
-        imagenoti.Parent = TitleFrame
-        imagenoti.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        imagenoti.BackgroundTransparency = 1.000
-        imagenoti.AnchorPoint = Vector2.new(0.5, 0.5)
-        imagenoti.Position = UDim2.new(0.9, 0, 0.5, 0)
-        imagenoti.Size = UDim2.new(0, 90, 0, 90)
-      imagenoti.Image = "rbxassetid://"
-    
-        local txdlid = Instance.new("TextLabel")
-    
-        txdlid.Parent = TitleFrame
-        txdlid.Name = "TextLabel_Tap"
-        txdlid.BackgroundColor3 = Color3.fromRGB(50,50,50) -- 50 50 50
-        txdlid.Size =UDim2.new(0, 160, 0,25 )
-        txdlid.Font = Enum.Font.Code
-        txdlid.Text = titel
-        txdlid.TextColor3 = Color3.fromRGB(30,30,30)
-        txdlid.TextSize = 17.000
-        txdlid.AnchorPoint = Vector2.new(0.5, 0.5)
-        txdlid.Position = UDim2.new(0.23, 0, 0.3, 0)
-        -- txdlid.TextYAlignment = Enum.TextYAlignment.Top
-        txdlid.TextXAlignment = Enum.TextXAlignment.Left
-        txdlid.BackgroundTransparency = 1
-    
-        local LableFrame = Instance.new("Frame")
-        LableFrame.Name = "LableFrame"
-        LableFrame.Parent = TitleFrame
-        LableFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-        LableFrame.BackgroundColor3 = Color3.fromRGB(50,50,50)
-        LableFrame.BorderSizePixel = 0
-        LableFrame.Position =  UDim2.new(0.36, 0, 0.67,0)
-        LableFrame.Size = UDim2.new(0, 260, 0,25 )
-        LableFrame.ClipsDescendants = true
-        LableFrame.BackgroundTransparency = 1
-    
-        local TextNoti = Instance.new("TextLabel")
-    
-        TextNoti.Parent = LableFrame
-        TextNoti.Name = "TextLabel_Tap"
-        TextNoti.BackgroundColor3 = Color3.fromRGB(30,30,30)
-        TextNoti.Size =UDim2.new(0, 260, 0,25 )
-        TextNoti.Font = Enum.Font.Code
-        TextNoti.Text = text
-        TextNoti.TextColor3 = Color3.fromRGB(255,255,255)
-        TextNoti.TextSize = 15.000
-        TextNoti.AnchorPoint = Vector2.new(0.5, 0.5)
-        TextNoti.Position = UDim2.new(0.5, 0, 0.5, 0)
-        -- TextNoti.TextYAlignment = Enum.TextYAlignment.Top
-        TextNoti.TextXAlignment = Enum.TextXAlignment.Left
-        TextNoti.BackgroundTransparency = 1
-    
-        repeat wait() until TitleFrame.Size == UDim2.new(0, 400-10, 0, 70)
-    
-        local Time = Instance.new("Frame")
-        Time.Name = "Time"
-        Time.Parent = TitleFrame
-    --Time.AnchorPoint = Vector2.new(0.5, 0.5)
-        Time.BackgroundColor3 =  Color3.fromRGB(255,255,255)
-        Time.BorderSizePixel = 0
-        Time.Position =  UDim2.new(0, 0, 0.,0)
-        Time.Size = UDim2.new(0, 0,0,0)
-        Time.ClipsDescendants = false
-        Time.BackgroundTransparency = 0
-    
-        local ConnerTitile_Time = Instance.new("UICorner")
-    
-        ConnerTitile_Time.CornerRadius = UDim.new(0, 4)
-        ConnerTitile_Time.Name = ""
-        ConnerTitile_Time.Parent = Time
-    
-    
-        Time:TweenSizeAndPosition(UDim2.new(0, 400-10, 0, 3),  UDim2.new(0., 0, 0.,0), "Out", "Quad", 0.3, true)
-        repeat wait() until Time.Size == UDim2.new(0, 400-10, 0, 3)
-    
-        TweenService:Create(
-            Time,
-            TweenInfo.new(tonumber(delays), Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),
-            {Size = UDim2.new(0, 0, 0, 3)} -- UDim2.new(0, 128, 0, 25)
-        ):Play()
-        delay(tonumber(delays),function()
-            TweenService:Create(
-                TitleFrame,
-                TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-                {Size = UDim2.new(0, 0, 0, 0)} -- UDim2.new(0, 128, 0, 25)
-            ):Play()
-            wait(0.3)
-            TitleFrame:Destroy()
-        end
-    )
-    end
 
 function Update:Window(text,logo,keybind)
    local osfunc = {}
@@ -787,7 +541,6 @@ local UICornerFrame = Instance.new("UICorner")
 TabFrame.Name = "TabFrame"
 TabFrame.Parent = TabButton
 TabFrame.ClipsDescendants = true
---TabFrame.Position = UDim2.new(0, 1, 0.1, 2)
 TabFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 TabFrame.BackgroundTransparency = 1.000
 TabFrame.Position = UDim2.new(0,2,0,5)
@@ -802,7 +555,6 @@ TabImage.BackgroundTransparency = 1.000
 TabImage.Position = UDim2.new(0,0,0,0)
 TabImage.Size = UDim2.new(0, 18, 0, 18)
 TabImage.Image = img or "rbxassetid://8666601749"
---TabImage.ImageColor3 = _G.Color
 
 local MainFramePage = Instance.new("ScrollingFrame")
 
@@ -8293,7 +8045,7 @@ end
 do
 
 DevilFruit:Line(_G.ColorDF)
-DevilFruit:Seperator("Fruits Sniper",_G.ColorDF)
+DevilFruit:Seperator("Devil Fruits",_G.ColorDF)
     
 FruitList = {"Bomb-Bomb","Spike-Spike","Chop-Chop","Spring-Spring","Kilo-Kilo","Spin-Spin","Bird: Falcon","Smoke-Smoke","Flame-Flame","Ice-Ice","Sand-Sand","Dark-Dark","Revive-Revive","Diamond-Diamond","Light-Light","Love-Love","Rubber-Rubber","Barrier-Barrier","Magma-Magma","Door-Door","Quake-Quake","Human-Human: Buddha","String-String","Bird-Bird: Phoenix","Rumble-Rumble","Paw-Paw","Gravity-Gravity","Dough-Dough","Venom-Venom","Shadow-Shadow","Control-Control","Soul-Soul","Dragon-Dragon"}
     
@@ -8306,42 +8058,8 @@ DevilFruit:Toggle("Auto Buy Fruit Sniper",_G.ColorDF,_G.AutoBuyFruitSniper,funct
     _G.AutoBuyFruitSniper = value
 end)
     
-DevilFruit:Seperator("Devil Fruits",_G.ColorDF)
-    
 DevilFruit:Dropdown("Select Fruits Eat",_G.ColorDF,FruitList,function(value)
     _G.SelectFruitEat = value
-end)
-    
-DevilFruit:Toggle("Auto Eat Fruit",_G.ColorDF,_G.AutoEatFruit,function(value)
-    _G.AutoEatFruit = value
-end)
-    
-spawn(function()
-    pcall(function()
-    while wait(.1) do
-    if _G.AutoEatFruit then
-    game:GetService("Players").LocalPlayer.Character:FindFirstChild(_G.SelectFruitEat).EatRemote:InvokeServer()
-    end
-    end
-    end)
-end)
-    
-DevilFruit:Toggle("Auto Eat Fruit Hop",_G.ColorDF,_G.AutoEatFruitHop,function(value)
-    _G.AutoEatFruitHop = value
-end)
-    
-spawn(function()
-    pcall(function()
-    while wait(.1) do wait(10)
-    if _G.AutoEatFruitHop and _G.SelectFruitEat ~= nil then
-    if not game:GetService("Players").LocalPlayer.Character:FindFirstChild(_G.SelectFruitEat) or not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(_G.SelectFruitEat) then
-    Hop()
-    else
-    game:GetService("Players").LocalPlayer.Character:FindFirstChild(_G.SelectFruitEat).EatRemote:InvokeServer()
-    end
-    end
-    end
-    end)
 end)
     
 spawn(function()
@@ -8361,85 +8079,11 @@ end)
     
 spawn(function()
     pcall(function()
-    while wait(.1) do
-    if _G.Random_Auto then
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
-    end
-    end
-    end)
-end)
-    
-DevilFruit:Button("Random Fruit",_G.ColorDF,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
-end)
-    
-    
-DevilFruit:Toggle("Auto Drop Fruit",_G.ColorDF,_G.DropFruit,function(value)
-    _G.DropFruit = value
-end)
-    
-spawn(function()
-    while wait() do
-    if _G.DropFruit then
-    pcall(function()
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-    if string.find(v.Name, "Fruit") then
-    EquipWeapon(v.Name)
-    wait(.1)
-    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Dialogue.Visible == true then
-    game:GetService("Players").LocalPlayer.PlayerGui.Main.Dialogue.Visible = false
-    end
-    EquipWeapon(v.Name)
-    game:GetService("Players").LocalPlayer.Character:FindFirstChild(SelectFruit).EatRemote:InvokeServer("Drop")
-    end
-    end
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
-    if string.find(v.Name, "Fruit") then
-    EquipWeapon(v.Name)
-    wait(.1)
-    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Dialogue.Visible == true then
-    game:GetService("Players").LocalPlayer.PlayerGui.Main.Dialogue.Visible = false
-    end
-    EquipWeapon(v.Name)
-    game:GetService("Players").LocalPlayer.Character:FindFirstChild(SelectFruit).EatRemote:InvokeServer("Drop")
-    end
-    end
-    end)
-    end
-    end
-end)
-    
-DevilFruit:Toggle("Auto Store Fruit",_G.ColorDF,_G.AutoStoreFruit,function(value)
-    _G.AutoStoreFruit = value
-end)
-    
-spawn(function()
-    pcall(function()
-    while wait(.1) do
-    if _G.AutoStoreFruit then
-    for i,v in pairs(FruitList) do
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StoreFruit",v)
-    end
-    end
-    end
-    end)
-end)
-    
-    
-DevilFruit:Toggle("Grab Fruit",_G.ColorDF,_G.BringFruit,function(value)
-    _G.BringFruit = value
-    pcall(function()
-    while _G.BringFruit do wait(.1)
-    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-    if v:IsA("Tool") then
-    local OldCFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame * CFrame.new(0,0,8)
-    v.Handle.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-    wait(.1)
-    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = OldCFrame
-    end
-    end
-    end
+        while wait(.1) do
+            if _G.Random_Auto then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+            end
+        end
     end)
 end)
 
@@ -8637,65 +8281,6 @@ end)
 Misc:Button("Server Hop",_G.ColorMisc,function()
     Hop()
 end)
-
-Misc:Button("Hop To Lower Player",_G.ColorMisc,function()
-    getgenv().AutoTeleport = true
-    getgenv().DontTeleportTheSameNumber = true
-    getgenv().CopytoClipboard = false
-    if not game:IsLoaded() then
-    print("Game is loading waiting...")
-    end
-    local maxplayers = math.huge
-    local serversmaxplayer;
-    local goodserver;
-    local gamelink = "https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"
-    function serversearch()
-    for _, v in pairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync(gamelink)).data) do
-    if type(v) == "table" and v.playing ~= nil and maxplayers > v.playing then
-    serversmaxplayer = v.maxPlayers
-    maxplayers = v.playing
-    goodserver = v.id
-    end
-    end
-    end
-    function getservers()
-    serversearch()
-    for i,v in pairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync(gamelink))) do
-    if i == "nextPageCursor" then
-    if gamelink:find("&cursor=") then
-    local a = gamelink:find("&cursor=")
-    local b = gamelink:sub(a)
-    gamelink = gamelink:gsub(b, "")
-    end
-    gamelink = gamelink .. "&cursor=" ..v
-    getservers()
-    end
-    end
-    end
-    getservers()
-    if AutoTeleport then
-    if DontTeleportTheSameNumber then
-    if #game:GetService("Players"):GetPlayers() - 4  == maxplayers then
-    return warn("It has same number of players (except you)")
-    elseif goodserver == game.JobId then
-    return warn("Your current server is the most empty server atm")
-    end
-    end
-    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, goodserver)
-    end
-end)
-    
-Misc:Seperator("Change Teams",_G.ColorMisc)
-    
-Misc:Button("Join Pirates Team",_G.ColorMisc,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates")
-end)
-    
-Misc:Button("Join Marines Team",_G.ColorMisc,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines")
-end)
-    
-Misc:Seperator("Boost",_G.ColorMisc)
     
 Misc:Button("Unlock Portal",_G.ColorMisc,function()
     _G.UnlockPortal = true
@@ -8744,41 +8329,7 @@ end)
     
 Misc:Seperator("Codes",_G.ColorMisc)
 
-local x2Code = {
-    "EXP_5B",
-    "CONTROL",
-    "UPDATE11",
-    "XMASEXP",
-    "1BILLION",
-    "ShutDownFix2",
-    "UPD14",
-    "STRAWHATMAINE",
-    "TantaiGaming",
-    "Colosseum",
-    "Axiore",
-    "Sub2Daigrock",
-    "Sky Island 3",
-    "Sub2OfficialNoobie",
-    "SUB2NOOBMASTER123",
-    "THEGREATACE",
-    "Fountain City",
-    "BIGNEWS",
-    "FUDD10",
-    "SUB2GAMERROBOT_EXP1",
-    "UPD15",
-    "2BILLION",
-    "UPD16",
-    "3BVISITS",
-    "fudd10_v2",
-    "Starcodeheo",
-    "Magicbus",
-    "JCWK",
-    "Bluxxy",
-    "Sub2Fer999",
-    "Enyu_is_Pro",
-    "Sub2CaptainMaui",
-    "SECRET_ADMIN"
-}
+local x2Code = {"EXP_5B","CONTROL","UPDATE11","XMASEXP","1BILLION","ShutDownFix2","UPD14","STRAWHATMAINE","TantaiGaming","Colosseum","Axiore","Sub2Daigrock","Sky Island 3","Sub2OfficialNoobie","SUB2NOOBMASTER123","THEGREATACE","Fountain City","BIGNEWS","FUDD10","SUB2GAMERROBOT_EXP1","UPD15","2BILLION","UPD16","3BVISITS","fudd10_v2","Starcodeheo","Magicbus","JCWK","Bluxxy","Sub2Fer999","Enyu_is_Pro","Sub2CaptainMaui","SECRET_ADMIN"}
     
 Misc:Button("Redeem All Codes",_G.ColorMisc,function()
     function RedeemCode(value)
@@ -8789,61 +8340,15 @@ Misc:Button("Redeem All Codes",_G.ColorMisc,function()
     end
 end)
     
-Misc:Seperator("State",_G.ColorMisc)
-    
-Misc:Dropdown("Select Haki State",_G.ColorMisc,{"State 0","State 1","State 2","State 3","State 4","State 5"},function(value)
-    _G.SelectStateHaki = value
-end)
-    
-Misc:Button("Change Buso Haki State",_G.ColorMisc,function()
-    if _G.SelectStateHaki == "State 0" then
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",0)
-    elseif _G.SelectStateHaki == "State 1" then
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",1)
-    elseif _G.SelectStateHaki == "State 2" then
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",2)
-    elseif _G.SelectStateHaki == "State 3" then
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",3)
-    elseif _G.SelectStateHaki == "State 4" then
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",4)
-    elseif _G.SelectStateHaki == "State 5" then
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ChangeBusoStage",5)
-    end
-end)
-    
 Misc:Seperator("ESP",_G.ColorMisc)
     
-Misc:Toggle("ESP Player",_G.ColorMisc,false,function(value)
+Misc:Toggle("ESP",_G.ColorMisc,false,function(value)
     ESPPlayer = value
     while ESPPlayer do wait()
     UpdateEspPlayer()
-    end
-end)
-    
-Misc:Toggle("ESP Chest",_G.ColorMisc,false,function(value)
-    ChestESP = value
-    while ChestESP do wait()
     UpdateChestEsp()
-    end
-end)
-    
-Misc:Toggle("ESP Fruit",_G.ColorMisc,false,function(value)
-    DevilFruitESP = value
-    while DevilFruitESP do wait()
     UpdateBfEsp()
-    end
-end)
-    
-Misc:Toggle("ESP Flower",_G.ColorMisc,false,function(value)
-    FlowerESP = value
-    while FlowerESP do wait()
     UpdateFlowerEsp()
-    end
-end)
-    
-Misc:Toggle("ESP Island",_G.ColorMisc,IslandESP,function(value)
-    IslandESP = value
-    while IslandESP do wait()
     UpdateIslandESP()
     end
 end)

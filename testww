@@ -11,7 +11,6 @@ end
 _G.WalkWater = true
 InfAbility = false
 _G.InvisibleMobs = false
-RemoveHit = true
 RemoveEffect = true
 Notive = true
 DamageC = true
@@ -68,18 +67,6 @@ spawn(function()
             end)
         end
     end
-end)
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if RemoveHit == true then
-            game:GetService("ReplicatedStorage").Effect.Container.LevelUp:Destroy()
-            game:GetService("ReplicatedStorage").Util.Sound:Destroy()
-            game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp_Proxy"):Destroy()
-            game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp"):Destroy()
-            game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()        
-        end
-    end)
 end)
 
 spawn(function()
@@ -3534,13 +3521,23 @@ spawn(function()
     end)
 end)
 
+spawn(function()
+    while wait() do
+        if _G.SafeFarm then
+            pcall(function()
+                CheckAntiCheatBypass()
+                bypassAntiExploit()
+            end)
+        end
+    end
+end)
+
 local Library = Update:Window("Blox Fruits", "")
 
 -- \\ Window Table // --
 
 local User = Library:Tab("        Status","rbxassetid://14355269935",_G.ColorUser)
     local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
-    local Setting = Library:Tab("        Setting","rbxassetid://14782648917",_G.ColorSetting)
     local AutoQuest = Library:Tab("        Quest & Item","rbxassetid://9606626859",_G.ColorQuest)
     local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.ColorStats)
     local Combat = Library:Tab("        Combat","rbxassetid://14764193934",_G.ColorCombat)
@@ -3556,8 +3553,6 @@ local Misc = Library:Tab("        Misc+Esp","rbxassetid://11447063791",_G.ColorM
 do
 
 Update:Notification("Script Currently On Loading","ScriptBlox Premium")
-
-wait(3)
 
 User:Line()
 
@@ -3690,7 +3685,21 @@ end
 do
 
 Main:Line(_G.ColorMain)
-Main:Seperator("Auto Farm",_G.ColorMain)
+
+FPSCLIENT = Main:Label1("N/A")
+
+function UpdateClient()
+    local Fps = workspace:GetRealPhysicsFPS()
+    FPSCLIENT:Refresh("[ Fps ] : "..Fps)
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdateClient()
+    end
+end)
+
+Main:Seperator("Main Setting",_G.ColorMain)
     
 Main:Dropdown("Select Weapon",_G.ColorMain,{"Melee", "Sword", "Devil Fruit"},function(value)
     _G.SelectWeapon = value
@@ -3737,6 +3746,135 @@ spawn(function()
             end)
         end
     end)
+
+Main:Toggle("Fast Attack",_G.ColorMain,true,function(vu)
+    _G.FastAttack = vu
+end)
+
+if World1 or World2 then
+
+    Main:Toggle("[ FPS ] Management",_G.ColorMain,false,function(value)
+            _G.FpsBoost1 = value
+        end)
+        spawn(function()
+            pcall(function()
+                while wait() do
+                    if _G.FpsBoost1 then
+                        game:GetService("Lighting").FantasySky:Destroy()
+                        local g = game
+                        local w = g.Workspace
+                        local l = g.Lighting
+                        local t = w.Terrain
+                        t.WaterWaveSize = 0
+                        t.WaterWaveSpeed = 0
+                        t.WaterReflectance = 0
+                        t.WaterTransparency = 0
+                        l.GlobalShadows = false
+                        l.FogEnd = 9e9
+                        l.Brightness = 0
+                        settings().Rendering.QualityLevel = "Level01"
+                        for i, v in pairs(g:GetDescendants()) do
+                        if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+                        v.Material = "Plastic"
+                        v.Reflectance = 0
+                        elseif v:IsA("Decal") or v:IsA("Texture") then
+                        v.Transparency = 1
+                        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                        v.Lifetime = NumberRange.new(0)
+                        elseif v:IsA("Explosion") then
+                        v.Transparency = 1
+                        v.BlastPressure = 1
+                        v.BlastRadius = 1
+                        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                        v.Enabled = false
+                        elseif v:IsA("MeshPart") then
+                        v.Material = "Plastic"
+                        v.Reflectance = 0
+                        v.TextureID = 10385902758728957
+                        end
+                        end
+                        for i, e in pairs(l:GetChildren()) do
+                        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                        e.Enabled = false
+                        end
+                        end
+                        for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
+                        if v.Name == ("Water;") then
+                        v.Transparency = 1
+                        v.Material = "Plastic"
+                            end
+                        end
+                    end
+                end
+            end)
+        end)
+    end
+
+if World3 then
+Main:Toggle("[ FPS ] Management",_G.ColorMain,false,function(value)
+        _G.FpsBoost1 = value
+    end)
+    spawn(function()
+        pcall(function()
+            while wait() do
+                if _G.FpsBoost1 then
+                    game:GetService("Lighting").Sky:Destroy()
+                    game:GetService("Lighting").BaseAtmosphere:Destroy()
+                    game:GetService("Lighting").Bloom:Destroy()
+                    game:GetService("Lighting").Blur:Destroy()
+                    game:GetService("Lighting").ColorCorrection:Destroy()
+                    game:GetService("Lighting").GlobalColorCorrection:Destroy()
+                    game:GetService("Lighting").TrialDeath:Destroy()
+                    local g = game
+                    local w = g.Workspace
+                    local l = g.Lighting
+                    local t = w.Terrain
+                    t.WaterWaveSize = 0
+                    t.WaterWaveSpeed = 0
+                    t.WaterReflectance = 0
+                    t.WaterTransparency = 0
+                    l.GlobalShadows = false
+                    l.FogEnd = 9e9
+                    l.Brightness = 0
+                    settings().Rendering.QualityLevel = "Level01"
+                    for i, v in pairs(g:GetDescendants()) do
+                    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    elseif v:IsA("Decal") or v:IsA("Texture") then
+                    v.Transparency = 1
+                    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                    elseif v:IsA("Explosion") then
+                    v.Transparency = 1
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                    elseif v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                    end
+                    end
+                    for i, e in pairs(l:GetChildren()) do
+                    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                    e.Enabled = false
+                    end
+                    end
+                    for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
+                    if v.Name == ("Water;") then
+                    v.Transparency = 1
+                    v.Material = "Plastic"
+                        end
+                    end
+                end
+            end
+        end)
+    end)
+end
+
+Main:Seperator("Main Farm",_G.ColorMain)
     
 Main:Toggle("Auto Farm",_G.ColorMain,false,function(value)
     _G.AutoFarm = value
@@ -4198,153 +4336,6 @@ spawn(function()
         end
     end
 end)
-
-end
-
--- \\ Setting Table // --
-
-do
-
-Setting:Line(_G.ColorSetting)
-Setting:Seperator("Farm Setting",_G.ColorSetting)
-
-Setting:Toggle("Fast Attack",_G.ColorSetting,true,function(vu)
-	_G.FastAttack = vu
-end)
-
-spawn(function()
-    while wait() do
-        if _G.SafeFarm then
-            pcall(function()
-                CheckAntiCheatBypass()
-                bypassAntiExploit()
-            end)
-        end
-    end
-end)
-
-if World1 or World2 then
-
-Setting:Toggle("[ FPS ] Management",_G.ColorSetting,false,function(value)
-        _G.FpsBoost1 = value
-    end)
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.FpsBoost1 then
-                    game:GetService("Lighting").FantasySky:Destroy()
-                    local g = game
-                    local w = g.Workspace
-                    local l = g.Lighting
-                    local t = w.Terrain
-                    t.WaterWaveSize = 0
-                    t.WaterWaveSpeed = 0
-                    t.WaterReflectance = 0
-                    t.WaterTransparency = 0
-                    l.GlobalShadows = false
-                    l.FogEnd = 9e9
-                    l.Brightness = 0
-                    settings().Rendering.QualityLevel = "Level01"
-                    for i, v in pairs(g:GetDescendants()) do
-                    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-                    v.Material = "Plastic"
-                    v.Reflectance = 0
-                    elseif v:IsA("Decal") or v:IsA("Texture") then
-                    v.Transparency = 1
-                    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-                    v.Lifetime = NumberRange.new(0)
-                    elseif v:IsA("Explosion") then
-                    v.Transparency = 1
-                    v.BlastPressure = 1
-                    v.BlastRadius = 1
-                    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-                    v.Enabled = false
-                    elseif v:IsA("MeshPart") then
-                    v.Material = "Plastic"
-                    v.Reflectance = 0
-                    v.TextureID = 10385902758728957
-                    end
-                    end
-                    for i, e in pairs(l:GetChildren()) do
-                    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-                    e.Enabled = false
-                    end
-                    end
-                    for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
-                    if v.Name == ("Water;") then
-                    v.Transparency = 1
-                    v.Material = "Plastic"
-                        end
-                    end
-                end
-            end
-        end)
-    end)
-end
-
-if World3 then
-Setting:Toggle("[ FPS ] Management",_G.ColorSetting,false,function(value)
-        _G.FpsBoost1 = value
-    end)
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.FpsBoost1 then
-                    game:GetService("Lighting").Sky:Destroy()
-                    game:GetService("Lighting").BaseAtmosphere:Destroy()
-                    game:GetService("Lighting").Bloom:Destroy()
-                    game:GetService("Lighting").Blur:Destroy()
-                    game:GetService("Lighting").ColorCorrection:Destroy()
-                    game:GetService("Lighting").GlobalColorCorrection:Destroy()
-                    game:GetService("Lighting").TrialDeath:Destroy()
-                    local g = game
-                    local w = g.Workspace
-                    local l = g.Lighting
-                    local t = w.Terrain
-                    t.WaterWaveSize = 0
-                    t.WaterWaveSpeed = 0
-                    t.WaterReflectance = 0
-                    t.WaterTransparency = 0
-                    l.GlobalShadows = false
-                    l.FogEnd = 9e9
-                    l.Brightness = 0
-                    settings().Rendering.QualityLevel = "Level01"
-                    for i, v in pairs(g:GetDescendants()) do
-                    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-                    v.Material = "Plastic"
-                    v.Reflectance = 0
-                    elseif v:IsA("Decal") or v:IsA("Texture") then
-                    v.Transparency = 1
-                    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-                    v.Lifetime = NumberRange.new(0)
-                    elseif v:IsA("Explosion") then
-                    v.Transparency = 1
-                    v.BlastPressure = 1
-                    v.BlastRadius = 1
-                    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-                    v.Enabled = false
-                    elseif v:IsA("MeshPart") then
-                    v.Material = "Plastic"
-                    v.Reflectance = 0
-                    v.TextureID = 10385902758728957
-                    end
-                    end
-                    for i, e in pairs(l:GetChildren()) do
-                    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-                    e.Enabled = false
-                    end
-                    end
-                    for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
-                    if v.Name == ("Water;") then
-                    v.Transparency = 1
-                    v.Material = "Plastic"
-                        end
-                    end
-                end
-            end
-        end)
-    end)
-end
 
 end
 

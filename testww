@@ -12,7 +12,7 @@ end
 
 _G.WalkWater = true
 InfAbility = false
-_G.InvisibleMobs = true
+_G.InvisibleMobs = false
 RemoveHit = true
 RemoveEffect = true
 Notive = true

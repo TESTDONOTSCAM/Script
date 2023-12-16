@@ -11,7 +11,12 @@ end
 -- < // Global Vars \\ > --
 
 _G.WalkWater = true
-InfAbility = true
+InfAbility = false
+_G.InvisibleMobs = true
+RemoveHit = true
+RemoveEffect = true
+Notive = true
+DamageC = true
 
 -- < // Script > \\ --
 
@@ -35,7 +40,82 @@ spawn(function()
     end
 end)
 
--- < // Library > \\ --
+spawn(function()
+    while wait() do
+        if _G.InvisibleMobs then
+            pcall(function()
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+                    if v.ClassName == "MeshPart" then
+                        v.Transparency = 1
+                    end
+                end
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+                        if v.Name == "Head" then
+                            v.Transparency = 1
+                        end
+                    end
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+                    if v.ClassName == "Accessory" then
+                        v.Handle.Transparency = 1
+                    end
+                end
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+                        if v.ClassName == "Decal" then
+                        v.Transparency = 1
+                    end
+                end
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if RemoveHit == true then
+            game:GetService("ReplicatedStorage").Effect.Container.LevelUp:Destroy()
+            game:GetService("ReplicatedStorage").Util.Sound:Destroy()
+            game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp_Proxy"):Destroy()
+            game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp"):Destroy()
+            game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()        
+        end
+    end)
+end)
+
+spawn(function()
+    game:GetService('RunService').Stepped:Connect(function()
+        if RemoveEffect then
+            for i, v in pairs(game:GetService("ReplicatedStorage").Effect.Container:GetChildren()) do
+                if v.Name == "Death" then
+                    v:Destroy() 
+                end
+            end
+        end
+    end)
+end)
+
+spawn(function()
+	while wait() do
+		if Notive then
+			game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
+		else
+			game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = true
+		end
+	end
+end)
+
+spawn(function()
+	while wait() do
+		if DamageC then
+			game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
+		else
+			game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = true
+		end
+	end
+end)
+
+
+
+-- < // Library \\ > --
 
 local openshit = Instance.new("ScreenGui")
 local mainopen = Instance.new("TextButton")
@@ -3441,19 +3521,17 @@ end)
 spawn(function()
 	while task.wait() do
 		pcall(function()
-			if StatrMagnet then
+			if TestStartMagnet then
 				if _G.AutoFarm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-							if v.Name == Ms and (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 375 then
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
+							if v.Name == Ms and (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 350 then
 								v.Humanoid:ChangeState(14)
+                                v.Humanoid:ChangeState(11)
 								v.Humanoid.JumpPower = 0
 								v.Humanoid.WalkSpeed = 0
 								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+								v.HumanoidRootPart.Size = Vector3.new(5,5,5)
 								v.HumanoidRootPart.CFrame = PosMon
 								sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
 							end
@@ -3462,9 +3540,6 @@ spawn(function()
 				else
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 						if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 350 then
-							if v.Humanoid:FindFirstChild("Animator") then
-								v.Humanoid.Animator:Destroy()
-							end
 							v.Humanoid:ChangeState(14)
 							v.Humanoid.JumpPower = 0
 							v.Humanoid.WalkSpeed = 0
@@ -3480,6 +3555,7 @@ spawn(function()
 	end
 end)
 
+--[[
 spawn(function()
     while wait() do
         if TestStartMagnet then
@@ -3494,6 +3570,7 @@ spawn(function()
         end
     end
 end)
+]]--
 
 Skillaimbot = true
 
@@ -4007,12 +4084,6 @@ end)
 
 Main:Toggle("Auto Melee [Mas 400]",false,function(vu)
 	MasMelee = vu
-    if MasMelee == true then
-        _G.AutoFarm = true
-    elseif MasMelee == false then
-        _G.AutoFarm = false
-        StopTween(_G.AutoFarm)
-    end
 end)
 
 spawn(function()
@@ -8694,19 +8765,39 @@ end)
 Misc:Seperator("Codes",_G.ColorMisc)
 
 local x2Code = {
-"3BVISITS",
-"UPD16",
-"FUDD10",
-"BIGNEWS",
-"THEGREATACE",
-"SUB2GAMERROBOT_EXP1",
-"StrawHatMaine",
-"Sub2OfficialNoobie",
-"SUB2NOOBMASTER123",
-"Sub2Daigrock",
-"Axiore",
-"TantaiGaming",
-"STRAWHATMAINE"
+    "EXP_5B",
+    "CONTROL",
+    "UPDATE11",
+    "XMASEXP",
+    "1BILLION",
+    "ShutDownFix2",
+    "UPD14",
+    "STRAWHATMAINE",
+    "TantaiGaming",
+    "Colosseum",
+    "Axiore",
+    "Sub2Daigrock",
+    "Sky Island 3",
+    "Sub2OfficialNoobie",
+    "SUB2NOOBMASTER123",
+    "THEGREATACE",
+    "Fountain City",
+    "BIGNEWS",
+    "FUDD10",
+    "SUB2GAMERROBOT_EXP1",
+    "UPD15",
+    "2BILLION",
+    "UPD16",
+    "3BVISITS",
+    "fudd10_v2",
+    "Starcodeheo",
+    "Magicbus",
+    "JCWK",
+    "Bluxxy",
+    "Sub2Fer999",
+    "Enyu_is_Pro",
+    "Sub2CaptainMaui",
+    "SECRET_ADMIN"
 }
     
 Misc:Button("Redeem All Codes",_G.ColorMisc,function()

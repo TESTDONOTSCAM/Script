@@ -8,33 +8,38 @@ end
 
 -- < // Global GetGenv \\ > --
 
-getgenv().FixLag = {}
+getgenv().FixLag = true
 
-if getgenv().FixLag == true then
-
-    _G.WalkWater = false
-    InfAbility = false
-    _G.InvisibleMobs = true
-    RemoveEffect = true
-    Notive = true
-    DamageC = true
-    _G.REM = true
-    _G.AutoHakiSpam = false
-    _G.FpsBoost1 = true
-
-elseif getgenv().FixLag == false then
-
-    _G.WalkWater = true
-    InfAbility = true
-    _G.InvisibleMobs = false
-    RemoveEffect = false
-    Notive = false
-    DamageC = false
-    _G.REM = false
-    _G.AutoHakiSpam = true
-    _G.FpsBoost1 = false
-
-end
+spawn(function()
+    while wait() do
+        if getgenv().FixLag then
+            pcall(function()
+                if getgenv().FixLag == true then
+                    print("work")
+                    _G.WalkWater = false
+                    InfAbility = false
+                    _G.InvisibleMobs = true
+                    RemoveEffect = true
+                    Notive = true
+                    DamageC = true
+                    _G.REM = true
+                    _G.AutoHakiSpam = false
+                    _G.FpsBoost1 = true
+                elseif getgenv().FixLag == false then
+                    _G.WalkWater = true
+                    InfAbility = true
+                    _G.InvisibleMobs = false
+                    RemoveEffect = false
+                    Notive = false
+                    DamageC = false
+                    _G.REM = false
+                    _G.AutoHakiSpam = true
+                    _G.FpsBoost1 = false
+                end
+            end)
+        end
+    end
+end)
 
 -- < // Global Vars \\ > --
 

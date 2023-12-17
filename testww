@@ -6,54 +6,16 @@ if _G.Fast_Delay == nil then
 	_G.Fast_Delay = 0.15
 end
 
--- < // Global GetGenv \\ > --
-
-getgenv().FixLag = false
-
-spawn(function()
-    while wait() do
-        if getgenv().FixLag then
-            pcall(function()
-                if getgenv().FixLag == true then
-                    print("work")
-                    _G.WalkWater = false
-                    InfAbility = false
-                    _G.InvisibleMobs = true
-                    RemoveEffect = true
-                    Notive = true
-                    DamageC = true
-                    _G.REM = true
-                    _G.AutoHakiSpam = false
-                    _G.FpsBoost1 = true
-                elseif getgenv().FixLag == false then
-                    _G.WalkWater = true
-                    InfAbility = true
-                    _G.InvisibleMobs = false
-                    RemoveEffect = false
-                    Notive = false
-                    DamageC = false
-                    _G.REM = false
-                    _G.AutoHakiSpam = true
-                    _G.FpsBoost1 = false
-                end
-            end)
-        end
-    end
-end)
-
 -- < // Global Vars \\ > --
 
-_G.WalkWater = false
+_G.WalkWater = true
 InfAbility = false
-_G.InvisibleMobs = false
-RemoveEffect = false
-Notive = false
-DamageC = false
-_G.REM = false
-_G.AutoHakiSpam = false
-
--- < // Always True \\ > --
-
+_G.InvisibleMobs = true
+RemoveEffect = true
+Notive = true
+DamageC = true
+_G.REM = true
+_G.AutoHakiSpam = true
 _G.SafeFarm = true
 _G.AutoSetSpawn = true
 

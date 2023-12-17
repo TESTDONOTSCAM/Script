@@ -8,7 +8,7 @@ end
 
 -- < // Global GetGenv \\ > --
 
-getgenv().FixLag = true
+getgenv().FixLag = false
 
 spawn(function()
     while wait() do

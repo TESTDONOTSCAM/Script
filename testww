@@ -3536,7 +3536,7 @@ local Library = Update:Window("Blox Fruits", "")
 
 -- \\ Window Table // --
 
-local User = Library:Tab("        Status","rbxassetid://14355269935",_G.ColorUser)
+local User = Library:Tab("        Credit","rbxassetid://14355269935",_G.ColorUser)
     local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
     local AutoQuest = Library:Tab("        Quest & Item","rbxassetid://9606626859",_G.ColorQuest)
     local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.ColorStats)
@@ -3578,106 +3578,6 @@ User:Button("JOIN DISCORD",_G.ColorUser,function()
     setclipboard("https://discord.gg/85gXUG58eW")
 end)
 
-User:Line(_G.ColorUser)
-User:Seperator("User Status",_G.ColorUser)
-
-if World1 then
-User:Label("[ World ] 1",_G.ColorUser)
-end
-
-if World2 then
-User:Label("[ World ] 2",_G.ColorUser)
-end
-
-if World3 then
-User:Label("[ World ] 3",_G.ColorUser)
-end
-
-local locallv = User:Label("Level",_G.ColorUser)
-    
-    spawn(function()
-    while wait() do
-    pcall(function()
-    locallv:Set("[ Level ]".." "..game:GetService("Players").LocalPlayer.Data.Level.Value)
-    end)
-    end
-    end)
-    
-    local localrace = User:Label("Race",_G.ColorUser)
-    
-    spawn(function()
-    while wait() do
-    pcall(function()
-    localrace:Set("[ Race ]".." "..game:GetService("Players").LocalPlayer.Data.Race.Value)
-    end)
-    end
-    end)
-    
-    local localbeli = User:Label("Beli",_G.ColorUser)
-    
-    spawn(function()
-    while wait() do
-    pcall(function()
-    localbeli:Set("[ Beli ]".." "..game:GetService("Players").LocalPlayer.Data.Beli.Value)
-    end)
-    end
-    end)
-    
-    local localfrag = User:Label("Fragment",_G.ColorUser)
-    
-    spawn(function()
-    while wait() do
-    pcall(function()
-    localfrag:Set("[ Fragments ]".." "..game:GetService("Players").LocalPlayer.Data.Fragments.Value)
-    end)
-    end
-    end)
-    
-    
-    local localexp = User:Label("ExP",_G.ColorUser)
-    
-    spawn(function()
-    while wait() do
-    pcall(function()
-    localexp:Set("[ ExP Points ]".." "..game:GetService("Players").LocalPlayer.Data.Exp.Value)
-    end)
-    end
-    end)
-    
-    local localstat = User:Label("Stats Points",_G.ColorUser)
-    
-    spawn(function()
-    while wait() do
-    pcall(function()
-    localstat:Set("[ Stats Points ]".." "..game:GetService("Players").LocalPlayer.Data.Points.Value)
-    end)
-    end
-    end)
-    
-    local localbountyhornor = User:Label("Bounty",_G.ColorUser)
-    
-    spawn(function()
-    while wait() do
-    pcall(function()
-    localbountyhornor:Set("[ Bounty ]".." "..game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value)
-    end)
-    end
-    end)
-    
-    local localDevil = User:Label("Devil Fruit",_G.ColorUser)
-    
-    spawn(function()
-    while wait() do
-    pcall(function()
-    if game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) then
-    localDevil:Set("[ Devil Fruit ]".." "..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-    else
-    localDevil:Set("Not Have Devil Fruit")
-            end
-        end)
-    end
-end)
-
 end
 
 -- \\ Farm Table // --
@@ -3690,7 +3590,7 @@ FPSCLIENT = Main:Label1("N/A")
 
 function UpdateClient()
     local Fps = workspace:GetRealPhysicsFPS()
-    FPSCLIENT:Refresh("[ Fps ] : "..Fps)
+    FPSCLIENT:Refresh("[ Fps ] "..Fps)
 end
 
 spawn(function()
@@ -4021,16 +3921,16 @@ spawn(function()
 	while wait() do
 		pcall(function()
 			if _G.MasMelee then
-				if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 600 or game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 400 then
+				if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 400 then
 					wait(1)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
-				elseif game.Players.LocalPlayer.Character:FindFirstChild("Electro") and game.Players.LocalPlayer.Character:FindFirstChild("Electro").Level.Value >= 600 or game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 400 then
+				elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 400 then
 					wait(1)
 					local args = {
 						[1] = "BuyFishmanKarate"
 					}
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				elseif game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate").Level.Value >= 600 or game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value >= 400 then
+				elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value >= 400 then
 					wait(1)
 					local args = {
 						[1] = "BlackbeardReward",
@@ -4038,36 +3938,36 @@ spawn(function()
 						[3] = "2"
 					}
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				elseif game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value >= 600 or game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value >= 400 then
+				elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value >= 400 then
 					wait(1)
 					local args = {
 						[1] = "BuySuperhuman"
 					}
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				elseif game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") and game.Players.LocalPlayer.Character:FindFirstChild("Superhuman").Level.Value >= 600 or game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") and game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman").Level.Value >= 400 then
+				elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") and game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman").Level.Value >= 400 then
 					wait(1)
 					local string_1 = "BuyElectricClaw";
 					local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
 					Target:InvokeServer(string_1);
-				elseif game.Players.LocalPlayer.Character:FindFirstChild("Electric Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Electric Claw").Level.Value >= 600 or game.Players.LocalPlayer.Backpack:FindFirstChild("Electric Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electric Claw").Level.Value >= 400 then
+				elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Electric Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electric Claw").Level.Value >= 400 then
 					wait(1)
 					local args = {
 						[1] = "BuySharkmanKarate"
 					}
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				elseif game.Players.LocalPlayer.Character:FindFirstChild("Sharkman Karate") and game.Players.LocalPlayer.Character:FindFirstChild("Sharkman Karate").Level.Value >= 600 or game.Players.LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Sharkman Karate").Level.Value >= 400 then
+				elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Sharkman Karate").Level.Value >= 400 then
 					wait(1)
 					local args = {
 						[1] = "BuyDeathStep"
 					}
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				elseif game.Players.LocalPlayer.Character:FindFirstChild("Death Step") and game.Players.LocalPlayer.Character:FindFirstChild("Death Step").Level.Value >= 600 or game.Players.LocalPlayer.Backpack:FindFirstChild("Death Step") and game.Players.LocalPlayer.Backpack:FindFirstChild("Death Step").Level.Value >= 400 then
+				elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Death Step") and game.Players.LocalPlayer.Backpack:FindFirstChild("Death Step").Level.Value >= 400 then
 					wait(1)
 					local args = {
 						[1] = "BuyDragonTalon"
 					}
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				elseif game.Players.LocalPlayer.Character:FindFirstChild("Dragon Talon") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Talon").Level.Value >= 600 or game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon").Level.Value >= 400 then
+				elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon").Level.Value >= 400 then
 					wait(1)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
 				end

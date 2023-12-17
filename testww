@@ -3544,7 +3544,6 @@ local User = Library:Tab("        Credit","rbxassetid://14355269935",_G.ColorUse
     local Dungeon = Library:Tab("        Dungeon","rbxassetid://14764250087",_G.ColorRaid)
     local Race = Library:Tab("        Race V4","rbxassetid://11446900930",_G.ColorRace)
     local DevilFruit = Library:Tab("        Devil Fruit","rbxassetid://14764233722",_G.ColorDF)
-    local Shop = Library:Tab("        Shop Game","rbxassetid://14764242920",_G.ColorShop)
 local Misc = Library:Tab("        Misc+Esp","rbxassetid://11447063791",_G.ColorMisc)
 
 -- \\ User Table // --
@@ -3783,6 +3782,38 @@ spawn(function()
 			end
 		end)
 	end
+end)
+
+Main:Seperator("Game Shop",_G.ColorMain)
+
+Main:Dropdown("Select Melee",_G.ColorMain,{"Black Leg","Electro","Fishman Karate","Dragon Claw","SuperHuman","Death Step","Sharkman Karate","Electric Claw","Dragon Talon","GodHuman"},function(vu)
+    _G.BuyMelee = vu
+end)
+
+Main:Button("Buy Melee",_G.ColorMain,function()
+    if _G.BuyMelee == "Black Leg" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
+    elseif _G.BuyMelee == "Electro" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
+    elseif _G.BuyMelee == "Fishman Karate" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
+    elseif _G.BuyMelee == "Dragon Claw" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
+    elseif _G.BuyMelee == "SuperHuman" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
+    elseif _G.BuyMelee == "Death Step" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
+    elseif _G.BuyMelee == "Sharkman Karate" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+    elseif _G.BuyMelee == "Electric Claw" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
+    elseif _G.BuyMelee == "Dragon Talon" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+    elseif _G.BuyMelee == "GodHuman" then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+    end
 end)
 
 Main:Toggle("Auto GodHuman",_G.ColorMain,false,function(vu)
@@ -6351,155 +6382,6 @@ spawn(function()
     end)
 end)
 
-end
-
--- \\ Shop Table // --
-
-do
-
-Shop:Line(_G.ColorShop)
-    Shop:Seperator("Abilities",_G.ColorShop)
-    
-    Shop:Button("Buy Geppo",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
-    end)
-    
-    Shop:Button("Buy Buso Haki",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
-    end)
-    
-    Shop:Button("Buy Soru",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
-    end)
-    
-    Shop:Button("Buy Observation(Ken) Haki",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
-    end)
-    
-    Shop:Seperator("Fighting Style",_G.ColorShop)
-    
-    Shop:Button("Buy Black Leg",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
-    end)
-    
-    Shop:Button("Buy Electro",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
-    end)
-    
-    Shop:Button("Buy Fishman Karate",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
-    end)
-    
-    Shop:Button("Buy Dragon Claw",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
-    end)
-    
-    Shop:Button("Buy Superhuman",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
-    end)
-    
-    Shop:Button("Buy Death Step",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
-    end)
-    
-    Shop:Button("Buy Sharkman Karate",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
-    end)
-    
-    Shop:Button("Buy Electric Claw",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-    end)
-    
-    Shop:Button("Buy Dragon Talon",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-    end)
-    
-    Shop:Button("Buy GodHuman",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-    end)
-    
-    -----Shop----------------
-    Shop:Seperator("Accessory",_G.ColorShop)
-    
-    Shop:Button("Tomoe Ring",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
-    end)
-    
-    Shop:Button("Black Cape",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Black Cape")
-    end)
-    
-    Shop:Button("Swordsman Hat",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Swordsman Hat")
-    end)
-    
-    Shop:Seperator("Sword",_G.ColorShop)
-    
-    Shop:Button("Cutlass",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
-    end)
-    
-    Shop:Button("Katana",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
-    end)
-    
-    Shop:Button("Iron Mace",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
-    end)
-    
-    Shop:Button("Duel Katana",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
-    end)
-    
-    Shop:Button("Triple Katana",_G.ColorShop, function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
-    end)
-    
-    Shop:Button("Pipe",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
-    end)
-    
-    Shop:Button("Dual Headed Blade",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
-    end)
-    
-    Shop:Button("Bisento",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
-    end)
-    
-    Shop:Button("Soul Cane",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
-    end)
-    
-    Shop:Seperator("Gun",_G.ColorShop)
-    
-    Shop:Button("Slingshot",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Slingshot")
-    end)
-    
-    Shop:Button("Musket",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Musket")
-    end)
-    
-    Shop:Button("Flintlock",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Flintlock")
-    end)
-    
-    Shop:Button("Refined Flintlock",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Refined Flintlock")
-    end)
-    
-    Shop:Button("Cannon",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cannon")
-    end)
-    
-    Shop:Button("Kabucha",_G.ColorShop,function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","1")
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","2")
-end)
-    
 end
     
 -- \\ Misc Table // --

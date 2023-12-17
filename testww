@@ -2054,9 +2054,9 @@ spawn(function()
     end
 end)
 
-local Update = loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/Script-Blox-Library', true))()
+local ScriptBlox = loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/Script-Blox-Library', true))()
 
-local Library = Update:Window("Blox Fruits",Enum.KeyCode.RightControl);
+local Library = ScriptBlox:Window("Blox Fruits",Enum.KeyCode.RightControl);
 
 -- \\ Window Table // --
 

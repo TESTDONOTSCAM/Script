@@ -2056,7 +2056,7 @@ end)
 
 local Update = loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/Script-Blox-Library', true))()
 
-local Library = Update:Window("Blox Fruits", "")
+local Library = Update:Window("Blox Fruits",Enum.KeyCode.RightControl);
 
 -- \\ Window Table // --
 

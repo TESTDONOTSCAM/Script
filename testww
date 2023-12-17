@@ -6,19 +6,65 @@ if _G.Fast_Delay == nil then
 	_G.Fast_Delay = 0.15
 end
 
+-- < // Global GetGenv \\ > --
+
+getgenv().FixLag = false
+
+if getgenv().FixLag == true then
+
+    _G.WalkWater = false
+    InfAbility = false
+    _G.InvisibleMobs = true
+    RemoveEffect = true
+    Notive = true
+    DamageC = true
+    _G.REM = true
+    _G.AutoHakiSpam = false
+    _G.FpsBoost1 = true
+
+elseif getgenv().FixLag == false then
+
+    _G.WalkWater = true
+    InfAbility = true
+    _G.InvisibleMobs = false
+    RemoveEffect = false
+    Notive = false
+    DamageC = false
+    _G.REM = false
+    _G.AutoHakiSpam = true
+    _G.FpsBoost1 = false
+
+end
+
 -- < // Global Vars \\ > --
 
-_G.WalkWater = true
+_G.WalkWater = false
 InfAbility = false
 _G.InvisibleMobs = false
-RemoveEffect = true
-Notive = true
-DamageC = true
-_G.REM = true
-_G.AutoHakiSpam = true
+RemoveEffect = false
+Notive = false
+DamageC = false
+_G.REM = false
+_G.AutoHakiSpam = false
+
+-- < // Always True \\ > --
+
 _G.SafeFarm = true
+_G.AutoSetSpawn = true
 
 -- < // Script > \\ --
+
+spawn(function()
+    pcall(function()
+        while wait() do
+            if _G.AutoSetSpawn then
+            if game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                end
+            end
+        end
+    end)
+end)
 
 spawn(function()
     while task.wait() do
@@ -3170,7 +3216,7 @@ spawn(function()
 							v.Humanoid.JumpPower = 0
 							v.Humanoid.WalkSpeed = 0
 							v.HumanoidRootPart.CanCollide = false
-							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							v.HumanoidRootPart.Size = Vector3.new(5,5,5)
 							v.HumanoidRootPart.CFrame = PosMon
 							sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
 						end
@@ -3347,20 +3393,6 @@ local function bypassAntiExploit()
         end
     end
 end
-
-_G.AutoSetSpawn = true
-
-spawn(function()
-    pcall(function()
-        while wait() do
-            if _G.AutoSetSpawn then
-            if game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-                end
-            end
-        end
-    end)
-end)
 
 spawn(function()
     while wait() do

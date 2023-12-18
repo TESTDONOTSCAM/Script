@@ -531,6 +531,7 @@ function Library:Window(name,gamename,owner,keybind)
             end)
         end)
     end
+    return uitab
 end
 
 local ScriptGame = Library:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")

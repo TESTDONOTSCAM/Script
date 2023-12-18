@@ -6768,13 +6768,8 @@ do
             while wait() do
                 pcall(function()
                     if _G.AutoSail then
-        
-                        game.Workspace.Gravity = 0
-                        game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(15,false)
-                        game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(16,false)
-        
                         if not game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
-                            if not game:GetService("Workspace").Boats:FindFirstChild("Guardian") then 
+                            if not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then 
                                     buyb = TPP(CFrame.new(-16206.9014, 7.75759554, 404.552338, -0.0348494053, 0, 0.999392569, 0, 1, 0, -0.999392569, 0, -0.0348494053))
                                         if (CFrame.new(-16206.9014, 7.75759554, 404.552338, -0.0348494053, 0, 0.999392569, 0, 1, 0, -0.999392569, 0, -0.0348494053).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
                                             if buyb then buyb:Stop() end

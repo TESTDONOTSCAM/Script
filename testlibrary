@@ -520,3 +520,7 @@ function Library:Window(name,gamename,owner,keybind)
         end)
     end
 end
+
+local ScriptGame = Library:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")
+
+local Test = ScriptGame:Tab("Test","rbxassetid://14355269935")

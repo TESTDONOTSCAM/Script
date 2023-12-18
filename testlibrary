@@ -1,0 +1,376 @@
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+
+local function MakeDraggable(topbarobject, object)
+local Dragging = nil
+local DragInput = nil
+local DragStart = nil
+local StartPosition = nil
+
+local function Update(input)
+local Delta = input.Position - DragStart
+local pos = UDim2.new(StartPosition.X.Scale, StartPosition.X.Offset + Delta.X, StartPosition.Y.Scale, StartPosition.Y.Offset + Delta.Y)
+local Tween = TweenService:Create(object, TweenInfo.new(0.15), {
+ Position = pos
+})
+Tween:Play()
+end
+
+topbarobject.InputBegan:Connect(
+ function(input)
+ if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+ Dragging = true
+ DragStart = input.Position
+ StartPosition = object.Position
+
+ input.Changed:Connect(
+  function()
+  if input.UserInputState == Enum.UserInputState.End then
+  Dragging = false
+  end
+  end
+ )
+ end
+ end
+)
+
+topbarobject.InputChanged:Connect(
+ function(input)
+ if
+  input.UserInputType == Enum.UserInputType.MouseMovement or
+ input.UserInputType == Enum.UserInputType.Touch
+ then
+ DragInput = input
+ end
+ end
+)
+
+UserInputService.InputChanged:Connect(
+ function(input)
+ if input == DragInput and Dragging then
+ Update(input)
+ end
+ end
+)
+end
+
+--[[
+
+local MainFramePage = Instance.new("ScrollingFrame")
+local Seperator = Instance.new("Frame")
+local Sep1 = Instance.new("Frame")
+local Sep2 = Instance.new("Frame")
+local SepTitle = Instance.new("TextLabel")
+local UIListLayout = Instance.new("UIListLayout")
+local LineHolder = Instance.new("Frame")
+local Sep1_2 = Instance.new("Frame")
+local Button = Instance.new("Frame")
+local Button_2 = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local UIPadding_4 = Instance.new("UIPadding")
+local ToggleHolder = Instance.new("Frame")
+local Toggle = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UIPadding_5 = Instance.new("UIPadding")
+local ToggleInfo = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local ToggleInfo2 = Instance.new("Frame")
+local UICorner_5 = Instance.new("UICorner")
+local Frame = Instance.new("Frame")
+local MainFrame2 = Instance.new("Frame")
+local PageList2 = Instance.new("Folder")
+local MainFramePage2 = Instance.new("ScrollingFrame")
+local UIListLayout_2 = Instance.new("UIListLayout")
+local TabHolder = Instance.new("Frame")
+local ScrollTab = Instance.new("ScrollingFrame")
+local TabButton = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local TabFrame = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local UIListLayout_3 = Instance.new("UIListLayout")
+local UIPadding_6 = Instance.new("UIPadding")
+
+]]--
+
+--Properties:
+
+local Library = {}
+
+function Library:Window(name,gamename,owner,keybind)
+    local osfunc = {}
+    local hide = false
+    local abc = false
+    local currentpage = ""
+    local keybind = keybind or Enum.KeyCode.RightControl
+    local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
+
+    local ScriptLibrary = Instance.new("ScreenGui")
+    local Main = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+
+    ScriptLibrary.Name = "ScriptLibrary"
+    ScriptLibrary.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    ScriptLibrary.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+    Main.Name = "Main"
+    Main.Parent = ScriptLibrary
+    Main.AnchorPoint = Vector2.new(0.5, 0.5)
+    Main.BackgroundColor3 = Color3.fromRGB(0, 0, 55)
+    Main.BackgroundTransparency = 0.400
+    Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Main.BorderSizePixel = 0
+    Main.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Main.Size = UDim2.new(0, 600, 0, 350)
+
+    UICorner.CornerRadius = UDim.new(0, 4)
+    UICorner.Parent = Main
+
+    local TopHub = Instance.new("Frame")
+    local OpenTab = Instance.new("ImageButton")
+    local HubName = Instance.new("TextLabel")
+    local GameName = Instance.new("TextLabel")
+    local UIPadding = Instance.new("UIPadding")
+    local Avatar = Instance.new("ImageLabel")
+
+    TopHub.Name = "TopHub"
+    TopHub.Parent = Main
+    TopHub.AnchorPoint = Vector2.new(0.5, 0.5)
+    TopHub.BackgroundColor3 = Color3.fromRGB(0, 0, 55)
+    TopHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TopHub.BorderSizePixel = 0
+    TopHub.Position = UDim2.new(0.5, 0, 0.485714287, -150)
+    TopHub.Size = UDim2.new(1, 0, 0, 40)
+
+    OpenTab.Name = "OpenTab"
+    OpenTab.Parent = TopHub
+    OpenTab.AnchorPoint = Vector2.new(0.5, 0.5)
+    OpenTab.BackgroundColor3 = Color3.fromRGB(85, 0, 255)
+    OpenTab.BackgroundTransparency = 1.000
+    OpenTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    OpenTab.BorderSizePixel = 0
+    OpenTab.Position = UDim2.new(0.5, -280, 0.5, 0)
+    OpenTab.Size = UDim2.new(0, 30, 0, 30)
+    OpenTab.Image = "http://www.roblox.com/asset/?id=15674906717"
+
+    HubName.Name = "HubName"
+    HubName.Parent = TopHub
+    HubName.AnchorPoint = Vector2.new(0.5, 0.5)
+    HubName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    HubName.BackgroundTransparency = 1.000
+    HubName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    HubName.BorderSizePixel = 0
+    HubName.Position = UDim2.new(0.5, -190, 0.5, 0)
+    HubName.Size = UDim2.new(0, 100, 0, 40)
+    HubName.Font = Enum.Font.FredokaOne
+    HubName.Text = name or "SCRIPTBLOX"
+    HubName.TextColor3 = Color3.fromRGB(255, 255, 255)
+    HubName.TextScaled = true
+    HubName.TextSize = 14.000
+    HubName.TextWrapped = true
+
+    GameName.Name = "GameName"
+    GameName.Parent = TopHub
+    GameName.AnchorPoint = Vector2.new(0.5, 0.5)
+    GameName.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    GameName.BackgroundTransparency = 1.000
+    GameName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    GameName.BorderSizePixel = 0
+    GameName.Position = UDim2.new(0.741666675, -90, 0.5, 0)
+    GameName.Size = UDim2.new(0, 390, 0, 40)
+    GameName.Font = Enum.Font.Ubuntu
+    GameName.Text = gamename or "- Blox Fruits | Third Sea"
+    GameName.TextColor3 = Color3.fromRGB(140, 140, 140)
+    GameName.TextSize = 16.000
+    GameName.TextWrapped = true
+    GameName.TextXAlignment = Enum.TextXAlignment.Left
+
+    UIPadding.Parent = GameName
+    UIPadding.PaddingLeft = UDim.new(0, 6)
+
+    Avatar.Name = "Avatar"
+    Avatar.Parent = TopHub
+    Avatar.AnchorPoint = Vector2.new(0.5, 0.5)
+    Avatar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Avatar.BackgroundTransparency = 1.000
+    Avatar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Avatar.BorderSizePixel = 0
+    Avatar.Position = UDim2.new(0.5, 280, 0.5, 0)
+    Avatar.Size = UDim2.new(0, 30, 0, 30)
+    Avatar.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+    Avatar.Image = Players:GetUserThumbnailAsync(Player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+
+    local DataHub = Instance.new("Frame")
+    local ArrowDate = Instance.new("ImageLabel")
+    local ArrowDate2 = Instance.new("ImageLabel")
+    local Owner = Instance.new("TextLabel")
+    local UIPadding_2 = Instance.new("UIPadding")
+    local OwnerName = Instance.new("TextLabel")
+    local UIPadding_3 = Instance.new("UIPadding")
+    local DataBase = Instance.new("Frame")
+    local FPSDATA = Instance.new("TextLabel")
+    local DataBase2 = Instance.new("Frame")
+    local TIMEDATA = Instance.new("TextLabel")
+
+    DataHub.Name = "DataHub"
+    DataHub.Parent = Main
+    DataHub.AnchorPoint = Vector2.new(0.5, 0.5)
+    DataHub.BackgroundColor3 = Color3.fromRGB(0, 0, 55)
+    DataHub.BorderColor3 = Color3.fromRGB(0, 0, 55)
+    DataHub.BorderSizePixel = 0
+    DataHub.Position = UDim2.new(0.5, 0, 0.5, -113)
+    DataHub.Size = UDim2.new(1, 0, 0, 20)
+
+    ArrowDate.Name = "ArrowDate"
+    ArrowDate.Parent = DataHub
+    ArrowDate.AnchorPoint = Vector2.new(0.5, 0.5)
+    ArrowDate.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ArrowDate.BackgroundTransparency = 1.000
+    ArrowDate.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    ArrowDate.BorderSizePixel = 0
+    ArrowDate.Position = UDim2.new(0.5, -270, 0.5, 0)
+    ArrowDate.Size = UDim2.new(0, 20, 0, 15)
+    ArrowDate.Image = "http://www.roblox.com/asset/?id=15675072404"
+
+    ArrowDate2.Name = "ArrowDate2"
+    ArrowDate2.Parent = DataHub
+    ArrowDate2.AnchorPoint = Vector2.new(0.5, 0.5)
+    ArrowDate2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ArrowDate2.BackgroundTransparency = 1.000
+    ArrowDate2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    ArrowDate2.BorderSizePixel = 0
+    ArrowDate2.Position = UDim2.new(0.5, 270, 0.5, 0)
+    ArrowDate2.Rotation = 180.000
+    ArrowDate2.Size = UDim2.new(0, 20, 0, 15)
+    ArrowDate2.Image = "http://www.roblox.com/asset/?id=15675072404"
+
+    Owner.Name = "Owner"
+    Owner.Parent = DataHub
+    Owner.AnchorPoint = Vector2.new(0.5, 0.5)
+    Owner.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Owner.BackgroundTransparency = 1.000
+    Owner.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Owner.BorderSizePixel = 0
+    Owner.Position = UDim2.new(0.5, -220, 0.5, 0)
+    Owner.Size = UDim2.new(0, 60, 0, 20)
+    Owner.Font = Enum.Font.FredokaOne
+    Owner.Text = "[ Owner ]"
+    Owner.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Owner.TextSize = 14.000
+    Owner.TextXAlignment = Enum.TextXAlignment.Left
+
+    UIPadding_2.Parent = Owner
+    UIPadding_2.PaddingBottom = UDim.new(0, 1)
+    UIPadding_2.PaddingLeft = UDim.new(0, 5)
+
+    OwnerName.Name = "OwnerName"
+    OwnerName.Parent = DataHub
+    OwnerName.AnchorPoint = Vector2.new(0.5, 0.5)
+    OwnerName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    OwnerName.BackgroundTransparency = 1.000
+    OwnerName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    OwnerName.BorderSizePixel = 0
+    OwnerName.Position = UDim2.new(0.5, -160, 0.5, 0)
+    OwnerName.Size = UDim2.new(0, 60, 0, 20)
+    OwnerName.Font = Enum.Font.Ubuntu
+    OwnerName.Text = "ScriptBlox"
+    OwnerName.TextColor3 = Color3.fromRGB(255, 255, 255)
+    OwnerName.TextSize = 14.000
+    OwnerName.TextXAlignment = Enum.TextXAlignment.Left
+
+    UIPadding_3.Parent = OwnerName
+    UIPadding_3.PaddingBottom = UDim.new(0, 1)
+    UIPadding_3.PaddingLeft = UDim.new(0, 5)
+
+    DataBase.Name = "DataBase"
+    DataBase.Parent = DataHub
+    DataBase.AnchorPoint = Vector2.new(0.5, 0.5)
+    DataBase.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    DataBase.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    DataBase.BorderSizePixel = 0
+    DataBase.Position = UDim2.new(0.5, -115, 0.5, 0)
+    DataBase.Size = UDim2.new(0, 3, 0, 20)
+
+    FPSDATA.Name = "FPSDATA"
+    FPSDATA.Parent = DataHub
+    FPSDATA.AnchorPoint = Vector2.new(0.5, 0.5)
+    FPSDATA.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    FPSDATA.BackgroundTransparency = 1.000
+    FPSDATA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    FPSDATA.BorderSizePixel = 0
+    FPSDATA.Position = UDim2.new(0.5, 170, 0.5, 0)
+    FPSDATA.Size = UDim2.new(0, 145, 0, 20)
+    FPSDATA.Font = Enum.Font.FredokaOne
+    FPSDATA.Text = "N/A"
+    FPSDATA.TextColor3 = Color3.fromRGB(255, 255, 255)
+    FPSDATA.TextSize = 14.000
+
+    DataBase2.Name = "DataBase2"
+    DataBase2.Parent = DataHub
+    DataBase2.AnchorPoint = Vector2.new(0.5, 0.5)
+    DataBase2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    DataBase2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    DataBase2.BorderSizePixel = 0
+    DataBase2.Position = UDim2.new(0.5, 85, 0.5, 0)
+    DataBase2.Size = UDim2.new(0, 3, 0, 20)
+
+    TIMEDATA.Name = "TIMEDATA"
+    TIMEDATA.Parent = DataHub
+    TIMEDATA.AnchorPoint = Vector2.new(0.5, 0.5)
+    TIMEDATA.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TIMEDATA.BackgroundTransparency = 1.000
+    TIMEDATA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TIMEDATA.BorderSizePixel = 0
+    TIMEDATA.Position = UDim2.new(0.5, -15, 0.5, 0)
+    TIMEDATA.Size = UDim2.new(0, 180, 0, 20)
+    TIMEDATA.Font = Enum.Font.FredokaOne
+    TIMEDATA.Text = "N/A"
+    TIMEDATA.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TIMEDATA.TextSize = 14.000
+
+    local MainFrame = Instance.new("Frame")
+    local PageList = Instance.new("Folder")
+    local UIPageLayout = Instance.new("UIPageLayout")
+
+    MainFrame.Name = "MainFrame"
+    MainFrame.Parent = Main
+    MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+    MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    MainFrame.BorderSizePixel = 0
+    MainFrame.Position = UDim2.new(0.532916665, -165, 0.488571435, 40)
+    MainFrame.Size = UDim2.new(0, 289, 0, 258)
+
+    PageList.Name = "PageList"
+    PageList.Parent = MainFrame
+
+    UIPageLayout.Parent = PageList
+    UIPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIPageLayout.EasingDirection = Enum.EasingDirection.Out  -- InOut
+    UIPageLayout.EasingStyle = Enum.EasingStyle.Quad
+    UIPageLayout.FillDirection = Enum.FillDirection.Vertical
+    UIPageLayout.Padding = UDim.new(0, 200)
+    UIPageLayout.GamepadInputEnabled = false
+    UIPageLayout.ScrollWheelInputEnabled = false
+    UIPageLayout.TouchInputEnabled = false
+    UIPageLayout.TweenTime = 0.400
+
+    MakeDraggable(TopHub,Main)
+ 
+    UserInputService.InputBegan:Connect(function(input)
+        if input.KeyCode == Enum.KeyCode[yoo] then
+            if uihide == false then
+                uihide = true
+                Main:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
+                wait(0.5)
+                MyLibrary.Enabled = false
+                else
+                uihide = false
+                MyLibrary.Enabled = true
+                Main:TweenSize(UDim2.new(0, 563,0, 366),"Out","Quad",0.5,true)
+            end
+        end
+    end)
+end

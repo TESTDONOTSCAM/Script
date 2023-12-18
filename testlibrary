@@ -356,10 +356,9 @@ function Library:Window(name,gamename,owner,keybind)
         if Tabhide == false then
             Tabhide = true
             TabHolder:TweenSize(UDim2.new(0, 140, 0, 310),"In","Quad",0.4,true)
-            wait(0.5)
             else
             Tabhide = false
-            TabHolder:TweenSize(UDim2.new(0, 0, 0, 310),"Out","Quad",0.5,true)
+            TabHolder:TweenSize(UDim2.new(0, 0, 0, 310),"In","Quad",0.5,true)
         end
     end)
 

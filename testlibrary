@@ -328,6 +328,7 @@ function Library:Window(name,gamename,owner,keybind)
     TabHolder.BorderSizePixel = 0
     TabHolder.Position = UDim2.new(0, 0, 0.114285715, 0)
     TabHolder.Size = UDim2.new(0, 0, 0, 310)
+    TabHolder.ZIndex = 2
     TabHolder.Visible = true
 
     ScrollTab.Name = "ScrollTab"

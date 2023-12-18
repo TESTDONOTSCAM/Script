@@ -374,3 +374,5 @@ function Library:Window(name,gamename,owner,keybind)
         end
     end)
 end
+
+local ScriptBlox = Library:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")

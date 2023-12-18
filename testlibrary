@@ -389,15 +389,15 @@ function Library:Window(name,gamename,owner,keybind)
  
     UserInputService.InputBegan:Connect(function(input)
         if input.KeyCode == Enum.KeyCode[yoo] then
-            if uihide == false then
-                uihide = true
+            if hide == false then
+                hide = true
                 Main:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
                 wait(0.5)
-                MyLibrary.Enabled = false
+                ScriptLibrary.Enabled = false
                 else
-                uihide = false
-                MyLibrary.Enabled = true
-                Main:TweenSize(UDim2.new(0, 563,0, 366),"Out","Quad",0.5,true)
+                hide = false
+                ScriptLibrary.Enabled = true
+                Main:TweenSize(UDim2.new(0, 600, 0, 350),"Out","Quad",0.5,true)
             end
         end
     end)
@@ -520,5 +520,3 @@ function Library:Window(name,gamename,owner,keybind)
         end)
     end
 end
-
-local ScriptBlox = Library:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")

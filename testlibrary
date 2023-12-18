@@ -92,9 +92,9 @@ local UIListLayout_2 = Instance.new("UIListLayout")
 
 --Properties:
 
-local Library = {}
+local Update = {}
 
-function Library:Window(name,gamename,owner,keybind)
+function Update:Window(name,gamename,owner,keybind)
     local osfunc = {}
     local hide = false
     local Tabhide = false
@@ -554,6 +554,6 @@ function Library:Window(name,gamename,owner,keybind)
     return uitab
 end
 
-local ScriptGame = Library:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")
+local ScriptGame = Update:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")
 
 local Test = ScriptGame:Tab("Test","rbxassetid://14355269935")

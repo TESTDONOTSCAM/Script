@@ -375,9 +375,11 @@ function Update:Window(name,gamename,owner,keybind)
     OpenTab.MouseButton1Click:Connect(function()
         if Tabhide == false then
             Tabhide = true
+            TabHolder:TweenSize(UDim2.new(0, 0, 0, 310),"In","Quad",0.4,true)
             ScrollTab:TweenSize(UDim2.new(0, 0, 0, 310),"In","Quad",0.4,true)
             else
             Tabhide = false
+            TabHolder:TweenSize(UDim2.new(0, 140, 0, 310),"In","Quad",0.4,true)
             ScrollTab:TweenSize(UDim2.new(0, 140, 0, 310),"In","Quad",0.4,true)
         end
     end)
@@ -418,21 +420,6 @@ function Update:Window(name,gamename,owner,keybind)
     UIPageLayout.TweenTime = 0.400
 
     MakeDraggable(TopHub,Main)
- 
-    UserInputService.InputBegan:Connect(function(input)
-        if input.KeyCode == Enum.KeyCode[yoo] then
-            if hide == false then
-                hide = true
-                Main:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
-                wait(0.5)
-                ScriptLibrary.Enabled = false
-                else
-                hide = false
-                ScriptLibrary.Enabled = true
-                Main:TweenSize(UDim2.new(0, 600, 0, 350),"Out","Quad",0.5,true)
-            end
-        end
-    end)
 
     local uitab = {}
 

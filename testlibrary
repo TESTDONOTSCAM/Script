@@ -454,6 +454,7 @@ function Update:Window(name,gamename,owner,keybind)
         TabFrame.Parent = TabButton
         TabFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         TabFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TabFrame.ZIndex = 2
         TabFrame.BorderSizePixel = 0
         TabFrame.Position = UDim2.new(0, 2, 0, 2)
         TabFrame.Size = UDim2.new(0, 25, 0, 25)
@@ -462,6 +463,7 @@ function Update:Window(name,gamename,owner,keybind)
         ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         ImageLabel.BackgroundTransparency = 1.000
         ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        ImageLabel.ZIndex = 2
         ImageLabel.BorderSizePixel = 0
         ImageLabel.Size = UDim2.new(1, 0, 1, 0)
         ImageLabel.Image = img or "rbxassetid://14355269935"

@@ -386,6 +386,7 @@ function Update:Window(name,gamename,owner,keybind)
     OpenTab.BorderSizePixel = 0
     OpenTab.Position = UDim2.new(0.5, -280, 0.5, 0)
     OpenTab.Size = UDim2.new(0, 30, 0, 30)
+    OpenTab.Zindex = 2
     OpenTab.Image = "http://www.roblox.com/asset/?id=15674906717"
     OpenTab.MouseButton1Click:Connect(function()
         if Tabhide == false then
@@ -491,7 +492,7 @@ function Update:Window(name,gamename,owner,keybind)
         MainFramePage.BackgroundColor3 = Color3.fromRGB(0, 0, 55)
         MainFramePage.BorderColor3 = Color3.fromRGB(0, 0, 0)
         MainFramePage.BorderSizePixel = 0
-        MainFramePage.Position = UDim2.new(0.5, 0, 0.5, 0)
+        MainFramePage.Position = UDim2.new(0.533, -165, 0.489, 40)
         MainFramePage.Selectable = false
         MainFramePage.Size = UDim2.new(0, 289, 0, 258)
         MainFramePage.ScrollBarThickness = 0
@@ -711,14 +712,13 @@ function Update:Window(name,gamename,owner,keybind)
              local UICorner_3 = Instance.new("UICorner")
              local TextBtnStroke = Instance.new("UIStroke")
             
-            Button.Name = "Button"
-            Button.Parent = MainFramePage
-            Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            Button.BackgroundTransparency = 1
-            Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
-            Button.BorderSizePixel = 0
-            Button.Position = UDim2.new(0.0120000001, 0, 0.00999999978, 0)
-            Button.Size = UDim2.new(0.976000011, 0, 0, 31)
+             Button.Name = "Button"
+             Button.Parent = MainFramePage
+             Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+             Button.BackgroundTransparency = 1.000
+             Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
+             Button.BorderSizePixel = 0
+             Button.Size = UDim2.new(0, 289, 0, 33)
             
             UICorner_2.CornerRadius = UDim.new(0, 4)
             UICorner_2.Parent = Button
@@ -726,26 +726,27 @@ function Update:Window(name,gamename,owner,keybind)
             UIPadding_2.Parent = Button
             UIPadding_2.PaddingLeft = UDim.new(0, 10)
             
-            TextBtn.Name = "TextBtn"
-             TextBtn.Parent = Button
-             TextBtn.BackgroundColor3 = Color3.fromRGB(255,255,255)
-             TextBtn.BackgroundTransparency = 1
-             TextBtn.Position = UDim2.new(-0.0328157693, 0, 0, 0)
-             TextBtn.Size = UDim2.new(0.976000011, 0, 0, 31)
-             TextBtn.AutoButtonColor = false
-             TextBtn.Font = Enum.Font.Ubuntu
-             TextBtn.Text = text
-             TextBtn.TextColor3 = Color3.fromRGB(255,255,255)
-            TextBtn.TextSize = 14.000
+            TextBtn.Name = "Button"
+            TextBtn.Parent = Button
+            TextBtn.AnchorPoint = Vector2.new(0.5, 0.5)
+            TextBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            TextBtn.BackgroundTransparency = 1.000
+            TextBtn.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            TextBtn.BorderSizePixel = 0
+            TextBtn.Position = UDim2.new(0.5, 0, 0.5, 0)
+            TextBtn.Selectable = false
+            TextBtn.Size = UDim2.new(0, 270, 0, 33)
+            TextBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextBtn.TextXAlignment = Enum.TextXAlignment.Left
             
             TextBtnStroke.Name = "TextBtnStroke"
-             TextBtnStroke.Parent = Button
-             TextBtnStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-             TextBtnStroke.Color = _G.StrokeColor
-             TextBtnStroke.LineJoinMode = Enum.LineJoinMode.Round
-             TextBtnStroke.Thickness = 1.5
-             TextBtnStroke.Transparency = 0
-             TextBtnStroke.Enabled = true
+            TextBtnStroke.Parent = Button
+            TextBtnStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            TextBtnStroke.Color = _G.StrokeColor
+            TextBtnStroke.LineJoinMode = Enum.LineJoinMode.Round
+            TextBtnStroke.Thickness = 1.5
+            TextBtnStroke.Transparency = 0
+            TextBtnStroke.Enabled = true
             TextBtnStroke.Archivable = true
             
             UICorner_3.CornerRadius = UDim.new(0, 4)
@@ -794,8 +795,7 @@ function Update:Window(name,gamename,owner,keybind)
                 Toggle.BackgroundTransparency = 1
                 Toggle.BorderSizePixel = 0
                 Toggle.AutoButtonColor = true
-                Toggle.Size = UDim2.new(0.976000011, 0, 0, 31)
-                Toggle.Position = UDim2.new(0.0120000001, 0, 1, 0)
+                Toggle.Size = UDim2.new(0, 270, 0, 33)
                 Toggle.Font = Enum.Font.SourceSans
                 Toggle.Text = ""
                 Toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -808,14 +808,14 @@ function Update:Window(name,gamename,owner,keybind)
                 
                 local ImageSTR = Instance.new("UIStroke")
                 ImageSTR.Name = "ImageSTR"
-                 ImageSTR.Parent = Toggle
-                 ImageSTR.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-                 ImageSTR.Color = _G.StrokeColor
-                 ImageSTR.LineJoinMode = Enum.LineJoinMode.Round
-                 ImageSTR.Thickness = 1.5
-                 ImageSTR.Transparency = 0
-                 ImageSTR.Enabled = true
-                 ImageSTR.Archivable = true
+                ImageSTR.Parent = Toggle
+                ImageSTR.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+                ImageSTR.Color = _G.StrokeColor
+                ImageSTR.LineJoinMode = Enum.LineJoinMode.Round
+                ImageSTR.Thickness = 1.5
+                ImageSTR.Transparency = 0
+                ImageSTR.Enabled = true
+                ImageSTR.Archivable = true
                 
                 local ToggleCorner = Instance.new("UICorner")
                 ToggleCorner.Name = "ToggleCorner"
@@ -1468,20 +1468,19 @@ function Update:Window(name,gamename,owner,keybind)
             function main:Seperator(text,color)
             
             local Seperator = Instance.new("Frame")
-               local Sep1 = Instance.new("Frame")
-               local Sep2 = Instance.new("TextLabel")
-            local Sep3 = Instance.new("Frame")
+            local Sep1 = Instance.new("Frame")
+            local Sep2 = Instance.new("Frame")
+            local SepTitle = Instance.new("TextLabel")
             local UICorner_15 = Instance.new("UICorner")
             local UIPadding_13 = Instance.new("UIPadding")
             
             Seperator.Name = "Seperator"
             Seperator.Parent = MainFramePage
-            Seperator.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+            Seperator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Seperator.BackgroundTransparency = 1.000
             Seperator.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Seperator.BorderSizePixel = 0
-            Seperator.Position = UDim2.new(0.0120000001, 0, 0.00999999978, 0)
-            Seperator.Size = UDim2.new(0, 313, 0, 5)
+            Seperator.Size = UDim2.new(0, 289, 0, 33)
             
             UICorner_15.CornerRadius = UDim.new(0, 4)
             UICorner_15.Parent = Seperator
@@ -1491,55 +1490,58 @@ function Update:Window(name,gamename,owner,keybind)
             
             Sep1.Name = "Sep1"
             Sep1.Parent = Seperator
-            Sep1.BackgroundColor3 = color or _G.StrokeColor
+            Sep1.AnchorPoint = Vector2.new(0.5, 0.5)
+            Sep1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Sep1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Sep1.BorderSizePixel = 0
-            Sep1.Position = UDim2.new(0, -15, 0, 0)
-            Sep1.Size = UDim2.new(0, 80, 0, 3)
+            Sep1.Position = UDim2.new(0.5, -105, 0.5, 0)
+            Sep1.Size = UDim2.new(0, 60, 0, 4)
             
             Sep2.Name = "Sep2"
             Sep2.Parent = Seperator
+            Sep2.AnchorPoint = Vector2.new(0.5, 0.5)
             Sep2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            Sep2.BackgroundTransparency = 1.000
             Sep2.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Sep2.BorderSizePixel = 0
-            Sep2.Position = UDim2.new(0, 88, 0, -9)
-            Sep2.Size = UDim2.new(0, 108, 0, 20)
-            Sep2.Font = Enum.Font.Ubuntu
-            Sep2.Text = text
-            Sep2.TextColor3 = Color3.fromRGB(224, 224, 224)
-            Sep2.TextSize = 14.000
+            Sep2.Position = UDim2.new(0.5, 105, 0.5, 0)
+            Sep2.Size = UDim2.new(0, 60, 0, 4)
             
-            Sep3.Name = "Sep3"
-            Sep3.Parent = Seperator
-            Sep3.BackgroundColor3 = color or _G.StrokeColor
-            Sep3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-            Sep3.BorderSizePixel = 0
-            Sep3.Position = UDim2.new(0, 216, 0, 0)
-            Sep3.Size = UDim2.new(0, 78, 0, 3)
-            end
+            SepTitle.Name = "SepTitle"
+            SepTitle.Parent = Seperator
+            SepTitle.AnchorPoint = Vector2.new(0.5, 0.5)
+            SepTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            SepTitle.BackgroundTransparency = 1.000
+            SepTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            SepTitle.BorderSizePixel = 0
+            SepTitle.Position = UDim2.new(0.5, 0, 0.5, 0)
+            SepTitle.Size = UDim2.new(0, 140, 0, 33)
+            SepTitle.Font = Enum.Font.Ubuntu
+            SepTitle.Text = "Level Farm"
+            SepTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+            SepTitle.TextSize = 16.000
+        end
             
             function main:Line()
             
-               local Linee = Instance.new("Frame")
-               local Line = Instance.new("Frame")
+               local LineHolder = Instance.new("Frame")
+               local Sep1_2 = Instance.new("Frame")
                
-                  Linee.Name = "Linee"
-                  Linee.Parent = MainFramePage
-                  Linee.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
-                  Linee.BackgroundTransparency = 1.000
-                  Linee.BorderColor3 = Color3.fromRGB(0, 0, 0)
-                  Linee.BorderSizePixel = 0
-                  Linee.Position = UDim2.new(0.0120000001, 0, 0.00999999978, 0)
-                  Linee.Size = UDim2.new(1, -9, 0, 20)
+               LineHolder.Name = "LineHolder"
+               LineHolder.Parent = MainFramePage
+               LineHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+               LineHolder.BackgroundTransparency = 1.000
+               LineHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
+               LineHolder.BorderSizePixel = 0
+               LineHolder.Size = UDim2.new(0, 289, 0, 33)
                
-                  Line.Name = "Line"
-                  Line.Parent = Linee
-                  Line.BackgroundColor3 = _G.StrokeColor
-                  Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
-                  Line.BorderSizePixel = 0
-                  Line.Position = UDim2.new(0, 0, 0.449999988, 0)
-               Line.Size = UDim2.new(1.028, -9, 0, 4)
+               Sep1_2.Name = "Sep1"
+               Sep1_2.Parent = LineHolder
+               Sep1_2.AnchorPoint = Vector2.new(0.5, 0.5)
+               Sep1_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+               Sep1_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+               Sep1_2.BorderSizePixel = 0
+               Sep1_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+               Sep1_2.Size = UDim2.new(0, 270, 0, 4)
             end
         return main
     end

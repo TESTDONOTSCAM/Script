@@ -459,7 +459,7 @@ function Update:Window(name,gamename,owner,keybind)
         TabFrame.Position = UDim2.new(0, 2, 0, 2)
         TabFrame.Size = UDim2.new(0, 25, 0, 25)
 
-        ImageLabel.Parent = text or "ImageLabel"
+        ImageLabel.Parent = TabFrame
         ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         ImageLabel.BackgroundTransparency = 1.000
         ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)

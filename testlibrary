@@ -97,6 +97,7 @@ local Library = {}
 function Library:Window(name,gamename,owner,keybind)
     local osfunc = {}
     local hide = false
+    local Tabhide = false
     local abc = false
     local currentpage = ""
     local keybind = keybind or Enum.KeyCode.RightControl
@@ -138,17 +139,6 @@ function Library:Window(name,gamename,owner,keybind)
     TopHub.BorderSizePixel = 0
     TopHub.Position = UDim2.new(0.5, 0, 0.485714287, -150)
     TopHub.Size = UDim2.new(1, 0, 0, 40)
-
-    OpenTab.Name = "OpenTab"
-    OpenTab.Parent = TopHub
-    OpenTab.AnchorPoint = Vector2.new(0.5, 0.5)
-    OpenTab.BackgroundColor3 = Color3.fromRGB(85, 0, 255)
-    OpenTab.BackgroundTransparency = 1.000
-    OpenTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    OpenTab.BorderSizePixel = 0
-    OpenTab.Position = UDim2.new(0.5, -280, 0.5, 0)
-    OpenTab.Size = UDim2.new(0, 30, 0, 30)
-    OpenTab.Image = "http://www.roblox.com/asset/?id=15674906717"
 
     HubName.Name = "HubName"
     HubName.Parent = TopHub
@@ -270,7 +260,7 @@ function Library:Window(name,gamename,owner,keybind)
     OwnerName.Position = UDim2.new(0.5, -160, 0.5, 0)
     OwnerName.Size = UDim2.new(0, 60, 0, 20)
     OwnerName.Font = Enum.Font.Ubuntu
-    OwnerName.Text = "ScriptBlox"
+    OwnerName.Text = owner or "ScriptBlox"
     OwnerName.TextColor3 = Color3.fromRGB(255, 255, 255)
     OwnerName.TextSize = 14.000
     OwnerName.TextXAlignment = Enum.TextXAlignment.Left
@@ -349,6 +339,30 @@ function Library:Window(name,gamename,owner,keybind)
     ScrollTab.Selectable = false
     ScrollTab.Size = UDim2.new(0, 140, 0, 310)
     ScrollTab.ScrollBarThickness = 0
+
+    OpenTab.Name = "OpenTab"
+    OpenTab.Parent = TopHub
+    OpenTab.AnchorPoint = Vector2.new(0.5, 0.5)
+    OpenTab.BackgroundColor3 = Color3.fromRGB(85, 0, 255)
+    OpenTab.BackgroundTransparency = 1.000
+    OpenTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    OpenTab.BorderSizePixel = 0
+    OpenTab.Position = UDim2.new(0.5, -280, 0.5, 0)
+    OpenTab.Size = UDim2.new(0, 30, 0, 30)
+    OpenTab.Image = "http://www.roblox.com/asset/?id=15674906717"
+
+    OpenTab.MouseButton1Click:Connect(function()
+        if Tabhide == false then
+            Tabhide = true
+            TabHolder:TweenSize(UDim2.new(0, 0, 0, 310),"In","Quad",0.4,true)
+            wait(0.5)
+            ScriptLibrary.Enabled = false
+            else
+            Tabhide = false
+            ScriptLibrary.Enabled = true
+            TabHolder:TweenSize(UDim2.new(0, 140, 0, 310),"Out","Quad",0.5,true)
+        end
+    end)
 
     UIListLayout_3.Parent = ScrollTab
     UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder

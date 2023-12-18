@@ -292,6 +292,14 @@ function Library:Window(name,gamename,owner,keybind)
     FPSDATA.TextColor3 = Color3.fromRGB(255, 255, 255)
     FPSDATA.TextSize = 14.000
 
+    spawn(function()
+		while wait() do
+			pcall(function()
+				FPSDATA.Text = "[ FPS ]"..string.format("%d",workspace:GetRealPhysicsFPS())
+			end)
+		end
+	end)
+
     DataBase2.Name = "DataBase2"
     DataBase2.Parent = DataHub
     DataBase2.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -314,6 +322,19 @@ function Library:Window(name,gamename,owner,keybind)
     TIMEDATA.Text = "N/A"
     TIMEDATA.TextColor3 = Color3.fromRGB(255, 255, 255)
     TIMEDATA.TextSize = 14.000
+
+    spawn(function()
+		while wait() do
+			pcall(function()
+				local scripttime=game.Workspace.DistributedGameTime
+				local seconds = scripttime%60
+				local minutes = math.floor(scripttime/60%60)
+				local hours = math.floor(scripttime/3600)
+				local tempo = string.format("[ %.0f Hour's , %.0f Minute , %.0f Second ]", hours ,minutes, seconds)
+				TIMEDATA.Text = tempo
+			end)
+		end
+	end)
 
     local TabHolder = Instance.new("Frame")
     local ScrollTab = Instance.new("ScrollingFrame")

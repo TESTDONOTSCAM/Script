@@ -3377,41 +3377,81 @@ end)
 
 -- Auto Skills
 
-Skillz = true
-Skillx = true
-Skillc = true
-Skillv = true
-Skillf = true
+spawn(function()
+    while wait() do
+        pcall(function()
+        if AutoSkill then
+                Skillz = true
+                Skillx = true
+                Skillc = true
+                Skillv = true
+                Skillf = true
+            else
+                Skillz = false
+                Skillx = false
+                Skillc = false
+                Skillv = false
+                Skillf = false
+            end
+        end)
+    end
+end)
 
 spawn(function()
     while wait() do
         pcall(function()
-            if AutoSkill then
-                if Skillz then
-                    game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-                    wait(.1)
-                    game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-                end
-                if Skillx then
-                    game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-                    wait(.1)
-                    game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-                end
-                if Skillc then
-                    game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
-                    wait(.1)
-                    game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
-                end
-                if Skillv then
-                    game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
-                    wait(.1)
-                    game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
-                end
-                if Skillf then
-                    game:service('VirtualInputManager'):SendKeyEvent(true, "F", false, game)
-                    wait(.1)
-                    game:service('VirtualInputManager'):SendKeyEvent(false, "F", false, game)
-                end
+            if Skillz then
+                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                wait(.1)
+                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if Skillx then
+                game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                wait(.1)
+                game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if Skillc then
+                game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+                wait(.1)
+                game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if Skillv then
+                game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+                wait(.1)
+                game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if Skillf then
+                game:service('VirtualInputManager'):SendKeyEvent(true, "F", false, game)
+                wait(.1)
+                game:service('VirtualInputManager'):SendKeyEvent(false, "F", false, game)
             end
         end)
     end
@@ -6866,11 +6906,11 @@ do
                             print("StartMagnet")
                         repeat wait()
                             AutoHaki()
-                            EquipWeapon(_G.Setting_table.Weapon)
+                            EquipWeapon(_G.SelectWeapon)
                             AutoSkill = true
                             
                             Skillaimbot = true
-                            TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0) * PosY)
+                            TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0))
                             game:GetService'VirtualUser':CaptureController()
                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                             print("fast")
@@ -6924,8 +6964,8 @@ do
                             _G.FastAttack = true
                         repeat wait()
                             AutoHaki()
-                            TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * PosY)
-                            EquipWeapon(_G.Setting_table.Weapon)
+                            TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                            EquipWeapon(_G.SelectWeapon)
                             AutoSkill = true
                             
                             Skillaimbot = true
@@ -6978,8 +7018,8 @@ do
                             _G.FastAttack = true
                         repeat wait()
                             AutoHaki()
-                            TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0) * PosY)
-                            EquipWeapon(_G.Setting_table.Weapon)
+                            TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                            EquipWeapon(_G.SelectWeapon)
                             AutoSkill = true
                             
                             Skillaimbot = true
@@ -7171,7 +7211,7 @@ do
                             print("StartMagnet")
                         repeat wait()
                             AutoHaki()
-                            TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0) * PosY)
+                            TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
                             AllWeapon = true
                             AutoSkill = true
                             Skillaimbot = true
@@ -7193,5 +7233,9 @@ do
                 end)
             end
         end
+    end)
+
+    Sea:Button("Anti SeaBeast",_G.ColorSea,function()
+        game:GetService("Workspace").SeaBeasts:WaitForChild("SeaBeast1").Health.Value = -10
     end)
 end

@@ -327,8 +327,8 @@ function Library:Window(name,gamename,owner,keybind)
     TabHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TabHolder.BorderSizePixel = 0
     TabHolder.Position = UDim2.new(0, 0, 0.114285715, 0)
-    TabHolder.Size = UDim2.new(0, 140, 0, 310)
-    TabHolder.Visible = false
+    TabHolder.Size = UDim2.new(0, 0, 0, 310)
+    TabHolder.Visible = true
 
     ScrollTab.Name = "ScrollTab"
     ScrollTab.Parent = TabHolder
@@ -354,13 +354,13 @@ function Library:Window(name,gamename,owner,keybind)
     OpenTab.MouseButton1Click:Connect(function()
         if Tabhide == false then
             Tabhide = true
-            TabHolder:TweenSize(UDim2.new(0, 0, 0, 310),"In","Quad",0.4,true)
+            TabHolder:TweenSize(UDim2.new(0, 140, 0, 310),"In","Quad",0.4,true)
             wait(0.5)
-            ScriptLibrary.Enabled = false
+            OpenTab.Enabled = false
             else
             Tabhide = false
-            ScriptLibrary.Enabled = true
-            TabHolder:TweenSize(UDim2.new(0, 140, 0, 310),"Out","Quad",0.5,true)
+            OpenTab.Enabled = true
+            TabHolder:TweenSize(UDim2.new(0, 0, 0, 310),"Out","Quad",0.5,true)
         end
     end)
 

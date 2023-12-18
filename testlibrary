@@ -464,7 +464,7 @@ function Update:Window(name,gamename,owner,keybind)
         ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ImageLabel.BorderSizePixel = 0
         ImageLabel.Size = UDim2.new(1, 0, 1, 0)
-        ImageLabel.Image = img or "rbxasset://textures/ui/GuiImagePlaceholder.png"
+        ImageLabel.Image = img or "rbxassetid://14355269935"
 
         local MainFramePage = Instance.new("ScrollingFrame")
 

@@ -59,12 +59,12 @@ end
 
 --[[
 
-local MainFramePage = Instance.new("ScrollingFrame")
+
 local Seperator = Instance.new("Frame")
 local Sep1 = Instance.new("Frame")
 local Sep2 = Instance.new("Frame")
 local SepTitle = Instance.new("TextLabel")
-local UIListLayout = Instance.new("UIListLayout")
+
 local LineHolder = Instance.new("Frame")
 local Sep1_2 = Instance.new("Frame")
 local Button = Instance.new("Frame")
@@ -84,14 +84,9 @@ local MainFrame2 = Instance.new("Frame")
 local PageList2 = Instance.new("Folder")
 local MainFramePage2 = Instance.new("ScrollingFrame")
 local UIListLayout_2 = Instance.new("UIListLayout")
-local TabHolder = Instance.new("Frame")
-local ScrollTab = Instance.new("ScrollingFrame")
-local TabButton = Instance.new("TextButton")
-local UICorner_6 = Instance.new("UICorner")
-local TabFrame = Instance.new("Frame")
-local ImageLabel = Instance.new("ImageLabel")
-local UIListLayout_3 = Instance.new("UIListLayout")
-local UIPadding_6 = Instance.new("UIPadding")
+
+
+
 
 ]]--
 
@@ -330,6 +325,39 @@ function Library:Window(name,gamename,owner,keybind)
     TIMEDATA.TextColor3 = Color3.fromRGB(255, 255, 255)
     TIMEDATA.TextSize = 14.000
 
+    local TabHolder = Instance.new("Frame")
+    local ScrollTab = Instance.new("ScrollingFrame")
+    local UIListLayout_3 = Instance.new("UIListLayout")
+    local UIPadding_6 = Instance.new("UIPadding")
+
+    TabHolder.Name = "TabHolder"
+    TabHolder.Parent = Main
+    TabHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TabHolder.BackgroundTransparency = 1.000
+    TabHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TabHolder.BorderSizePixel = 0
+    TabHolder.Position = UDim2.new(0, 0, 0.114285715, 0)
+    TabHolder.Size = UDim2.new(0, 140, 0, 310)
+    TabHolder.Visible = false
+
+    ScrollTab.Name = "ScrollTab"
+    ScrollTab.Parent = TabHolder
+    ScrollTab.BackgroundColor3 = Color3.fromRGB(0, 0, 75)
+    ScrollTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    ScrollTab.BorderSizePixel = 0
+    ScrollTab.ClipsDescendants = false
+    ScrollTab.Selectable = false
+    ScrollTab.Size = UDim2.new(0, 140, 0, 310)
+    ScrollTab.ScrollBarThickness = 0
+
+    UIListLayout_3.Parent = ScrollTab
+    UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout_3.Padding = UDim.new(0, 10)
+
+    UIPadding_6.Parent = ScrollTab
+    UIPadding_6.PaddingLeft = UDim.new(0, 10)
+    UIPadding_6.PaddingTop = UDim.new(0, 10)
+
     local MainFrame = Instance.new("Frame")
     local PageList = Instance.new("Folder")
     local UIPageLayout = Instance.new("UIPageLayout")
@@ -373,6 +401,124 @@ function Library:Window(name,gamename,owner,keybind)
             end
         end
     end)
+
+    local uitab = {}
+
+    function uitab:Tab(text,img)
+
+        local TabButton = Instance.new("TextButton")
+        local UICorner_6 = Instance.new("UICorner")
+        local TabFrame = Instance.new("Frame")
+        local ImageLabel = Instance.new("ImageLabel")
+
+        TabButton.Name = text.."Server"
+        TabButton.Parent = ScrollTab
+        TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TabButton.BackgroundTransparency = 1.000
+        TabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TabButton.BorderSizePixel = 0
+        TabButton.Position = UDim2.new(0, 10, 0, 0)
+        TabButton.Text = text
+        TabButton.Size = UDim2.new(0, 120, 0, 30)
+        TabButton.Font = Enum.Font.SourceSans
+        TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TabButton.TextSize = 14.000
+
+        UICorner_6.CornerRadius = UDim.new(0, 4)
+        UICorner_6.Parent = TabButton
+
+        TabFrame.Name = "TabFrame"
+        TabFrame.Parent = TabButton
+        TabFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TabFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TabFrame.BorderSizePixel = 0
+        TabFrame.Position = UDim2.new(0, 2, 0, 2)
+        TabFrame.Size = UDim2.new(0, 25, 0, 25)
+
+        ImageLabel.Parent = text or "ImageLabel"
+        ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ImageLabel.BackgroundTransparency = 1.000
+        ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        ImageLabel.BorderSizePixel = 0
+        ImageLabel.Size = UDim2.new(1, 0, 1, 0)
+        ImageLabel.Image = img or "rbxasset://textures/ui/GuiImagePlaceholder.png"
+
+        local MainFramePage = Instance.new("ScrollingFrame")
+
+        MainFramePage.Name = text.."Server"
+        MainFramePage.Parent = PageList
+        MainFramePage.AnchorPoint = Vector2.new(0.5, 0.5)
+        MainFramePage.BackgroundColor3 = Color3.fromRGB(0, 0, 55)
+        MainFramePage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        MainFramePage.BorderSizePixel = 0
+        MainFramePage.Position = UDim2.new(0.5, 0, 0.5, 0)
+        MainFramePage.Selectable = false
+        MainFramePage.Size = UDim2.new(0, 289, 0, 258)
+        MainFramePage.ScrollBarThickness = 0
+
+        local UIListLayout = Instance.new("UIListLayout")
+
+        UIListLayout.Parent = MainFramePage
+        UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        UIListLayout.Padding = UDim.new(0, 20)
+
+        TabButton.MouseButton1Click:Connect(function()
+            for i,v in next, ScrollTab:GetChildren() do
+                if v:IsA("TextButton") then
+                TweenService:Create(
+                v,
+                TweenInfo.new(0.6,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+                {
+                TextTransparency = 0.5
+                }
+                ):Play()
+            end
+                TweenService:Create(
+                TabButton,
+                TweenInfo.new(0.6,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+                {
+                TextTransparency = 0
+                }
+                ):Play()
+            end
+         
+            for i,v in next, PageList:GetChildren() do
+                currentpage = string.gsub(TabButton.Name,"Server","").."_Page"
+                if v.Name == currentpage then
+                    UIPageLayout:JumpTo(v)
+                end
+            end
+        end)
+           
+        if abc == false then
+            for i,v in next, ScrollTab:GetChildren() do
+                if v:IsA("TextButton") then
+                TweenService:Create(
+                    v,
+                    TweenInfo.new(0.6,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+                    {
+                    TextTransparency = 1
+                    }
+                ):Play()
+           end
+                TweenService:Create(
+                    TabButton,
+                    TweenInfo.new(0.6,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+                    {
+                    TextTransparency = 0
+                    }
+                ):Play()
+           end
+                UIPageLayout:JumpToIndex(1)
+                abc = true
+           end
+            game:GetService("RunService").Stepped:Connect(function()
+                pcall(function()
+                MainFramePage.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 20)
+                ScrollTab.CanvasSize = UDim2.new(0,0,0,PLL.AbsoluteContentSize.Y + 20)
+            end)
+        end)
+    end
 end
 
 local ScriptBlox = Library:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")

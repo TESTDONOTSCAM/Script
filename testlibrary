@@ -362,8 +362,7 @@ function Update:Window(name,gamename,owner,keybind)
     TabHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TabHolder.BorderSizePixel = 0
     TabHolder.Position = UDim2.new(0, 0, 0.114285715, 0)
-    TabHolder.Size = UDim2.new(0, 140, 0, 310)
-    TabHolder.Zindex = 1
+    TabHolder.Size = UDim2.new(0, 0, 0, 310)
     TabHolder.Visible = false
 
     OpenTab.Name = "OpenTab"
@@ -401,7 +400,7 @@ function Update:Window(name,gamename,owner,keybind)
     ScrollTab.Selectable = false
     ScrollTab.Size = UDim2.new(0, 140, 0, 310)
     ScrollTab.Zindex = 2
-    ScrollTab.Visible = false
+    ScrollTab.Visible = true
     ScrollTab.ScrollBarThickness = 0
 
     UIListLayout_3.Parent = ScrollTab
@@ -566,3 +565,7 @@ function Update:Window(name,gamename,owner,keybind)
     end
     return uitab
 end
+
+local ScriptGame = Update:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")
+
+local Test = ScriptGame:Tab("Test","rbxassetid://14355269935")

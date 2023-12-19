@@ -3377,8 +3377,8 @@ local Library = Update:Window("Blox Fruits", "")
 -- \\ Window Table // --
 
 local User = Library:Tab("        Credit","rbxassetid://14355269935",_G.ColorUser)
-    local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
-    local Sea = Library:Tab("        SeaEvent","rbxassetid://14764164264",_G.ColorSea)
+    local Main = Library:Tab("        Main","rbxassetid://15679646289",_G.ColorMain)
+    local Kits = Library:Tab("        SeaEvent","rbxassetid://14764164264",_G.ColorSea)
     local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.ColorStats)
     local Combat = Library:Tab("        Combat","rbxassetid://14764193934",_G.ColorCombat)
     local Teleport = Library:Tab("        Teleport","rbxassetid://14764218351",_G.ColorTP)
@@ -4972,9 +4972,9 @@ end
 
 do
 
-Sea:Line(_G.ColorSea)
+Kits:Line(_G.ColorSea)
 
-local FM = Sea:Label("<<Please be in Third Sea>>")
+local FM = Kits:Label("<<Please be in Third Sea>>")
 
 task.spawn(function()
     while task.wait() do
@@ -4999,9 +4999,9 @@ task.spawn(function()
     end
 end)
 
-Sea:Seperator("<<Kitsune Island>>",_G.ColorSea)
+Kits:Seperator("<<Kitsune Island>>",_G.ColorSea)
 
-Sea:Toggle("Teleport To Kitsune Island",_G.ColorSea,false,function(vu)
+Kits:Toggle("Teleport To Kitsune Island",_G.ColorSea,false,function(vu)
     _G.Kitsune = vu
 end)
 
@@ -5017,7 +5017,7 @@ spawn(function()
     end
 end)
 
-Sea:Toggle("Kitsune Island Hop",_G.ColorSea,false,function(vu)
+Kits:Toggle("Kitsune Island Hop",_G.ColorSea,false,function(vu)
     _G.KitsuneHop = vu
 end)
 

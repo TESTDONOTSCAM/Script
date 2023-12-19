@@ -444,7 +444,7 @@ Date.TextWrapped = true
 spawn(function()
     while wait() do
         pcall(function()
-            Date.Text = os.date("%A, %B %d, %Y")
+            Date.Text = os.date("%B, %d, %Y")
         end)
     end
 end)

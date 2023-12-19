@@ -3378,7 +3378,7 @@ local Library = Update:Window("Blox Fruits", "")
 
 local User = Library:Tab("        Credit","rbxassetid://14355269935",_G.ColorUser)
     local Main = Library:Tab("        Main","rbxassetid://14764164264",_G.ColorMain)
-    local Kits = Library:Tab("        SeaEvent","rbxassetid://15679666397",_G.ColorSea)
+    local Kits = Library:Tab("        Kitsune","rbxassetid://15679666397",_G.ColorSea)
     local Stats = Library:Tab("        Auto Stats","rbxassetid://14764174048",_G.ColorStats)
     local Combat = Library:Tab("        Combat","rbxassetid://14764193934",_G.ColorCombat)
     local Teleport = Library:Tab("        Teleport","rbxassetid://14764218351",_G.ColorTP)

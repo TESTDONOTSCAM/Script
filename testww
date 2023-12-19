@@ -5186,6 +5186,22 @@ spawn(function()
     end
 end)
 
+Kits:Toggle("Auto Collect Azure Wisp",_G.ColorSea,false,function(vu)
+    _G.AzureKitsune = vu
+end)
+
+spawn(function()
+    while wait() do
+        if _G.AzureKitsune then
+            pcall(function()
+                if game:GetService("Workspace"):FindFirstChild("AttachedAzureEmber") then
+                    topos(game:GetService("Workspace"):WaitForChild("AttachedAzureEmber"):FindFirstChild("Part").CFrame)
+                end
+            end)
+        end
+    end
+end)
+
 end
 
 -- \\ Status Table // --

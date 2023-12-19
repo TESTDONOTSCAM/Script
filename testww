@@ -4980,20 +4980,20 @@ task.spawn(function()
     while task.wait() do
         pcall(function()
             if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
-                FM:Set("[ 🌕 ] Full Moon 100% [5 > 5]")
+                FM:Set("[ 🌕 ] Full Moon 100%")
             if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
                 Update:Notification("Kitsune Island has Spawn","ScriptBlox")
             end
             elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149052" then
-                FM:Set("[ 🌖 ] Full Moon 75% [4 > 5]")
+                FM:Set("[ 🌖 ] Full Moon 75%")
             elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" then
-                FM:Set("[ 🌗 ] Full Moon 50% [3 > 5]")
+                FM:Set("[ 🌗 ] Full Moon 50%")
             elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
-                FM:Set("[ 🌘 ] Full Moon 25% [2 > 5]")
+                FM:Set("[ 🌘 ] Full Moon 25%")
             elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
-                FM:Set("[ 🌘 ] Full Moon 15% [1 > 5]")
+                FM:Set("[ 🌘 ] Full Moon 15%")
             else
-                FM:Set("[ 🌑 ] Full Moon 0% [0 > 5]")
+                FM:Set("[ 🌑 ] Full Moon 0%")
             end
         end)
     end

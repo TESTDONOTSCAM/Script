@@ -397,7 +397,6 @@ PlrAvatar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 PlrAvatar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 PlrAvatar.BorderSizePixel = 0
 PlrAvatar.Position = UDim2.new(0, 455, 0, 2)
-PlrAvatar.Rotation = 180.000
 PlrAvatar.Size = UDim2.new(0, 30, 0, 30)
 PlrAvatar.Image = Players:GetUserThumbnailAsync(Player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 
@@ -416,7 +415,6 @@ FPS.TextScaled = true
 FPS.TextSize = 14.000
 FPS.TextStrokeTransparency = 0.000
 FPS.TextWrapped = true
-
 
 spawn(function()
     while wait() do

@@ -4974,7 +4974,7 @@ do
 
 Sea:Line(_G.ColorSea)
 
-local FM = Teleport2:Label("<<Please be in Third Sea>>")
+local FM = Sea:Label("<<Please be in Third Sea>>")
 
 task.spawn(function()
         while task.wait() do

@@ -434,12 +434,20 @@ Date.BorderSizePixel = 0
 Date.Position = UDim2.new(-0.0352966413, 280, 0.239999995, 27)
 Date.Size = UDim2.new(0, 150, 0, 18)
 Date.Font = Enum.Font.FredokaOne
-Date.Text = "Date : 12/19/2023"
+Date.Text = "N/A"
 Date.TextColor3 = Color3.fromRGB(86, 255, 255)
 Date.TextScaled = true
 Date.TextSize = 14.000
 Date.TextStrokeTransparency = 0.000
 Date.TextWrapped = true
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            Date.Text = os.date("%A, %B %d, %Y")
+        end)
+    end
+end)
 
 BottomPillar.Name = "BottomPillar"
 BottomPillar.Parent = Top

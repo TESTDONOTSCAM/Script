@@ -5004,6 +5004,9 @@ Kits:Seperator("<<Kitsune Island>>",_G.ColorSea)
 Kits:Toggle("Teleport To Kitsune Island",_G.ColorSea,false,function(vu)
     _G.Kitsune = vu
     StopTween(_G.Kitsune)
+    if _G.Kitsune == true then
+        _G.FastAttack = false
+    end
 end)
 
 spawn(function()

@@ -5005,9 +5005,9 @@ task.spawn(function()
     while task.wait() do
         pcall(function()
             if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-                Kitstatus:Set("[ Kitsune Island Status] ✔️")
+                Kitstatus:Set("[ Kitsune Island Status ]  ✔️")
             elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-                Kitstatus:Set("[ Kitsune Island Status] ❌")
+                Kitstatus:Set("[ Kitsune Island Status ]  ❌")
             end
         end)
     end

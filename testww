@@ -434,25 +434,12 @@ Date.BorderSizePixel = 0
 Date.Position = UDim2.new(-0.0352966413, 280, 0.239999995, 27)
 Date.Size = UDim2.new(0, 150, 0, 18)
 Date.Font = Enum.Font.FredokaOne
-Date.Text = ""
+Date.Text = "Date : 12/19/2023"
 Date.TextColor3 = Color3.fromRGB(86, 255, 255)
 Date.TextScaled = true
 Date.TextSize = 14.000
 Date.TextStrokeTransparency = 0.000
 Date.TextWrapped = true
-
-spawn(function()
-    while wait() do
-        pcall(function()
-            local scripttime=game.Workspace.DistributedGameTime
-            local seconds = scripttime%60
-            local minutes = math.floor(scripttime/60%60)
-            local hours = math.floor(scripttime/3600)
-            local tempo = string.format("[ %.0f Hour's , %.0f Minute , %.0f Second ]", hours ,minutes, seconds)
-            Date.Text = tempo
-        end)
-    end
-end)
 
 BottomPillar.Name = "BottomPillar"
 BottomPillar.Parent = Top

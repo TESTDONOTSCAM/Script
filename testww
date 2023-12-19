@@ -293,11 +293,10 @@ mainopens.Parent = mainopen
  
  local Update = {}
 
-function Update:Window(text,logo,keybind)
+function Update:Window(Hub,Game,logo,keybind)
    local osfunc = {}
    local uihide = false
    local abc = false
-   local logo = logo or 14270030211
    local currentpage = ""
    local keybind = keybind or Enum.KeyCode.RightControl
    local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
@@ -355,24 +354,6 @@ TCNR.CornerRadius = UDim.new(0, 6)
 TCNR.Name = "TCNR"
 TCNR.Parent = Top
 
-local Player = game.Players.LocalPlayer
-local Hub = Instance.new("TextLabel")
-Hub.Name = "Hub"
-Hub.Parent = Top
-Hub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Hub.BackgroundTransparency = 1.000
-Hub.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Hub.BorderSizePixel = 0
-Hub.Position = UDim2.new(0.256410271, 0, 0.400000006, 0)
-Hub.Size = UDim2.new(0.775147915, -100, -2.4000001, 100)
-Hub.Font = Enum.Font.Ubuntu
-Hub.Text = _G.HubName
-Hub.TextColor3 = Color3.fromRGB(86,255,255)
-Hub.TextScaled = true
-Hub.TextStrokeTransparency = 0.000
-Hub.TextSize = 14.000
-Hub.TextWrapped = true
-
 local Logo = Instance.new("ImageLabel")
 Logo.Name = "Logo"
 Logo.Parent = Top
@@ -382,20 +363,144 @@ Logo.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Logo.BorderSizePixel = 0
 Logo.Position = UDim2.new(0, 10, 0, 10)
 Logo.Size = UDim2.new(0, 120, 0, 120)
-Logo.Image = "http://www.roblox.com/asset/?id=14355269935"
+Logo.Image = logo or "http://www.roblox.com/asset/?id=14355269935"
 
-local Name = Instance.new("TextLabel")
+local ArrowTop = Instance.new("ImageLabel")
+local PlrAvatar = Instance.new("ImageLabel")
+local FPS = Instance.new("TextLabel")
+local Date = Instance.new("TextLabel")
+local BottomPillar = Instance.new("Frame")
+local PlrName = Instance.new("TextLabel")
+local BottomPillar2 = Instance.new("Frame")
+local GameName = Instance.new("TextLabel")
+local HubName = Instance.new("TextLabel")
+local ArrowTop2 = Instance.new("ImageLabel")
 
- Name.Name = "Name"
- Name.Parent = Top
- Name.BackgroundColor3 = Color3.fromRGB(35,255,255)
- Name.BackgroundTransparency = 1.000
- Name.Position = UDim2.new(0.0909756112, 0, 0, 0)
- Name.Size = UDim2.new(0, 0,0,0)
- Name.Font = Enum.Font.Code
- Name.Text = text
- Name.TextColor3 = Color3.fromRGB(255, 255, 255)
- Name.TextSize = 14.000
+ArrowTop.Name = "ArrowTop"
+ArrowTop.Parent = Top
+ArrowTop.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ArrowTop.BackgroundTransparency = 1.000
+ArrowTop.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ArrowTop.BorderSizePixel = 0
+ArrowTop.Position = UDim2.new(0, 141, 0, 30)
+ArrowTop.Size = UDim2.new(0, 30, 0, 20)
+ArrowTop.Image = "http://www.roblox.com/asset/?id=15675072404"
+
+PlrAvatar.Name = "PlrAvatar"
+PlrAvatar.Parent = Top
+PlrAvatar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlrAvatar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlrAvatar.BorderSizePixel = 0
+PlrAvatar.Position = UDim2.new(0, 455, 0, 2)
+PlrAvatar.Rotation = 180.000
+PlrAvatar.Size = UDim2.new(0, 30, 0, 30)
+
+FPS.Name = "FPS"
+FPS.Parent = Top
+FPS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FPS.BackgroundTransparency = 1.000
+FPS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FPS.BorderSizePixel = 0
+FPS.Position = UDim2.new(0.255999982, 28, 0.239999995, 27)
+FPS.Size = UDim2.new(0, 80, 0, 18)
+FPS.Font = Enum.Font.FredokaOne
+FPS.Text = "[FPS] 60"
+FPS.TextColor3 = Color3.fromRGB(86, 255, 255)
+FPS.TextScaled = true
+FPS.TextSize = 14.000
+FPS.TextStrokeTransparency = 0.000
+FPS.TextWrapped = true
+
+Date.Name = "Date"
+Date.Parent = Top
+Date.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Date.BackgroundTransparency = 1.000
+Date.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Date.BorderSizePixel = 0
+Date.Position = UDim2.new(-0.0352966413, 280, 0.239999995, 27)
+Date.Size = UDim2.new(0, 150, 0, 18)
+Date.Font = Enum.Font.FredokaOne
+Date.Text = "Date [ 12/19/2023 ]"
+Date.TextColor3 = Color3.fromRGB(86, 255, 255)
+Date.TextScaled = true
+Date.TextSize = 14.000
+Date.TextStrokeTransparency = 0.000
+Date.TextWrapped = true
+
+BottomPillar.Name = "BottomPillar"
+BottomPillar.Parent = Top
+BottomPillar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+BottomPillar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BottomPillar.BorderSizePixel = 0
+BottomPillar.Position = UDim2.new(0, 250, 0, 32)
+BottomPillar.Size = UDim2.new(0, 2, 0, 20)
+
+PlrName.Name = "PlrName"
+PlrName.Parent = Top
+PlrName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlrName.BackgroundTransparency = 1.000
+PlrName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlrName.BorderSizePixel = 0
+PlrName.Position = UDim2.new(0.0520284064, 390, 0.239999995, 27)
+PlrName.Size = UDim2.new(0, 100, 0, 18)
+PlrName.Font = Enum.Font.FredokaOne
+PlrName.Text = "ScriptBott"
+PlrName.TextColor3 = Color3.fromRGB(86, 255, 255)
+PlrName.TextScaled = true
+PlrName.TextSize = 14.000
+PlrName.TextStrokeTransparency = 0.000
+PlrName.TextWrapped = true
+
+BottomPillar2.Name = "BottomPillar2"
+BottomPillar2.Parent = Top
+BottomPillar2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+BottomPillar2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BottomPillar2.BorderSizePixel = 0
+BottomPillar2.Position = UDim2.new(0, 420, 0, 32)
+BottomPillar2.Size = UDim2.new(0, 2, 0, 20)
+
+GameName.Name = "GameName"
+GameName.Parent = Top
+GameName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GameName.BackgroundTransparency = 1.000
+GameName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+GameName.BorderSizePixel = 0
+GameName.Position = UDim2.new(0.255999982, 100, 0.239999995, 0)
+GameName.Size = UDim2.new(0, 177, 0, 18)
+GameName.Font = Enum.Font.FredokaOne
+GameName.Text = Game or "- Blox Fruits | Third Sea"
+GameName.TextColor3 = Color3.fromRGB(86, 255, 255)
+GameName.TextScaled = true
+GameName.TextSize = 14.000
+GameName.TextStrokeTransparency = 0.000
+GameName.TextWrapped = true
+
+HubName.Name = "HubName"
+HubName.Parent = Top
+HubName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+HubName.BackgroundTransparency = 1.000
+HubName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+HubName.BorderSizePixel = 0
+HubName.Position = UDim2.new(0.256000012, 0, 0.239999995, 0)
+HubName.Size = UDim2.new(0, 90, 0, 18)
+HubName.Font = Enum.Font.FredokaOne
+HubName.Text = Hub or "SCRIPTBLOX"
+HubName.TextColor3 = Color3.fromRGB(86, 255, 255)
+HubName.TextScaled = true
+HubName.TextSize = 14.000
+HubName.TextStrokeTransparency = 0.000
+HubName.TextWrapped = true
+
+ArrowTop2.Name = "ArrowTop2"
+ArrowTop2.Parent = Top
+ArrowTop2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ArrowTop2.BackgroundTransparency = 1.000
+ArrowTop2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ArrowTop2.BorderSizePixel = 0
+ArrowTop2.Position = UDim2.new(0, 525, 0, 30)
+ArrowTop2.Rotation = 180.000
+ArrowTop2.Size = UDim2.new(0, 30, 0, 20)
+ArrowTop2.Image = "http://www.roblox.com/asset/?id=15675072404"
 
 -- TabBar
 

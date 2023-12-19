@@ -399,7 +399,6 @@ function Update:Window(name,gamename,owner,keybind)
     ScrollTab.ClipsDescendants = true
     ScrollTab.Selectable = false
     ScrollTab.Size = UDim2.new(0, 140, 0, 310)
-    ScrollTab.Zindex = 2
     ScrollTab.Visible = true
     ScrollTab.ScrollBarThickness = 0
 

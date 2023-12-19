@@ -6,6 +6,11 @@ if _G.Fast_Delay == nil then
 	_G.Fast_Delay = 0.15
 end
 
+-- < // Vars \\ > --
+
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
 -- < // Global Vars \\ > --
 
 _G.WalkWater = true
@@ -294,12 +299,12 @@ mainopens.Parent = mainopen
  local Update = {}
 
 function Update:Window(Hub,Game,logo,keybind)
-   local osfunc = {}
-   local uihide = false
-   local abc = false
-   local currentpage = ""
-   local keybind = keybind or Enum.KeyCode.RightControl
-   local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
+local osfunc = {}
+local uihide = false
+local abc = false
+local currentpage = ""
+local keybind = keybind or Enum.KeyCode.RightControl
+local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 
 local MyLibrary = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
@@ -394,6 +399,7 @@ PlrAvatar.BorderSizePixel = 0
 PlrAvatar.Position = UDim2.new(0, 455, 0, 2)
 PlrAvatar.Rotation = 180.000
 PlrAvatar.Size = UDim2.new(0, 30, 0, 30)
+PlrAvatar.Image = Players:GetUserThumbnailAsync(Player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 
 FPS.Name = "FPS"
 FPS.Parent = Top
@@ -411,6 +417,15 @@ FPS.TextSize = 14.000
 FPS.TextStrokeTransparency = 0.000
 FPS.TextWrapped = true
 
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            FPS.Text = "[ FPS ] "..string.format("%d",workspace:GetRealPhysicsFPS())
+        end)
+    end
+end)
+
 Date.Name = "Date"
 Date.Parent = Top
 Date.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -420,12 +435,25 @@ Date.BorderSizePixel = 0
 Date.Position = UDim2.new(-0.0352966413, 280, 0.239999995, 27)
 Date.Size = UDim2.new(0, 150, 0, 18)
 Date.Font = Enum.Font.FredokaOne
-Date.Text = "Date [ 12/19/2023 ]"
+Date.Text = ""
 Date.TextColor3 = Color3.fromRGB(86, 255, 255)
 Date.TextScaled = true
 Date.TextSize = 14.000
 Date.TextStrokeTransparency = 0.000
 Date.TextWrapped = true
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            local scripttime=game.Workspace.DistributedGameTime
+            local seconds = scripttime%60
+            local minutes = math.floor(scripttime/60%60)
+            local hours = math.floor(scripttime/3600)
+            local tempo = string.format("[ %.0f Hour's , %.0f Minute , %.0f Second ]", hours ,minutes, seconds)
+            Date.Text = tempo
+        end)
+    end
+end)
 
 BottomPillar.Name = "BottomPillar"
 BottomPillar.Parent = Top
@@ -444,7 +472,7 @@ PlrName.BorderSizePixel = 0
 PlrName.Position = UDim2.new(0.0520284064, 390, 0.239999995, 27)
 PlrName.Size = UDim2.new(0, 100, 0, 18)
 PlrName.Font = Enum.Font.FredokaOne
-PlrName.Text = "ScriptBott"
+PlrName.Text = Player.Name
 PlrName.TextColor3 = Color3.fromRGB(86, 255, 255)
 PlrName.TextScaled = true
 PlrName.TextSize = 14.000
@@ -3477,7 +3505,7 @@ spawn(function()
     end
 end)
 
-local Library = Update:Window("Blox Fruits", "")
+local Library = Update:Window("SCRIPTBLOX","- Blox Fruits")
 
 -- \\ Window Table // --
 

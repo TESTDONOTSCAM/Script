@@ -356,7 +356,7 @@ function Update:Window(name,gamename,owner,keybind)
     local UIPadding_6 = Instance.new("UIPadding")
 
     TabHolder.Name = "TabHolder"
-    TabHolder.Parent = TabHold
+    TabHolder.Parent = Main
     TabHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TabHolder.BackgroundTransparency = 1.000
     TabHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)

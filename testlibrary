@@ -363,7 +363,6 @@ function Update:Window(name,gamename,owner,keybind)
     TabHolder.BorderSizePixel = 0
     TabHolder.Position = UDim2.new(0, 0, 0.114285715, 0)
     TabHolder.Size = UDim2.new(0, 140, 0, 310)
-    TabHolder.ZIndex = 1
     TabHolder.Visible = false
 
     ScrollTab.Name = "ScrollTab"
@@ -376,7 +375,6 @@ function Update:Window(name,gamename,owner,keybind)
     ScrollTab.Selectable = false
     ScrollTab.Size = UDim2.new(0, 140, 0, 310)
     ScrollTab.Visible = false
-    ScrollTab.Zindex = 1
     ScrollTab.ScrollBarThickness = 0
 
     OpenTab.Name = "OpenTab"
@@ -388,6 +386,7 @@ function Update:Window(name,gamename,owner,keybind)
     OpenTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
     OpenTab.BorderSizePixel = 0
     OpenTab.Position = UDim2.new(0.5, -280, 0.5, 0)
+    OpenTab.Rotation = 0
     OpenTab.Size = UDim2.new(0, 30, 0, 30)
     OpenTab.Image = "http://www.roblox.com/asset/?id=15674906717"
     OpenTab.MouseButton1Click:Connect(function()
@@ -396,6 +395,7 @@ function Update:Window(name,gamename,owner,keybind)
             TabHolder.Visible = true
             TabHolder.Zindex = 2
             ScrollTab.Visible = true
+            OpenTab.Rotation = 180
             ScrollTab.Zindex = 2
             TabHolder:TweenSize(UDim2.new(0, 140, 0, 310),"In","Quad",0.4,true)
             ScrollTab:TweenSize(UDim2.new(0, 140, 0, 310),"In","Quad",0.4,true)
@@ -403,6 +403,7 @@ function Update:Window(name,gamename,owner,keybind)
             Tabhide = false
             TabHolder:TweenSize(UDim2.new(0, 0, 0, 310),"In","Quad",0.4,true)
             ScrollTab:TweenSize(UDim2.new(0, 0, 0, 310),"In","Quad",0.4,true)
+            OpenTab.Rotation = 0
             wait(0.4)
             TabHolder.Visible = false
             TabHolder.Zindex = 1

@@ -363,7 +363,7 @@ function Update:Window(name,gamename,owner,keybind)
     TabHolder.BorderSizePixel = 0
     TabHolder.Position = UDim2.new(0, 0, 0.114285715, 0)
     TabHolder.Size = UDim2.new(0, 140, 0, 310)
-    TabHolder.ZIndex = 2
+    --TabHolder.ZIndex = 2
     TabHolder.Visible = false
 
     ScrollTab.Name = "ScrollTab"
@@ -376,19 +376,19 @@ function Update:Window(name,gamename,owner,keybind)
     ScrollTab.Selectable = false
     ScrollTab.Size = UDim2.new(0, 140, 0, 310)
     ScrollTab.Visible = false
-    ScrollTab.Zindex = 2
+    --ScrollTab.Zindex = 2
     ScrollTab.ScrollBarThickness = 0
 
     OpenTab.Name = "OpenTab"
     OpenTab.Parent = TopHub
     OpenTab.AnchorPoint = Vector2.new(0.5, 0.5)
+    OpenTab.Active = true
     OpenTab.BackgroundColor3 = Color3.fromRGB(85, 0, 255)
     OpenTab.BackgroundTransparency = 1.000
     OpenTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
     OpenTab.BorderSizePixel = 0
     OpenTab.Position = UDim2.new(0.5, -280, 0.5, 0)
     OpenTab.Size = UDim2.new(0, 30, 0, 30)
-    OpenTab.Zindex = 3
     OpenTab.Image = "http://www.roblox.com/asset/?id=15674906717"
     OpenTab.MouseButton1Click:Connect(function()
         if Tabhide == false then

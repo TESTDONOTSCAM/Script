@@ -356,7 +356,7 @@ function Update:Window(name,gamename,owner,keybind)
     local UIPadding_6 = Instance.new("UIPadding")
 
     TabHolder.Name = "TabHolder"
-    TabHolder.Parent = Main
+    TabHolder.Parent = TabHold
     TabHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TabHolder.BackgroundTransparency = 1.000
     TabHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -365,18 +365,6 @@ function Update:Window(name,gamename,owner,keybind)
     TabHolder.Size = UDim2.new(0, 140, 0, 310)
     TabHolder.Zindex = 1
     TabHolder.Visible = false
-
-    ScrollTab.Name = "ScrollTab"
-    ScrollTab.Parent = TabHolder
-    ScrollTab.Active = true
-    ScrollTab.BackgroundColor3 = Color3.fromRGB(0, 0, 75)
-    ScrollTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    ScrollTab.BorderSizePixel = 0
-    ScrollTab.ClipsDescendants = true
-    ScrollTab.Selectable = false
-    ScrollTab.Size = UDim2.new(0, 140, 0, 310)
-    ScrollTab.Visible = false
-    ScrollTab.ScrollBarThickness = 0
 
     OpenTab.Name = "OpenTab"
     OpenTab.Parent = TopHub
@@ -393,23 +381,28 @@ function Update:Window(name,gamename,owner,keybind)
     OpenTab.MouseButton1Click:Connect(function()
         if Tabhide == false then
             Tabhide = true
-            TabHolder.Visible = true
-            ScrollTab.Visible = true
-            OpenTab.Rotation = 180
-            ScrollTab.Zindex = 2
             TabHolder:TweenSize(UDim2.new(0, 140, 0, 310),"In","Quad",0.4,true)
-            ScrollTab:TweenSize(UDim2.new(0, 140, 0, 310),"In","Quad",0.4,true)
+            TabHolder.ZIndex = 2
+            OpenTab.Rotation = 180
             else
             Tabhide = false
             TabHolder:TweenSize(UDim2.new(0, 0, 0, 310),"In","Quad",0.4,true)
-            ScrollTab:TweenSize(UDim2.new(0, 0, 0, 310),"In","Quad",0.4,true)
             OpenTab.Rotation = 0
-            wait(0.4)
-            TabHolder.Visible = false
-            ScrollTab.Visible = false
-            ScrollTab.Zindex = 1
         end
     end)
+
+    ScrollTab.Name = "ScrollTab"
+    ScrollTab.Parent = TabHolder
+    ScrollTab.Active = true
+    ScrollTab.BackgroundColor3 = Color3.fromRGB(0, 0, 75)
+    ScrollTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    ScrollTab.BorderSizePixel = 0
+    ScrollTab.ClipsDescendants = true
+    ScrollTab.Selectable = false
+    ScrollTab.Size = UDim2.new(0, 140, 0, 310)
+    ScrollTab.Zindex = 2
+    ScrollTab.Visible = false
+    ScrollTab.ScrollBarThickness = 0
 
     UIListLayout_3.Parent = ScrollTab
     UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
@@ -573,7 +566,3 @@ function Update:Window(name,gamename,owner,keybind)
     end
     return uitab
 end
-
-local ScriptGame = Update:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")
-
-local Test = ScriptGame:Tab("Test","rbxassetid://14355269935")

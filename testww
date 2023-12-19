@@ -5183,7 +5183,7 @@ spawn(function()
         if _G.Kitsune then
             pcall(function()
                 if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-                    topos(game:GetService("Workspace").Map:WaitForChild("KitsuneIsland").ShrineActive:FindFirstChild("NeonShrinePart").CFrame)
+                    TPP(game:GetService("Workspace").Map:WaitForChild("KitsuneIsland").ShrineActive:FindFirstChild("NeonShrinePart").CFrame)
                 end
             end)
         end

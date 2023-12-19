@@ -393,7 +393,6 @@ function Update:Window(name,gamename,owner,keybind)
         if Tabhide == false then
             Tabhide = true
             TabHolder.Visible = true
-            TabHolder.Zindex = 2
             ScrollTab.Visible = true
             OpenTab.Rotation = 180
             ScrollTab.Zindex = 2
@@ -406,7 +405,6 @@ function Update:Window(name,gamename,owner,keybind)
             OpenTab.Rotation = 0
             wait(0.4)
             TabHolder.Visible = false
-            TabHolder.Zindex = 1
             ScrollTab.Visible = false
             ScrollTab.Zindex = 1
         end
@@ -574,7 +572,3 @@ function Update:Window(name,gamename,owner,keybind)
     end
     return uitab
 end
-
-local ScriptGame = Update:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")
-
-local Test = ScriptGame:Tab("Test","rbxassetid://14355269935")

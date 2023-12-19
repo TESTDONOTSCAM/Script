@@ -3108,6 +3108,22 @@ while wait(.1) do
     end
 end)
 
+function TPP(CFgo)
+	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0 or not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") then tweenP:Cancel() repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 wait(7) return end
+	local tween_sP = game:service"TweenService"
+	local infoP = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/_G.TweenSpeed, Enum.EasingStyle.Linear)
+	tweenP = tween_sP:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], infoP, {CFrame = CFgo})
+tweenP:Play()
+tweenP.Completed:Wait(E)
+
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tweenP:Cancel()
+end
+	return tweenfunc
+end
+
 function topos(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
@@ -5149,6 +5165,10 @@ task.spawn(function()
 end)
 
 Kits:Seperator("<<Kitsune Island>>",_G.ColorSea)
+
+Kits:Slider("Tween Speed",_G.ColorSea,1,300,200,function(vu)
+    _G.TweenSpeed = vu
+end)
 
 Kits:Toggle("Teleport To Kitsune Island",_G.ColorSea,false,function(vu)
     _G.Kitsune = vu

@@ -363,6 +363,7 @@ function Update:Window(name,gamename,owner,keybind)
     TabHolder.BorderSizePixel = 0
     TabHolder.Position = UDim2.new(0, 0, 0.114285715, 0)
     TabHolder.Size = UDim2.new(0, 140, 0, 310)
+    TabHolder.Zindex = 1
     TabHolder.Visible = false
 
     ScrollTab.Name = "ScrollTab"
@@ -572,3 +573,7 @@ function Update:Window(name,gamename,owner,keybind)
     end
     return uitab
 end
+
+local ScriptGame = Update:Window("SCRIPTBLOX","Blox Fruits | Third Sea","ScriptBlox")
+
+local Test = ScriptGame:Tab("Test","rbxassetid://14355269935")

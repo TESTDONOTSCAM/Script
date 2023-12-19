@@ -298,7 +298,7 @@ mainopens.Parent = mainopen
  
  local Update = {}
 
-function Update:Window(Hub,Game,logo,keybind)
+function Update:Window(Hub,logo,keybind)
 local osfunc = {}
 local uihide = false
 local abc = false
@@ -496,12 +496,20 @@ GameName.BorderSizePixel = 0
 GameName.Position = UDim2.new(0.255999982, 100, 0.239999995, 0)
 GameName.Size = UDim2.new(0, 177, 0, 18)
 GameName.Font = Enum.Font.FredokaOne
-GameName.Text = Game or "- Blox Fruits | Third Sea"
+GameName.Text = ""
 GameName.TextColor3 = Color3.fromRGB(86, 255, 255)
 GameName.TextScaled = true
 GameName.TextSize = 14.000
 GameName.TextStrokeTransparency = 0.000
 GameName.TextWrapped = true
+
+if game.PlaceId == 2753915549 then
+    GameName.Text = "- Blox Fruits | First Sea"
+elseif game.PlaceId == 4442272183 then
+    GameName.Text = "- Blox Fruits | Second Sea"
+elseif game.PlaceId == 7449423635 then
+    GameName.Text = "- Blox Fruits | Third Sea"
+end
 
 HubName.Name = "HubName"
 HubName.Parent = Top
@@ -3505,7 +3513,7 @@ spawn(function()
     end
 end)
 
-local Library = Update:Window("SCRIPTBLOX","- Blox Fruits")
+local Library = Update:Window("SCRIPTBLOX","rbxassetid://14355269935")
 
 -- \\ Window Table // --
 

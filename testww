@@ -420,7 +420,7 @@ FPS.TextWrapped = true
 spawn(function()
     while wait() do
         pcall(function()
-            FPS.Text = "[ FPS ] "..string.format("%d",workspace:GetRealPhysicsFPS())
+            FPS.Text = "FPS > "..string.format("%d",workspace:GetRealPhysicsFPS())
         end)
     end
 end)

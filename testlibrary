@@ -371,10 +371,10 @@ function Update:Window(name,gamename,owner,keybind)
     ScrollTab.BackgroundColor3 = Color3.fromRGB(0, 0, 75)
     ScrollTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
     ScrollTab.BorderSizePixel = 0
-    ScrollTab.ClipsDescendants = false
+    ScrollTab.ClipsDescendants = true
     ScrollTab.Selectable = false
     ScrollTab.Size = UDim2.new(0, 0, 0, 310)
-    --ScrollTab.Zindex = 2
+    ScrollTab.Zindex = 2
     ScrollTab.ScrollBarThickness = 0
 
     OpenTab.Name = "OpenTab"

@@ -4999,6 +4999,20 @@ task.spawn(function()
     end
 end)
 
+local Kitstatus = Kits:Label("<<Kitsune Island Status>>")
+
+task.spawn(function()
+    while task.wait() do
+        pcall(function()
+            if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+                Kitstatus:Set("[ Kitsune Island Status] ✔️")
+            elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+                Kitstatus:Set("[ Kitsune Island Status] ❌")
+            end
+        end)
+    end
+end)
+
 Kits:Seperator("<<Kitsune Island>>",_G.ColorSea)
 
 Kits:Toggle("Teleport To Kitsune Island",_G.ColorSea,false,function(vu)

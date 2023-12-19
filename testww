@@ -332,13 +332,13 @@ MCNR.Name = "MCNR"
 MCNR.Parent = Main
 
 MainStroke.Name = "posto"
- MainStroke.Parent = Main
- MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- MainStroke.Color = _G.StrokeColor
- MainStroke.LineJoinMode = Enum.LineJoinMode.Round
- MainStroke.Thickness = 1.5
- MainStroke.Transparency = 0
- MainStroke.Enabled = true
+MainStroke.Parent = Main
+MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+MainStroke.Color = _G.StrokeColor
+MainStroke.LineJoinMode = Enum.LineJoinMode.Round
+MainStroke.Thickness = 1.5
+MainStroke.Transparency = 0
+MainStroke.Enabled = true
 MainStroke.Archivable = true
 
 -- Top Bar
@@ -394,6 +394,7 @@ ArrowTop.Image = "http://www.roblox.com/asset/?id=15675072404"
 PlrAvatar.Name = "PlrAvatar"
 PlrAvatar.Parent = Top
 PlrAvatar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlrAvatar.BackgroundTransparency = 1.000
 PlrAvatar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 PlrAvatar.BorderSizePixel = 0
 PlrAvatar.Position = UDim2.new(0, 455, 0, 2)
@@ -469,7 +470,7 @@ PlrName.BorderColor3 = Color3.fromRGB(0, 0, 0)
 PlrName.BorderSizePixel = 0
 PlrName.Position = UDim2.new(0.0520284064, 390, 0.239999995, 27)
 PlrName.Size = UDim2.new(0, 100, 0, 18)
-PlrName.Font = Enum.Font.FredokaOne
+PlrName.Font = Enum.Font.Ubuntu
 PlrName.Text = Player.Name
 PlrName.TextColor3 = Color3.fromRGB(86, 255, 255)
 PlrName.TextScaled = true

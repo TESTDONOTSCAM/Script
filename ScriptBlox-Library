@@ -344,6 +344,35 @@ Kitsune.TextSize = 16.000
 Kitsune.TextWrapped = true
 Kitsune.TextXAlignment = Enum.TextXAlignment.Left
 
+task.spawn(function()
+    while task.wait() do
+        pcall(function()
+            if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+				if not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+					local minutes = 2
+					local seconds = 10
+
+					repeat
+						if seconds <= 0 then
+							minutes = minutes - 1
+							seconds = 59
+						else
+							seconds = seconds - 1
+						end
+						if seconds < 9 then
+							Kitsune.Text = tostring(minutes)..":0"..tostring(seconds)
+						else
+							Kitsune.Text = tostring(minutes)..":"..tostring(seconds)
+						end
+						wait(1)
+					until minutes <= 0 and seconds <= 0
+					Hop()
+				end
+            end
+        end)
+    end
+end)
+
 UIPadding.Parent = Kitsune
 UIPadding.PaddingLeft = UDim.new(0, 15)
 
@@ -502,39 +531,6 @@ task.spawn(function()
                 Kitsune_2.Text = "[ Kitsune Island Status ]  ✅"
             elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
                 Kitsune_2.Text = "[ Kitsune Island Status ]  ❌"
-            end
-        end)
-    end
-end)
-
-task.spawn(function()
-    while task.wait() do
-        pcall(function()
-            if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
-                Moon.Text = "🌕"
-				FullMoon.Text = "Full Moon [ 100% ]"
-				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-					_G.Kitsune = true
-				elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-					local minutes = 2
-					local seconds = 10
-
-					repeat
-						if seconds <= 0 then
-							minutes = minutes - 1
-							seconds = 59
-						else
-							seconds = seconds - 1
-						end
-						if seconds < 9 then
-							Kitsune_2.Text = tostring(minutes)..":0"..tostring(seconds)
-						else
-							Kitsune_2.Text = tostring(minutes)..":"..tostring(seconds)
-						end
-						wait(1)
-					until minutes <= 0 and seconds <= 0
-					Hop()
-				end
             end
         end)
     end

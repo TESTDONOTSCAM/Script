@@ -5211,7 +5211,7 @@ spawn(function()
         if _G.AzureKitsune then
             pcall(function()
                 if game:GetService("Workspace"):FindFirstChild("AttachedAzureEmber") then
-                    topos(game:GetService("Workspace"):WaitForChild("AttachedAzureEmber"):FindFirstChild("Part").CFrame)
+                    topos(game:GetService("Workspace"):WaitForChild("EmberTemplate"):FindFirstChild("Part").CFrame)
                 end
             end)
         end

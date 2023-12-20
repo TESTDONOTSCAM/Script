@@ -171,6 +171,36 @@ function Update:Notification(textdesc,owner)
 	NotificationScreen.Enabled = false
 end
 
+spawn(function()
+    pcall(function()
+    while wait() do
+    if _G.Kitsune == true then
+    if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
+    local Noclip = Instance.new("BodyVelocity")
+    Noclip.Name = "BodyClip"
+    Noclip.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+    Noclip.MaxForce = Vector3.new(100000,100000,100000)
+    Noclip.Velocity = Vector3.new(0,0,0)
+                end
+            end
+        end
+    end)
+end)
+    
+spawn(function()
+    pcall(function()
+    game:GetService("RunService").Stepped:Connect(function()
+    if _G.Kitsune == true then
+    for _, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+    if v:IsA("BasePart") then
+    v.CanCollide = false
+                    end
+                end
+            end
+        end)
+    end)
+end)
+
 function Hop()
     local PlaceID = game.PlaceId
     local AllIDs = {}

@@ -470,7 +470,7 @@ spawn(function()
 		if _G.CheckHop then
 			pcall(function()
 				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-					_G.CheckHop = false
+					
 				elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
 					Hop()
             	end

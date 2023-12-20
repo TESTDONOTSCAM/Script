@@ -473,6 +473,7 @@ task.spawn(function()
                 Kitsune.Text = "<<ISLAND SPAWN>>"
 				wait(15)
 				Kitsune.Text = "<<AUTO KITSUNE ISLAND>>"
+				wait(15)
             end
         end)
     end

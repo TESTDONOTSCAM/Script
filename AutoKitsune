@@ -457,8 +457,22 @@ spawn(function()
 						end
 						wait(1)
 						until minutes <= 0 and seconds <= 0 or not _G.Timer
-						Hop()
+						_G.CheckHop = true
 					end
+            	end
+        	end)
+		end
+    end
+end)
+
+spawn(function()
+    while wait() do
+		if _G.CheckHop then
+			pcall(function()
+				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+					_G.CheckHop = false
+				elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+					Hop()
             	end
         	end)
 		end

@@ -360,9 +360,9 @@ task.spawn(function()
 							seconds = seconds - 1
 						end
 						if seconds < 9 then
-							Kitsune.Text = "Full Moon 100% ["..tostring(minutes)..":0"..tostring(seconds).."]"
+							Kitsune.Text = "Full Moon 100% ["..tostring(minutes)..":0"..tostring(seconds).."] Until Hop Server"
 						else
-							Kitsune.Text = "Full Moon 100% ["..tostring(minutes)..":"..tostring(seconds).."]"
+							Kitsune.Text = "Full Moon 100% ["..tostring(minutes)..":"..tostring(seconds).."] Until Hop Server"
 						end
 						wait(1)
 					until minutes <= 0 and seconds <= 0

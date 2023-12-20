@@ -3108,6 +3108,22 @@ while wait(.1) do
     end
 end)
 
+function TPP(CFgo)
+	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0 or not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") then tweenP:Cancel() repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 wait(7) return end
+	local tween_sP = game:service"TweenService"
+	local infoP = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/250, Enum.EasingStyle.Linear)
+	tweenP = tween_sP:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], infoP, {CFrame = CFgo})
+tweenP:Play()
+tweenP.Completed:Wait(E)
+
+local tweenfunc = {}
+	
+function tweenfunc:Stop()
+	tweenP:Cancel()
+end
+	return tweenfunc
+end
+
 function topos(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
@@ -5163,7 +5179,7 @@ spawn(function()
         if _G.Kitsune then
             pcall(function()
                 if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-                    topos(game:GetService("Workspace").Map:WaitForChild("KitsuneIsland").ShrineActive:FindFirstChild("NeonShrinePart").CFrame)
+                    TPP(game:GetService("Workspace").Map:WaitForChild("KitsuneIsland").ShrineActive:FindFirstChild("NeonShrinePart").CFrame)
                 end
             end)
         end
@@ -5195,7 +5211,7 @@ spawn(function()
         if _G.AzureKitsune then
             pcall(function()
                 if game:GetService("Workspace"):FindFirstChild("AttachedAzureEmber") then
-                    topos(game:GetService("Workspace"):WaitForChild("AttachedAzureEmber"):FindFirstChild("Part").CFrame)
+                    topos(game:GetService("Workspace"):WaitForChild("EmberTemplate"):FindFirstChild("Part").CFrame)
                 end
             end)
         end

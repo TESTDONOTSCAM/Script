@@ -569,7 +569,7 @@ task.spawn(function()
 				FullMoon.Text = "Full Moon [ 100% ]"
 				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
 					_G.Kitsune = true
-					_G.AzureKitsune = true
+					_G.SpamAzure = true
 				elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
 					wait(600)
 					Hop()
@@ -602,6 +602,17 @@ task.spawn(function()
             end
         end)
     end
+end)
+
+spawn(function()
+	while wait() do
+		if _G.SpamAzure then
+			pcall(function()
+				_G.AzureKitsune = true
+				print("SpamAzure")
+			end)
+		end
+	end
 end)
 
 spawn(function()

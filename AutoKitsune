@@ -569,6 +569,7 @@ task.spawn(function()
 				FullMoon.Text = "Full Moon [ 100% ]"
 				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
 					_G.Kitsune = true
+					_G.AzureKitsune = true
 				elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
 					wait(600)
 					Hop()
@@ -609,13 +610,14 @@ spawn(function()
             pcall(function()
                 if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
                     TPP(game:GetService("Workspace").Map:WaitForChild("KitsuneIsland").ShrineActive:FindFirstChild("NeonShrinePart").CFrame)
-					_G.AzureKitsune = true
-					_G.Kitsune = false
+					print("Kitsune")
                 end
             end)
         end
     end
 end)
+
+
 
 spawn(function()
     while wait() do
@@ -623,6 +625,7 @@ spawn(function()
             pcall(function()
                 if game:GetService("Workspace"):FindFirstChild("AttachedAzureEmber") then
                     topos(game:GetService("Workspace"):WaitForChild("EmberTemplate"):FindFirstChild("Part").CFrame)
+					print("Azure")
                 end
             end)
         end

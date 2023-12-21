@@ -563,39 +563,44 @@ FullMoon.TextScaled = true
 FullMoon.TextSize = 14.000
 FullMoon.TextWrapped = true
 
-task.spawn(function()
-    while task.wait() do
-        pcall(function()
-            if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
-                Moon.Text = "🌕"
-				FullMoon.Text = "Full Moon [ 100% ]"
-            elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149052" then
-                Moon.Text = "🌖"
-				FullMoon.Text = "Full Moon [ 75% ]"
-				wait(5)
-				Hop()
-            elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" then
-                Moon.Text = "🌗"
-				FullMoon.Text = "Full Moon [ 50% ]"
-				wait(5)
-				Hop()
-            elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
-                Moon.Text = "🌘"
-				FullMoon.Text = "Full Moon [ 25% ]"
-				wait(5)
-				Hop()
-            elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
-                Moon.Text = "🌘"
-				FullMoon.Text = "Full Moon [ 15% ]"
-				wait(5)
-				Hop()
-            else
-                Moon.Text = "🌑"
-				FullMoon.Text = "Full Moon [ 0% ]"
-				wait(5)
-				Hop()
-            end
-        end)
+_G.FullMoonTrue = true
+
+spawn(function()
+    while wait() do
+		if _G.FullMoonTrue then
+			pcall(function()
+				if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+					Moon.Text = "🌕"
+					FullMoon.Text = "Full Moon [ 100% ]"
+					_G.FullMoonTrue = false
+				elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149052" then
+					Moon.Text = "🌖"
+					FullMoon.Text = "Full Moon [ 75% ]"
+					wait(5)
+					Hop()
+				elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" then
+					Moon.Text = "🌗"
+					FullMoon.Text = "Full Moon [ 50% ]"
+					wait(5)
+					Hop()
+				elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
+					Moon.Text = "🌘"
+					FullMoon.Text = "Full Moon [ 25% ]"
+					wait(5)
+					Hop()
+				elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
+					Moon.Text = "🌘"
+					FullMoon.Text = "Full Moon [ 15% ]"
+					wait(5)
+					Hop()
+				else
+					Moon.Text = "🌑"
+					FullMoon.Text = "Full Moon [ 0% ]"
+					wait(5)
+					Hop()
+           	 	end
+        	end)
+		end
     end
 end)
 

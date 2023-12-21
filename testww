@@ -5150,16 +5150,6 @@ task.spawn(function()
     end
 end)
 
-local AzureCheck = Kits:Label("N/A")
-
-task.spawn(function()
-    while task.wait() do
-        pcall(function()
-            AzureCheck:Set("<<Azure Ember : "..tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Azure Ember","Check")))
-        end)
-    end
-end)
-
 local Kitstatus = Kits:Label("<<Kitsune Island Status>>")
 
 task.spawn(function()

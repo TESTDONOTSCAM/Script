@@ -507,23 +507,12 @@ spawn(function()
 					_G.Timer = false
 					_G.Kitsune = true
 					_G.SpamAzure = true
-					_G.AutoTrade = true
 				elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
 					Hop()
             	end
         	end)
 		end
     end
-end)
-
-spawn(function()
-	while wait() do
-		if _G.AutoTrade then
-			pcall(function()
-				game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/KitsuneStatuePray"):InvokeServer()
-			end)
-		end
-	end
 end)
 
 UIPadding.Parent = Kitsune

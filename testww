@@ -5150,6 +5150,15 @@ task.spawn(function()
     end
 end)
 
+Bone = Kits:Label("")
+spawn(function()
+    pcall(function()
+        while wait() do
+            Bone:Set("    // Total Bone : "..tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check").." \\\\"))
+        end
+    end)
+end)
+
 local Kitstatus = Kits:Label("<<Kitsune Island Status>>")
 
 task.spawn(function()

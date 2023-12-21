@@ -470,7 +470,9 @@ spawn(function()
 		if _G.CheckHop then
 			pcall(function()
 				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-					
+					_G.Timer = false
+					_G.Kitsune = true
+					_G.SpamAzure = true
 				elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
 					Hop()
             	end
@@ -567,13 +569,6 @@ task.spawn(function()
             if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
                 Moon.Text = "🌕"
 				FullMoon.Text = "Full Moon [ 100% ]"
-				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-					_G.Kitsune = true
-					_G.SpamAzure = true
-				elseif not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-					wait(600)
-					Hop()
-				end
             elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149052" then
                 Moon.Text = "🌖"
 				FullMoon.Text = "Full Moon [ 75% ]"

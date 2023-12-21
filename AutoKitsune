@@ -483,6 +483,20 @@ spawn(function()
     end
 end)
 
+task.spawn(function()
+    while task.wait() do
+		pcall(function()
+			if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+				repeat
+					_G.Timer = false
+					_G.CheckHop = true
+				until not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland")
+				Hop()
+            end
+        end)
+    end
+end)
+
 spawn(function()
     while wait() do
 		if _G.CheckHop then
@@ -567,39 +581,44 @@ FullMoon.TextScaled = true
 FullMoon.TextSize = 14.000
 FullMoon.TextWrapped = true
 
-task.spawn(function()
-    while task.wait() do
-		pcall(function()
-			if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
-				Moon.Text = "🌕"
-				FullMoon.Text = "Full Moon [ 100% ]"
-			elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149052" and not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-				Moon.Text = "🌖"
-				FullMoon.Text = "Full Moon [ 75% ]"
-				wait(5)
-				Hop()
-			elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" and not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-				Moon.Text = "🌗"
-				FullMoon.Text = "Full Moon [ 50% ]"
-				wait(5)
-				Hop()
-			elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" and not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-				Moon.Text = "🌘"
-				FullMoon.Text = "Full Moon [ 25% ]"
-				wait(5)
-				Hop()
-			elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" and not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-				Moon.Text = "🌘"
-				FullMoon.Text = "Full Moon [ 15% ]"
-				wait(5)
-				Hop()
-			elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709139597" and not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-				Moon.Text = "🌑"
-				FullMoon.Text = "Full Moon [ 0% ]"
-				wait(5)
-				Hop()
-           	end
-        end)
+_G.MoonTrue = true
+
+pawn(function()
+    while wait() do
+		if _G.MoonTrue then
+			pcall(function()
+				if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+					Moon.Text = "🌕"
+					FullMoon.Text = "Full Moon [ 100% ]"
+					_G.MoonTrue = false
+				elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149052" and not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+					Moon.Text = "🌖"
+					FullMoon.Text = "Full Moon [ 75% ]"
+					wait(5)
+					Hop()
+				elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" and not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+					Moon.Text = "🌗"
+					FullMoon.Text = "Full Moon [ 50% ]"
+					wait(5)
+					Hop()
+				elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" and not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+					Moon.Text = "🌘"
+					FullMoon.Text = "Full Moon [ 25% ]"
+					wait(5)
+					Hop()
+				elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" and not game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+					Moon.Text = "🌘"
+					FullMoon.Text = "Full Moon [ 15% ]"
+					wait(5)
+					Hop()
+				else
+					Moon.Text = "🌑"
+					FullMoon.Text = "Full Moon [ 0% ]"
+					wait(5)
+					Hop()
+				end
+			end)
+		end
     end
 end)
 

@@ -5154,7 +5154,7 @@ Bone = Kits:Label("")
 spawn(function()
     pcall(function()
         while wait() do
-            Bone:Set("    // Total Bone : "..tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check").." \\\\"))
+            Bone:Set("    // Total Bone : "..tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Azure Ember","Check").." \\\\"))
         end
     end)
 end)

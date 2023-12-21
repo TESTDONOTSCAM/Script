@@ -5221,6 +5221,7 @@ spawn(function()
     end
 end)
 
+--[[
 Kits:Toggle("Auto Trade Azure Ember",_G.ColorSea,false,function(vu)
     _G.AutoTrade = vu
 end)
@@ -5234,6 +5235,7 @@ spawn(function()
 		end
 	end
 end)
+]]--
 
 end
 

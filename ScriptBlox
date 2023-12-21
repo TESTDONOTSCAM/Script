@@ -5202,7 +5202,7 @@ spawn(function()
     end
 end)
 
-Kits:Toggle("Auto Collect Azure Wisp",_G.ColorSea,false,function(vu)
+Kits:Toggle("Auto Collect Azure Ember",_G.ColorSea,false,function(vu)
     _G.AzureKitsune = vu
     if _G.AzureKitsune == true then
         game:service("VirtualInputManager"):SendKeyEvent(true, "E", false, game)
@@ -5219,6 +5219,20 @@ spawn(function()
             end)
         end
     end
+end)
+
+Kits:Toggle("Auto Trade Azure Ember",_G.ColorSea,false,function(vu)
+    _G.AutoTrade = vu
+end)
+
+spawn(function()
+	while wait() do
+		if _G.AutoTrade then
+			pcall(function()
+				game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/KitsuneStatuePray"):InvokeServer()
+			end)
+		end
+	end
 end)
 
 end

@@ -28,6 +28,13 @@ if (_G.Team == "Pirates" or _G.Team == "Marines") and not join then
 	until join == true and game.Players.LocalPlayer.Team ~= nil and game:IsLoaded() 
 end
 
+-- < // Vars \\ > --
+
+_G.FullMoonTrue = true
+_G.Timer = true
+
+-- < // Script + UI \\ > --
+
 local UserInputService = game:GetService("UserInputService")
  local TweenService = game:GetService("TweenService")
  
@@ -432,8 +439,6 @@ Kitsune.TextXAlignment = Enum.TextXAlignment.Left
 
 MakeDraggable(Top, Main)
 
-_G.Timer = true
-
 spawn(function()
     while wait() do
 	if _G.Timer then
@@ -542,7 +547,7 @@ Moon.BorderSizePixel = 0
 Moon.Position = UDim2.new(0.0333333351, 0, 0.0985074639, 0)
 Moon.Size = UDim2.new(0, 60, 0, 60)
 Moon.Font = Enum.Font.SourceSans
-Moon.Text = "🌕"
+Moon.Text = ""
 Moon.TextColor3 = Color3.fromRGB(0, 0, 0)
 Moon.TextScaled = true
 Moon.TextSize = 14.000
@@ -557,13 +562,11 @@ FullMoon.BorderSizePixel = 0
 FullMoon.Position = UDim2.new(0.270000011, -3, 0.112999998, -3)
 FullMoon.Size = UDim2.new(0, 211, 0, 50)
 FullMoon.Font = Enum.Font.FredokaOne
-FullMoon.Text = "Full Moon [ 100% ]"
+FullMoon.Text = ""
 FullMoon.TextColor3 = Color3.fromRGB(255, 255, 255)
 FullMoon.TextScaled = true
 FullMoon.TextSize = 14.000
 FullMoon.TextWrapped = true
-
-_G.FullMoonTrue = true
 
 spawn(function()
     while wait() do

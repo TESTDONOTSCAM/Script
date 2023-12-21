@@ -639,8 +639,6 @@ spawn(function()
             pcall(function()
                 if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
                     TPP(game:GetService("Workspace").Map:WaitForChild("KitsuneIsland").ShrineActive:FindFirstChild("NeonShrinePart").CFrame)
-					_G.Kitsune = false
-					StopTween(_G.Kitsune)
 					print("Kitsune")
                 end
             end)

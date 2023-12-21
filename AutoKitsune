@@ -583,7 +583,7 @@ FullMoon.TextWrapped = true
 
 _G.MoonTrue = true
 
-pawn(function()
+spawn(function()
     while wait() do
 		if _G.MoonTrue then
 			pcall(function()

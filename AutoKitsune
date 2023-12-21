@@ -470,6 +470,21 @@ spawn(function()
     end
 end)
 
+task.spawn(function()
+    while task.wait() do
+        pcall(function()
+            if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+				_G.Timer = false
+				_G.CheckHop = true
+                Kitsune.Text = "<<ISLAND SPAWN>>"
+				wait(15)
+				Kitsune.Text = "<<AUTO KITSUNE ISLAND>>"
+				wait(15)
+            end
+        end)
+    end
+end)
+
 spawn(function()
     while wait() do
 		if _G.CheckHop then
@@ -483,20 +498,6 @@ spawn(function()
             	end
         	end)
 		end
-    end
-end)
-
-task.spawn(function()
-    while task.wait() do
-        pcall(function()
-            if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-				_G.Timer = false
-                Kitsune.Text = "<<ISLAND SPAWN>>"
-				wait(15)
-				Kitsune.Text = "<<AUTO KITSUNE ISLAND>>"
-				wait(15)
-            end
-        end)
     end
 end)
 

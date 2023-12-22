@@ -20,7 +20,7 @@ RemoveEffect = true
 Notive = true
 DamageC = true
 _G.REM = true
-_G.AutoHakiSpam = true
+_G.AutoHakiSpam = false
 _G.SafeFarm = true
 _G.AutoSetSpawn = true
 

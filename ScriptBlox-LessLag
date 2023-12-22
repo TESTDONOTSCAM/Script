@@ -3431,9 +3431,9 @@ spawn(function()
     end)
 end)
 
-DevilFruit:Toggle("Auto Store Fruit",_G.ColorDF,_G.AutoStoreFruit,function(value)
+Main:Toggle("Auto Store Fruit",_G.ColorMain,_G.AutoStoreFruit,function(value)
     _G.AutoStoreFruit = value
-    end)
+end)
     
 spawn(function()
     pcall(function()

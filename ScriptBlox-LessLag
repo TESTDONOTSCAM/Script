@@ -15,7 +15,7 @@ local Player = Players.LocalPlayer
 
 _G.WalkWater = true
 InfAbility = false
-_G.InvisibleMobs = true
+_G.InvisibleMobs = false
 RemoveEffect = true
 Notive = true
 DamageC = true
@@ -3393,6 +3393,20 @@ Main:Button("Buy Melee",_G.ColorMain,function()
     end
 end)
 
+Main:Toggle("Auto Random Fruit",_G.ColorMain,_G.Random_Auto,function(value)
+    _G.Random_Auto = value
+end)
+    
+spawn(function()
+    pcall(function()
+        while wait(.1) do
+            if _G.Random_Auto then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+            end
+        end
+    end)
+end)
+
 Main:Seperator("Bone",_G.ColorMain)
 
 Main:Toggle("Farm Bone",_G.ColorMain,_G.BoneFarm,function(vu)
@@ -3413,7 +3427,7 @@ spawn(function()
                     v.Humanoid:ChangeState(14)
                     v.Humanoid:ChangeState(11)
                     v.HumanoidRootPart.CanCollide = false
-                    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                    v.HumanoidRootPart.Size = Vector3.new(5,5,5)
                     if v.Humanoid:FindFirstChild("Animator") then
                         v.Humanoid.Animator:Destroy()
                     end
@@ -3862,29 +3876,6 @@ end
     end
     StopTween(_G.TeleportIsland)
 end)
-end
-
--- \\ Devil Fruit Table // --
-
-do
-
-DevilFruit:Line(_G.ColorDF)
-DevilFruit:Seperator("Devil Fruits",_G.ColorDF)
-
-DevilFruit:Toggle("Auto Random Fruit",_G.ColorDF,_G.Random_Auto,function(value)
-    _G.Random_Auto = value
-end)
-    
-spawn(function()
-    pcall(function()
-        while wait(.1) do
-            if _G.Random_Auto then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
-            end
-        end
-    end)
-end)
-
 end
 
 -- < // Other Script \\ > -- 

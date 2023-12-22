@@ -1,17 +1,9 @@
-getgenv().LessLag2 = true
-
 getgenv().LessLag = {
-spawn(function ()
-    while wait() do
-        if getgenv().LessLag2 then
-            pcall(function ()
-                if getgenv().LessLag  == true then
-                    loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/ScriptBlox-LessLag'))()
-                elseif getgenv().LessLag == false then
-                    loadstring(game:HttpGet('https://raw.githubusercontent.com/Script-Blox/Script/main/Script-Blox'))()
-                end
-            end)
-        end
+    
+    if getgenv().LessLag  == true then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/TESTDONOTSCAM/Script/main/ScriptBlox-LessLag'))()
+    else
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Script-Blox/Script/main/Script-Blox'))()
     end
-end)
+
 }

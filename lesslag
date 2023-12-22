@@ -1,6 +1,7 @@
 local script = {
 
     Script = {
-        ['Less Lag'] = 
+        ['Less Lag'] = print("work")
+        ['Pro Lag'] = print("pro lag")
     }
 }

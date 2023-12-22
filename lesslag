@@ -1,7 +1,15 @@
 getgenv().LessLag = {}
 
-if getgenv().LessLag == true then
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/Script-Blox/Script/main/Script-Blox'))()
-elseif getgenv().LessLag == false then
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/Script-Blox/Script/main/Keyboard'))()
-end
+spawn(function ()
+    while wait() do
+        if getgenv().LessLag then
+            pcall(function ()
+                if getgenv().LessLag == true then
+                    loadstring(game:HttpGet('https://raw.githubusercontent.com/Script-Blox/Script/main/Script-Blox'))()
+                elseif getgenv().LessLag == false then
+                    loadstring(game:HttpGet('https://raw.githubusercontent.com/Script-Blox/Script/main/Keyboard'))()
+                end
+            end)
+        end
+    end
+end)

@@ -1,4 +1,4 @@
-getgenv().LessLag = {}
+local getgenv().LessLag = {}
 
 spawn(function ()
     while wait() do

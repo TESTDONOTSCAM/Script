@@ -3385,42 +3385,6 @@ Main:Button("Buy Melee",_G.ColorMain,function()
     end
 end)
 
-FruitList = {
-    "Bomb-Bomb",
-    "Spike-Spike",
-    "Chop-Chop",
-    "Spring-Spring",
-    "Kilo-Kilo",
-    "Spin-Spin",
-    "Bird: Falcon",
-    "Smoke-Smoke",
-    "Flame-Flame",
-    "Ice-Ice",
-    "Sand-Sand",
-    "Dark-Dark",
-    "Revive-Revive",
-    "Diamond-Diamond",
-    "Light-Light",
-    "Love-Love",
-    "Rubber-Rubber",
-    "Barrier-Barrier",
-    "Magma-Magma",
-    "Door-Door",
-    "Quake-Quake",
-    "Human-Human: Buddha",
-    "String-String",
-    "Bird-Bird: Phoenix",
-    "Rumble-Rumble",
-    "Paw-Paw",
-    "Gravity-Gravity",
-    "Dough-Dough",
-    "Venom-Venom",
-    "Shadow-Shadow",
-    "Control-Control",
-    "Soul-Soul",
-    "Dragon-Dragon"
-    }
-
 Main:Toggle("Auto Random Fruit",_G.ColorMain,_G.Random_Auto,function(value)
     _G.Random_Auto = value
 end)
@@ -3435,27 +3399,44 @@ spawn(function()
     end)
 end)
 
-Main:Toggle("Auto Store Fruit",_G.ColorMain,_G.AutoStoreFruit,function(value)
-    _G.AutoStoreFruit = value
+Main:Toggle("Auto Store Fruit",_G.ColorMain,false,function(value)
+    _G.StoreFruit = value
 end)
-    
-spawn(function()
-    pcall(function()
-        while wait(.1) do
-            if _G.AutoStoreFruit then
-                for i,v in pairs(FruitList) do
-                    function getNil(name,class) for _,v in next, getnilinstances() do if v.ClassName==class and v.Name==name then return v;end end end
-                    local args = {
-                        [1] = "StoreFruit",
-                        [2] = v,
-                        [3] = getNil(v, "Tool")
-                    }
 
-                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+spawn(function()
+    while wait() do
+        if _G.StoreFruit then
+            for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                if string.find(v.Name,"Fruit") and not UseThireWorld then
+                    local FruitName = RemoveSpaces(v.Name)
+                    if v.Name == "Bird: Falcon Fruit" then
+                        NameFruit = "Bird-Bird: Falcon"
+                    elseif v.Name == "Bird: Phoenix Fruit" then
+                        NameFruit = "Bird-Bird: Phoenix"
+                    elseif v.Name == "Human: Buddha Fruit" then
+                        NameFruit = "Human-Human: Buddha"
+                    else
+                        NameFruit = FruitName.."-"..FruitName
+                    end
+    
+                    local string_1 = "getInventoryFruits";
+                    local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+                    for i1,v1 in pairs(Target:InvokeServer(string_1)) do
+                        if v1.Name == NameFruit then
+                            HaveFruitInStore = true
+                        end
+                    end
+                    if not HaveFruitInStore and not AutoRaids then
+                        local string_1 = "StoreFruit";
+                        local string_2 = NameFruit;
+                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+                        Target:InvokeServer(string_1, string_2);
+                    end
+                    HaveFruitInStore = false
                 end
             end
         end
-    end)
+    end
 end)
 
 Main:Seperator("Bone",_G.ColorMain)

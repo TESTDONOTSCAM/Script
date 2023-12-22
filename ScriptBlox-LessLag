@@ -3403,41 +3403,20 @@ Main:Toggle("Auto Store Fruit",_G.ColorMain,false,function(value)
     _G.StoreFruit = value
 end)
 
+FruitList = {"Bomb-Bomb","Spike-Spike","Chop-Chop","Spring-Spring","Kilo-Kilo","Spin-Spin","Bird: Falcon","Smoke-Smoke","Flame-Flame","Ice-Ice","Sand-Sand","Dark-Dark","Revive-Revive","Diamond-Diamond","Light-Light","Love-Love","Rubber-Rubber","Barrier-Barrier","Magma-Magma","Door-Door","Quake-Quake","Human-Human: Buddha","String-String","Bird-Bird: Phoenix","Rumble-Rumble","Paw-Paw","Gravity-Gravity","Dough-Dough","Venom-Venom","Shadow-Shadow","Control-Control","Soul-Soul","Dragon-Dragon"}
+
 spawn(function()
-    while wait() do
-        if _G.StoreFruit then
-            for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                if string.find(v.Name,"Fruit") and not UseThireWorld then
-                    local FruitName = RemoveSpaces(v.Name)
-                    if v.Name == "Bird: Falcon Fruit" then
-                        NameFruit = "Bird-Bird: Falcon"
-                    elseif v.Name == "Bird: Phoenix Fruit" then
-                        NameFruit = "Bird-Bird: Phoenix"
-                    elseif v.Name == "Human: Buddha Fruit" then
-                        NameFruit = "Human-Human: Buddha"
-                    else
-                        NameFruit = FruitName.."-"..FruitName
-                    end
-    
-                    local string_1 = "getInventoryFruits";
-                    local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
-                    for i1,v1 in pairs(Target:InvokeServer(string_1)) do
-                        if v1.Name == NameFruit then
-                            HaveFruitInStore = true
-                        end
-                    end
-                    if not HaveFruitInStore and not AutoRaids then
-                        local string_1 = "StoreFruit";
-                        local string_2 = NameFruit;
-                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
-                        Target:InvokeServer(string_1, string_2);
-                    end
-                    HaveFruitInStore = false
+    pcall(function()
+        while wait(.1) do
+            if _G.StoreFruit then
+                for i,v in pairs(FruitList) do
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StoreFruit",v)
                 end
             end
         end
-    end
+    end)
 end)
+    
 
 Main:Seperator("Bone",_G.ColorMain)
 

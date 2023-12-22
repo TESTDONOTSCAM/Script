@@ -2,6 +2,6 @@ getgenv().LessLag = {}
 
 if getgenv().LessLag == true then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Script-Blox/Script/main/Script-Blox'))()
-else
+elseif getgenv().LessLag == false then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Script-Blox/Script/main/Keyboard'))()
 end

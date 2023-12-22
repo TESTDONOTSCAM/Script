@@ -3405,131 +3405,57 @@ Main:Toggle("Farm Bone",_G.ColorMain,_G.BoneFarm,function(vu)
 end)
 
 spawn(function()
-	while wait(.1) do
-		pcall(function()
-			if _G.BoneFarm then
-				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-					if _G.Farm_Boss then
-						_G.SelectBoss = nil
-						_G.Farm_Boss = nil
-						SelectMonster = nil
-						_G.Farm_Mon = nil
-						_G.FastAttack = false
-						wait(.2)
-					end
-					if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
-						CheckQuestBoss()
-						repeat wait(.2)
-							TelePBoss(CFrameQBoss)
-							TP(CFrameQBoss)
-						until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
-						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-						_G.Farm_Boss = true
-						_G.FastAttack = false
-					elseif SelectMonster ~= nil then
-						QuestBone()
-						AutoHaki()
-						_G.FastAttack = false
-						repeat wait(.2)
-							TelePBoss(CFrameQ)
-							TP(CFrameQ)
-							_G.FastAttack = false
-						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-						_G.FastAttack = false
-						SelectMonster = nil
-						_G.Farm_Mon = nil
-					else
-						TestStartMagnet = nil
-						QuestBone()
-						AutoHaki()
-						_G.FastAttack = false
-						repeat wait(.2)
-							TelePBoss(CFrameQ)
-							topos(CFrameQ)
-						until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-						_G.FastAttack = false
-					end
-				elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-					if _G.Farm_Boss then
-						if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
-							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-								if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then
-									if v.Humanoid:FindFirstChild("Animator") then
-										v.Humanoid.Animator:Destroy()
-									end
-									v.Humanoid:ChangeState(11)
-									v.Humanoid.JumpPower = 0
-									v.Humanoid.WalkSpeed = 0
-									v.HumanoidRootPart.CanCollide = false
-									v.HumanoidRootPart.Size = Vector3.new(5,5,5)
-									TestStartMagnet = nil
-									repeat wait(0.3)
-										TelePBoss(CFrameQBoss)
-										EquipWeapon(_G.SelectWeapon)
-										topos(v.HumanoidRootPart.CFrame*CFrame.new(0,30,50) * Pos)
-                                        game:GetService'VirtualUser':CaptureController()
-										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-									until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
-									if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
-										game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-									end
-								end
-							end
-						else
-							topos(CFrameBoss*CFrame.new(0,30,0))
-							TelePBoss(CFrameBoss)
-						end
-					else
-						if game.Workspace.Enemies:FindFirstChild(Ms) then
-							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-								if v.Name == Ms and v.Humanoid.Health > 0 then
-									PosMon = v.HumanoidRootPart.CFrame
-									_G.FastAttack = true
-									TestStartMagnet = true
-									if v.Humanoid:FindFirstChild("Animator") then
-										v.Humanoid.Animator:Destroy()
-									end
-									v.Humanoid:ChangeState(11)
-									v.Humanoid.JumpPower = 0
-									v.Humanoid.WalkSpeed = 0
-									v.HumanoidRootPart.CanCollide = false
-									v.HumanoidRootPart.Size = Vector3.new(20,20,20)
-									repeat task.wait()
-										TelePBoss(CFrameQ)
-										EquipWeapon(_G.SelectWeapon)
-										topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
-										game:GetService'VirtualUser':CaptureController()
-										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-									until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not _G.BoneFarm
-									if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
-									elseif Lv >= 1 and Lv <= 2499 then
-										game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-									elseif Lv >= 2525 then
-										game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-									end
-									Attack = nil
-								end
-							end
-							else
-							_G.FastAttack = false
-							TestStartMagnet = false
-							if game.ReplicatedStorage:FindFirstChild(Ms) then
-								topos(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame * CFrame.new(0,10,0))
-							else
-							topos(CFrameMon)
-							_G.FastAttack = false
-							end
-						end
-					end
-				end
-			end
-		end)
-	end
+    game:GetService("RunService").Heartbeat:Connect(function()
+        pcall(function()
+            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                if _G.BoneFarm and StatrMagnetBoneMon and (v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy") and (v.HumanoidRootPart.Position - PosMonBone.Position).magnitude <= 350 then
+                    v.HumanoidRootPart.CFrame = PosMonBone
+                    v.Humanoid:ChangeState(14)
+                    v.Humanoid:ChangeState(11)
+                    v.HumanoidRootPart.CanCollide = false
+                    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                    if v.Humanoid:FindFirstChild("Animator") then
+                        v.Humanoid.Animator:Destroy()
+                    end
+                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
+                end
+            end
+        end)
+    end)
+end)
+
+spawn(function()
+    while wait() do
+        if _G.BoneFarm then
+            pcall(function()
+                if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie") or game:GetService("Workspace").Enemies:FindFirstChild("Domenic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy" then
+                            if v.Humanoid.Health > 0 then
+                                _G.FastAttack = true
+                                repeat wait()
+                                    EquipWeapon(_G.Setting_table.Weapon)
+                                    StatrMagnetBoneMon = true
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    PosMonBone = v.HumanoidRootPart.CFrame
+                                    topos(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * Pos)
+                                until _G.BoneFarm == false or not v.Parent or v.Humanoid.Health <= 0
+                                _G.FastAttack = false
+                            end
+                        end
+                    end
+                else
+                    StatrMagnetBoneMon = false
+                    if (CFrame.new(-9515.3720703125, 164.00624084473, 5786.0610351562).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 1500 then
+                        topos(CFrame.new(-9515.3720703125, 164.00624084473, 5786.0610351562))
+                    else
+                        TelePBoss(CFrame.new(-9515.3720703125, 164.00624084473, 5786.0610351562))
+                    end
+                end
+            end)
+        end
+    end
 end)
 
 Main:Button("Buy Surprise",_G.ColorMain,function()
@@ -3657,16 +3583,6 @@ do
 Stats:Line(_G.ColorStats)
     Stats:Seperator("Auto Stats",_G.ColorStats)
     
-    local Pointstat = Stats:Label("Stat Points")
-    
-    spawn(function()
-    while wait() do
-    pcall(function()
-    Pointstat:Set("Stat Points : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Points.Value))
-    end)
-    end
-    end)
-    
     Stats:Toggle("Auto Melee",_G.ColorStats,_G.Auto_Melee,function(value)
     _G.Auto_Melee = value
     end)
@@ -3761,45 +3677,19 @@ end
 -- \\ Teleport Table // --
 
 do
-
-if World3 then
-Teleport:Toggle("Auto Mystic Island",_G.ColorTP,_G.AutoMysticIsland,function(value)
-    _G.AutoMysticIsland = value
-end)
-        
-spawn(function()
-    while wait() do
-        if _G.AutoMysticIsland then
-            pcall(function()
-                if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
-                topos(game:GetService("Workspace").Map:FindFirstChild("MysticIsland").HumanoidRootPart.CFrame * CFrame.new(0,500,-200))
-                    end
-                end)
-            end
-        end
-    end)
-end
     
 Teleport:Seperator("World - Monster",_G.ColorTP)
     
-    Teleport:Button("Teleport To Old World",_G.ColorTP,function()
+Teleport:Button("Teleport To Old World",_G.ColorTP,function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
-    end)
+end)
     
-    Teleport:Button("Teleport To Second Sea",_G.ColorTP,function()
+Teleport:Button("Teleport To Second Sea",_G.ColorTP,function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
-    end)
+end)
     
-    Teleport:Button("Teleport To Third Sea",_G.ColorTP,function()
+Teleport:Button("Teleport To Third Sea",_G.ColorTP,function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
-    end)
-    
-    Teleport:Button("Teleport to Seabeast",_G.ColorTP,function()
-    for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-    if v:FindFirstChild("HumanoidRootPart") then
-    topos(v.HumanoidRootPart.CFrame*CFrame.new(0,100,0))
-        end
-    end
 end)
     
 Teleport:Seperator("Teleport - Island",_G.ColorTP)
@@ -3980,33 +3870,7 @@ do
 
 DevilFruit:Line(_G.ColorDF)
 DevilFruit:Seperator("Devil Fruits",_G.ColorDF)
-    
-FruitList = {"Bomb-Bomb","Spike-Spike","Chop-Chop","Spring-Spring","Kilo-Kilo","Spin-Spin","Bird: Falcon","Smoke-Smoke","Flame-Flame","Ice-Ice","Sand-Sand","Dark-Dark","Revive-Revive","Diamond-Diamond","Light-Light","Love-Love","Rubber-Rubber","Barrier-Barrier","Magma-Magma","Door-Door","Quake-Quake","Human-Human: Buddha","String-String","Bird-Bird: Phoenix","Rumble-Rumble","Paw-Paw","Gravity-Gravity","Dough-Dough","Venom-Venom","Shadow-Shadow","Control-Control","Soul-Soul","Dragon-Dragon"}
-    
-_G.SelectFruit = ""
- DevilFruit:Dropdown("Select Fruits Sniper",_G.ColorDF,FruitList,function(value)
-    _G.SelectFruit = value
-end)
-    
-DevilFruit:Toggle("Auto Buy Fruit Sniper",_G.ColorDF,_G.AutoBuyFruitSniper,function(value)
-    _G.AutoBuyFruitSniper = value
-end)
-    
-DevilFruit:Dropdown("Select Fruits Eat",_G.ColorDF,FruitList,function(value)
-    _G.SelectFruitEat = value
-end)
-    
-spawn(function()
-    pcall(function()
-    while wait(.1) do
-    if _G.AutoBuyFruitSniper then
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit",_G.SelectFruit)
-    end
-    end
-    end)
-end)
-    
+
 DevilFruit:Toggle("Auto Random Fruit",_G.ColorDF,_G.Random_Auto,function(value)
     _G.Random_Auto = value
 end)

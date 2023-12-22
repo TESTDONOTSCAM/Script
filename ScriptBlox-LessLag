@@ -3434,7 +3434,7 @@ spawn(function()
                             if v.Humanoid.Health > 0 then
                                 _G.FastAttack = true
                                 repeat wait()
-                                    EquipWeapon(_G.Setting_table.Weapon)
+                                    EquipWeapon(_G.SelectWeapon)
                                     StatrMagnetBoneMon = true
                                     v.HumanoidRootPart.CanCollide = false
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)

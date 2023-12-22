@@ -3294,7 +3294,7 @@ spawn(function()
                             [3] = "2"
                         }
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                    elseif game:GetService("Players").LocalPlayer.Data.Fragments.Value =< 1500 then
+                    elseif game:GetService("Players").LocalPlayer.Data.Fragments.Value <= 1500 then
                         Update:Notification("Fragment Not Enough","Dragon Breath")
                     end
                 elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value >= 400 then

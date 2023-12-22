@@ -1,7 +1,7 @@
-local script = {
+getgenv().LessLag = {}
 
-    Script = {
-        ['Less Lag'] = print("work")
-        ['Pro Lag'] = print("pro lag")
-    }
-}
+if getgenv().LessLag == true then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Script-Blox/Script/main/Script-Blox'))()
+else
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Script-Blox/Script/main/Keyboard'))()
+end

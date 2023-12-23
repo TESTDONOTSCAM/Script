@@ -1,6 +1,7 @@
-do local GUI = game.CoreGui:FindFirstChild("MyLibrary") if GUI then GUI:Destroy() end end
+do local GUI = game.CoreGui:FindFirstChild("RobloxOverlay") if GUI then GUI:Destroy() end end
 do local Op = game.CoreGui:FindFirstChild("openshit") if Op then Op:Destroy() end end
 do local Ba = game.CoreGui:FindFirstChild("Balaraja") if Ba then Ba:Destroy() end end
+do local Ban = game:GetService("Players").LocalPlayer:FindFirstChild("Banned ") if Ban then Ban:Destroy() end end
 
 if _G.Fast_Delay == nil then
 	_G.Fast_Delay = 0.15
@@ -296,16 +297,16 @@ local currentpage = ""
 local keybind = keybind or Enum.KeyCode.RightControl
 local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 
-local MyLibrary = Instance.new("ScreenGui")
+local RobloxOverlay = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local MCNR = Instance.new("UICorner")
 local MainStroke = Instance.new("UIStroke")
 
-MyLibrary.Name = "MyLibrary"
-MyLibrary.Parent = game.CoreGui --Players.LocalPlayer:WaitForChild("PlayerGui")
+RobloxOverlay.Name = "RobloxOverlay"
+RobloxOverlay.Parent = game.CoreGui --Players.LocalPlayer:WaitForChild("PlayerGui")
 
 Main.Name = "Main"
-Main.Parent = MyLibrary
+Main.Parent = RobloxOverlay
 Main.AnchorPoint = Vector2.new(0.5, 0.5)
 Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Main.BackgroundTransparency = 0.100
@@ -638,10 +639,10 @@ MakeDraggable(Top,Main)
   uihide = true
 Main:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
 wait(0.5)
-MyLibrary.Enabled = false
+RobloxOverlay.Enabled = false
   else
    uihide = false
-MyLibrary.Enabled = true
+RobloxOverlay.Enabled = true
   Main:TweenSize(UDim2.new(0, 563,0, 366),"Out","Quad",0.5,true)
       end
    end

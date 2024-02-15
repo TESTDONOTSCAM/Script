@@ -473,7 +473,7 @@ Page.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Page.BackgroundTransparency = 1.10
 Page.Position = UDim2.new(0.265426834, 0, 0.075000003, 0)
 Page.Size = UDim2.new(0, 400, 0, 400)
-Page.Image = "http://www.roblox.com/asset/?id=" .. tostring(16373597069)
+Page.Image = ""
 
     local MainPage = Instance.new("Frame")
     MainPage.Name = "MainPage"
@@ -3832,19 +3832,19 @@ getgenv().HyperCahayas = function(p)
     end)
     
 
-local Library = Update:Window("SUKUNA Hub","",Enum.KeyCode.RightControl);
+local Library = Update:Window("ScriptBlox Premium","",Enum.KeyCode.RightControl);
 
 --local NguyenTien = Library:AddTab("Information","4483345998")
-local Main = Library:AddTab("Main","4483345998")
-local M = Library:AddTab("Item","4483345998")
-local Ss = Library:AddTab("Stats","4483345998")
-local RaceV4 = Library:AddTab("Race V4","4483345998")
-local P = Library:AddTab("PVP","4483345998")
-local R = Library:AddTab("Dungeon","4483345998")
-local T = Library:AddTab("Teleport","4483345998")
-local S = Library:AddTab("Shop","4483345998")
-local D = Library:AddTab("Devil Fruit","4483345998")
-local Misc = Library:AddTab("Misc","4483345998")
+local Main = Library:AddTab("Main","14355269935")
+local M = Library:AddTab("Item","9606626859")
+local Ss = Library:AddTab("Stats","14764174048")
+local RaceV4 = Library:AddTab("Race V4","11446900930")
+local P = Library:AddTab("PVP","14764193934")
+local R = Library:AddTab("Dungeon","14764250087")
+local T = Library:AddTab("Teleport","14764218351")
+local S = Library:AddTab("Shop","14764233722")
+local D = Library:AddTab("Devil Fruit","14764242920")
+local Misc = Library:AddTab("Misc","11447063791")
 
 Main:AddSeperator("Farm Settings")
 

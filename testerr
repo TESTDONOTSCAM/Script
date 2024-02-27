@@ -3664,6 +3664,32 @@ end
         ):Play()
 end
 
+function HyperEvent(Pos)
+    Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if Distance < 10 then
+        Speed = 20
+    elseif Distance < 25 then
+        Speed = 550
+    elseif Distance < 50 then
+        Speed = 240
+    elseif Distance < 150 then
+        Speed = 200
+    elseif Distance < 250 then
+        Speed = 190
+    elseif Distance < 500 then
+        Speed = 180
+    elseif Distance < 750 then
+        Speed = 175
+    elseif Distance >= 1000 then
+        Speed = 180
+    end
+    game:GetService("TweenService"):Create(
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = Pos}
+    ):Play()
+end
+
 function BTP(P1)
 game.Players.LocalPlayer.Character.Head:Destroy()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
@@ -10295,7 +10321,7 @@ spawn(function()
                                         v.Head.CanCollide = false 
                                         MakoriGayMag = false
                                         PosGay = v.HumanoidRootPart.CFrame
-                                        HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,63,2))
+                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,63,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirTerrorshark or not v.Parent or v.Humanoid.Health <= 0
@@ -10338,7 +10364,7 @@ spawn(function()
                                         v.Head.CanCollide = false 
                                         MakoriGayMag = false
                                         PosGay = v.HumanoidRootPart.CFrame
-                                        HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,60,2))
+                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,60,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirShark or not v.Parent or v.Humanoid.Health <= 0
@@ -10381,7 +10407,7 @@ spawn(function()
                                         v.Head.CanCollide = false 
                                         MakoriGayMag = false
                                         PosGay = v.HumanoidRootPart.CFrame
-                                        HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,60,2))
+                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,60,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirPiranha or not v.Parent or v.Humanoid.Health <= 0
@@ -10427,7 +10453,7 @@ spawn(function()
                     local v = CheckPirateBoat()
                     repeat
                         wait()
-                        spawn(HyperCahaya(v.Engine.CFrame * CFrame.new(0, -20, 0), 1))
+                        spawn(HyperEvent(v.Engine.CFrame * CFrame.new(0, -20, 0), 1))
                         matquyenkiemsoat = true
                         getgenv().noclip = true
                         bjirFullPower = true
@@ -10750,7 +10776,7 @@ function two(gotoCFrame) --- Tween
           game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
       else
           local tween_s = game:service"TweenService"
-          local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/325, Enum.EasingStyle.Linear)
+          local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/210, Enum.EasingStyle.Linear)
            tween, err = pcall(function()
               tweenz = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
               tweenz:Play()
@@ -10862,7 +10888,7 @@ end)
                         local targetModel = workspace:FindFirstChild(targetModelName)
 
                         if targetModel then
-                            local speed = 10.5
+                            local speed = 7.5
                             local forwardDirection = targetModel.PrimaryPart.CFrame.lookVector
                             local targetPosition = targetModel.PrimaryPart.Position + forwardDirection * 10
                             

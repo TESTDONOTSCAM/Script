@@ -12534,6 +12534,10 @@ S:AddDropdown("Abilities",AbiList,function(vu)
     _G.Abilities = vu
 end)
 
+if _G.Abilities == nil then
+    _G.Abilities = ""
+end
+
 S:AddButton("Buy Abilities",function()
     if _G.Abilities == "Geppo [ $10,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
@@ -12546,109 +12550,99 @@ S:AddButton("Buy Abilities",function()
     end
 end)
 
+FightingStyle = {
+    "Black Leg | $150,000 Beli",
+    "Electro | $550,000 Beli",
+    "Fishman Karate | $750,000 Beli",
+    "Dragon Claw | $1,500 Fragment",
+    "Super Human | $3,000,000 Beli",
+    "Death Step | $5,000 Frag | $5,000,000 Beli",
+    "Sharkman Karate | $5,000 Frag | $2,500,000 Beli",
+    "Electric Claw | $5,000 Frag | $3,000,000 Beli",
+    "Dragon Talon | $5,000 Frag | $3,000,000 Beli",
+    "God Human | $5,000 Frag | $5,000,000 Beli"
+}
+
 S:AddSeperator("Fighting Style")
-    
-    S:AddButton("Buy Black Leg | $150,000 Beli ",function()
+
+S:AddDropdown("Melee",FightingStyle,function(vu)
+    _G.BuyMelee = vu
+end)
+
+if _G.BuyMelee == nil then
+    _G.BuyMelee = ""
+end
+
+S:AddButton("Buy Fighting Style",function()
+    if _G.BuyMelee == "Black Leg | $150,000 Beli" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
-    end)
-    
-    S:AddButton("Buy Electro | $550,000 Beli ",function()
+    elseif _G.BuyMelee == "Electro | $550,000 Beli" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
-    end)
-    
-    S:AddButton("Buy Fishman Karate | $750,000 Beli ",function()
+    elseif _G.BuyMelee == "Fishman Karate | $750,000 Beli" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
-    end)
-    
-    S:AddButton("Buy Dragon Claw | $1,500 Fragments ",function()
+    elseif _G.BuyMelee == "Dragon Claw | $1,500 Fragment" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
-    end)
-    
-    S:AddButton("Buy Superhuman | $3,000,000 Beli ",function()
+    elseif _G.BuyMelee == "Super Human | 3,000,000 Beli" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
-    end)
-    
-    S:AddButton("Buy Death Step | $5,000 Frag $5,000,000  ",function()
+    elseif _G.BuyMelee == "Death Step | $5,000 Frag | $5,000,000 Beli" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
-    end)
-    
-    S:AddButton("Buy Sharkman Karate | $5,000 Frag | $2,500,000  ",function()
+    elseif _G.BuyMelee == "Sharkman Karate | $5,000 Frag | $2,500,000 Beli" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
-    end)
-    
-    S:AddButton("Buy Electric Claw | $5,000 Frag | $3,000,000  ",function()
+    elseif _G.BuyMelee == "Electric Claw | $5,000 Frag | $3,000,000 Beli" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-    end)
-    
-    S:AddButton("Buy Dragon Talon |$5,000 Frag | $3,000,000 B ",function()
+    elseif _G.BuyMelee == "Dragon Talon | $5,000 Frag | $3,000,000 Beli" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-    end)
-
-    S:AddButton("Buy God Human | $5,000 Frag | $5,000,000  ",function()
+    elseif _G.BuyMelee == "God Human | $5,000 Frag | $5,000,000 Beli" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-    end)
-    -----Shop----------------
-    
-    S:AddSeperator(" Sword ")
-    
-    S:AddButton("Cutlass [ $1,000 Beli ]",function()
+    end
+end)
+
+SwordStyle = {
+    "Cutlass [ $1,000 Beli ]",
+    "Katana [ $1,000 Beli ]",
+    "Iron Mace [ $25,000 Beli ]",
+    "Dual Katana [ $12,000 Beli ]",
+    "Triple Katana [ $60,000 Beli ]",
+    "Pipe [ $100,000 Beli ]",
+    "Dual-Headed Blade [ $400,000 Beli ]",
+    "Bisento [ $1,200,000 Beli ]",
+    "Soul Cane [ $750,000 Beli ]",
+    "Pole v.2 [ 5,000 Fragments ]",
+    "Yama Sword [ Elite Hunter 30 ]"
+}
+
+S:AddDropdown("Sword",SwordStyle,function(vu)
+    _G.SwordStyle = vu
+    if _G.SwordStyle == "Cutlass [ $1,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
-    end)
-
-    S:AddButton("Katana [ $1,000 Beli ]",function()
+    elseif _G.SwordStyle == "Katana [ $1,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
-    end)
-    
-    S:AddButton("Iron Mace [ $25,000 Beli ]",function()
+    elseif _G.SwordStyle == "Iron Mace [ $25,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
-    end)
-    
-    S:AddButton("Dual Katana [ $12,000 Beli ]",function()
+    elseif _G.SwordStyle == "Dual Katana [ $12,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
-    end)
-    
-    S:AddButton("Triple Katana [ $60,000 Beli ]", function()
+    elseif _G.SwordStyle == "Triple Katana [ $60,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
-    end)
-    
-    S:AddButton("Pipe [ $100,000 Beli ]",function()
+    elseif _G.SwordStyle == "Pipe [ $100,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
-    end)
-    
-    S:AddButton("Dual-Headed Blade [ $400,000 Beli ]",function()
+    elseif _G.SwordStyle == "Dual-Headed Blade [ $400,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
-    end)
-    
-    S:AddButton("Bisento [ $1,200,000 Beli ]",function()
+    elseif _G.SwordStyle == "Bisento [ $1,200,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
-    end)
-    
-    S:AddButton("Soul Cane [ $750,000 Beli ]",function()
+    elseif _G.SwordStyle == "Soul Cane [ $750,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
-    end)
-
-    S:AddButton("Pole v.2 [ 5,000 Fragments ]",function()
-		game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ThunderGodTalk")
-	end)
-
-    S:AddToggle("Yama Sword [ Elite Hunter 30 ]",_G.AutoYama,function(value)
-        _G.AutoYama = value
-    end)
-    
-    spawn(function()
-        while wait() do
-            if _G.AutoYama then
-                if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress") >= 30 then
-                    repeat wait(.1)
-                        fireclickdetector(game:GetService("Workspace").Map.Waterfall.SealedKatana.Handle.ClickDetector)
-                    until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Yama") or not _G.AutoYama
-                end
-            end
+    elseif _G.SwordStyle == "Pole v.2 [ 5,000 Fragments ]" then
+        game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ThunderGodTalk")
+    elseif _G.SwordStyle == "Yama Sword [ Elite Hunter 30 ]" then
+        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress") >= 30 then
+            repeat wait(.1)
+                fireclickdetector(game:GetService("Workspace").Map.Waterfall.SealedKatana.Handle.ClickDetector)
+            until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Yama")
         end
-    end)
-
+    end
+end)
 
     S:AddSeperator(" Gun ")
     
@@ -12700,7 +12694,7 @@ S:AddSeperator("Fighting Style")
 
     ------------Bone------------------
     
-    S:AddSeperator("Ã°Å¸Â¦Â´ BonesÃ°Å¸Â¦Â´")
+    S:AddSeperator("Bones")
     
     S:AddButton("Buy Surprise [ $50 Bone ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
@@ -12708,7 +12702,7 @@ S:AddSeperator("Fighting Style")
     
     ------------Stat------------------
     
-    S:AddSeperator("Ã°Å¸â€œÅ  Fragments Ã°Å¸â€œÅ ")
+    S:AddSeperator(" Fragments ")
 
 S:AddButton("Reset Stats (Use 2.5K Fragments)", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")
@@ -12720,7 +12714,7 @@ S:AddButton("Random Race (Use 3K Fragments)", function()
 	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","2")
 end)
     --------------Accessories-----------------
-    	S:AddSeperator("Ã¢Å¡â„¢Ã¯Â¸Â Accessories Ã¢Å¡â„¢Ã¯Â¸Â")
+    	S:AddSeperator("Accessories")
 	S:AddButton("Black Cape [ $50,000 Beli ]",function()
 		local args = {
 			[1] = "BuyItem",

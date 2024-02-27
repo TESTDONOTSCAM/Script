@@ -10016,8 +10016,8 @@ do
 
 local FM = K:AddLabel("<<Please be in Third Sea>>")
 
-task.spawn(function()
-    while task.wait() do
+spawn(function()
+    while wait() do
         pcall(function()
             if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
                 FM:Set("[ 🌕 ] Full Moon 100%")
@@ -10038,8 +10038,8 @@ end)
 
 local Kitstatus = K:AddLabel("<<Kitsune Island Status>>")
 
-task.spawn(function()
-    while task.wait() do
+spawn(function()
+    while wait() do
         pcall(function()
             if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
                 Kitstatus:Set("[ Kitsune Island Status ]  ✅")

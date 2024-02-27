@@ -10062,14 +10062,14 @@ spawn(function()
         if _G.Kitsune then
             pcall(function()
                 if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-                    TPP(game:GetService("Workspace").Map:WaitForChild("KitsuneIsland").ShrineActive:FindFirstChild("NeonShrinePart").CFrame)
+                    HyperCahaya(game:GetService("Workspace").Map:WaitForChild("KitsuneIsland").ShrineActive:FindFirstChild("NeonShrinePart").CFrame)
                 end
             end)
         end
     end
 end)
 
-K:AddToggle("Kitsune Island Hop",_G.ColorSea,false,function(vu)
+K:AddToggle("Kitsune Island Hop",false,function(vu)
     _G.KitsuneHop = vu
 end)
 
@@ -10097,7 +10097,7 @@ spawn(function()
         if _G.AzureKitsune then
             pcall(function()
                 if game:GetService("Workspace"):FindFirstChild("AttachedAzureEmber") then
-                    topos(game:GetService("Workspace"):WaitForChild("EmberTemplate"):FindFirstChild("Part").CFrame)
+                    HyperCahaya(game:GetService("Workspace"):WaitForChild("EmberTemplate"):FindFirstChild("Part").CFrame)
                 end
             end)
         end
@@ -10241,6 +10241,8 @@ K:AddToggle('Kill Sea Beast Hop', false, function(value)
     
 K:AddSeperator(" Sea Event ")
 
+FrozenIsland = M:AddLabel("")
+
 spawn(function()
     pcall(function()
         while wait() do
@@ -10252,9 +10254,6 @@ spawn(function()
         end
     end)
 end)
-
-
-FrozenIsland = M:AddLabel("")
 
 K:AddToggle('Teleport Frozen Dimension [ NEED SPAWN ]', false, function(value)
 _G.BjirFrozenCuy = value

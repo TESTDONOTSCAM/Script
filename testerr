@@ -12613,8 +12613,13 @@ SwordStyle = {
     "Yama Sword [ Elite Hunter 30 ]"
 }
 
+S:AddSeperator(">> Sword <<")
+
 S:AddDropdown("Sword",SwordStyle,function(vu)
     _G.SwordStyle = vu
+end)
+
+S:AddButton("Buy Sword",function()
     if _G.SwordStyle == "Cutlass [ $1,000 Beli ]" then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
     elseif _G.SwordStyle == "Katana [ $1,000 Beli ]" then

@@ -10744,20 +10744,27 @@ spawn(function()
     end
 end)
 
-K:AddToggle("Remove Dark (Danger 6)",function(vu)
-    _G.Remover = vu
-end)
-
 spawn(function()
     while wait() do
-        if _G.Remover then
-            pcall(function()
-                local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
-                local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
-                local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
-                print("removing")
-            end)
-        end
+        pcall(function()
+            local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
+            local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
+            local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
+            print("removing")
+        end)
+    end
+end)
+
+local Dark = K:AddLabel("Darkness")
+spawn(function()
+    while wait() do
+        pcall(function()
+            if game.Lighting:FindFirstChild("LightingLayers") then
+            Dark:Set("Terror Sea (Danger 6) : Removed")
+            else
+            Dark:Set("Terror Sea (Danger 6) : Not Removed")
+            end
+        end)
     end
 end)
 

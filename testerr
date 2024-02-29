@@ -10750,7 +10750,6 @@ spawn(function()
             local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
             local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
             local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
-            print("removing")
         end)
     end
 end)
@@ -10760,9 +10759,9 @@ spawn(function()
     while wait() do
         pcall(function()
             if game.Lighting:FindFirstChild("LightingLayers") then
-            Dark:Set("Darkness TerrorSea (Danger 6) : Not Removed")
+            Dark:Set("Darkness TerrorSea >> Danger 6 << : ✅")
             else
-            Dark:Set("Darkness TerrorSea (Danger 6) : Removed")
+            Dark:Set("Darkness TerrorSea >> Danger 6 << : ❌")
             end
         end)
     end

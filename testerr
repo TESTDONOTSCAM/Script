@@ -10744,19 +10744,18 @@ spawn(function()
     end
 end)
 
-K:AddToggle("Remove Dark (Danger 6)",function(state)
-    _G.Smoke = state
+K:AddToggle("Remove Dark (Danger 6)",function(vu)
+    _G.Remover = vu
 end)
 
 spawn(function()
     while wait() do
-        if _G.Smoke then
+        if _G.Remover then
             pcall(function()
-                    repeat wait()
-                    local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
-                    local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
-                    local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
-                until not _G.Smoke
+                local Remover01 = game.StarterGui:FindFirstChild("Smokescreen") if Remover01 then Remover01:Destroy() end
+                local Remover012 = game.Lighting:FindFirstChild("SeaTerrorCC") if Remover012 then Remover012:Destroy() end
+                local Remover0123 = game.Lighting:FindFirstChild("LightingLayers") if Remover0123 then Remover0123:Destroy() end
+                print("removing")
             end)
         end
     end

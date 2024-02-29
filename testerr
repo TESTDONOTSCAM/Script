@@ -10760,9 +10760,9 @@ spawn(function()
     while wait() do
         pcall(function()
             if game.Lighting:FindFirstChild("LightingLayers") then
-            Dark:Set("Terror Sea (Danger 6) : Removed")
+            Dark:Set("Darkness TerrorSea (Danger 6) : Not Removed")
             else
-            Dark:Set("Terror Sea (Danger 6) : Not Removed")
+            Dark:Set("Darkness TerrorSea (Danger 6) : Removed")
             end
         end)
     end

@@ -10130,9 +10130,9 @@ spawn(function()
     end
 end)
 
-    K:AddSeperator(" Sea Beast ")
+    K:AddSeperator("Sea Beast Event")
  
-    K:AddToggle('Kill Sea Beast', false, function(value)
+    K:AddToggle('Auto Sea Beast', false, function(value)
     _G.AutoSeaBest = value
     StopTween(_G.AutoFarmSeabaest)
     end)
@@ -10221,23 +10221,27 @@ end)
         end
           end)
 
-        K:AddToggle('Kill PirateShips', _G.KillGhostShip, function(value)
+K:AddSeperator("Pirate Event (Currently Not Working)")
+
+        K:AddToggle('Auto PirateBrigade', _G.KillGhostShip, function(value)
             _G.KillGhostShip = value
             StopTween(_G.KillGhostShip) 
         end)
 
         function CheckPirateBoat()
-            local checkmmpb = {"PirateGrandBrigade", "PirateBrigade"}
+            local checkmmpb = {"PirateBrigade"}
             for r, v in next, game:GetService("Workspace").Enemies:GetChildren() do
-                if table.find(checkmmpb, v.Name) and v:FindFirstChild("Health") and v.Health.Value > 0 then
-                    return v
+                if (v.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 3000 then
+                    if table.find(checkmmpb, v.Name) and v:FindFirstChild("Health") and v.Health.Value > 0 then
+                        return v
+                    end
                 end
             end
         end
 spawn(function()
     while wait() do
-        if _G.KillGhostShip then
-            pcall(function()
+        pcall(function()
+            if _G.KillGhostShip then
                 if CheckPirateBoat() then
                     game:GetService("VirtualInputManager"):SendKeyEvent(true,32,false,game)
                     wait(.5)
@@ -10245,7 +10249,7 @@ spawn(function()
                     local v = CheckPirateBoat()
                     repeat
                         wait()
-                        spawn(HyperCahaya(v.Engine.CFrame * CFrame.new(0, -20, 0)), 1)
+                        spawn(HyperCahaya(v.VehicleSeat.CFrame * CFrame.new(0, -20, 0)), 1)
                         matquyenkiemsoat = true
                         getgenv().noclip = true
                         getgenv().psskill = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
@@ -10254,18 +10258,52 @@ spawn(function()
                     matquyenkiemsoat = false
                     getgenv().noclip = false
                 end
-            end)
-        end
+            end
+        end)
     end
 end)
 
+K:AddToggle('Auto PirateGrandBrigade', _G.KillGhostShip, function(value)
+    _G.KillGhostShip = value
+    StopTween(_G.KillGhostShip) 
+end)
 
-
-K:AddToggle('Kill Sea Beast Hop', false, function(value)
-    _G.AutoSeaBestHop = value
-    end)
+function CheckPirateBoat()
+    local checkmmpb = {"PirateGrandBrigade"}
+    for r, v in next, game:GetService("Workspace").Enemies:GetChildren() do
+        if (v.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 3000 then
+            if table.find(checkmmpb, v.Name) and v:FindFirstChild("Health") and v.Health.Value > 0 then
+                return v
+            end
+        end
+    end
+end
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.KillGhostShip then
+                if CheckPirateBoat() then
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true,32,false,game)
+                    wait(.5)
+                    game:GetService("VirtualInputManager"):SendKeyEvent(false,32,false,game)
+                    local v = CheckPirateBoat()
+                repeat
+                    wait()
+                    spawn(HyperCahaya(v.VehicleSeat.CFrame * CFrame.new(0, -20, 0)), 1)
+                    matquyenkiemsoat = true
+                    getgenv().noclip = true
+                    getgenv().psskill = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
+                until not v or not v.Parent or v.Health.Value <= 0 or not CheckPirateBoat()
+                    getgenv().psskill = nil
+                    matquyenkiemsoat = false
+                    getgenv().noclip = false
+                end
+            end
+        end)
+    end
+end)
     
-K:AddSeperator(" Sea Event ")
+K:AddSeperator("Sea Event")
 
 FrozenIsland = K:AddLabel("")
 
@@ -10300,7 +10338,7 @@ spawn(function()
 end)
 
     
-K:AddToggle("Auto Kill Terrorshark",_G.Makori_gay,function(value)
+K:AddToggle("Auto Terrorshark",_G.Makori_gay,function(value)
 _G.bjirTerrorshark = value
 StopTween(_G.bjirTerrorshark)
 end)
@@ -10311,6 +10349,7 @@ spawn(function()
                 pcall(function()
                     if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                             if v.Name == "Terrorshark" then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat task.wait()
@@ -10326,6 +10365,7 @@ spawn(function()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirTerrorshark or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
+                                    end
                                 end
                             end
                         end
@@ -10343,7 +10383,7 @@ spawn(function()
         end
     end)
     
-K:AddToggle("Auto Kill Shark",_G.Makori_gay,function(value)
+K:AddToggle("Auto Shark",_G.Makori_gay,function(value)
 _G.bjirShark = value
 StopTween(_G.bjirShark)
 end)
@@ -10354,6 +10394,7 @@ spawn(function()
                 pcall(function()
                     if game:GetService("Workspace").Enemies:FindFirstChild("Shark") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                             if v.Name == "Shark" then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat task.wait()
@@ -10369,6 +10410,7 @@ spawn(function()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirShark or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
+                                    end
                                 end
                             end
                         end
@@ -10386,7 +10428,7 @@ spawn(function()
         end
     end)
     
-K:AddToggle("Auto Kill Piranha",_G.Makori_gay,function(value)
+K:AddToggle("Auto Piranha",_G.Makori_gay,function(value)
 _G.bjirPiranha = value
 StopTween(_G.bjirPiranha)
 end)
@@ -10397,6 +10439,7 @@ spawn(function()
                 pcall(function()
                     if game:GetService("Workspace").Enemies:FindFirstChild("Piranha") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if (v.HumanoidRootPart.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 2500 then
                             if v.Name == "Piranha" then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat task.wait()
@@ -10412,6 +10455,7 @@ spawn(function()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirPiranha or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
+                                    end
                                 end
                             end
                         end
@@ -10429,7 +10473,7 @@ spawn(function()
         end
     end)
     
-        K:AddToggle('Auto Kill GhostShip', _G.bjirFishBoat, function(value)
+        K:AddToggle('Auto GhostShip', _G.bjirFishBoat, function(value)
             _G.bjirFishBoat = value
             StopTween(_G.bjirFishBoat) 
         end)
@@ -10437,8 +10481,10 @@ spawn(function()
         function CheckPirateBoat()
             local checkmmpb = {"FishBoat"}
             for r, v in next, game:GetService("Workspace").Enemies:GetChildren() do
-                if table.find(checkmmpb, v.Name) and v:FindFirstChild("Health") and v.Health.Value > 0 then
-                    return v
+                if (v.Sails.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 3000 then
+                    if table.find(checkmmpb, v.Name) and v:FindFirstChild("Health") and v.Health.Value > 0 then
+                        return v
+                    end
                 end
             end
         end
@@ -10726,7 +10772,7 @@ spawn(function()
 
                 for _, model in pairs(models) do
                     if model.Name == targetModelName then
-                        local speed = 10.5
+                        local speed = 6.5
                         local forwardDirection = model.PrimaryPart.CFrame.lookVector
                         local targetPosition = model.PrimaryPart.Position + forwardDirection * 10
                         
@@ -10750,7 +10796,6 @@ if state then
 else
     _G.BiirTrax = false
 end
-
 
 if _G.BiirTrax then
 
@@ -10815,7 +10860,7 @@ spawn(function()
                     {name = "Terrorshark", variable = "bjirTerrorshark"},
                     {name = "Shark", variable = "bjirShark"},
                     {name = "Piranha", variable = "bjirPiranha"},
-                    {name = "FishBoat", variable = "bjirFishBoat"}, 
+                    {name = "FishBoat", variable = "bjirFishBoat"},
                 }
 
                 for _, v in next, workspace.Boats.PirateBrigade:GetDescendants() do
@@ -10889,7 +10934,7 @@ end)
                         local targetModel = workspace:FindFirstChild(targetModelName)
 
                         if targetModel then
-                            local speed = 10.5
+                            local speed = 6.5
                             local forwardDirection = targetModel.PrimaryPart.CFrame.lookVector
                             local targetPosition = targetModel.PrimaryPart.Position + forwardDirection * 10
                             

@@ -10321,7 +10321,7 @@ spawn(function()
                                         v.Head.CanCollide = false 
                                         MakoriGayMag = false
                                         PosGay = v.HumanoidRootPart.CFrame
-                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,63,2))
+                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,58,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirTerrorshark or not v.Parent or v.Humanoid.Health <= 0
@@ -10331,7 +10331,7 @@ spawn(function()
                         end
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                            HyperCahaya(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,60,2))
+                            HyperCahaya(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,55,2))
                         else
                             if _G.StardHop then
                                 Hop()
@@ -14180,7 +14180,7 @@ end)
         end
     end)
     
-    Misc:AddButton("Remove Lava",function()
+    Misc:AddButton("Remove Lave",function()
 		for i,v in pairs(game.Workspace:GetDescendants()) do
 			if v.Name == "Lava" then   
 				v:Destroy()

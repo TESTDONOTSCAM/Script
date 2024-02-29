@@ -10364,7 +10364,7 @@ spawn(function()
                                         v.Head.CanCollide = false 
                                         MakoriGayMag = false
                                         PosGay = v.HumanoidRootPart.CFrame
-                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,60,2))
+                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,49,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirShark or not v.Parent or v.Humanoid.Health <= 0
@@ -10407,7 +10407,7 @@ spawn(function()
                                         v.Head.CanCollide = false 
                                         MakoriGayMag = false
                                         PosGay = v.HumanoidRootPart.CFrame
-                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,60,2))
+                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,49,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirPiranha or not v.Parent or v.Humanoid.Health <= 0

@@ -10321,7 +10321,7 @@ spawn(function()
                                         v.Head.CanCollide = false 
                                         MakoriGayMag = false
                                         PosGay = v.HumanoidRootPart.CFrame
-                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,63,2))
+                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,57,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirTerrorshark or not v.Parent or v.Humanoid.Health <= 0
@@ -10331,7 +10331,7 @@ spawn(function()
                         end
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                            HyperCahaya(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,60,2))
+                            HyperCahaya(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,55,2))
                         else
                             if _G.StardHop then
                                 Hop()
@@ -10364,7 +10364,7 @@ spawn(function()
                                         v.Head.CanCollide = false 
                                         MakoriGayMag = false
                                         PosGay = v.HumanoidRootPart.CFrame
-                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,60,2))
+                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,45,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirShark or not v.Parent or v.Humanoid.Health <= 0
@@ -10374,7 +10374,7 @@ spawn(function()
                         end
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Shark") then
-                            HyperCahaya(game:GetService("ReplicatedStorage"):FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                            HyperCahaya(game:GetService("ReplicatedStorage"):FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(2,35,2))
                         else
                             if _G.StardHop then
                                 Hop()
@@ -10407,7 +10407,7 @@ spawn(function()
                                         v.Head.CanCollide = false 
                                         MakoriGayMag = false
                                         PosGay = v.HumanoidRootPart.CFrame
-                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,60,2))
+                                        HyperEvent(v.HumanoidRootPart.CFrame * CFrame.new(2,45,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.bjirPiranha or not v.Parent or v.Humanoid.Health <= 0
@@ -10417,7 +10417,7 @@ spawn(function()
                         end
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
-                            HyperCahaya(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                            HyperCahaya(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(2,35,2))
                         else
                             if _G.StardHop then
                                 Hop()

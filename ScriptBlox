@@ -3750,7 +3750,7 @@ getgenv().HyperCahayas = function(p)
     end
     
     --_G.bjirFishBoat or _G.bjirPiranha or _G.bjirPiranha or _G.bjirShark or _G.bjirTerrorshark or
-    spawn(function()
+spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
         if _G.AutoAdvanceDungeon or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.AutoSpawnRip or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or _G.Autodoughking or _G.AutoFarmMaterial or _G.AutoNevaSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.AutoKai or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or _G.KillAfterTrials then
             if not game:GetService("Workspace"):FindFirstChild("LOL") then
@@ -3769,7 +3769,7 @@ getgenv().HyperCahayas = function(p)
             end
         end
     end)
-    end)
+end)
 
     spawn(function()
         pcall(function()
@@ -3922,7 +3922,25 @@ task.spawn(function()
 			end
 		end)
 	end
-    end)
+end)
+
+_G.SelectCDK = "Sword"
+
+task.spawn(function()
+	while wait() do
+		pcall(function()
+			if _G.SelectCDK == "Sword" then
+				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+					if v.ToolTip == "Sword" then
+						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+							_G.SelectCDK = v.Name
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
 
 local AttackList = {"0", "0.1", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185"}
 _G.FastAttackDelay = "0.175"
@@ -7325,16 +7343,60 @@ M:AddToggle("Taken Soul Guitar + Hop",false,function(value)
 
  M:AddSeperator("Dual Curse Katana")
 
-M:AddToggle("Taken Cursed Dual Katana",_G.AutoCdk,function(value)
- Auto_Cursed_Dual_Katana = value
+M:AddLabel("NOT WORKING under Development")
+
+local function GetMaterial(name, amount)
+    for _, item in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
+        if item["Type"] == "Material" and item["Name"] == name and item["Count"] >= amount then
+            return true
+        end
+    end
+    return false
+end
+
+M:AddToggle("Taken Cursed Dual Katana",TestCDK,function(value)
+TestCDK = value
 StopTween(Auto_Cursed_Dual_Katana)
+    if TestCDK == false then
+        Auto_Cursed_Dual_Katana = false
+    end
+    if GetMaterial("Alucard Fragment", 1) then
+        Checker_Yama_1 = true
+        Auto_Quest_Yama_2 = true
+    elseif GetMaterial("Alucard Fragment", 2) then
+        Checker_Yama_1 = false
+        Checker_Yama_2 = false
+    end
 end)
+
+spawn(function()
+    while wait() do
+        if TestCDK then
+            pcall(function()
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12471.169921875, 374.94024658203, -7551.677734375))
+                wait(2)
+                Auto_Cursed_Dual_Katana = true
+                wait(0.2)
+                TestCDK = false
+            end)
+        end
+    end
+end)
+
+local function GetMaterial(name, amount)
+    for _, item in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
+        if item["Type"] == "Material" and item["Name"] == name and item["Count"] >= amount then
+            return true
+        end
+    end
+    return false
+end
 
 spawn(function()
 		while wait() do
 			pcall(function()
 				if Auto_Cursed_Dual_Katana then
-					if GetMaterial("Alucard Fragment") == 0 then
+                    if not GetMaterial("Alucard Fragment", 1) then
 						Auto_Quest_Yama_1 = true
 						Auto_Quest_Yama_2 = false
 						Auto_Quest_Yama_3 = false
@@ -7343,7 +7405,7 @@ spawn(function()
 						Auto_Quest_Tushita_3 = false
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Evil")
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Evil")
-					elseif GetMaterial("Alucard Fragment") == 1 then
+					elseif GetMaterial("Alucard Fragment", 1) then
 						Auto_Quest_Yama_1 = false
 						Auto_Quest_Yama_2 = true
 						Auto_Quest_Yama_3 = false
@@ -7352,43 +7414,51 @@ spawn(function()
 						Auto_Quest_Tushita_3 = false
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Evil")
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Evil")
-					elseif GetMaterial("Alucard Fragment") == 2 then
+					elseif GetMaterial("Alucard Fragment", 2) then
 						Auto_Quest_Yama_1 = false
 						Auto_Quest_Yama_2 = false
 						Auto_Quest_Yama_3 = true
 						Auto_Quest_Tushita_1 = false
 						Auto_Quest_Tushita_2 = false
 						Auto_Quest_Tushita_3 = false
+                        print("work3")
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Evil")
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Evil")
-					elseif GetMaterial("Alucard Fragment") == 3 then
+                        print("work3")
+					elseif GetMaterial("Alucard Fragment", 3) then
 						Auto_Quest_Yama_1 = false
 						Auto_Quest_Yama_2 = false
 						Auto_Quest_Yama_3 = false
 						Auto_Quest_Tushita_1 = true
 						Auto_Quest_Tushita_2 = false
 						Auto_Quest_Tushita_3 = false
+                        print("work4")
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Good")
-					elseif GetMaterial("Alucard Fragment") == 4 then
+                        print("work4")
+					elseif GetMaterial("Alucard Fragment", 4) then
 						Auto_Quest_Yama_1 = false
 						Auto_Quest_Yama_2 = false
 						Auto_Quest_Yama_3 = false
 						Auto_Quest_Tushita_1 = false
 						Auto_Quest_Tushita_2 = true
 						Auto_Quest_Tushita_3 = false
+                        print("work5")
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Good")
-					elseif GetMaterial("Alucard Fragment") == 5 then
+                        print("work5")
+					elseif GetMaterial("Alucard Fragment", 5) then
 						Auto_Quest_Yama_1 = false
 						Auto_Quest_Yama_2 = false
 						Auto_Quest_Yama_3 = false
 						Auto_Quest_Tushita_1 = false
 						Auto_Quest_Tushita_2 = false
 						Auto_Quest_Tushita_3 = true
+                        print("work6")
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Good")
-					elseif GetMaterial("Alucard Fragment") == 6 then
+                        print("work6")
+					elseif GetMaterial("Alucard Fragment", 6) then
 						if game:GetService("Workspace").Enemies:FindFirstChild("Cursed Skeleton Boss") or game:GetService("Workspace").ReplicatedStorage:FindFirstChild("Cursed Skeleton Boss") then
 							Auto_Quest_Yama_1 = false
 							Auto_Quest_Yama_2 = false
@@ -7437,6 +7507,7 @@ spawn(function()
 					if game:GetService("Workspace").Enemies:FindFirstChild("Mythological Pirate") then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 							if v.Name == "Mythological Pirate" then
+                                print("muehehe")
 								repeat wait()
 									HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(0,0,-2))
 								until Auto_Cursed_Dual_Katana == false or Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_1 == false
@@ -7451,6 +7522,426 @@ spawn(function()
 		end
 	end)
 
+    spawn(function()
+        while wait() do
+            pcall(function()
+                if Auto_Quest_Yama_2 then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("HazeESP") then
+                            v.HazeESP.Size = UDim2.new(50,50,50,50)
+                            v.HazeESP.MaxDistance = "inf"
+                        end
+                    end
+                    for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                        if v:FindFirstChild("HazeESP") then
+                            v.HazeESP.Size = UDim2.new(50,50,50,50)
+                            v.HazeESP.MaxDistance = "inf"
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+    
+    spawn(function()
+        while wait() do
+            pcall(function()
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if Auto_Quest_Yama_2 and v:FindFirstChild("HazeESP") and (v.HumanoidRootPart.Position - PosMonHaze.Position).magnitude <= 300 then
+                        v.HumanoidRootPart.CFrame = PosMonHaze
+                        v.HumanoidRootPart.CanCollide = false
+                        print("work haze haze")
+                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                        if not v.HumanoidRootPart:FindFirstChild("BodyVelocity") then
+                            local vc = Instance.new("BodyVelocity", v.HumanoidRootPart)
+                            vc.MaxForce = Vector3.new(1, 1, 1) * math.huge
+                            vc.Velocity = Vector3.new(0, 0, 0)
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+
+    --[[
+    spawn(function()
+		while wait() do
+			if Auto_Quest_Yama_2 then 
+				pcall(function() 
+					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+						if v:FindFirstChild("HazeESP") then
+							repeat wait()
+								if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 2000 then
+									HyperCahaya(v.HumanoidRootPart.CFrameMon * CFrame.new(0,20,0))
+								else
+									StartMagnet = true
+									FastAttack = true
+									if Auto_Buso then
+										if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+										end
+									end
+									if not game.Players.LocalPlayer.Character:FindFirstChild(_G.SelectCDK) then
+										wait()
+										EquipWeapon(_G.SelectCDK)
+									end
+									PosMonHaze = v.HumanoidRootPart.CFrame
+									if not FastAttack then
+										game:GetService'VirtualUser':CaptureController()
+										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+									end
+									v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+									if _G.Configs["Show Hitbox"] then
+										v.HumanoidRootPart.Transparency = _G.Hitbox_LocalTransparency
+									else
+										v.HumanoidRootPart.Transparency = 1
+									end
+									v.Humanoid.JumpPower = 0
+									v.Humanoid.WalkSpeed = 0
+									v.HumanoidRootPart.CanCollide = false
+									v.Humanoid:ChangeState(11)
+									HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0))								
+								end      
+							until Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_2 == false or not v.Parent or v.Humanoid.Health <= 0 or not v:FindFirstChild("HazeESP")
+						else
+							for x,y in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+								if y:FindFirstChild("HazeESP") then
+									if (y.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 999999 then
+										HyperCahaya(y.HumanoidRootPart.CFrameMon* CFrame.new(0,20,0))
+									else
+										HyperCahaya(y.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+									end
+								end
+							end
+						end
+					end
+				end)
+			end
+		end
+	end)
+    ]]--
+
+    spawn(function()
+        while wait(5) do
+            if Checker_Yama_1 then
+                pcall(function() 
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("HazeESP") then
+                            repeat wait()
+                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1250 then
+                                    HyperCahaya(v.HumanoidRootPart.CFrame * Pos)
+                                else
+                                    EquipWeapon(_G.SelectCDK)
+                                    PosMonHaze = v.HumanoidRootPart.CFrame
+                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    StartMagnet = true
+                                    game:GetService("VirtualUser"):CaptureController()
+                                    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))		
+                                end      
+                            until Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_2 == false or not v.Parent or v.Humanoid.Health <= 0 or not v:FindFirstChild("HazeESP")
+                        else
+                            for x,y in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                                if y:FindFirstChild("HazeESP") then
+                                    HyperCahaya(y.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+                                else
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-290.074677, 42.9034653, 5581.58984, 0.965929627, -0, -0.258804798, 0, 1, -0, 0.258804798, 0, 0.965929627)
+                                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                                    Checker_Yama_7 = false
+                                    Checker_Yama_2 = true
+								end
+							end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+
+    spawn(function()
+        while wait(5) do
+            if Checker_Yama_2 then
+                pcall(function() 
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("HazeESP") then
+                            repeat wait()
+                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1250 then
+                                    HyperCahaya(v.HumanoidRootPart.CFrame * Pos)
+                                    Checker_Yama_1 = false
+                                else
+                                    EquipWeapon(_G.SelectCDK)
+                                    PosMonHaze = v.HumanoidRootPart.CFrame
+                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    StartMagnet = true
+                                    game:GetService("VirtualUser"):CaptureController()
+                                    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))		
+                                end      
+                            until Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_2 == false or not v.Parent or v.Humanoid.Health <= 0 or not v:FindFirstChild("HazeESP")
+                        else
+                            for x,y in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                                if y:FindFirstChild("HazeESP") then
+                                    HyperCahaya(y.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+                                else
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5833.1147460938, 51.60498046875, -1103.0693359375)
+                                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                                    Checker_Yama_1 = false
+                                    Checker_Yama_3 = true
+								end
+							end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+
+    spawn(function()
+        while wait(5) do
+            if Checker_Yama_3 then
+                pcall(function() 
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("HazeESP") then
+                            repeat wait()
+                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1250 then
+                                    HyperCahaya(v.HumanoidRootPart.CFrame * Pos)
+                                    Checker_Yama_1 = false
+                                else
+                                    EquipWeapon(_G.SelectCDK)
+                                    PosMonHaze = v.HumanoidRootPart.CFrame
+                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    StartMagnet = true
+                                    game:GetService("VirtualUser"):CaptureController()
+                                    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))		
+                                end      
+                            until Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_2 == false or not v.Parent or v.Humanoid.Health <= 0 or not v:FindFirstChild("HazeESP")
+                        else
+                            for x,y in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                                if y:FindFirstChild("HazeESP") then
+                                    HyperCahaya(y.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+                                else
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2180.54126, 27.8156815, -6741.5498, -0.965929747, 0, 0.258804798, 0, 1, 0, -0.258804798, 0, -0.965929747)
+                                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                                    Checker_Yama_2 = false
+                                    Checker_Yama_4 = true
+								end
+							end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+
+    spawn(function()
+        while wait(5) do
+            if Checker_Yama_4 then
+                pcall(function() 
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("HazeESP") then
+                            repeat wait()
+                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1250 then
+                                    HyperCahaya(v.HumanoidRootPart.CFrame * Pos)
+                                    Checker_Yama_1 = false
+                                else
+                                    EquipWeapon(_G.SelectCDK)
+                                    PosMonHaze = v.HumanoidRootPart.CFrame
+                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    StartMagnet = true
+                                    game:GetService("VirtualUser"):CaptureController()
+                                    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))		
+                                end      
+                            until Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_2 == false or not v.Parent or v.Humanoid.Health <= 0 or not v:FindFirstChild("HazeESP")
+                        else
+                            for x,y in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                                if y:FindFirstChild("HazeESP") then
+                                    HyperCahaya(y.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+                                else
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10581.6563, 330.872955, -8761.18652, -0.882952213, 0, 0.469463557, 0, 1, 0, -0.469463557, 0, -0.882952213)
+                                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                                    Checker_Yama_3 = false
+                                    Checker_Yama_5 = true
+								end
+							end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+
+    spawn(function()
+        while wait(5) do
+            if Checker_Yama_5 then
+                pcall(function() 
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("HazeESP") then
+                            repeat wait()
+                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1250 then
+                                    HyperCahaya(v.HumanoidRootPart.CFrame * Pos)
+                                    Checker_Yama_1 = false
+                                else
+                                    EquipWeapon(_G.SelectCDK)
+                                    PosMonHaze = v.HumanoidRootPart.CFrame
+                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    StartMagnet = true
+                                    game:GetService("VirtualUser"):CaptureController()
+                                    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))		
+                                end      
+                            until Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_2 == false or not v.Parent or v.Humanoid.Health <= 0 or not v:FindFirstChild("HazeESP")
+                        else
+                            for x,y in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                                if y:FindFirstChild("HazeESP") then
+                                    HyperCahaya(y.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+                                else
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10407.5263671875, 331.76263427734375, -8368.5166015625)
+                                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                                    Checker_Yama_4 = false
+                                    Checker_Yama_6 = true
+								end
+							end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+
+    spawn(function()
+        while wait(5) do
+            if Checker_Yama_6 then
+                pcall(function() 
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("HazeESP") then
+                            repeat wait()
+                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1250 then
+                                    HyperCahaya(v.HumanoidRootPart.CFrame * Pos)
+                                    Checker_Yama_1 = false
+                                else
+                                    EquipWeapon(_G.SelectCDK)
+                                    PosMonHaze = v.HumanoidRootPart.CFrame
+                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    StartMagnet = true
+                                    game:GetService("VirtualUser"):CaptureController()
+                                    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))		
+                                end      
+                            until Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_2 == false or not v.Parent or v.Humanoid.Health <= 0 or not v:FindFirstChild("HazeESP")
+                        else
+                            for x,y in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                                if y:FindFirstChild("HazeESP") then
+                                    HyperCahaya(y.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+                                else
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-13274.478515625, 332.3781433105469, -7769.58056640625)
+                                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                                    Checker_Yama_5 = false
+                                    Checker_Yama_7 = true
+								end
+							end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+
+    spawn(function()
+        while wait(5) do
+            if Checker_Yama_7 then
+                pcall(function() 
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("HazeESP") then
+                            repeat wait()
+                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1250 then
+                                    HyperCahaya(v.HumanoidRootPart.CFrame * Pos)
+                                    Checker_Yama_1 = false
+                                else
+                                    EquipWeapon(_G.SelectCDK)
+                                    PosMonHaze = v.HumanoidRootPart.CFrame
+                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    StartMagnet = true
+                                    game:GetService("VirtualUser"):CaptureController()
+                                    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))		
+                                end      
+                            until Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_2 == false or not v.Parent or v.Humanoid.Health <= 0 or not v:FindFirstChild("HazeESP")
+                        else
+                            for x,y in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                                if y:FindFirstChild("HazeESP") then
+                                    HyperCahaya(y.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+                                else
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5228.8842773438, 604.23400878906, 345.0400390625)
+                                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                                    Checker_Yama_6 = false
+                                    Checker_Yama_1 = true
+								end
+							end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+
+    --[[
+
+    spawn(function()
+        while wait() do
+            if _G.Checker_Yama_2 then
+                pcall(function()
+                    print("Checker")
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-290.074677, 42.9034653, 5581.58984, 0.965929627, -0, -0.258804798, 0, 1, -0, 0.258804798, 0, 0.965929627)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                   --wait(10)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5833.1147460938, 51.60498046875, -1103.0693359375)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    --wait(10)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2180.54126, 27.8156815, -6741.5498, -0.965929747, 0, 0.258804798, 0, 1, 0, -0.258804798, 0, -0.965929747)                            
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    --wait(10)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10581.6563, 330.872955, -8761.18652, -0.882952213, 0, 0.469463557, 0, 1, 0, -0.469463557, 0, -0.882952213)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    --wait(10)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10407.5263671875, 331.76263427734375, -8368.5166015625)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    --wait(10)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-13274.478515625, 332.3781433105469, -7769.58056640625)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    --wait(10)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9479.2168, 141.215088, 5566.09277, 0, 0, 1, 0, 1, -0, -1, 0, 0)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2104.3908691406, 38.104167938232, -10194.21875, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-820.64825439453, 65.819526672363, -10965.795898438, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-872.24658203125, 65.81957244873047, -10919.95703125)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2374.13671875, 37.79826354980469, -12125.30859375)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1887.8099365234375, 77.6185073852539, -12998.3505859375)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2216.188232421875, 82.884521484375, -12869.2939453125)                            
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(582.590576171875, 77.18809509277344, -12463.162109375)
+                    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                end)
+            end
+        end
+    end)
+
+        ]]--
+
+    --[[
 	spawn(function()
 		while wait() do
 			pcall(function()
@@ -7491,61 +7982,7 @@ spawn(function()
 		end
 	end)
 
-	spawn(function()
-		while wait() do
-			if Auto_Quest_Yama_2 then 
-				pcall(function() 
-					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-						if v:FindFirstChild("HazeESP") then
-							repeat wait()
-								if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 2000 then
-									HyperCahaya(y.HumanoidRootPart.CFrameMon * CFrame.new(0,20,0))
-								else
-									StartMagnet = true
-									FastAttack = true
-									if Auto_Buso then
-										if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
-										end
-									end
-									if not game.Players.LocalPlayer.Character:FindFirstChild(_G.SelectWeapon) then
-										wait()
-										EquipWeapon(_G.SelectWeapon)
-									end
-									PosMonsEsp = v.HumanoidRootPart.CFrame
-									if not FastAttack then
-										game:GetService'VirtualUser':CaptureController()
-										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-									end
-									v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-									if _G.Configs["Show Hitbox"] then
-										v.HumanoidRootPart.Transparency = _G.Hitbox_LocalTransparency
-									else
-										v.HumanoidRootPart.Transparency = 1
-									end
-									v.Humanoid.JumpPower = 0
-									v.Humanoid.WalkSpeed = 0
-									v.HumanoidRootPart.CanCollide = false
-									v.Humanoid:ChangeState(11)
-									HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0))								
-								end      
-							until Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_2 == false or not v.Parent or v.Humanoid.Health <= 0 or not v:FindFirstChild("HazeESP")
-						else
-							for x,y in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
-								if y:FindFirstChild("HazeESP") then
-									if (y.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 2000 then
-										HyperCahaya(y.HumanoidRootPart.CFrameMon* CFrame.new(0,20,0))
-									else
-										HyperCahaya(y.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
-									end
-								end
-							end
-						end
-					end
-				end)
-			end
-		end
-	end)
+    ]]--
 
 	spawn(function()
 		while wait() do
@@ -9803,6 +10240,19 @@ end)
                                 sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
                             end
                         end
+                        if _G.Auto_Bone and StartMagnetCDK then
+                            if (v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy") and (v.HumanoidRootPart.Position - PosMonCDKYama.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                v.Humanoid:ChangeState(14)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = PosMonCDKYama
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
+                            end
+                        end
                         if _G.AutoDoughtBoss and MagnetDought then
                             if (v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker") and (v.HumanoidRootPart.Position - PosMonDoughtOpenDoor.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -10948,7 +11398,7 @@ spawn(function()
 
                 for _, model in pairs(models) do
                     if model.Name == targetModelName then
-                        local speed = 6.5
+                        local speed = 3 -- KONTOL
                         local forwardDirection = model.PrimaryPart.CFrame.lookVector
                         local targetPosition = model.PrimaryPart.Position + forwardDirection * 10
                         
@@ -11160,7 +11610,7 @@ end)
                         local targetModel = workspace:FindFirstChild(targetModelName)
 
                         if targetModel then
-                            local speed = 6.5
+                            local speed = 3 -- KONTOL
                             local forwardDirection = targetModel.PrimaryPart.CFrame.lookVector
                             local targetPosition = targetModel.PrimaryPart.Position + forwardDirection * 10
                             
@@ -14509,4 +14959,4 @@ spawn(function()
             end
         end
     end)
-    end)
+end)
